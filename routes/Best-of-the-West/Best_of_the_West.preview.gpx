@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="DIRK BIKEPACKING preview generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Best_of_the_West (preview)</name>
+    <desc>Auto-sampled preview track at approximately 20 km intervals.</desc>
+  </metadata>
+  <trk>
+    <name>Best_of_the_West (preview)</name>
+    <trkseg>
+      <trkpt lat="-42.448240" lon="171.214410" />
+      <trkpt lat="-42.389236" lon="171.405017" />
+      <trkpt lat="-42.291083" lon="171.389935" />
+      <trkpt lat="-42.224360" lon="171.487230" />
+      <trkpt lat="-42.180185" lon="171.450624" />
+      <trkpt lat="-42.124498" lon="171.331809" />
+      <trkpt lat="-41.983502" lon="171.411407" />
+      <trkpt lat="-41.851993" lon="171.474500" />
+      <trkpt lat="-41.750036" lon="171.472750" />
+      <trkpt lat="-41.747947" lon="171.650204" />
+      <trkpt lat="-41.737200" lon="171.785632" />
+      <trkpt lat="-41.780548" lon="171.900453" />
+      <trkpt lat="-41.793141" lon="172.032147" />
+      <trkpt lat="-41.720935" lon="172.113447" />
+      <trkpt lat="-41.671164" lon="172.199858" />
+      <trkpt lat="-41.564520" lon="172.182234" />
+      <trkpt lat="-41.555760" lon="172.035968" />
+      <trkpt lat="-41.502573" lon="172.033887" />
+      <trkpt lat="-41.376343" lon="172.092259" />
+      <trkpt lat="-41.240205" lon="172.109542" />
+      <trkpt lat="-41.073592" lon="172.103847" />
+      <trkpt lat="-40.929419" lon="172.157282" />
+      <trkpt lat="-40.885961" lon="172.300815" />
+      <trkpt lat="-40.877329" lon="172.443518" />
+      <trkpt lat="-40.787905" lon="172.540510" />
+      <trkpt lat="-40.679573" lon="172.678345" />
+      <trkpt lat="-40.814235" lon="172.763124" />
+      <trkpt lat="-40.857360" lon="172.806430" />
+    </trkseg>
+  </trk>
+</gpx>

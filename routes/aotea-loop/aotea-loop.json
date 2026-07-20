@@ -1,0 +1,49 @@
+{
+    "id":  "aotea-loop",
+    "file":  "routes/aotea-loop/Aotea Loop.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/55800593",
+    "name":  "Aotea Loop",
+    "days":  "2-4",
+    "distanceLabel":  "90 km",
+    "totalElevationMeters":  2100,
+    "surfaceSplit":  "55% Gravel / 45% Road ",
+    "recommendedBike":  "Gravel",
+    "difficultyLevel":  "easy",
+    "difficulty":  "2/5",
+    "description":  "An island escape where every corner reveals another empty beach.",
+    "bestSeason":  "Nov - May",
+    "moreInfo":  [
+                     "https://clarisstoreaotea.nz/",
+                     "https://www.greatbarrier.co.nz/",
+                     "https://www.mulberrygrove.store/",
+                     "https://currachirishpub.co.nz/",
+                     "https://www.barrierair.co.nz/",
+                     "https://www.sealink.co.nz/explore/great-barrier"
+                 ],
+    "youtubeVideos":  "https://www.youtube.com/watch?v=ZRHLJ_sqrg0",
+    "tags":  [
+                 "short",
+                 "north island",
+                 "easy"
+             ],
+    "similarRoutes":  [
+                          "mountains-to-sea",
+                          "coromandel-top-loop",
+                          "tour-aotearoa-north-island"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  3,
+                         "scenery":  5,
+                         "technical":  1,
+                         "climbing":  3,
+                         "remoteness":  4
+                     },
+    "text1":  [
+                  "An easy and very scenic 90km bikepacking route, can be ridden in a day if you are a hardout but best done at a slower island pace and ridden over 2-3 days. Lots of sideqests and detours are available to deserted beaches and remote mountain tops.",
+                  "Great Barrier Island is an enchanting step back in time, all houses are off the grid and most of the food is imported from the mainland. Stock up in Claris and Tryphena before heading out on the track.",
+                  "Expect friendly locals, stunning deserted beaches, heaps of sealife, very little traffic and some stunning scenery"
+              ],
+    "text2":  "The riding is easy and the distances are short. Gradients can be punchy and you\u0027ll need to be prepared to carry a few days worth of food but overall this is a gentle, fun route.",
+    "text3":  "You can get to the island from Auckland by ferry (4-5 hours) or by plane (30 minutes). The ferry is a great way to get to the island and you can take your bike, keep an eye out for dolphins. Generally you can take your bike on the plane (they are small planes!) but best give them a call in advance. There are few technical and steep sections behind Tryphena but suspension isnt required for a great time on Barrier. Great Barrier Island has some of the most stunning campsites in New Zealand so a tent setup is recommended"
+}

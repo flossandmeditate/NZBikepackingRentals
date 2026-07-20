@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="DIRK BIKEPACKING preview generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Coromandel_Top_Loop (preview)</name>
+    <desc>Auto-sampled preview track at approximately 20 km intervals.</desc>
+  </metadata>
+  <trk>
+    <name>Coromandel_Top_Loop (preview)</name>
+    <trkseg>
+      <trkpt lat="-36.760260" lon="175.496850" />
+      <trkpt lat="-36.667190" lon="175.464639" />
+      <trkpt lat="-36.569843" lon="175.382621" />
+      <trkpt lat="-36.475134" lon="175.381735" />
+      <trkpt lat="-36.544390" lon="175.473737" />
+      <trkpt lat="-36.645111" lon="175.569830" />
+      <trkpt lat="-36.747779" lon="175.504150" />
+      <trkpt lat="-36.760240" lon="175.496930" />
+    </trkseg>
+  </trk>
+</gpx>

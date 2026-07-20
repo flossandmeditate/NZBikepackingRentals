@@ -1,0 +1,44 @@
+﻿{
+    "id":  "aotea-loop",
+    "file":  "routes/aotea-loop/Aotea Loop.gpx",
+    "name":  "Aotea Loop",
+    "days":  "2-4",
+    "distanceLabel":  "90 km",
+    "totalElevationMeters":  2100,
+    "surfaceSplit":  "55% Gravel / 45% Road ",
+    "recommendedBike":  "MTB",
+    "difficultyLevel":  "easy",
+    "difficulty":  "2/5",
+    "description":  "A short island loop with mixed road and gravel riding.",
+    "bestSeason":  "Oct-Apr",
+    "moreInfo":  "https://ridewithgps.com/routes/55800593",
+    "photos":  [
+                   "routes/aotea-loop/Placeholder1.jpeg",
+                   "routes/aotea-loop/Placeholder2.jpg",
+                   "routes/aotea-loop/Placeholder3.jpeg",
+                   "routes/aotea-loop/Placeholder4.jpg",
+                   "routes/aotea-loop/Placeholder5.jpg",
+                   "routes/aotea-loop/Placeholder6.jpg",
+                   "routes/aotea-loop/Placeholder7.jpg",
+                   "routes/aotea-loop/Placeholder8.jpg",
+                   "routes/aotea-loop/Placeholder9.jpg",
+                   "routes/aotea-loop/Placeholder10.jpg"
+               ],
+    "youtubeVideos":  "https://www.youtube.com/watch?v=ZRHLJ_sqrg0",
+    "tags":  [
+                 "short",
+                 "north island",
+                 "easy"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "Distances are short and the route stays close to settlements with campsites and food access. Gradients can be punchy, but overall logistics are simple and forgiving.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The central ridge track is the steepest part of the loop and can become very muddy after rain, making some sections hike-a-bike.",
+    "routeSummary":  [
+                         "Aotea Loop is a easy bikepacking route covering about 92.1 km, commonly ridden over 2 days. A short island loop with mixed road and gravel riding. Riders can expect 60% Gravel / 35% Road / 5% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Oct-Apr, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The central ridge track is the steepest part of the loop and can become very muddy after rain, making some sections hike-a-bike. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 2-day route, we recommend a Gravel Bike to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

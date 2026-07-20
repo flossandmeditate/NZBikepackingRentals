@@ -1,0 +1,43 @@
+{
+    "id":  "top-of-the-south-tots",
+    "file":  "routes/top-of-the-south-tots/Top of the South (TOTS).gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/31704591",
+    "name":  "Top of the South (TOTS)",
+    "days":  5,
+    "distanceLabel":  "1,106 km",
+    "totalElevationMeters":  22873,
+    "surfaceSplit":  "45% Gravel / 15% Road / 40% Track",
+    "recommendedBike":  "Hardtail MTB",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "description":  "A challenging top-of-the-south mission with long climbs and changing conditions.",
+    "bestSeason":  "Dec - April",
+    "moreInfo":  null,
+    "youtubeVideos":  null,
+    "tags":  [
+                 "long",
+                 "difficult",
+                 "south island"
+             ],
+    "similarRoutes":  [
+                          "tuatara-1000",
+                          "kopiko",
+                          "shaky-isles-south",
+                          "tour-aotearoa-south-island"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  4,
+                         "scenery":  4,
+                         "technical":  4,
+                         "climbing":  5,
+                         "remoteness":  3
+                     },
+    "text1":  [
+                  "Top of the South (TOTS) is a hard bikepacking route covering about 1,106 km, commonly ridden over 5 days. A challenging top-of-the-south mission with long climbs and changing conditions. Riders can expect 45% Gravel / 15% Road / 40% Track as the route unfolds.",
+                  "Good planning makes this route far more enjoyable. The best riding window is generally Nov-Apr, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                  "The key section to manage is: The Pelorus and Queen Charlotte singletrack arrives near the end when legs are already heavy from days of forestry climbing. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+              ],
+    "text2":  "Steep forestry climbs, weather volatility, and remote links combine into a demanding multi-day route. Riders should be confident with backcountry decision-making and long effort blocks.",
+    "text3":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer. For this 5-day route, we recommend a Hardtail MTB to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

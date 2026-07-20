@@ -1,0 +1,52 @@
+{
+    "id":  "best-of-the-west",
+    "file":  "routes/Best-of-the-West/Best_of_the_West.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/56037794",
+    "name":  "Best of the West",
+    "days":  "7-14",
+    "distanceLabel":  "500 km",
+    "totalElevationMeters":  11000,
+    "surfaceSplit":  "55% Gravel / 30% Road / 15% Track",
+    "recommendedBike":  "MTB",
+    "difficultyLevel":  "hard",
+    "difficulty":  "5/5",
+    "description":  "MTB paradise - The Paparoa, Denniston Plateau, Old Ghost Road and the Heaphy Track.",
+    "bestSeason":  "Oct-Nov",
+    "moreInfo":  [
+                     "https://www.doc.govt.nz/globalassets/documents/parks-and-recreation/tracks-and-walks/nelson-marlborough/heaphy-track-mountain-biking-flyer.pdf",
+                     "https://roughandtumble.co.nz/",
+                     "https://oldghostroad.org.nz/",
+                     "https://www.mtbtrailstrust.org.nz/Rides/LongRideshtml/Paparoa-Track",
+                     "https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/paparoa-national-park/things-to-do/tracks/paparoa-track/"
+                 ],
+    "youtubeVideos":  [
+                          "https://www.youtube.com/watch?v=kTf944b7-_s",
+                          "https://www.youtube.com/watch?v=dof3blYqOC8"
+                      ],
+    "tags":  [
+                 "south island",
+                 "hard"
+             ],
+    "similarRoutes":  [
+                          "shaky-isles-south",
+                          "kahurangi-500",
+                          "sounds-2-sounds"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  5,
+                         "scenery":  5,
+                         "technical":  5,
+                         "climbing":  5,
+                         "remoteness":  5
+                     },
+    "text1":  [
+                  "Starting in Greymouth, Best of the West heads north through some of the most dramatic riding country in Aotearoa. It links rainforest, wild coast, limestone country, high plateaus and backcountry singletrack into one big West Coast journey.",
+                  "The route takes in the Paparoa Track, climbing from the coast into dense forest and open tops before dropping back toward the sea. It is a spectacular but committing ride, with weather and track conditions playing a big part in how hard the day feels.",
+                  "Further north, the ride crosses the Denniston Plateau, a stark and historic coal-mining landscape high above the coast. Big views, rougher surfaces and exposed weather give this section a very different feel from the rainforest riding below.",
+                  "The Old Ghost Road is one of the major highlights: a long, remote, purpose-built backcountry trail through forest, river valleys and alpine tops.",
+                  "The route finishes with the Heaphy Track, another classic crossing through Kahurangi National Park, from lush forest and nikau palms to big mountain views and wild West Coast coastline. This is a true best-of collection rather than an easy cruise."
+              ],
+    "text2":  "Lots of sustained Grade 4 riding in here. This route is best treated as a serious backcountry bikepacking trip. Full suspension recommended but hard tails also work fine.",
+    "text3":  "The Heaphy is a great walk and only accessible for bikes from May to November. Book your huts early and be ready for wet West Coast conditions. A repair kit, spare brake pads, warm layers and enough food between resupply points are essential. You can get the train from Christchurch to Greymouth to start the route, and then return with the bus from Takaka. The route can be done in either direction, but the Paparoa and Heaphy sections are best ridden northbound for the views and flow."
+}

@@ -1,0 +1,43 @@
+{
+    "id":  "st-james-loop",
+    "file":  "routes/st-james-loop/St James Loop.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/52557738",
+    "name":  "St James Loop",
+    "days":  "2-3",
+    "distanceLabel":  "100 km",
+    "totalElevationMeters":  1400,
+    "surfaceSplit":  "100% Gravel / 0% Road / 0% Track",
+    "recommendedBike":  "MTB",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "A wild high-country journey through huts, rivers and mountain passes.",
+    "bestSeason":  "Dec - April",
+    "moreInfo":  [
+                     "https://www.highlux.co.nz/2016/01/st-james-cycle-trail-anne-hut/",
+                     "https://www.nzcycletrail.com/find-your-ride/23-great-rides/st-james-cycle-trail",
+                     "https://www.stjamescycletrail.co.nz/",
+                     "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/st-james-conservation-area/things-to-do/tracks/st-james-cycle-trail/"
+                 ],
+    "youtubeVideos":  "https://youtu.be/YFOHXyF6MnY?si=MpNieYGzDOy-mni2",
+    "tags":  [
+                 "short",
+                 "south island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "kahurangi-500",
+                          "sounds-2-sounds",
+                          "best-of-the-west"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  4,
+                         "scenery":  5,
+                         "technical":  4,
+                         "climbing":  4,
+                         "remoteness":  4
+                     },
+    "text1":  "The St James Cycle Trail is one of New Zealand\u0027s classic backcountry mountain bike adventures, weaving through vast high-country valleys, mountain passes and rugged alpine landscapes just beyond Hanmer Springs. Despite being only a short drive from town, it quickly feels like a true wilderness, where long stretches of open country, crystal-clear rivers and towering ranges create a real sense of isolation. It is a ride that rewards preparation, self-sufficiency and a willingness to slow down and soak in one of the South Island\u0027s wildest environments.",
+    "text2":  "The trail is perfectly suited to bikepacking, with a fantastic mix of Department of Conservation huts and campsites spread along the route. Scotties Hut, Pool Hut and Lake Guyon Hut all make memorable overnight stops, while numerous camping areas allow you to tailor each day\u0027s distance. Spending a night in the backcountry transforms the ride, giving you time to enjoy peaceful evenings beneath huge star-filled skies and early mornings as the valleys slowly come alive. Many riders base themselves in Hanmer Springs, making it an ideal place to begin and end the trip with plenty of accommodation, food and the famous hot pools waiting afterwards. ",
+    "text3":  "The trail can be ridden in either direction, tackled as a demanding one-day mission or enjoyed over two or three days. More adventurous riders can go over Fowlers pass which cuts through the centre of the main loop. Wild riding with some grade 4/5 sections and plenty of river crossings. Weather can shift from warm sunshine to cold alpine conditions in a matter of hours, so checking forecasts and river conditions before setting out is essential. Riders should always carry extra food, warm clothing and enough gear to comfortably spend an unexpected night on the trail if required."
+}

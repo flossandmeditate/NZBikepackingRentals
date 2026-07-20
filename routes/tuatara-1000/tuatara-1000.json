@@ -1,0 +1,45 @@
+{
+    "id":  "tuatara-1000",
+    "file":  "routes/tuatara-1000/Tuatara 1000.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/53481082",
+    "name":  "Tuatara 1000",
+    "days":  "11-23",
+    "distanceLabel":  "1,100 km",
+    "totalElevationMeters":  10500,
+    "surfaceSplit":  "50% Gravel / 50% Road / 0% Track",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "A relentless ride through the deep south.",
+    "bestSeason":  "Dec - April",
+    "moreInfo":  ["https://www.greatkiwigravel.com/t1000-details",
+    "https://hikebikecake.com/tuatara-1000-bike-setup-and-gear-list/",
+    "https://zenorides.com/home/f/tuatara-1000",
+    "https://www.stuff.co.nz/sport/350198595/invercargill-rider-goes-all-out-win-tuatara-1000",
+    "https://capovelo.com/the-2022-tuatara-1000-bikepacking-new-zealand/"
+],
+    "youtubeVideos": ["https://youtu.be/DSgHHQYttk4?si=r3eLjo_3hsSRHOMF", "https://youtu.be/ZaN-Y-GOqmc?si=uxEZnBOFkPr_6Ri2"],
+    "tags":  [
+                 "long",
+                 "south island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          
+                          "kopiko",
+                          "shaky-isles-south",
+                          "sounds-2-sounds"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  3,
+                         "scenery":  4,
+                         "technical":  2,
+                         "climbing":  3,
+                         "remoteness":  3
+                     },
+    "text1":  [
+         "Created by Andy Chalmers, the Tuatara 1000 grew from a desire to share the quiet roads, wild landscapes and overlooked corners of his home region.. Born as a bikepacking race, the Tuatara 1000 is a grand loop through the quiet roads, rugged coastlines and wide-open landscapes of the Deep South. The official route begins in Gore and travels clockwise, although its loop format allows touring riders to join from Dunedin, Te Anau or Invercargill."     ],
+    "text2":  "The route links the mountains and lakes of Fiordland with rural Southland, the Catlins and the old gold-mining country of Otago. Long gravel roads, small towns and expansive skies give it a wonderfully isolated character without requiring any technical riding.",
+    "text3":  "The Tuatara can be toured outside the organised event, but the Deep South’s weather deserves respect in every season. Carry extra food, warm waterproof clothing and reliable navigation, and check current route and trail conditions before leaving. The route includes the Clutha Gold Trail, where riders are encouraged to purchase a trail pass to help fund maintenance."
+}

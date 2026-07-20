@@ -1,0 +1,44 @@
+﻿{
+    "id":  "west-coast-wilderness-trail",
+    "file":  "routes/west-coast-wilderness-trail/West_Coast_Wilderness_Trail.gpx",
+    "name":  "West Coast Wilderness Trail",
+    "days":  2,
+    "distanceLabel":  "129 km",
+    "totalElevationMeters":  0,
+    "surfaceSplit":  "60% Gravel / 35% Road / 5% Track",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "easy",
+    "difficulty":  "2/5",
+    "description":  "A relatively accessible trail ride through West Coast scenery.",
+    "bestSeason":  "Year-round",
+    "moreInfo":  "https://ridewithgps.com/routes/45764035",
+    "photos":  [
+                   "routes/west-coast-wilderness-trail/w1.jpg",
+                   "routes/west-coast-wilderness-trail/w3.jpg",
+                   "routes/west-coast-wilderness-trail/w4.jpeg",
+                   "routes/west-coast-wilderness-trail/w5.jpeg",
+                   "routes/west-coast-wilderness-trail/w6.jpeg",
+                   "routes/west-coast-wilderness-trail/w7.jpeg",
+                   "routes/west-coast-wilderness-trail/w2.jpg"
+               ],
+    "youtubeVideos":  [
+                          "https://www.youtube.com/watch?v=3YhxMjwWobA",
+                          "https://www.youtube.com/watch?v=C3e0FGpUiP0"
+                      ],
+    "tags":  [
+                 "short",
+                 "south island",
+                 "easy"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "It follows a purpose-built trail corridor with clear navigation and regular accommodation nearby. Flat to rolling terrain and frequent service access make it approachable.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The Hokitika Gorge swing bridge section is the most technically committing - narrow, exposed, and impassable in flood.",
+    "routeSummary":  [
+                         "West Coast Wilderness Trail is a easy bikepacking route covering about 129 km, commonly ridden over 2 days. A relatively accessible trail ride through West Coast scenery. Riders can expect 60% Gravel / 35% Road / 5% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Year-round, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The Hokitika Gorge swing bridge section is the most technically committing - narrow, exposed, and impassable in flood. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 2-day route, we recommend a Gravel Bike to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

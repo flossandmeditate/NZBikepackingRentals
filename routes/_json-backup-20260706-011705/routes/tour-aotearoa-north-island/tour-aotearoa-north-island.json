@@ -1,0 +1,45 @@
+﻿{
+    "id":  "tour-aotearoa-north-island",
+    "file":  "routes/tour-aotearoa-north-island/Tour Aotearoa - North Island.gpx",
+    "name":  "Tour Aotearoa - North Island",
+    "days":  14,
+    "distanceLabel":  "1,639 km",
+    "totalElevationMeters":  27875,
+    "surfaceSplit":  "55% Gravel / 25% Road / 20% Track",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "recommendedBike":  "Touring Bike",
+    "description":  "The North Island section of Tour Aotearoa with varied surfaces and strong route support.",
+    "bestSeason":  "Nov-Mar",
+    "moreInfo":  "https://ridewithgps.com/routes/45744252",
+    "photos":  [
+                   "routes/tour-aotearoa-north-island/ta0.jpg",
+                   "routes/tour-aotearoa-north-island/ta1.jpg",
+                   "routes/tour-aotearoa-north-island/ta2.jpg",
+                   "routes/tour-aotearoa-north-island/ta3.jpg",
+                   "routes/tour-aotearoa-north-island/ta4.jpg",
+                   "routes/tour-aotearoa-north-island/ta5.jpg",
+                   "routes/tour-aotearoa-north-island/ta6.jpg",
+                   "routes/tour-aotearoa-north-island/ta7.jpg"
+               ],
+    "youtubeVideos":  [
+                          "https://youtu.be/5RBi9SPFjOU?si=KHR4YsiBUC-2qV1W",
+                          "https://youtu.be/1FbZXmHbdbQ?si=f3fHWiQ9O0gYMFkS"
+                      ],
+    "tags":  [
+                 "long",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "The distance is big, but the North Island TA has frequent towns and established route support. It is demanding over time rather than highly technical day to day.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The Timber Trail adds technical singletrack midway through the leg. Most riders find the long Forgotten Highway gravel section hardest to pace mentally.",
+    "routeSummary":  [
+                         "Tour Aotearoa - North Island is a intermediate bikepacking route covering about 1,639 km, commonly ridden over 14 days. The North Island section of Tour Aotearoa with varied surfaces and strong route support. Riders can expect 55% Gravel / 25% Road / 20% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Nov-Mar, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The Timber Trail adds technical singletrack midway through the leg. Most riders find the long Forgotten Highway gravel section hardest to pace mentally. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 14-day route, we recommend a Touring Bike to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

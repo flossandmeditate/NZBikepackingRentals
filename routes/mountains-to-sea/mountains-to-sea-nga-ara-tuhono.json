@@ -1,0 +1,45 @@
+{
+    "id":  "mountains-to-sea",
+    "file":  "routes/mountains-to-sea/Mountains_to_Sea.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/37633588",
+    "name":  "Mountains to Sea",
+    "days":  "3-4",
+    "distanceLabel":  "215 km",
+    "totalElevationMeters":  4000,
+    "surfaceSplit":  "45% Gravel / 55% Road ",
+    "recommendedBike":  "MTB",
+    "difficultyLevel":  "Easy",
+    "difficulty":  "1/5",
+    "description":  "A journey through the heart of the North Island.",
+    "bestSeason":  "Nov - May",
+    "moreInfo":  [
+                     "https://www.mountainstosea.nz/",
+                     "https://www.visitruapehu.com/see-do/cycling-mountain-biking/mountains-to-sea-nga-ara-tuhono",
+                     "https://www.doc.govt.nz/parks-and-recreation/places-to-go/manawatu-whanganui/places/whanganui-national-park/bridge-to-nowhere/"
+                 ],
+    "youtubeVideos":  [
+                          "https://www.youtube.com/watch?v=eyFQYvNPegQ",
+                          "https://www.youtube.com/watch?v=fQ6EuZ2Wi_Q"
+                      ],
+    "tags":  [
+                 "north island",
+                 "short",
+                 "easy difficulty"
+             ],
+    "similarRoutes":  [
+                          "tour-aotearoa-north-island",
+                          "coromandel-top-loop",
+                          "aotea-loop"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  2,
+                         "scenery":  3,
+                         "technical":  2,
+                         "climbing":  2,
+                         "remoteness":  3
+                     },
+    "text1":  "Beginning beneath the snow-capped slopes of Mount Ruapehu in the alpine town of Ohakune, Mountains to Sea is one of New Zealand\u0027s most varied bikepacking journeys. Over several days the route descends from volcanic landscapes through native forest, rolling farmland and deep river gorges before finally reaching the Tasman Sea at Whanganui. The route is rich in history, following old coach roads, forgotten settlements and the Whanganui River, which has been the lifeblood of local Maori communities for centuries. Historic bridges, old railway tracks and remnants of early pioneering life are scattered along the way, giving the ride a real sense of connection to New Zealand\u0027s past. Every day feels like a journey through another chapter of the country\u0027s history.",
+    "text2":  "One of the highlights is the legendary Bridge to Nowhere, hidden deep within the Whanganui National Park. Built to serve a farming community that never truly flourished, the bridge now stands isolated in the forest, accessible only by foot, bike or jet boat. A jet boat ride takes you  down the Whanganui River, creating one of the most memorable experiences of any New Zealand bikepacking route.",
+    "text3":  "Despite passing through a handful of small towns, much of the ride feels wonderfully remote. Long stretches of quiet gravel roads, native bush and winding rivers provide a genuine sense of wilderness, while comfortable campsites, huts and accommodation options make it an approachable adventure for riders of most experience levels. The riding itself is never especially technical, allowing you to focus on the scenery rather than your wheels. Many riders finish in Whanganui however the adventure doesn\u0027t have to end there. A fantastic option is to turn the route into a loop by returning to Ohakune via a network of quiet gravel roads."
+}

@@ -1,0 +1,51 @@
+﻿{
+    "id":  "st-james-loop",
+    "file":  "routes/st-james-loop/St James Loop.gpx",
+    "name":  "St James Loop",
+    "days":  3,
+    "distanceLabel":  "93.7 km",
+    "totalElevationMeters":  2480,
+    "surfaceSplit":  "55% Gravel / 25% Road / 20% Track",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "Backcountry loop with mixed roads, tracks, and hut access options.",
+    "bestSeason":  "Nov-Apr",
+    "moreInfo":  "https://ridewithgps.com/routes/52557738",
+    "photos":  [
+                   "routes/st-james-loop/sj1.jpeg",
+                   "routes/st-james-loop/sj2.jpg",
+                   "routes/st-james-loop/sj3.jpg",
+                   "routes/st-james-loop/sj4.jpeg",
+                   "routes/st-james-loop/sj5.jpeg",
+                   "routes/st-james-loop/sj6.jpg",
+                   "routes/st-james-loop/sj7.jpg",
+                   "routes/st-james-loop/sj8.jpg",
+                   "routes/st-james-loop/sj9.jpg",
+                   "routes/st-james-loop/sj10.jpeg",
+                   "routes/st-james-loop/sj11.jpg",
+                   "routes/st-james-loop/sj12.jpg",
+                   "routes/st-james-loop/sj13.jpeg",
+                   "routes/st-james-loop/sj14.jpeg",
+                   "routes/st-james-loop/sj15.jpeg",
+                   "routes/st-james-loop/sj16.jpg",
+                   "routes/st-james-loop/sj17.jpg"
+               ],
+    "youtubeVideos":  "https://youtu.be/YFOHXyF6MnY?si=MpNieYGzDOy-mni2",
+    "tags":  [
+                 "short",
+                 "south island",
+                 "intermediate difficulty"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "St James is physically solid but generally predictable for riders with some multi-day experience. It is less technical than hard alpine routes, yet still exposed enough to require planning.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The Ada Pass section is exposed in bad weather and the gap from St James homestead to Hanmer Springs is the longest resupply stretch on the loop.",
+    "routeSummary":  [
+                         "St James Loop is a intermediate bikepacking route covering about 93.7 km, commonly ridden over 3 days. Backcountry loop with mixed roads, tracks, and hut access options. Riders can expect 55% Gravel / 25% Road / 20% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Nov-Apr, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The Ada Pass section is exposed in bad weather and the gap from St James homestead to Hanmer Springs is the longest resupply stretch on the loop. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 3-day route, we recommend a Gravel Bike to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

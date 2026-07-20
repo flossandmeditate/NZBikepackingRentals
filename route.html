@@ -1,0 +1,1534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Route Details · NZ Bikepacking Rentals</title>
+<style>
+:root{
+	--ink:#1d1f1a;
+	--paper:#f4efe3;
+	--bone:#fffaf0;
+	--muted:#6f7568;
+	--green:#25362c;
+	--green2:#35483b;
+	--rust:#b75b25;
+	--line:#d8d0be;
+	--mint:#dfece3;
+	--side:#ded8ca;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+.site{width:min(1180px,100%);margin:auto;background:var(--paper);box-shadow:0 0 28px rgba(0,0,0,.18)}
+.nav{height:64px;background:#171a17;color:white;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.09em;font-size:11px}
+.logo{font-weight:900;font-size:18px;letter-spacing:.02em}
+.logo a,.nav a{color:#ddd;text-decoration:none}
+.nav-links a{margin-left:22px}
+.nav{position:relative}
+.nav-links{display:flex;align-items:center}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:38px;height:38px;border:none;border-radius:4px;background:transparent;color:white;cursor:pointer;padding:0}
+.nav-toggle-lines,.nav-toggle-lines:before,.nav-toggle-lines:after{content:"";display:block;width:18px;height:2px;background:currentColor;transition:transform .18s ease,opacity .18s ease}
+.nav-toggle-lines{position:relative}
+.nav-toggle-lines:before{position:absolute;top:-6px}
+.nav-toggle-lines:after{position:absolute;top:6px}
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines{background:transparent}
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines:before{transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines:after{transform:translateY(-6px) rotate(-45deg)}
+.hero{position:relative;min-height:380px;padding:48px 64px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;border-bottom:8px solid #20231f;background:#252824}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.72));z-index:-1}
+.kicker{font-family:Arial,sans-serif;text-transform:uppercase;font-size:11px;letter-spacing:.14em;color:#f2c98a;margin:0 0 10px}
+.hero h1{margin:0 0 10px;color:#fff;font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;font-size:68px;line-height:.9;text-transform:uppercase;text-shadow:0 3px 14px #000}
+.hero p{margin:0;color:#f2ead8;font-size:19px;max-width:720px;line-height:1.5}
+.meta{display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding:12px 64px;background:var(--mint);font-family:Arial,sans-serif;text-transform:uppercase;border-top:1px solid #c7d3c8;border-bottom:1px solid #c7d3c8}
+.meta .box{padding:4px 12px;border-right:1px solid #bccabd;min-height:96px;display:flex;flex-direction:column;justify-content:flex-start}
+.meta .box:last-child{border-right:0}
+.meta .meta-icon{width:24px;height:24px;display:block;margin:0 0 8px;color:#4f5950}
+.meta .meta-icon svg{width:100%;height:100%;display:block;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.meta .meta-icon img{width:100%;height:100%;display:block;object-fit:contain}
+.meta b{display:block;font-size:22px;line-height:1.05;font-family:Georgia,"Times New Roman",serif;color:#2f3530;margin-bottom:8px}
+.meta b.compact{font-size:20px}
+.meta b.bike{font-size:18px;line-height:1.2;letter-spacing:0;text-transform:none}
+.meta span{font-size:13px;letter-spacing:.06em;color:#595f57}
+.main{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(340px,1fr);gap:28px;padding:42px 64px 18px;background:var(--bone)}
+.article,.route-facts{min-width:0}
+.article p{font-size:17px;line-height:1.75;margin:0 0 18px}
+.article h2{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;text-transform:uppercase;font-size:34px;margin:28px 0 10px}
+.article > h2:first-child{margin-top:6px}
+.gallery{margin:20px 0}
+.gallery-carousel{position:relative;border:1px solid var(--line);background:#f6f1e6;box-shadow:0 8px 18px rgba(0,0,0,.08);overflow:hidden}
+.gallery-track{position:relative;width:100%;height:420px;background:#d9d2c1}
+.gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .45s ease;pointer-events:none}
+.gallery-slide.active{opacity:1;pointer-events:auto}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border:0;border-radius:999px;background:rgba(20,23,20,.62);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.gallery-nav:hover{background:rgba(20,23,20,.78)}
+.gallery-nav.prev{left:12px}
+.gallery-nav.next{right:12px}
+.gallery-dots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.gallery-dot{width:10px;height:10px;border-radius:999px;border:0;background:rgba(255,255,255,.52);cursor:pointer;padding:0}
+.gallery-dot.active{background:#fff;box-shadow:0 0 0 2px rgba(23,26,23,.28)}
+.difficulty-card{margin:26px 0 0;padding:0;border:0;background:transparent;box-shadow:none}
+.difficulty-card h2{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;text-transform:uppercase;font-size:34px;margin:0 0 10px}
+.difficulty-card p{font-size:17px;line-height:1.75;margin:0 0 18px}
+.difficulty-card p:last-child{margin-bottom:0}
+.difficulty-level{font-family:Georgia,"Times New Roman",serif;font-size:17px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--ink)}
+.mobile-local-notes{display:none;margin:22px 0 0}
+.mobile-local-notes p{font-size:17px;line-height:1.75;margin:0}
+.video-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 10px}
+.video-embed{position:relative;width:100%;padding-top:56.25%;background:#151515;border:1px solid var(--line)}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.rwgps-wrap{
+	margin:20px 0 12px;
+	border:1px solid var(--line);
+	background:#f8f5ec;
+	box-shadow:0 8px 22px rgba(0,0,0,.1);
+	overflow:hidden;
+}
+.rwgps-embed{
+	width:100%;
+	height:700px;
+	border:0;
+	display:block;
+	background:#efeadf;
+}
+.rwgps-note{
+	margin:0;
+	padding:10px 14px;
+	font-family:Arial,sans-serif;
+	font-size:12px;
+	line-height:1.5;
+	color:#4b4f45;
+	background:#f2ecde;
+	border-top:1px solid var(--line);
+}
+.card{background:#f8f5ec;border:1px solid var(--line);padding:18px;margin-bottom:16px;font-family:Arial,sans-serif;box-shadow:0 8px 22px rgba(0,0,0,.12)}
+.card h3{margin:0 0 10px;text-transform:uppercase;font-size:13px;letter-spacing:.11em}
+.card p,.card li{font-size:13px;line-height:1.55;color:#3a3a30}
+.card ul{margin:0;padding-left:18px}
+.route-facts{position:sticky;top:18px;align-self:start}
+.route-facts-title{margin:0 0 10px;padding:10px 14px;background:linear-gradient(90deg,#1f3425,#345640);color:#f4efe3;font-family:Arial,sans-serif;font-weight:900;font-size:20px;line-height:1;text-transform:uppercase;letter-spacing:.03em;box-shadow:0 6px 16px rgba(0,0,0,.16)}
+.facts-stack{display:flex;flex-direction:column;gap:0;background:#fef9f4;border:1px solid #ddd3c0;box-shadow:0 4px 10px rgba(0,0,0,.08);overflow:hidden}
+.facts-stack > * + *{border-top:1px solid #e5ddcc}
+.fact-card{display:grid;grid-template-columns:58px 1fr;gap:12px;align-items:start;background:#f9f7f0;border:1px solid #ddd3c0;box-shadow:0 4px 10px rgba(0,0,0,.08);padding:14px 14px 14px 12px;font-family:Arial,sans-serif}
+.fact-card h3{margin:0 0 6px;text-transform:uppercase;font-size:12px;line-height:1.15;letter-spacing:.07em;color:#1f1f18}
+.fact-card p,.fact-card li{font-size:13px;line-height:1.48;color:#2f342d}
+.fact-card p{margin:0}
+.fact-card ul{margin:0;padding-left:16px}
+.fact-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-right:1px solid #d9cfba;padding-right:10px;color:#3a6a3d}
+.fact-icon svg{width:28px;height:28px;display:block;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.route-actions-stack{display:flex;flex-direction:column;gap:8px;padding:12px}
+.route-actions-stack .btn{display:block;width:100%;text-align:center;margin:0}
+.route-actions-stack .action-btn{display:grid;grid-template-columns:18px 1fr;align-items:center;gap:10px;padding:10px 14px;border-radius:3px;background:linear-gradient(180deg,#c85b0f,#b44803);color:#fff;font-family:Arial,sans-serif;font-weight:900;letter-spacing:.04em;text-transform:uppercase;font-size:16px;line-height:1.15;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.route-actions-stack .action-btn:hover{background:linear-gradient(180deg,#d06417,#bc4f08)}
+.route-actions-stack .action-btn .action-icon{width:18px;height:18px;display:block;color:#fff}
+.route-actions-stack .action-btn .action-label{display:block;text-align:center;font-size:14px;line-height:1.2;white-space:normal}
+.fact-body a{color:#264633}
+.fact-body a:hover{color:#1d3426}
+.fact-bullets{margin:0;padding-left:16px}
+.fact-bullets li{margin:0 0 4px}
+.fact-bullets li:last-child{margin-bottom:0}
+.resources-card{display:block;padding:8px 0 10px;overflow:hidden;background:transparent;border:0;box-shadow:none}
+.resources-body{padding:0}
+.resources-title{margin:0;padding:8px 16px 10px;border-bottom:0;font-size:20px;letter-spacing:.06em;color:#335a43;font-weight:800;text-transform:uppercase;display:block;background:transparent;font-family:"Trebuchet MS",Arial,sans-serif}
+.resources-list{list-style:none;margin:0;padding:0 8px}
+.resources-item{border-top:0}
+.resources-link{display:grid;grid-template-columns:22px 1fr 18px;gap:10px;align-items:center;padding:10px 8px;text-decoration:none;color:#30342d;font-family:Arial,sans-serif;font-size:15px;line-height:1.25}
+.resources-link:hover{background:#f3eee2}
+.resources-icon{width:19px;height:19px;display:block}
+.resources-icon-wrap{position:relative;width:19px;height:19px;display:block}
+.resources-favicon{width:19px;height:19px;display:block;object-fit:contain}
+.resources-icon-fallback{position:absolute;inset:0;display:none}
+.resources-icon.stroke{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.resources-icon.ridewithgps{color:#e26f17}
+.resources-icon.download{color:#2f7448}
+.resources-icon.facebook{color:#1d79bf}
+.resources-icon.map{color:#4e6e42}
+.resources-icon.default{color:#4e6e42}
+.resources-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.resources-ext{width:16px;height:16px;color:#4f5550;display:block}
+.resources-empty{padding:12px 14px;font-family:Arial,sans-serif;font-size:13px;color:#5f655b}
+.route-profile-card{margin:-2px 12px 12px;background:#FFFCFA;border:1px solid #ddd3c0;border-radius:4px;box-shadow:0 3px 8px rgba(0,0,0,.06);padding:0;overflow:hidden}
+.route-profile-title{margin:0;padding:14px 18px 13px;border-bottom:1px solid rgba(255,255,255,.2);font-family:Arial,sans-serif;font-size:22px;line-height:1;letter-spacing:.05em;font-weight:900;color:#f4efe3;text-transform:uppercase;background:linear-gradient(90deg,#173823 0%,#1f4c2d 45%,#2f6a3a 100%);text-shadow:0 1px 2px rgba(0,0,0,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
+.profile-list{display:grid}
+.profile-item{display:grid;grid-template-columns:46px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-top:0;border-bottom:1px solid #e5ddcc}
+.profile-item:last-child{border-bottom:0}
+.profile-divider{margin:0 16px;border:0;border-top:1px solid #d9cfba}
+.profile-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+.profile-icon img{width:30px;height:30px;display:block;object-fit:contain}
+.profile-copy h4{margin:0;font-family:Arial,sans-serif;font-size:16px;line-height:1.1;color:#1a1d17}
+.profile-copy p{margin:4px 0 0;font-family:Arial,sans-serif;font-size:12px;line-height:1.4;color:#4d5149}
+.profile-segments{display:flex;gap:8px;align-items:center}
+.profile-seg{width:26px;height:18px;border-radius:4px;transform:skewX(-23deg);background:#d7d8d5}
+.profile-seg.active.tone-adventure{background:#bd1507}
+.profile-seg.active.tone-scenery{background:#4d6f2e}
+.profile-seg.active.tone-technical{background:#c77422}
+.profile-seg.active.tone-climbing{background:#4f7393}
+.profile-seg.active.tone-remoteness{background:#5f5d85}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{display:inline-block;background:var(--rust);color:#fff;padding:12px 16px;text-decoration:none;font-family:Arial,sans-serif;text-transform:uppercase;font-weight:900;letter-spacing:.08em;font-size:11px;box-shadow:4px 4px 0 rgba(0,0,0,.2)}
+.btn.dark{background:var(--green2)}
+#action-card .btn{display:block !important;width:100%;text-align:center;margin-bottom:8px}
+#action-card .btn:last-child{margin-bottom:0}
+.local-notes-section{padding:14px 64px 8px;background:var(--bone)}
+.local-notes-section h2{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;text-transform:uppercase;font-size:34px;margin:0 0 10px}
+.local-notes-section p{font-size:17px;line-height:1.75;margin:0}
+.recommended-setup-section{padding:0 64px 24px;background:var(--bone)}
+.recommended-setup-section h2{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;text-transform:uppercase;font-size:34px;margin:0 0 10px}
+.recommended-setup-section p{font-size:17px;line-height:1.75;margin:0 0 18px}
+.full-width-rwgps{padding:20px 64px 56px;background:var(--bone)}
+.full-width-rwgps h2{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;text-transform:uppercase;font-size:34px;margin:0 0 10px}
+.you-might-section{padding:0 64px 42px;background:var(--bone)}
+.you-might-section h2{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;text-transform:uppercase;font-size:42px;line-height:.95;margin:0 0 18px}
+.you-might-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.route-card{border:1px solid var(--line);background:#fff;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.09);display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
+.route-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.18);transform:translateY(-2px)}
+.route-img{position:relative;overflow:hidden;display:block;text-decoration:none}
+.route-card .route-img img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .3s}
+.route-card:hover .route-img img{transform:scale(1.04)}
+.route-badge{position:absolute;top:12px;left:12px;font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:5px 9px;font-weight:bold}
+.badge-easy{background:#dfece3;color:#25362c}
+.badge-intermediate{background:#fff3e0;color:#a05000}
+.badge-hard{background:#fce8e3;color:#8b2800}
+.route-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.route-body h3{margin:0 0 6px;font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;font-size:26px;text-transform:uppercase;line-height:1}
+.route-body .region{font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--rust);margin:0 0 10px}
+.route-body p{margin:0 0 16px;font-size:14px;line-height:1.55;color:#3a3a30;flex:1}
+.route-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
+.route-meta b{display:block;font-size:17px;color:var(--ink);line-height:1.1}
+.route-actions{display:flex;gap:8px;width:100%}
+.btn-sm{font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:bold;padding:9px 13px;border:none;cursor:pointer;text-decoration:none;display:inline-block}
+.route-actions .btn-sm{flex:1;width:100%;text-align:center}
+.btn-sm.primary{background:var(--rust);color:#fff}
+.btn-sm:hover.primary{background:#9a4b1e}
+.footer{background:#171a17;color:#bbb;text-align:center;padding:42px 20px;position:relative;min-height:78px;font-family:Arial,sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.footer .footer-logo{position:absolute;left:16px;bottom:12px;width:84px;height:auto;opacity:.95}
+.footer .social-links{display:inline-flex;gap:14px;margin-left:18px;flex-wrap:wrap}
+.footer .social-links a{color:#f2ead8;text-decoration:none;font-weight:700;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center}
+.footer .social-links a:hover{color:white}
+.footer .social-links svg{width:16px;height:16px;display:block}
+@media(max-width:900px){
+	.hero{padding:34px 22px;min-height:290px}
+	.hero h1{font-size:48px}
+	.meta{grid-template-columns:repeat(2,1fr);padding:10px 22px}
+	.meta .box{min-height:88px}
+	.main{display:block;padding:30px 22px}
+	.gallery-track{height:260px}
+	.gallery-nav{width:38px;height:38px;font-size:22px}
+	.video-grid{grid-template-columns:1fr}
+	.rwgps-embed{height:560px}
+	.local-notes-section{padding:30px 22px 0}
+	.recommended-setup-section{padding:0 22px 30px}
+	.full-width-rwgps{padding:30px 22px 44px}
+	.you-might-section{padding:0 22px 30px}
+	.you-might-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+	.route-facts{position:static;margin-top:24px}
+	.mobile-local-notes{display:block}
+	.local-notes-section{display:none}
+}
+
+@media(max-width:760px){
+	.nav{height:58px;padding:0 16px}
+	.logo{font-size:15px}
+	.nav-toggle{display:inline-flex}
+	.nav-links{display:none;position:absolute;top:58px;left:0;right:0;background:#1f221f;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);flex-direction:column;align-items:stretch;z-index:20}
+	.nav-links.open{display:flex}
+	.nav-links a{margin-left:0;padding:14px 16px;border-top:1px solid rgba(255,255,255,.06)}
+	.nav-links a:first-child{border-top:none}
+	.meta{grid-template-columns:repeat(3,minmax(0,1fr));padding:8px 10px}
+	.meta .box{padding:8px 10px;min-height:84px}
+	.meta .box:nth-child(3n){border-right:0}
+	.meta .box:nth-child(-n+3){border-bottom:1px solid #bccabd}
+	.meta .meta-icon{width:20px;height:20px;margin:0 0 6px}
+	.meta b{font-size:17px;margin-bottom:5px}
+	.meta b.compact{font-size:16px}
+	.meta span{font-size:11px;letter-spacing:.05em}
+	.footer{min-height:0;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+	.footer .footer-logo{position:static;left:auto;bottom:auto;width:42px}
+	.footer .social-links{margin-left:0}
+}
+
+@media(max-width:600px){
+	.you-might-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="site">
+	<nav class="nav">
+		<div class="logo"><a href="index.html">NZBikepackingRentals.com</a></div>
+		<button class="nav-toggle" id="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav-links">
+			<span class="nav-toggle-lines" aria-hidden="true"></span>
+		</button>
+		<div class="nav-links" id="main-nav-links">
+			<a href="builder.html">Bike Rentals</a>
+			<a href="routes.html">NZ Routes</a>
+			<a href="contact.html">Contact</a>
+		</div>
+	</nav>
+
+	<header class="hero" id="hero" style="background:#252824 center/cover no-repeat">
+		<a href="routes.html" class="btn" style="position:absolute;top:18px;left:28px;z-index:2;font-size:12px;padding:8px 16px">&#8592; Back to Routes</a>
+		<p class="kicker"></p>
+		<h1 id="route-name">Loading route…</h1>
+		<p id="route-desc"></p>
+	</header>
+
+	<section class="meta" id="meta-grid"></section>
+
+	<main class="main">
+		<article class="article">
+			<h2>Route Summary</h2>
+			<div id="route-summary">
+				<p></p>
+			</div>
+
+			<div class="gallery" id="photo-gallery"></div>
+
+			<section id="difficulty-section" class="difficulty-card">
+				<p id="difficulty-explanation"></p>
+			</section>
+
+			<section id="videos-section" style="display:none">
+				<!-- <h2>Video</h2> -->
+				<div class="video-grid" id="video-gallery"></div>
+			</section>
+
+			<section class="mobile-local-notes" aria-label="Local notes">
+				<p id="mobile-tips-text"></p>
+			</section>
+		</article>
+
+		<aside class="route-facts" aria-label="Route facts sidebar">
+			<!-- <h2 class="route-facts-title">Route Facts</h2> -->
+			<div class="facts-stack">
+				<div class="route-actions-stack" id="action-card"></div>
+
+				<section class="route-profile-card" aria-label="Route profile">
+					<h3 class="route-profile-title">Route Profile</h3>
+					<div id="route-profile-list" class="profile-list"></div>
+					<hr class="profile-divider">
+					<section class="resources-card" aria-label="Resources">
+						<div class="resources-body">
+							<h3 class="resources-title">Resources</h3>
+							<ul id="links-list" class="resources-list"></ul>
+						</div>
+					</section>
+				</section>
+
+
+
+				<!--
+				<section class="fact-card">
+					<div class="fact-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24"><circle cx="8" cy="18" r="2.1"></circle><circle cx="17" cy="18" r="2.1"></circle><path d="M3.5 4.5h2.8l2 9.2h8.2l2.3-6.2H7.1"></path></svg>
+					</div>
+					<div class="fact-body">
+						<h3>Resupply</h3>
+						<p id="resupply-text"></p>
+					</div>
+				</section>
+
+				<section class="fact-card">
+					<div class="fact-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24"><path d="M3 18v-9a2 2 0 0 1 2-2h14v11"></path><path d="M3 18h18"></path><path d="M8 10h5"></path><path d="M6 7.2V5"></path></svg>
+					</div>
+					<div class="fact-body">
+						<h3>Accommodation</h3>
+						<p id="accommodation-text"></p>
+					</div>
+				</section>
+				-->
+
+
+			</div>
+		</aside>
+	</main>
+
+	<section class="local-notes-section">
+		<!-- <h2>Local Notes</h2> -->
+		<p id="tips-text"></p>
+	</section>
+
+	<section class="recommended-setup-section">
+		<!-- <h2>Recommended Bike Setup</h2> -->
+		<p id="recommended-setup-text"></p>
+		<!-- <a class="btn" id="recommended-setup-btn" href="builder.html">Open Recommended Setup in Builder</a> -->
+	</section>
+
+	<section class="full-width-rwgps" id="rwgps-section" style="display:none">
+		<h2>Map &amp; Elevation</h2>
+		<div class="rwgps-wrap" id="rwgps-wrap"></div>
+	</section>
+
+	<section class="you-might-section" id="you-might-section" style="display:none">
+		<h2>YOU MIGHT ALSO LIKE...</h2>
+		<div class="you-might-grid" id="you-might-grid"></div>
+	</section>
+
+	<section style="padding:42px 64px;background:var(--bone)">
+		<div class="btn-row" id="action-row"></div>
+	</section>
+
+	<footer class="footer">
+		<a href="https://www.cycleryraglan.co.nz" target="_blank" rel="noreferrer noopener" aria-label="Visit Cyclery Raglan">
+			<img class="footer-logo" src="images/Logo.webp" alt="NZ Bikepacking Rentals logo" loading="lazy">
+		</a>
+		<!-- <span>NZBikepackingRentals.com · Aotearoa bikepacking rentals</span> -->
+		<span class="social-links">
+			<a href="https://www.instagram.com/cycleryraglan/" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+			</a>
+			<a href="https://www.facebook.com/CycleryRaglan" target="_blank" rel="noreferrer noopener" aria-label="Facebook">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h3z"/></svg>
+			</a>
+		</span>
+	</footer>
+</div>
+
+<script src="storage-config.js"></script>
+<script>
+(function(){
+	const toggle = document.getElementById('mobile-nav-toggle');
+	const links = document.getElementById('main-nav-links');
+	if(!toggle || !links) return;
+
+	function setMenuOpen(open){
+		links.classList.toggle('open', open);
+		toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+		toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+	}
+
+	toggle.addEventListener('click', function(){
+		const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+		setMenuOpen(!isOpen);
+	});
+
+	links.querySelectorAll('a').forEach(function(link){
+		link.addEventListener('click', function(){ setMenuOpen(false); });
+	});
+
+	window.addEventListener('resize', function(){
+		if(window.innerWidth > 760) setMenuOpen(false);
+	});
+})();
+</script>
+
+<script>
+(function(){
+	const storageConfig = window.ROUTE_STORAGE || {};
+	const params = new URLSearchParams(location.search);
+	const routeId = params.get('id');
+
+	function setText(id, value){ document.getElementById(id).textContent = value || 'Not specified'; }
+	function clampProfileScore(value){
+		const n = Number(value);
+		if(!Number.isFinite(n)) return 0;
+		return Math.max(0, Math.min(5, Math.round(n)));
+	}
+	function getRouteProfile(route){
+		const source = route && route.routeProfile && typeof route.routeProfile === 'object' ? route.routeProfile : {};
+		const mappedAdventure = Number.isFinite(Number(source.adventure)) ? source.adventure : source.remoteness;
+		const mappedScenery = Number.isFinite(Number(source.scenery)) ? source.scenery : 4;
+		const mappedTechnical = Number.isFinite(Number(source.technical)) ? source.technical : source.hardtailMtb;
+		const mappedClimbing = Number.isFinite(Number(source.climbing)) ? source.climbing : 3;
+		const mappedRemoteness = Number.isFinite(Number(source.remoteness)) ? source.remoteness : source.cellCoverage;
+		return {
+			adventure: clampProfileScore(mappedAdventure),
+			scenery: clampProfileScore(mappedScenery),
+			technical: clampProfileScore(mappedTechnical),
+			climbing: clampProfileScore(mappedClimbing),
+			remoteness: clampProfileScore(mappedRemoteness)
+		};
+	}
+	function getProfileIconPath(key){
+		if(key === 'adventure') return 'images/icons/AdventureIcon.webp';
+		if(key === 'scenery') return 'images/icons/SceneryIcon.webp';
+		if(key === 'technical') return 'images/icons/TechnicalIcon.webp';
+		if(key === 'climbing') return 'images/icons/ClimbingIcon.webp';
+		return 'images/icons/RemotenessIcon.webp';
+	}
+	function renderRouteProfile(route){
+		const list = document.getElementById('route-profile-list');
+		if(!list) return;
+
+		const profile = getRouteProfile(route);
+		const rows = [
+			{ label: 'Adventure', description: 'Expedition feel and commitment', key: 'adventure', tone: 'adventure' },
+			{ label: 'Scenery', description: 'Natural beauty and landscapes', key: 'scenery', tone: 'scenery' },
+			{ label: 'Technical', description: 'Riding difficulty and terrain', key: 'technical', tone: 'technical' },
+			{ label: 'Climbing', description: 'Elevation gain and steepness', key: 'climbing', tone: 'climbing' },
+			{ label: 'Remoteness', description: 'Distance from towns and services', key: 'remoteness', tone: 'remoteness' }
+		];
+
+		list.innerHTML = rows.map(row => {
+			const score = profile[row.key];
+			const segments = Array.from({length:5}, (_, i) => `<span class="profile-seg${i < score ? ` active tone-${row.tone}` : ''}" aria-hidden="true"></span>`).join('');
+			const iconSrc = getProfileIconPath(row.key);
+			return `
+				<div class="profile-item" aria-label="${escapeHtml(row.label)} rating ${score} out of 5">
+					<span class="profile-icon" aria-hidden="true"><img src="${iconSrc}" alt="" loading="lazy"></span>
+					<span class="profile-copy"><h4>${escapeHtml(row.label)}</h4><p>${escapeHtml(row.description)}</p></span>
+					<span class="profile-segments">${segments}</span>
+				</div>
+			`;
+		}).join('');
+	}
+	function fmtKm(m){ return Number.isFinite(m) ? `${(m/1000).toFixed(m<10000?1:0)} km` : ''; }
+		function fmtPct(value){
+			const n = Number(value);
+			if(!Number.isFinite(n)) return '';
+			const rounded = Math.round(n * 10) / 10;
+			return `${Number.isInteger(rounded) ? rounded.toFixed(0) : rounded.toFixed(1)}%`;
+		}
+	function isUsableImagePath(path){
+		if(typeof path !== 'string') return false;
+		const trimmed = path.trim();
+		return /^images\//i.test(trimmed) || /^routes\//i.test(trimmed);
+	}
+	const routePhotoFallbackPool = [
+			'images/IMG20230407123248.jpg',
+			'images/IMG20230407123339.jpg',
+			'images/IMG20230404152757.jpg',
+			'images/IMG20230406123601.jpg',
+			'images/IMG20230327135544.jpg',
+			'images/IMG20230327122109.jpg',
+			'images/IMG20230403114937.jpg',
+			'images/IMG20230403075949.jpg',
+			'images/IMG20240404134026.jpg',
+			'images/IMG20240404141833.jpg',
+			'images/IMG20240404160808.jpg',
+			'images/IMG20240407114007.jpg',
+			'images/IMG20241029082316.jpg',
+			'images/IMG20241030114415.jpg',
+			'images/IMG20250723091903.jpg'
+	];
+	function stableIndexFromText(text, mod){
+		const source = String(text || 'route');
+		let hash = 0;
+		for(let i = 0; i < source.length; i++) {
+			hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
+		}
+		return mod > 0 ? hash % mod : 0;
+	}
+	function getRoutePhotos(route){
+		const directHighlight = typeof route?.highlightImage === 'string' ? route.highlightImage.trim() : '';
+		if(isUsableImagePath(directHighlight)) return [directHighlight];
+
+		const routeFile = String(route?.file || '').trim().replace(/\\/g, '/');
+		if(/^routes\//i.test(routeFile) && routeFile.includes('/')) {
+			const folder = routeFile.split('/').slice(0, -1).join('/');
+			if(folder) return [`${folder}/a.webp`];
+		}
+
+		const routeId = String(route?.id || '').trim();
+		if(routeId) return [`routes/${routeId}/a.webp`];
+
+		const legacyPhotos = Array.isArray(route?.photos) ? route.photos.filter(isUsableImagePath) : [];
+		if(legacyPhotos.length) return [legacyPhotos[0]];
+
+		const start = stableIndexFromText(route?.id || route?.name, routePhotoFallbackPool.length);
+		return [routePhotoFallbackPool[start]];
+	}
+	function normalizeImagePath(path){
+		return String(path || '').trim().replace(/\\/g, '/').replace(/^\.\//, '').toLowerCase();
+	}
+	let apiRoutesCatalogPromise = null;
+	async function getApiRoutesCatalog(){
+		if(!apiRoutesCatalogPromise){
+			apiRoutesCatalogPromise = fetch('/api/routes', {cache:'no-store'})
+				.then(response => response.ok ? response.json() : null)
+				.catch(() => null);
+		}
+		return apiRoutesCatalogPromise;
+	}
+	async function getApiRouteGalleryPhotos(routeId, normalizedHighlight){
+		if(!routeId) return [];
+		const apiRoutes = await getApiRoutesCatalog();
+		if(!Array.isArray(apiRoutes) || !apiRoutes.length) return [];
+		const apiRoute = apiRoutes.find(item => item && item.id === routeId);
+		if(!apiRoute || !Array.isArray(apiRoute.galleryPhotos)) return [];
+		return apiRoute.galleryPhotos
+			.filter(isUsableImagePath)
+			.filter(photo => normalizeImagePath(photo).endsWith('.webp'))
+			.filter(photo => normalizeImagePath(photo) !== normalizedHighlight);
+	}
+	function getRouteFolderPath(route){
+		const highlight = String(route?.highlightImage || '').trim().replace(/\\/g, '/');
+		if(/^routes\//i.test(highlight) && highlight.includes('/')) return highlight.split('/').slice(0, -1).join('/');
+		const gpxPath = String(route?.file || '').trim().replace(/\\/g, '/');
+		if(/^routes\//i.test(gpxPath) && gpxPath.includes('/')) return gpxPath.split('/').slice(0, -1).join('/');
+		const routeId = String(route?.id || '').trim();
+		return routeId ? `routes/${routeId}` : '';
+	}
+	function canLoadImage(path){
+		const safePath = encodeURI(path);
+
+		return (async () => {
+			try{
+				const head = await fetch(safePath, {method:'HEAD', cache:'no-store'});
+				if(head.ok) return true;
+			}catch{}
+
+			try{
+				const get = await fetch(safePath, {cache:'no-store'});
+				if(get.ok){
+					if(get.body && typeof get.body.cancel === 'function') get.body.cancel();
+					return true;
+				}
+			}catch{}
+
+			return new Promise(resolve => {
+				const img = new Image();
+				img.onload = () => resolve(true);
+				img.onerror = () => resolve(false);
+				img.src = safePath;
+			});
+		})();
+	}
+
+	async function getRouteGalleryPhotos(route){
+		const highlight = getRoutePhotos(route)[0];
+		const normalizedHighlight = normalizeImagePath(highlight);
+		const folder = getRouteFolderPath(route);
+		if(!folder) return [];
+
+		const fixedCandidates = Array.from({length:10}, (_, idx) => `${folder}/${idx + 1}.webp`)
+			.filter(photo => normalizeImagePath(photo) !== normalizedHighlight);
+
+		const checks = await Promise.all(
+			fixedCandidates.map(async candidate => ({
+				candidate,
+				exists: await canLoadImage(candidate)
+			}))
+		);
+
+		return checks
+			.filter(item => item.exists)
+			.map(item => encodeURI(item.candidate));
+	}
+	function parseDaysRange(value){
+		const numeric = Number(value);
+		if(Number.isFinite(numeric) && numeric > 0){
+			const rounded = Math.round(numeric);
+			return { min: rounded, max: rounded };
+		}
+
+		const text = String(value || '').trim();
+		if(!text) return null;
+
+		const rangeMatch = text.match(/(\d+(?:\.\d+)?)\s*[-\u2013\u2014]\s*(\d+(?:\.\d+)?)/);
+		if(rangeMatch){
+			const a = Math.round(Number(rangeMatch[1]));
+			const b = Math.round(Number(rangeMatch[2]));
+			if(Number.isFinite(a) && Number.isFinite(b) && a > 0 && b > 0){
+				return { min: Math.min(a, b), max: Math.max(a, b) };
+			}
+		}
+
+		const singleMatch = text.match(/\d+(?:\.\d+)?/);
+		if(singleMatch){
+			const n = Math.round(Number(singleMatch[0]));
+			if(Number.isFinite(n) && n > 0){
+				return { min: n, max: n };
+			}
+		}
+
+		return null;
+	}
+	function estimateDays(route){
+		const parsed = parseDaysRange(route?.days);
+		if(parsed) return parsed.max;
+		if(Number.isFinite(route.distanceMeters)) return Math.max(1, Math.ceil((route.distanceMeters / 1000) / 100));
+		if(route.distanceLabel){
+			const v = Number.parseFloat(String(route.distanceLabel).replace(/,/g,''));
+			if(Number.isFinite(v)) return Math.max(1, Math.ceil(v / 100));
+		}
+		return null;
+	}
+	function getRideWithGpsUrl(route){
+		if(typeof route?.rideWithGpsUrl === 'string' && /ridewithgps\.com/i.test(route.rideWithGpsUrl)) {
+			return route.rideWithGpsUrl.trim();
+		}
+		const links = getMoreInfoLinks(route).map(entry => entry.url);
+		return links.find(link => /ridewithgps\.com/i.test(String(link || ''))) || null;
+	}
+	function getMoreInfoLinks(route){
+		const raw = route?.moreInfo;
+		const values = Array.isArray(raw)
+			? raw
+			: (typeof raw === 'string' && raw.trim() ? [raw.trim()] : []);
+		return values.map(item => {
+			if(typeof item === 'string'){
+				const url = item.trim();
+				return url ? {url, label: ''} : null;
+			}
+			if(item && typeof item === 'object'){
+				const url = String(item.url || item.href || item.link || '').trim();
+				if(!url) return null;
+				const label = String(item.label || item.text || item.title || '').trim();
+				return {url, label};
+			}
+			return null;
+		}).filter(Boolean);
+	}
+	function getResourceLabel(url, label, isGpx){
+		if(label && label.trim()) return label.trim();
+		if(isGpx) return 'Official GPX Download';
+		const raw = String(url || '');
+		if(/ridewithgps\.com/i.test(raw)) return 'RideWithGPS';
+		if(/facebook\.com|fb\.me/i.test(raw)) return 'Facebook Group';
+		try{
+			return new URL(raw).hostname.replace(/^www\./, '');
+		}catch{
+			return raw;
+		}
+	}
+	function getResourceIcon(kind){
+		if(kind === 'ridewithgps') return '<svg class="resources-icon stroke ridewithgps" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.8" cy="17" r="3"></circle><circle cx="17.2" cy="17" r="3"></circle><path d="M6.8 17h5.4l4.1-7.2h-5.6"></path><path d="M11.4 6.6h3.3"></path></svg>';
+		if(kind === 'download') return '<svg class="resources-icon stroke download" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10"></path><path d="M8.5 10.5 12 14l3.5-3.5"></path><path d="M5 19h14"></path></svg>';
+		if(kind === 'facebook') return '<svg class="resources-icon facebook" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"></circle><path d="M13.1 8.1h1.8V6h-2.1c-2 0-3.1 1.2-3.1 3v1.6H8v2.3h1.7V18h2.5v-5.1h2l.4-2.3h-2.4V9.3c0-.7.3-1.2.9-1.2Z" fill="#fff"></path></svg>';
+		if(kind === 'map') return '<svg class="resources-icon stroke map" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.8 9 4.6l6 2.6 5.5-2.2v12.2L15 19.4l-6-2.6-5.5 2.2Z"></path><path d="M9 4.6v12.2M15 7.2v12.2"></path></svg>';
+		return '<svg class="resources-icon stroke default" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 13.5 8.8 15.2a3.2 3.2 0 1 1-4.5-4.5L6 9"></path><path d="M13.5 10.5 15.2 8.8a3.2 3.2 0 1 1 4.5 4.5L18 15"></path><path d="m9 15 6-6"></path></svg>';
+	}
+	function getResourceKind(url, label, isGpx){
+		if(isGpx) return 'download';
+		const source = `${String(url || '')} ${String(label || '')}`.toLowerCase();
+		if(/ridewithgps/.test(source)) return 'ridewithgps';
+		if(/facebook|fb\.me/.test(source)) return 'facebook';
+		if(/guide|route\s*guide|map|trailforks|kennett/.test(source)) return 'map';
+		if(/download|gpx/.test(source) || /\.gpx(\?|$)/.test(String(url || '').toLowerCase())) return 'download';
+		return 'default';
+	}
+	function getResourceFaviconUrl(url){
+		try{
+			const hostname = new URL(String(url || '')).hostname;
+			if(!hostname) return '';
+			return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(hostname)}&sz=64`;
+		}catch{
+			return '';
+		}
+	}
+	function getRideWithGpsRouteId(route){
+		const url = getRideWithGpsUrl(route);
+		if(!url) return null;
+
+		try{
+			const parsed = new URL(url);
+			if(!/ridewithgps\.com$/i.test(parsed.hostname)) return null;
+
+			const pathMatch = parsed.pathname.match(/\/routes\/(\d+)/i);
+			if(pathMatch && pathMatch[1]) return pathMatch[1];
+
+			const queryId = parsed.searchParams.get('id') || parsed.searchParams.get('route_id');
+			if(queryId && /^\d+$/.test(queryId)) return queryId;
+		}catch{}
+
+		const fallbackMatch = String(url).match(/ridewithgps\.com\/routes\/(\d+)/i);
+		return fallbackMatch && fallbackMatch[1] ? fallbackMatch[1] : null;
+	}
+	async function fetchRoutesCatalog(){
+		try{
+			const apiCatalog = await getApiRoutesCatalog();
+			if(Array.isArray(apiCatalog) && apiCatalog.length) return apiCatalog;
+		}catch{}
+
+		const supabase = storageConfig?.supabase || {};
+		const isSupabaseMode = storageConfig?.mode === 'supabase' && supabase.url && supabase.anonKey;
+
+		if(isSupabaseMode){
+			const table = supabase.table || 'routes';
+			const endpoint = `${supabase.url.replace(/\/$/, '')}/rest/v1/${encodeURIComponent(table)}?select=*`;
+			const response = await fetch(endpoint, {
+				headers: {
+					apikey: supabase.anonKey,
+					Authorization: `Bearer ${supabase.anonKey}`,
+					Accept: 'application/json'
+				},
+				cache: 'no-store'
+			});
+
+			if(response.ok) return await response.json();
+		}
+
+		try{
+			const indexResponse = await fetch('data/routes-index.json', {cache:'no-store'});
+			if(indexResponse.ok){
+				const parsed = await indexResponse.json();
+				const entries = (() => {
+					const source = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
+					return source.map(item => {
+						if(typeof item === 'string') return {id: item, file: 'route.json'};
+						if(item && typeof item === 'object') {
+							return {
+								id: String(item.id || '').trim(),
+								file: String(item.file || 'route.json').trim() || 'route.json'
+							};
+						}
+						return null;
+					}).filter(item => item && item.id);
+				})();
+
+				if(entries.length){
+					const routeResponses = await Promise.all(entries.map(async entry => {
+						const routeRes = await fetch(`routes/${encodeURIComponent(entry.id)}/${encodeURIComponent(entry.file)}`, {cache:'no-store'});
+						if(!routeRes.ok) return null;
+						try { return await routeRes.json(); } catch { return null; }
+					}));
+					const routes = routeResponses.filter(route => route && typeof route === 'object' && !Array.isArray(route));
+					if(routes.length) return routes;
+				}
+			}
+		}catch{}
+
+		throw new Error('Failed to load routes catalog');
+	}
+	function getYouTubeId(value){
+		const raw = String(value || '').trim();
+		if(!raw) return '';
+
+		if(/^[a-zA-Z0-9_-]{11}$/.test(raw)) return raw;
+
+		try{
+			const url = new URL(raw);
+			if(url.hostname.includes('youtu.be')) {
+				const id = url.pathname.replace(/^\//, '').split('/')[0];
+				return /^[a-zA-Z0-9_-]{11}$/.test(id) ? id : '';
+			}
+
+			if(url.hostname.includes('youtube.com')) {
+				const fromQuery = url.searchParams.get('v');
+				if(fromQuery && /^[a-zA-Z0-9_-]{11}$/.test(fromQuery)) return fromQuery;
+
+				const parts = url.pathname.split('/').filter(Boolean);
+				const embedIdx = parts.findIndex(part => part === 'embed' || part === 'shorts' || part === 'live');
+				if(embedIdx >= 0 && parts[embedIdx + 1] && /^[a-zA-Z0-9_-]{11}$/.test(parts[embedIdx + 1])) {
+					return parts[embedIdx + 1];
+				}
+			}
+		}catch{}
+
+		return '';
+	}
+	function getYouTubeVideoIds(route){
+		const raw = route?.youtubeVideos;
+		const values = Array.isArray(raw)
+			? raw
+			: (typeof raw === 'string' && raw.trim() ? [raw.trim()] : []);
+		const ids = values.map(getYouTubeId).filter(Boolean);
+		return ids.slice(0, 3);
+	}
+
+	function formatSurfaceSplit(route){
+		if(typeof route?.surfaceSplit === 'string' && route.surfaceSplit.trim()) {
+			return route.surfaceSplit.trim();
+		}
+		const sealed = Number(route.sealedPct);
+		const gravel = Number(route.gravelPct);
+		const track = Number(route.singletrackPct);
+		const parts = [];
+		if(Number.isFinite(gravel) && gravel > 0) parts.push(`${gravel}% Gravel`);
+		if(Number.isFinite(sealed) && sealed > 0) parts.push(`${sealed}% Road`);
+		if(Number.isFinite(track) && track > 0) parts.push(`${track}% Track`);
+		return parts.length ? parts.join(' / ') : null;
+	}
+
+	function fmtElevation(route){
+		if(typeof route?.totalElevationLabel === 'string' && route.totalElevationLabel.trim()) {
+			return route.totalElevationLabel.trim();
+		}
+		if(typeof route?.climbingLabel === 'string' && route.climbingLabel.trim()) {
+			return route.climbingLabel.trim();
+		}
+		const gain = route.totalElevationMeters ?? route.elevationGainMeters ?? route.climbingMeters ?? route.totalClimbMeters;
+		const n = Number(gain);
+		if(!Number.isFinite(n) || n <= 0) return null;
+		return `${n.toLocaleString()} m`;
+	}
+
+	function getUnpavedPercentLabel(route){
+		if(typeof route?.unpavedLabel === 'string' && route.unpavedLabel.trim()) {
+			return route.unpavedLabel.trim();
+		}
+		const direct = Number(route?.unpavedPct);
+		if(Number.isFinite(direct) && direct > 0) return fmtPct(direct);
+
+		const gravel = Number(route?.gravelPct);
+		const track = Number(route?.singletrackPct);
+		if((Number.isFinite(gravel) && gravel > 0) || (Number.isFinite(track) && track > 0)) {
+			const total = (Number.isFinite(gravel) ? gravel : 0) + (Number.isFinite(track) ? track : 0);
+			return fmtPct(total);
+		}
+
+		if(typeof route?.surfaceSplit === 'string' && route.surfaceSplit.trim()) {
+			const text = route.surfaceSplit;
+			const gravelMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*gravel/i);
+			const trackMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*(track|singletrack)/i);
+			const gravelVal = gravelMatch ? Number(gravelMatch[1]) : 0;
+			const trackVal = trackMatch ? Number(trackMatch[1]) : 0;
+			const total = (Number.isFinite(gravelVal) ? gravelVal : 0) + (Number.isFinite(trackVal) ? trackVal : 0);
+			if(total > 0) return fmtPct(total);
+		}
+
+		return '—';
+	}
+
+	function getDaysLabel(route, estDays){
+		const parsed = parseDaysRange(route?.days);
+		if(parsed){
+			return parsed.min === parsed.max ? String(parsed.min) : `${parsed.min}-${parsed.max}`;
+		}
+		return estDays ? String(estDays) : '—';
+	}
+
+	function getMetaIcon(kind, bikeType){
+		if(kind === 'distance') return '<img src="data:image/svg+xml,%3Csvg width=%2223%22 height=%2223%22 viewBox=%220 0 23 23%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M5.37278 8.57182C6.83975 6.8339 7.93996 5.5305 7.93996 3.97013C7.93996 2.17615 6.48565 0.721832 4.69166 0.721832C2.89767 0.721832 1.44336 2.17615 1.44336 3.97013C1.44336 5.5305 2.54356 6.8339 4.01054 8.57182C4.23018 8.83202 4.45804 9.10196 4.69166 9.38397C4.92528 9.10196 5.15314 8.83202 5.37278 8.57182ZM4.69363 5.41381C5.49096 5.41381 6.13732 4.76745 6.13732 3.97012C6.13732 3.17279 5.49096 2.52643 4.69363 2.52643C3.8963 2.52643 3.24994 3.17279 3.24994 3.97012C3.24994 4.76745 3.8963 5.41381 4.69363 5.41381Z%22 fill=%22%23333333%22/%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M19.0857 19.3995C20.5526 17.6616 21.6528 16.3582 21.6528 14.7978C21.6528 13.0038 20.1985 11.5495 18.4045 11.5495C16.6106 11.5495 15.1562 13.0038 15.1562 14.7978C15.1562 16.3582 16.2565 17.6616 17.7234 19.3995C17.9431 19.6597 18.1709 19.9297 18.4045 20.2117C18.6382 19.9297 18.866 19.6597 19.0857 19.3995ZM18.4046 16.2415C19.202 16.2415 19.8483 15.5951 19.8483 14.7978C19.8483 14.0005 19.202 13.3541 18.4046 13.3541C17.6073 13.3541 16.9609 14.0005 16.9609 14.7978C16.9609 15.5951 17.6073 16.2415 18.4046 16.2415Z%22 fill=%22%23333333%22/%3E%3Cpath d=%22M4.32967 11.1885C10.3696 11.5494 13.6263 0.166472 17.6838 3.97022C19.6086 5.77469 15.6164 8.66207 12.6319 12.6322C10.2025 15.1587 6.93769 15.2692 5.05211 14.7977C0.721284 13.715 -0.724617 20.5937 3.60644 21.3155C7.9375 22.0374 9.02271 18.046 11.1882 18.7679C13.3538 19.4897 14.7975 22.3771 19.1285 21.6553%22 stroke=%22%23333333%22 stroke-width=%221.44369%22 stroke-dasharray=%221.44 1.44%22/%3E%3C/svg%3E" alt="Distance" aria-hidden="true">';
+		if(kind === 'elevation') return '<img src="data:image/svg+xml,%3Csvg width=%2222%22 height=%2222%22 viewBox=%220 0 22 22%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M6.1444 10.9214V4.09552M6.1444 4.09552L3.41406 6.82585M6.1444 4.09552L8.87473 6.82585%22 stroke=%22%23333333%22 stroke-width=%221.36517%22/%3E%3Cpath d=%22M18.7725 18.7714H5.06152L18.7725 5.06042V18.7714Z%22 stroke=%22%23333333%22 stroke-width=%221.36517%22/%3E%3C/svg%3E" alt="Elevation gain" aria-hidden="true">';
+		if(kind === 'season') return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.2v3.1M12 18.7v3.1M2.2 12h3.1M18.7 12h3.1M5.1 5.1l2.2 2.2M16.7 16.7l2.2 2.2M18.9 5.1l-2.2 2.2M7.3 16.7l-2.2 2.2"></path></svg>';
+		if(kind === 'days') return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"></circle><path d="M12 7v5l3 2"></path></svg>';
+		if(kind === 'unpaved') return '<img src="data:image/svg+xml,%3Csvg width=%2229%22 height=%2229%22 viewBox=%220 0 29 29%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M11.8307 0.916931C11.0672 1.44591 10.2926 2.04639 9.57887 2.70559C7.92493 4.23324 6.41874 6.24217 6.41874 8.53679C6.41874 10.7152 7.58643 12.1192 8.56325 13.2937L8.69266 13.4495C9.71598 14.6845 10.5448 15.7662 10.5448 17.5478C10.5448 19.6843 9.41596 21.6429 7.87321 23.2726C6.41274 24.8155 4.66546 25.9716 3.45215 26.5905H6.88024C7.66374 26.0046 8.46538 25.3146 9.20498 24.5333C10.9096 22.7325 12.3787 20.3437 12.3787 17.5478C12.3787 15.0611 11.1445 13.5343 10.1047 12.2794L10.0813 12.2511C9.02988 10.9823 8.25256 10.0442 8.25256 8.53679C8.25256 7.03728 9.26787 5.48922 10.8231 4.05271C12.2732 2.71332 14.0386 1.61426 15.3549 0.916931H11.8307ZM17.9409 0.916931C17.8746 0.966206 17.8078 1.01589 17.7407 1.06604C16.915 1.68251 16.0457 2.35786 15.3307 3.0976C14.6184 3.83447 13.9936 4.70084 13.7453 5.71842C13.4877 6.77428 13.6625 7.88051 14.3453 9.01084C14.9887 10.0761 15.8709 10.9788 16.7992 11.7855C17.4667 12.3655 18.1942 12.9254 18.8929 13.4631C19.1558 13.6654 19.4146 13.8645 19.6646 14.0604C21.5772 15.5592 23.0223 16.9176 23.4028 18.6889C23.8237 20.6485 23.6179 22.7606 23.2855 24.4227C23.1208 25.2461 22.9287 25.9417 22.7783 26.4296C22.7609 26.4861 22.744 26.5398 22.7279 26.5905H24.6437C24.785 26.0995 24.9435 25.4835 25.0837 24.7823C25.439 23.006 25.6917 20.6126 25.1957 18.3038C24.6593 15.8067 22.6657 14.0824 20.7958 12.617C20.5172 12.3987 20.2411 12.1863 19.9686 11.9766C19.2859 11.4512 18.6254 10.943 18.0021 10.4013C17.1396 9.65181 16.4174 8.8945 15.915 8.06273C15.4519 7.29601 15.3976 6.68302 15.5269 6.15306C15.6655 5.58481 16.0435 4.99874 16.6492 4.37211C17.2522 3.74833 18.016 3.14909 18.8378 2.53544C18.9991 2.41502 19.1635 2.29346 19.329 2.17102C19.8853 1.75961 20.4549 1.33832 20.9662 0.916931H17.9409Z%22 fill=%22%23333333%22/%3E%3C/svg%3E" alt="Unpaved" aria-hidden="true">';
+		if(kind === 'difficulty') return '<img src="data:image/svg+xml,%3Csvg width=%2223%22 height=%2223%22 viewBox=%220 0 23 23%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Crect x=%221.72687%22 y=%2215.7269%22 width=%224.54626%22 height=%226.54626%22 stroke=%22%23333333%22 stroke-width=%221.45374%22/%3E%3Crect x=%229.72687%22 y=%228.72687%22 width=%224.54626%22 height=%2213.5463%22 stroke=%22%23333333%22 stroke-width=%221.45374%22/%3E%3Crect x=%2217.7269%22 y=%221.72687%22 width=%224.54626%22 height=%2220.5463%22 stroke=%22%23333333%22 stroke-width=%221.45374%22/%3E%3C/svg%3E" alt="Difficulty" aria-hidden="true">';
+		if(kind === 'bike') return '<img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22 viewBox=%220 0 48 48%22 fill=%22none%22%3E%3Cpath d=%22M17.6241 29.7412C17.6241 31.3852 17.1366 32.9923 16.2232 34.3592C15.3099 35.7261 14.0117 36.7914 12.4929 37.4206C10.9741 38.0497 9.30282 38.2143 7.69044 37.8936C6.07806 37.5728 4.597 36.7812 3.43454 35.6187C2.27208 34.4563 1.48044 32.9752 1.15972 31.3628C0.838996 29.7505 1.0036 28.0792 1.63272 26.5604C2.26184 25.0415 3.32721 23.7434 4.69412 22.83C6.06102 21.9167 7.66807 21.4292 9.31204 21.4292C10.7567 21.4264 12.1764 21.8064 13.4265 22.5306%22 stroke=%22%23333333%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3C/path%3E%3Cpath d=%22M38.4048 38.0533C42.9954 38.0533 46.7168 34.3318 46.7168 29.7412C46.7168 25.1506 42.9954 21.4292 38.4048 21.4292C33.8142 21.4292 30.0928 25.1506 30.0928 29.7412C30.0928 34.3318 33.8142 38.0533 38.4048 38.0533Z%22 stroke=%22%23333333%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3C/path%3E%3Cpath d=%22M38.9239 16.2341C39.265 16.2341 39.6028 16.1669 39.918 16.0364C40.2331 15.9058 40.5195 15.7145 40.7607 15.4733C41.0019 15.2321 41.1932 14.9457 41.3237 14.6306C41.4543 14.3155 41.5214 13.9777 41.5214 13.6366C41.5214 13.2955 41.4543 12.9577 41.3237 12.6425C41.1932 12.3274 41.0019 12.0411 40.7607 11.7999C40.5195 11.5587 40.2331 11.3673 39.918 11.2368C39.6028 11.1062 39.265 11.0391 38.9239 11.0391H32.1704L38.4044 29.7411%22 stroke=%22%23333333%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3C/path%3E%3Cpath d=%22M9.3125 29.7411H21.7805L32.1706 15.1951H17.6245L9.3125 29.7411Z%22 stroke=%22%23333333%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3C/path%3E%3Cpath d=%22M13.4688 10H19.7028%22 stroke=%22%23333333%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3C/path%3E%3Cpath d=%22M21.7804 29.7411L15.5464 10%22 stroke=%22%23333333%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3C/path%3E%3C/svg%3E" alt="Bike type" aria-hidden="true">';
+		return '';
+	}
+
+	function getBikeIcon(bikeType){
+		const t = String(bikeType || '').toLowerCase();
+		const a = `fill="none" stroke="var(--green2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"`;
+		const frame = `<circle cx="7" cy="18" r="5"/><circle cx="31" cy="18" r="5"/><polyline points="7,18 14,7 20,18"/><line x1="14" y1="7" x2="7" y2="18"/><line x1="20" y1="18" x2="31" y2="18"/><line x1="14" y1="7" x2="20" y2="18"/>`;
+		const saddle = `<line x1="12" y1="7" x2="16" y2="7"/>`;
+		if(t.includes('hardtail') || t.includes('mtb') || t.includes('mountain')){
+			// flat bars + double fork lines (suspension)
+			return `<svg width="38" height="26" viewBox="0 0 38 26" ${a}>${frame}${saddle}<line x1="25" y1="6" x2="33" y2="6"/><line x1="29" y1="5" x2="29" y2="9"/><line x1="27" y1="7" x2="30" y2="18"/><line x1="30" y1="7" x2="33" y2="18"/></svg>`;
+		}
+		if(t.includes('touring')){
+			// upright T-bars
+			return `<svg width="38" height="26" viewBox="0 0 38 26" ${a}>${frame}${saddle}<line x1="27" y1="4" x2="27" y2="9"/><line x1="25" y1="4" x2="29" y2="4"/><line x1="27" y1="8" x2="31" y2="18"/></svg>`;
+		}
+		// Gravel — drop bars
+		return `<svg width="38" height="26" viewBox="0 0 38 26" ${a}>${frame}${saddle}<path d="M26 7 Q28 5 30 7 Q29 9 27 8"/><line x1="28" y1="7" x2="31" y2="18"/></svg>`;
+	}
+
+	function normalizeDifficultyTier(value){
+		const plain = String(value || '').trim().toLowerCase();
+		if(plain === 'easy' || plain === 'intermediate' || plain === 'hard') return plain;
+
+		const fractionMatch = plain.match(/(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);
+		if(fractionMatch){
+			const top = Number(fractionMatch[1]);
+			const bottom = Number(fractionMatch[2]);
+			if(Number.isFinite(top) && Number.isFinite(bottom) && bottom > 0){
+				const normalized = (top / bottom) * 5;
+				if(normalized <= 2) return 'easy';
+				if(normalized >= 4) return 'hard';
+				return 'intermediate';
+			}
+		}
+
+		const numericMatch = plain.match(/\d+(?:\.\d+)?/);
+		if(numericMatch){
+			const score = Number(numericMatch[0]);
+			if(Number.isFinite(score)){
+				if(score <= 2) return 'easy';
+				if(score >= 4) return 'hard';
+				return 'intermediate';
+			}
+		}
+
+		return 'intermediate';
+	}
+
+	function titleCaseDifficulty(tier){
+		return tier.charAt(0).toUpperCase() + tier.slice(1);
+	}
+
+	function getCompactDifficultyLabel(tier){
+		return tier === 'intermediate' ? 'Medium' : titleCaseDifficulty(tier);
+	}
+
+	function getRouteDifficultyProfile(route){
+		const level = normalizeDifficultyTier(route?.difficultyLevel || route?.difficulty);
+		const generic = {
+			easy: 'This route stays close to regular services and has straightforward terrain. It is a good choice for riders wanting a lower-risk multi-day trip.',
+			intermediate: 'This route mixes manageable terrain with enough climbing and distance to require planning. Riders with some bikepacking experience should find it achievable.',
+			hard: 'This route includes bigger elevation, remoteness, or technical surfaces that increase commitment. Plan refuelling and weather windows carefully before starting.'
+		};
+		const customDifficultyText = Array.isArray(route?.text2)
+			? route.text2
+				.map(text => String(text || '').trim())
+				.filter(Boolean)
+				.join(' ')
+			: ((typeof route?.text2 === 'string' && route.text2.trim())
+				? route.text2.trim()
+				: ((typeof route?.difficultyExplanation === 'string' && route.difficultyExplanation.trim())
+					? route.difficultyExplanation.trim()
+					: ''));
+		return {
+			level,
+			explanation: customDifficultyText || generic[level]
+		};
+	}
+
+	function getRecommendedBuilderPreset(route, difficultyProfile){
+		if(route && typeof route.builderPreset === 'object' && route.builderPreset){
+			const preset = route.builderPreset;
+			return {
+				bike: String(preset.bike || 'Gravel Bike'),
+				size: String(preset.size || 'M').toUpperCase(),
+				weeks: Math.max(1, Math.min(10, Number.isFinite(Number(preset.weeks)) ? Math.round(Number(preset.weeks)) : 1)),
+				options: Array.isArray(preset.options) ? preset.options.map(String) : []
+			};
+		}
+
+		const days = estimateDays(route) || 3;
+		const difficultyTier = difficultyProfile?.level || normalizeDifficultyTier(route?.difficulty);
+		const singletrackPct = Number(route?.singletrackPct);
+		const hardRoute = difficultyTier === 'hard' || (Number.isFinite(singletrackPct) && singletrackPct >= 20);
+
+		let bike = String(route?.recommendedBike || '').trim();
+		if(!bike){
+			bike = 'Gravel Bike';
+			if(hardRoute){
+				bike = 'Hardtail MTB';
+			}else if(days >= 7){
+				bike = 'Touring Bike';
+			}
+		}
+
+		const options = [
+			'Frame Bag (Large)',
+			'Saddle Bag (13L)',
+			'Sleeping Quilt (3-Season)'
+		];
+		if(days >= 3) options.push('Bar Roll + Harness');
+		if(days >= 5) options.push('Fork Cages (×2)');
+		if(days >= 2) options.push('Top Tube Bag');
+		if(hardRoute) options.push('Stem Bag');
+
+		return {
+			bike,
+			size: 'M',
+			weeks: Math.max(1, Math.min(10, Math.ceil(days / 7))),
+			options
+		};
+	}
+
+	function getRecommendedBuilderHref(route, preset){
+		const query = new URLSearchParams();
+		query.set('bike', preset.bike);
+		query.set('size', preset.size);
+		query.set('weeks', String(preset.weeks));
+		query.set('options', preset.options.join('|'));
+		query.set('routeName', route?.name || 'This route');
+		return `builder.html?${query.toString()}`;
+	}
+
+	function getManualSimilarRoutes(route, routes){
+		if(!Array.isArray(route?.similarRoutes) || !Array.isArray(routes)) return [];
+
+		const seen = new Set();
+		return route.similarRoutes
+			.map(entry => {
+				if(typeof entry === 'string') return entry;
+				if(entry && typeof entry === 'object') return entry.id;
+				return '';
+			})
+			.map(id => String(id || '').trim())
+			.filter(id => {
+				if(!id || id === route.id || seen.has(id)) return false;
+				seen.add(id);
+				return true;
+			})
+			.map(id => routes.find(candidate => candidate.id === id))
+			.filter(candidate => candidate && candidate.name);
+	}
+
+	function getYouMightAlsoLikeRoutes(route, routes, limit = 3){
+		if(!route || !Array.isArray(routes) || !routes.length || limit <= 0) return [];
+
+		const picks = [];
+		const seen = new Set([route.id]);
+		const currentTier = normalizeDifficultyTier(route?.difficultyLevel || route?.difficulty);
+
+		function tryAdd(candidate){
+			if(!candidate || !candidate.id || seen.has(candidate.id)) return;
+			seen.add(candidate.id);
+			picks.push(candidate);
+		}
+
+		getManualSimilarRoutes(route, routes).forEach(tryAdd);
+
+		const sameIsland = routes
+			.filter(candidate => candidate && candidate.id !== route.id && candidate.island === route.island)
+			.sort((a, b) => {
+				const aTier = normalizeDifficultyTier(a?.difficultyLevel || a?.difficulty);
+				const bTier = normalizeDifficultyTier(b?.difficultyLevel || b?.difficulty);
+				const aPenalty = aTier === currentTier ? 0 : 1;
+				const bPenalty = bTier === currentTier ? 0 : 1;
+				if(aPenalty !== bPenalty) return aPenalty - bPenalty;
+				return String(a.name || a.id).localeCompare(String(b.name || b.id), undefined, {sensitivity:'base'});
+			});
+
+		sameIsland.forEach(tryAdd);
+
+		if(picks.length < limit){
+			const others = routes
+				.filter(candidate => candidate && candidate.id !== route.id)
+				.sort((a, b) => String(a.name || a.id).localeCompare(String(b.name || b.id), undefined, {sensitivity:'base'}));
+			others.forEach(tryAdd);
+		}
+
+		return picks.slice(0, limit);
+	}
+
+	function renderYouMightAlsoLike(currentRoute, routes){
+		const section = document.getElementById('you-might-section');
+		const grid = document.getElementById('you-might-grid');
+		if(!section || !grid) return;
+
+		const suggested = getYouMightAlsoLikeRoutes(currentRoute, routes, 3);
+		if(!suggested.length){
+			section.style.display = 'none';
+			grid.innerHTML = '';
+			return;
+		}
+
+		section.style.display = '';
+		grid.innerHTML = suggested.map(route => {
+			const routeTier = normalizeDifficultyTier(route?.difficultyLevel || route?.difficulty);
+			const badgeClass = `badge-${routeTier}`;
+			const badgeLabel = titleCaseDifficulty(routeTier);
+			const image = getRoutePhotos(route)[0] || 'images/IMG20230407123248.jpg';
+			const distance = route.distanceLabel || (Number.isFinite(route.distanceMeters) ? fmtKm(route.distanceMeters) : '—');
+			const elevation = fmtElevation(route) || '—';
+			const region = route.island === 'north' ? 'North Island' : route.island === 'south' ? 'South Island' : 'Aotearoa';
+
+			return `
+				<article class="route-card">
+					<a class="route-img" href="route.html?id=${encodeURIComponent(route.id)}" aria-label="View route ${escapeHtml(route.name || 'Route')}">
+						<img src="${escapeHtml(image)}" alt="${escapeHtml(route.name || 'Route')}">
+						<span class="route-badge ${badgeClass}">${escapeHtml(badgeLabel)}</span>
+					</a>
+					<div class="route-body">
+						<h3>${escapeHtml(route.name || 'Route')}</h3>
+						<div class="region">${escapeHtml(region)}</div>
+						<p>${escapeHtml(route.description || 'Route details and planning notes available on the route page.')}</p>
+						<div class="route-meta">
+							<div><b>${escapeHtml(distance)}</b>Distance</div>
+							<div><b>${escapeHtml(elevation)}</b>Elevation</div>
+						</div>
+						<div class="route-actions">
+							<a class="btn-sm primary" href="route.html?id=${encodeURIComponent(route.id)}">VIEW ROUTE</a>
+						</div>
+					</div>
+				</article>
+			`;
+		}).join('');
+	}
+
+	function getRecommendedSetupText(route, preset){
+		if(typeof route?.text4 === 'string' && route.text4.trim()) {
+			return route.text4.trim();
+		}
+		if(typeof route?.recommendedSetupText === 'string' && route.recommendedSetupText.trim()) {
+			return route.recommendedSetupText.trim();
+		}
+		return '';
+	}
+
+	function escapeHtml(value){
+		return String(value || '').replace(/[&<>\"']/g, ch => ({
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'\"': '&quot;',
+			"'": '&#39;'
+		}[ch]));
+	}
+
+	function renderRouteSummary(route, difficultyProfile){
+		const summaryContainer = document.getElementById('route-summary');
+		if(!summaryContainer) return;
+
+		if(Array.isArray(route?.text1) && route.text1.length){
+			summaryContainer.innerHTML = route.text1
+				.map(text => String(text || '').trim())
+				.filter(Boolean)
+				.map(text => `<p>${escapeHtml(text)}</p>`)
+				.join('');
+			return;
+		}
+		if(typeof route?.text1 === 'string' && route.text1.trim()){
+			summaryContainer.innerHTML = `<p>${escapeHtml(route.text1.trim())}</p>`;
+			return;
+		}
+
+		if(Array.isArray(route?.routeSummary) && route.routeSummary.length){
+			summaryContainer.innerHTML = route.routeSummary
+				.map(text => String(text || '').trim())
+				.filter(Boolean)
+				.map(text => `<p>${escapeHtml(text)}</p>`)
+				.join('');
+			return;
+		}
+		if(typeof route?.routeSummary === 'string' && route.routeSummary.trim()){
+			summaryContainer.innerHTML = `<p>${escapeHtml(route.routeSummary.trim())}</p>`;
+			return;
+		}
+
+		const days = estimateDays(route);
+		const distance = route.distanceLabel || (Number.isFinite(route.distanceMeters) ? fmtKm(route.distanceMeters) : null);
+		const surface = formatSurfaceSplit(route) || 'mixed surfaces across road, gravel, and track';
+		const season = route.bestSeason || 'the more stable spring to autumn months';
+		const difficulty = titleCaseDifficulty(difficultyProfile?.level || normalizeDifficultyTier(route?.difficulty));
+		const resupply = route.resupply || 'variable refuelling gaps where carrying extra water and food is wise';
+		const accommodation = route.accommodation || 'a mix of camping, huts, and local stays depending on your pace';
+		const caution = route.beAwareOf || 'weather swings and changing trail conditions in exposed sections';
+		const crux = route.trickiestSection || 'The most committing section usually comes late in the day, so leave margin for weather, navigation, and conservative pacing.';
+
+		const paragraph1 = `${route.name} is a ${difficulty.toLowerCase()} bikepacking route${distance ? ` covering about ${distance}` : ''}${days ? `, commonly ridden over ${days} day${days === 1 ? '' : 's'}` : ''}. ${route.description || 'It combines scenic riding with enough variety to stay engaging from start to finish.'} Riders can expect ${surface} as the route unfolds.`;
+		const paragraph2 = `Good planning makes this route far more enjoyable. The best riding window is generally ${season}, with resupply described as ${resupply}. Overnight options are typically ${accommodation}, so most riders can choose between lighter days with more stops or longer pushes between services.`;
+		const paragraph3 = `The key section to manage is: ${crux} Keep a close eye on ${caution}, especially if conditions change during the day. A steady pace, a conservative weather call, and extra water or food buffer are usually the difference between a stressful day and a great one.`;
+
+		summaryContainer.innerHTML = [paragraph1, paragraph2, paragraph3]
+			.map(text => `<p>${escapeHtml(text)}</p>`)
+			.join('');
+	}
+
+	function stableIndexFromRoute(route, mod){
+		const source = String(route?.id || route?.name || 'route');
+		let hash = 0;
+		for(let i = 0; i < source.length; i++) hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
+		return mod > 0 ? hash % mod : 0;
+	}
+
+	function initRouteGallery(container, photos, routeName){
+		if(!container) return;
+
+		const items = Array.isArray(photos) ? photos.filter(Boolean) : [];
+		if(!items.length){
+			container.innerHTML = '';
+			container.style.display = 'none';
+			return;
+		}
+
+		container.style.display = '';
+		const safeName = escapeHtml(routeName || 'Route photo');
+		const slidesHtml = items.map((src, idx) => `
+			<div class="gallery-slide${idx === 0 ? ' active' : ''}" data-slide-index="${idx}">
+				<img src="${src}" alt="${safeName} photo ${idx + 1}" loading="lazy">
+			</div>
+		`).join('');
+		const dotsHtml = items.map((_, idx) => `
+			<button
+				type="button"
+				class="gallery-dot${idx === 0 ? ' active' : ''}"
+				data-dot-index="${idx}"
+				aria-label="Show photo ${idx + 1}">
+			</button>
+		`).join('');
+
+		container.innerHTML = `
+			<div class="gallery-carousel" aria-label="Route photo gallery">
+				<div class="gallery-track">
+					${slidesHtml}
+				</div>
+				<button type="button" class="gallery-nav prev" aria-label="Previous photo">&#10094;</button>
+				<button type="button" class="gallery-nav next" aria-label="Next photo">&#10095;</button>
+				<div class="gallery-dots">${dotsHtml}</div>
+			</div>
+		`;
+
+		const slideEls = Array.from(container.querySelectorAll('.gallery-slide'));
+		const dotEls = Array.from(container.querySelectorAll('.gallery-dot'));
+		const prevBtn = container.querySelector('.gallery-nav.prev');
+		const nextBtn = container.querySelector('.gallery-nav.next');
+
+		if(items.length <= 1){
+			if(prevBtn) prevBtn.style.display = 'none';
+			if(nextBtn) nextBtn.style.display = 'none';
+			const dotsWrap = container.querySelector('.gallery-dots');
+			if(dotsWrap) dotsWrap.style.display = 'none';
+			return;
+		}
+
+		let activeIndex = 0;
+		let timer = null;
+
+		function renderActive(index){
+			activeIndex = (index + items.length) % items.length;
+			slideEls.forEach((el, idx) => el.classList.toggle('active', idx === activeIndex));
+			dotEls.forEach((el, idx) => el.classList.toggle('active', idx === activeIndex));
+		}
+
+		function next(){ renderActive(activeIndex + 1); }
+		function prev(){ renderActive(activeIndex - 1); }
+
+		function stopAuto(){
+			if(timer){
+				clearInterval(timer);
+				timer = null;
+			}
+		}
+
+		function startAuto(){
+			stopAuto();
+			timer = setInterval(next, 5000);
+		}
+
+		if(prevBtn){
+			prevBtn.addEventListener('click', () => {
+				prev();
+				startAuto();
+			});
+		}
+		if(nextBtn){
+			nextBtn.addEventListener('click', () => {
+				next();
+				startAuto();
+			});
+		}
+		dotEls.forEach((dot, idx) => {
+			dot.addEventListener('click', () => {
+				renderActive(idx);
+				startAuto();
+			});
+		});
+
+		const carousel = container.querySelector('.gallery-carousel');
+		if(carousel){
+			carousel.addEventListener('mouseenter', stopAuto);
+			carousel.addEventListener('mouseleave', startAuto);
+		}
+
+		startAuto();
+	}
+
+	function afterWindowLoad(){
+		if(document.readyState === 'complete') return Promise.resolve();
+		return new Promise(resolve => {
+			window.addEventListener('load', resolve, {once:true});
+		});
+	}
+
+	function afterNextPaint(){
+		return new Promise(resolve => {
+			requestAnimationFrame(() => requestAnimationFrame(resolve));
+		});
+	}
+
+	function renderRideWithGpsEmbed(route, eagerLoad = false){
+		const rwgpsSection = document.getElementById('rwgps-section');
+		const rwgpsWrap = document.getElementById('rwgps-wrap');
+		if(!rwgpsSection || !rwgpsWrap) return;
+
+		const rideWithGpsRouteId = getRideWithGpsRouteId(route);
+		if(rideWithGpsRouteId){
+			const embedUrl = `https://ridewithgps.com/embeds?type=route&sampleGraph=true&overlay=esriTopo&hideFullLink=1&metricUnits=true&id=${encodeURIComponent(rideWithGpsRouteId)}`;
+			rwgpsSection.style.display = '';
+			rwgpsWrap.innerHTML = `
+				<iframe
+					class="rwgps-embed"
+					src="${embedUrl}"
+					title="${route.name} route map and elevation"
+					loading="${eagerLoad ? 'eager' : 'lazy'}"
+					scrolling="no"
+					referrerpolicy="strict-origin-when-cross-origin">
+				</iframe>
+			`;
+		}else{
+			rwgpsSection.style.display = 'none';
+			rwgpsWrap.innerHTML = '';
+		}
+	}
+
+	async function renderGalleryLast(route){
+		const gallery = document.getElementById('photo-gallery');
+		if(!gallery) return;
+
+		gallery.style.display = 'none';
+
+		try{
+			// Let primary route content paint first, then warm map/elevation before gallery.
+			await afterWindowLoad();
+			await afterNextPaint();
+			renderRideWithGpsEmbed(route, true);
+			await afterNextPaint();
+
+			// Gallery remains the final load item.
+			const galleryPhotos = (await getRouteGalleryPhotos(route)).slice(0, 20);
+			initRouteGallery(gallery, galleryPhotos, route.name);
+		}catch{
+			gallery.innerHTML = '';
+			gallery.style.display = 'none';
+		}
+	}
+
+	async function loadRoute(){
+		if(!routeId){
+			setText('route-name', 'Route Not Found');
+			setText('route-desc', 'No route ID was supplied. Go back to the routes page and choose a route.');
+			return;
+		}
+
+		let routes = [];
+		try{
+			routes = await fetchRoutesCatalog();
+		}catch(err){
+			setText('route-name', 'Route Load Error');
+			setText('route-desc', 'Could not load route data.');
+			return;
+		}
+
+		const route = routes.find(r => r.id === routeId);
+		if(!route){
+			setText('route-name', 'Route Not Found');
+			setText('route-desc', 'This route does not exist in the route data.');
+			return;
+		}
+
+		document.title = `${route.name} · NZ Bikepacking Routes`;
+		setText('route-name', route.name);
+		setText('route-desc', route.description);
+		const localNotesText = route.text3 || route.tips || 'Check weather windows, confirm resupply timing, and carry backup navigation.';
+		setText('tips-text', localNotesText);
+		setText('mobile-tips-text', localNotesText);
+		// setText('resupply-text', route.resupply);
+		// setText('accommodation-text', route.accommodation);
+		renderRouteProfile(route);
+
+		const hero = document.getElementById('hero');
+		const highlightPhotos = getRoutePhotos(route);
+		hero.style.backgroundImage = `url('${highlightPhotos[0]}')`;
+		const difficultyProfile = getRouteDifficultyProfile(route);
+		const difficultyExplanation = document.getElementById('difficulty-explanation');
+		difficultyExplanation.textContent = difficultyProfile.explanation;
+		renderRouteSummary(route, difficultyProfile);
+
+		const meta = document.getElementById('meta-grid');
+		const estDays = estimateDays(route);
+		const surfaceLabel = formatSurfaceSplit(route);
+		const bikeForMeta = getRecommendedBuilderPreset(route, difficultyProfile).bike;
+		const elevationLabel = fmtElevation(route);
+		const recommendedBike = route.recommendedBike || bikeForMeta || '—';
+		const bestSeason = route.bestSeason || '—';
+		const stats = [
+			{ value: route.distanceLabel || (Number.isFinite(route.distanceMeters) ? fmtKm(route.distanceMeters) : '—'), label: 'Distance', iconKey: 'distance' },
+			{ value: elevationLabel || '—', label: 'Elev. Gain', iconKey: 'elevation' },
+			{ value: getDaysLabel(route, estDays), label: 'Days', iconKey: 'days' },
+			{ value: getUnpavedPercentLabel(route), label: 'Unpaved', iconKey: 'unpaved' },
+			{ value: getCompactDifficultyLabel(difficultyProfile.level), label: 'Difficulty', iconKey: 'difficulty' },
+			{ value: bestSeason, label: 'Best Season', iconKey: 'season' }
+		];
+		meta.innerHTML = stats.map(item => {
+			const valueClass = item.iconKey === 'bike' ? 'bike' : (item.iconKey === 'days' || item.iconKey === 'difficulty' ? 'compact' : '');
+			const iconHtml = `<span class="meta-icon">${getMetaIcon(item.iconKey, recommendedBike)}</span>`;
+			return `<div class="box">${iconHtml}<b class="${valueClass}">${escapeHtml(item.value || '—')}</b><span>${item.label}</span></div>`;
+		}).join('');
+
+		const videosSection = document.getElementById('videos-section');
+		const videoGallery = document.getElementById('video-gallery');
+		const videoIds = getYouTubeVideoIds(route);
+		if(videoIds.length){
+			videosSection.style.display = '';
+			videoGallery.innerHTML = videoIds.map(id => `
+				<div class="video-embed">
+					<iframe
+						src="https://www.youtube.com/embed/${id}"
+						title="${route.name} video"
+						loading="lazy"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen>
+					</iframe>
+				</div>
+			`).join('');
+		}else{
+			videosSection.style.display = 'none';
+			videoGallery.innerHTML = '';
+		}
+
+		const rideWithGpsUrl = getRideWithGpsUrl(route);
+
+		const linksList = document.getElementById('links-list');
+		const resources = getMoreInfoLinks(route).map(entry => ({
+			url: entry.url,
+			label: entry.label,
+			isGpx: false
+		}));
+		const seenResourceUrls = new Set();
+		const uniqueResources = resources.filter(item => {
+			const key = String(item.url || '').trim().toLowerCase();
+			if(!key || seenResourceUrls.has(key)) return false;
+			seenResourceUrls.add(key);
+			return true;
+		});
+		linksList.innerHTML = uniqueResources.length
+			? uniqueResources.map(entry => {
+				const url = String(entry.url || '').trim();
+				const label = getResourceLabel(url, entry.label, entry.isGpx);
+				const kind = getResourceKind(url, label, entry.isGpx);
+				const leftIconFallback = getResourceIcon(kind);
+				const faviconUrl = getResourceFaviconUrl(url);
+				const leftIcon = faviconUrl
+					? `<span class="resources-icon-wrap"><img class="resources-favicon" src="${escapeHtml(faviconUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><span class="resources-icon-fallback">${leftIconFallback}</span></span>`
+					: leftIconFallback;
+				const extIcon = '<svg class="resources-ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 14 19 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 13v6h-14v-14h6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+				const targetAttrs = entry.isGpx
+					? 'download'
+					: 'target="_blank" rel="noreferrer noopener"';
+				return `<li class="resources-item"><a class="resources-link" href="${url}" ${targetAttrs}>${leftIcon}<span class="resources-label">${escapeHtml(label)}</span>${extIcon}</a></li>`;
+			}).join('')
+			: '<li class="resources-empty">No extra resources listed.</li>';
+
+		renderYouMightAlsoLike(route, routes);
+
+		const recommendedPreset = getRecommendedBuilderPreset(route, difficultyProfile);
+		const routeOptionVariants = [
+			['Frame Bag (Large)', 'Saddle Bag (13L)', 'Top Tube Bag', 'Sleeping Quilt (3-Season)'],
+			['Frame Bag (Large)', 'Bar Roll + Harness', 'Fork Cages (×2)', 'Ultralight Tent (1P)'],
+			['Saddle Bag (13L)', 'Top Tube Bag', 'Stem Bag', 'Bivy Shelter'],
+			['Frame Bag (Large)', 'Saddle Bag (13L)', 'Bar Roll + Harness', 'Sleeping Quilt (3-Season)']
+		];
+		const variant = routeOptionVariants[stableIndexFromRoute(route, routeOptionVariants.length)];
+		recommendedPreset.options = Array.from(new Set([...(recommendedPreset.options || []), ...variant]));
+		const recommendedSetupSection = document.querySelector('.recommended-setup-section');
+		const recommendedSetupText = document.getElementById('recommended-setup-text');
+		const recommendedSetupBtn = document.getElementById('recommended-setup-btn');
+		const setupText = getRecommendedSetupText(route, recommendedPreset);
+		if(recommendedSetupText) recommendedSetupText.textContent = setupText;
+		if(recommendedSetupSection) recommendedSetupSection.style.display = setupText ? '' : 'none';
+		if(recommendedSetupBtn) recommendedSetupBtn.href = getRecommendedBuilderHref(route, recommendedPreset);
+
+		const gpxHref = route.file ? encodeURI(route.file) : '#';
+		
+		// Populate action card (Download GPX and Ride with GPS)
+		const actionCard = document.getElementById('action-card');
+		const actionCardHTML = [];
+		if(rideWithGpsUrl) {
+			actionCardHTML.push(`<a class="action-btn" href="${encodeURI(rideWithGpsUrl)}" target="_blank" rel="noreferrer noopener"><svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 14 19 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 13v6h-14v-14h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="action-label">View on Ride with GPS</span></a>`);
+		}
+		if(route.file) {
+			actionCardHTML.push(`<a class="action-btn" href="${gpxHref}" download><svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.5 10.5 12 14l3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 19h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="action-label">Download GPX</span></a>`);
+		}
+		
+		if(actionCardHTML.length) {
+			actionCard.innerHTML = actionCardHTML.join('');
+		} else {
+			actionCard.style.display = 'none';
+		}
+		
+		// Populate action row (Back to Routes and Build a Rental Kit)
+		const actionRow = document.getElementById('action-row');
+		actionRow.innerHTML = `
+			<a class="btn" href="routes.html">Back to Routes</a>
+		
+		`;
+
+		void renderGalleryLast(route);
+	}
+
+	loadRoute();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿{
+    "id":  "mountains-to-sea",
+    "file":  "routes/mountains-to-sea/Mountains_to_Sea.gpx",
+    "name":  "Mountains to Sea (Nga Ara Tuhono)",
+    "days":  5,
+    "distanceLabel":  "215 km",
+    "totalElevationMeters":  8058,
+    "surfaceSplit":  "55% Gravel / 25% Road / 20% Track",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "recommendedBike":  "Gravel Bike",
+    "description":  "A classic multi-day journey from Mt Ruapehu toward the coast with varied terrain and big scenery.",
+    "bestSeason":  "Oct-Apr",
+    "moreInfo":  [
+                     "https://ridewithgps.com/routes/37633588",
+                     "https://www.visitruapehu.com/see-do/cycling-mountain-biking/mountains-to-sea-nga-ara-tuhono"
+                 ],
+    "photos":  [
+                   "routes/mountains-to-sea/Placeholder1.jpg",
+                   "routes/mountains-to-sea/Placeholder2.jpg",
+                   "routes/mountains-to-sea/Placeholder3.jpg",
+                   "routes/mountains-to-sea/Placeholder4.jpg",
+                   "routes/mountains-to-sea/Placeholder5.jpg",
+                   "routes/mountains-to-sea/Placeholder6.jpeg",
+                   "routes/mountains-to-sea/Placeholder7.jpg",
+                   "routes/mountains-to-sea/Placeholder8.jpeg"
+               ],
+    "youtubeVideos":  "https://www.youtube.com/watch?v=eyFQYvNPegQ",
+    "tags":  [
+                 "north island",
+                 "short",
+                 "intermediate difficulty"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "This route combines varied trail quality and moderate climbing over several days. Conditions are usually manageable, but planning for weather and support points still matters.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The middle section has changing surfaces and weather exposure, so pace the day conservatively and keep a margin before the final remote pushes.",
+    "routeSummary":  [
+                         "Mountains to Sea (Nga Ara Tuhono) is a intermediate bikepacking route covering about 215 km, commonly ridden over 5 days. A classic multi-day journey from Mt Ruapehu toward the coast with varied terrain and big scenery. Riders can expect 55% Gravel / 25% Road / 20% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Oct-Apr, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The middle section has changing surfaces and weather exposure, so pace the day conservatively and keep a margin before the final remote pushes. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 5-day route, we recommend a Gravel Bike to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

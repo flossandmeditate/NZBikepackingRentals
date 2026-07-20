@@ -1,0 +1,39 @@
+﻿{
+    "id":  "tour-aotearoa-south-island",
+    "file":  "routes/tour-aotearoa-south-island/Tour Aotearoa - South Island.gpx",
+    "name":  "Tour Aotearoa - South Island",
+    "days":  12,
+    "distanceLabel":  "1,446 km",
+    "totalElevationMeters":  12518,
+    "surfaceSplit":  "45% Gravel / 15% Road / 40% Track",
+    "recommendedBike":  "Hardtail MTB",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "description":  "The South Island section of Tour Aotearoa with larger terrain and remoter sections.",
+    "bestSeason":  "Nov-Mar",
+    "moreInfo":  "https://ridewithgps.com/routes/47691627",
+    "photos":  [
+                   "routes/tour-aotearoa-south-island/t1.jpg",
+                   "routes/tour-aotearoa-south-island/t2.jpg"
+               ],
+    "youtubeVideos":  [
+                          "https://youtu.be/5RBi9SPFjOU?si=KHR4YsiBUC-2qV1W",
+                          "https://www.youtube.com/watch?v=4fvo7-EVUwM"
+                      ],
+    "tags":  [
+                 "long",
+                 "south island",
+                 "intermediate difficulty"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "South Island TA adds bigger weather exposure, longer remote connectors, and tougher climbing blocks. Riders need stronger self-sufficiency than on flatter, town-linked routes.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The Lewis Pass to Murchison section is the biggest climbing day, often compounded by westerly headwinds. Resupply gaps stretch up to 80 km in places.",
+    "routeSummary":  [
+                         "Tour Aotearoa - South Island is a hard bikepacking route covering about 1,446 km, commonly ridden over 12 days. The South Island section of Tour Aotearoa with larger terrain and remoter sections. Riders can expect 45% Gravel / 15% Road / 40% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Nov-Mar, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The Lewis Pass to Murchison section is the biggest climbing day, often compounded by westerly headwinds. Resupply gaps stretch up to 80 km in places. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 12-day route, we recommend a Hardtail MTB to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

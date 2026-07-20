@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Raglan500</name>
+    <trkseg>
+      <trkpt lat="-37.799950" lon="174.867930">
+        <ele>11.5</ele>
+      </trkpt>
+      <trkpt lat="-37.787516" lon="174.972358">
+        <ele>22.0</ele>
+      </trkpt>
+      <trkpt lat="-37.757145" lon="174.871169">
+        <ele>127.7</ele>
+      </trkpt>
+      <trkpt lat="-37.627609" lon="174.813695">
+        <ele>111.0</ele>
+      </trkpt>
+      <trkpt lat="-37.491893" lon="174.790064">
+        <ele>19.1</ele>
+      </trkpt>
+      <trkpt lat="-37.379706" lon="174.747010">
+        <ele>15.6</ele>
+      </trkpt>
+      <trkpt lat="-37.341732" lon="174.888680">
+        <ele>156.7</ele>
+      </trkpt>
+      <trkpt lat="-37.419029" lon="174.835549">
+        <ele>201.2</ele>
+      </trkpt>
+      <trkpt lat="-37.519321" lon="174.873951">
+        <ele>171.5</ele>
+      </trkpt>
+      <trkpt lat="-37.619295" lon="174.951971">
+        <ele>157.2</ele>
+      </trkpt>
+      <trkpt lat="-37.674095" lon="175.088150">
+        <ele>102.5</ele>
+      </trkpt>
+      <trkpt lat="-37.735485" lon="175.136792">
+        <ele>28.5</ele>
+      </trkpt>
+      <trkpt lat="-37.845803" lon="175.090769">
+        <ele>185.1</ele>
+      </trkpt>
+      <trkpt lat="-37.916455" lon="175.081343">
+        <ele>95.6</ele>
+      </trkpt>
+      <trkpt lat="-37.994972" lon="175.212402">
+        <ele>37.8</ele>
+      </trkpt>
+      <trkpt lat="-38.051328" lon="175.251073">
+        <ele>57.5</ele>
+      </trkpt>
+      <trkpt lat="-38.184824" lon="175.197048">
+        <ele>39.7</ele>
+      </trkpt>
+      <trkpt lat="-38.255889" lon="175.049118">
+        <ele>267.9</ele>
+      </trkpt>
+      <trkpt lat="-38.206711" lon="174.926493">
+        <ele>254.0</ele>
+      </trkpt>
+      <trkpt lat="-38.140930" lon="175.025627">
+        <ele>368.7</ele>
+      </trkpt>
+      <trkpt lat="-38.016469" lon="175.055036">
+        <ele>534.6</ele>
+      </trkpt>
+      <trkpt lat="-38.052003" lon="174.911707">
+        <ele>9.8</ele>
+      </trkpt>
+      <trkpt lat="-37.972213" lon="174.904636">
+        <ele>21.8</ele>
+      </trkpt>
+      <trkpt lat="-37.906168" lon="174.851001">
+        <ele>78.0</ele>
+      </trkpt>
+      <trkpt lat="-37.863023" lon="174.763699">
+        <ele>144.1</ele>
+      </trkpt>
+      <trkpt lat="-37.799950" lon="174.867930">
+        <ele>11.5</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

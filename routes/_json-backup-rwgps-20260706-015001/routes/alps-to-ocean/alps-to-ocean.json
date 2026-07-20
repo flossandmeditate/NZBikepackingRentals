@@ -1,0 +1,44 @@
+﻿{
+    "id":  "alps-to-ocean",
+    "file":  "routes/alps-to-ocean/Alps to Ocean.gpx",
+    "name":  "Alps to Ocean",
+    "days":  "4-8",
+    "distanceLabel":  "300 km",
+    "totalElevationMeters":  2200,
+    "surfaceSplit":  "75% Gravel / 25% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "easy",
+    "difficulty":  "2/5",
+    "description":  "A scenic South Island journey with mostly approachable terrain.",
+    "bestSeason":  "Oct-Apr",
+    "moreInfo":  "https://ridewithgps.com/routes/45134560",
+    "photos":  [
+                   "routes/alps-to-ocean/a2o1.jpeg",
+                   "routes/alps-to-ocean/a2o0.jpg",
+                   "routes/alps-to-ocean/a2o2.jpeg",
+                   "routes/alps-to-ocean/a2o3.jpeg",
+                   "routes/alps-to-ocean/a2o4.jpeg",
+                   "routes/alps-to-ocean/a2o5.jpeg",
+                   "routes/alps-to-ocean/a2o6.jpeg",
+                   "routes/alps-to-ocean/a2o7.jpg",
+                   "routes/alps-to-ocean/a2o8.jpeg",
+                   "routes/alps-to-ocean/a2o9.jpeg"
+               ],
+    "youtubeVideos":  "https://youtu.be/ZRLDJOv4eBk?si=IyEJl6EZ_CCPIbqI",
+    "tags":  [
+                 "short",
+                 "easy",
+                 "south island"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "This route uses well-maintained trail and road links with regular access to towns, campsites, and food. Gradients are moderate for most riders and route finding is straightforward.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "Day one from Aoraki to Lake Pukaki can be long and brutal into a southerly wind across the open lake plain.",
+    "routeSummary":  [
+                         "Alps to Ocean is a easy bikepacking route covering about 299 km, commonly ridden over 4 days. A scenic South Island journey with mostly approachable terrain. Riders can expect 60% Gravel / 35% Road / 5% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Oct-Apr, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: Day one from Aoraki to Lake Pukaki can be long and brutal into a southerly wind across the open lake plain. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 4-day route, we recommend a Gravel Bike to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

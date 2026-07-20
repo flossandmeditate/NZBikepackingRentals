@@ -1,0 +1,56 @@
+{
+    "id":  "shaky-isles-north",
+    "file":  "routes/shaky-isles-north/Shaky Isles North.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/53174615",
+    "name":  "Shaky Isles North",
+    "days":  "16-30",
+    "distanceLabel":  "1,600 km",
+    "totalElevationMeters":  20000,
+    "surfaceSplit":  "50% Gravel / 50% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "description":  "Discover the quiet backroads and hidden corners of the North Island.",
+    "bestSeason":  "Nov - May",
+    "moreInfo":  [
+                     "https://ridewithgps.com/routes/53174615",
+                     "https://www.nzcyclingjournal.com/shaky-isles-a-tale-of-two-directions/",
+                     "https://www.tourtewaipounamu.co.nz/sic",
+                     "https://www.instagram.com/brianinpics/"
+                 ],
+    "youtubeVideos":  [
+                          "https://youtu.be/1gAkUyKSOPw?si=mx4PiY4HOAdZrm2J",
+                          "https://youtu.be/OkSClUx5Ahc?si=Jt0VQOo3PAEpv8rw"
+                      ],
+    "tags":  [
+                 "long",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "tour-aotearoa-north-island",
+                          "sounds-2-sounds",
+                          "shaky-isles-south"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  5,
+                         "scenery":  5,
+                         "technical":  2,
+                         "climbing":  5,
+                         "remoteness":  4
+                     },
+    "text1":  [
+                  "Created by Brian Alder, the organiser behind Tour Te Waipounamu, Shaky Isles is one of New Zealand’s newest long-distance bikepacking routes. The first Shaky Isles Challenge was held in January 2023, and the course is still evolving.",
+                  "Designed as a self-supported challenge and can be ridden in either direction or simply followed as an independent bikepacking adventure.",
+                  "There are obvious comparisons with Tour Aotearoa, but Shaky Isles has a distinctly wilder personality. It deliberately avoids main highways wherever possible, favouring gravel back roads, rural communities, cycle trails and occasional stretches of 4WD track."
+              ],
+    "text2":  [
+                  "The North Island is the hillier and more relentless half of the full Shaky Isles route. Rather than presenting a handful of enormous mountain passes, it repeatedly rises and falls through farmland, forest and rugged backcountry. Around 21,000 metres of climbing is packed into approximately 1,600 kilometres, so progress can be considerably slower than the distance alone suggests.",
+                  "North of Wellington, the route searches out quiet country through Wairarapa and the central and western North Island before continuing through Waikato, Auckland and Northland. The western passage beyond Auckland is a particularly welcome contrast to the more heavily trafficked eastern corridor, revealing beaches, gravel roads, rural settlements and corners of the island that many end-to-end riders never see."
+              ],
+    "text3":  [
+                  "Most of the route is rideable on a well-equipped gravel bike and is not especially technical. Its difficulty comes from the climbing, changing surfaces, exposed weather and gaps between resupplies",
+                  "Shaky Isles is still a young and developing route, so riders should always download Brian Alder’s latest official GPX file and check for closures or reroutes before setting out. For experienced riders wanting a rougher, hillier and more exploratory alternative to New Zealand’s established end-to-end routes, Shaky Isles offers a serious adventure."
+              ]
+}

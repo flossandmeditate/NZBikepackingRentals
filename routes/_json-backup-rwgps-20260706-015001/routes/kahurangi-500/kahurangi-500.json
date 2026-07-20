@@ -1,0 +1,49 @@
+﻿{
+    "id":  "kahurangi-500",
+    "file":  "routes/kahurangi-500/Kahurangi 500.gpx",
+    "name":  "Kahurangi 500",
+    "days":  "6-12",
+    "distanceLabel":  "520 km",
+    "totalElevationMeters":  9000,
+    "surfaceSplit":  "60% Gravel / 40% Road",
+    "recommendedBike":  "MTB",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "description":  "A demanding route through remote terrain and long climbing days.",
+    "bestSeason":  "Nov-Mar",
+    "moreInfo":  "https://ridewithgps.com/routes/33882858",
+    "photos":  [
+                   "routes/kahurangi-500/k0.jpg",
+                   "routes/kahurangi-500/k1.jpg",
+                   "routes/kahurangi-500/k2.jpg",
+                   "routes/kahurangi-500/k3.jpg",
+                   "routes/kahurangi-500/k4.jpg",
+                   "routes/kahurangi-500/k8.jpg",
+                   "routes/kahurangi-500/k9.jpg",
+                   "routes/kahurangi-500/k11.jpg",
+                   "routes/kahurangi-500/k12.jpg",
+                   "routes/kahurangi-500/k13.jpg",
+                   "routes/kahurangi-500/k14.jpg",
+                   "routes/kahurangi-500/k15.jpg",
+                   "routes/kahurangi-500/k16.jpg",
+                   "routes/kahurangi-500/k17.jpg",
+                   "routes/kahurangi-500/k18.jpg"
+               ],
+    "youtubeVideos":  "https://youtu.be/EV57a3f8Ec0?si=zOf0qqeI497P78FI",
+    "tags":  [
+                 "long",
+                 "south island",
+                 "difficult"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "Kahurangi 500 mixes remote wilderness riding, serious climbing, and technical trail sections. Limited services and backcountry weather make this one a true hard route.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The Wangapeka Track crossing is the most remote stretch with no services for two or more days. Food carry over this section is critical.",
+    "routeSummary":  [
+                         "Kahurangi 500 is a hard bikepacking route covering about 519 km, commonly ridden over 7 days. A demanding route through remote terrain and long climbing days. Riders can expect 45% Gravel / 15% Road / 40% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Nov-Mar, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The Wangapeka Track crossing is the most remote stretch with no services for two or more days. Food carry over this section is critical. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 7-day route, we recommend a Hardtail MTB to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

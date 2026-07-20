@@ -1,0 +1,45 @@
+{
+    "id":  "coromandel-top-loop",
+    "file":  "routes/Coromandel-Top-Loop/Coromandel_Top_Loop.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/56037917",
+    "name":  "Coromandel Top Loop",
+    "days":  "2-3",
+    "distanceLabel":  "122 km",
+    "totalElevationMeters":  2800,
+    "surfaceSplit":  "65% Gravel / 3635% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "easy",
+    "difficulty":  "2/5",
+    "description":  "Steep gravel, endless ocean views and the very best of the Coromandel packed into one epic loop.",
+    "bestSeason":  "Nov - May",
+    "moreInfo":  [
+                     "https://www.doc.govt.nz/parks-and-recreation/places-to-go/coromandel/places/northern-coromandel/things-to-do/port-jackson-campsite/",
+                     "https://thecoromandel.nz/explore/auckland-coromandel-ferry-service",
+                     "https://www.doc.govt.nz/parks-and-recreation/places-to-go/coromandel/places/northern-coromandel/things-to-do/coromandel-walkway/"
+                 ],
+    "youtubeVideos":  "https://www.youtube.com/watch?v=oXNwuIPVV9c",
+    "tags":  [
+                 "north island",
+                 "easy"
+             ],
+    "similarRoutes":  [
+                          "aotea-loop",
+                          "mountains-to-sea",
+"tour-aotearoa-north-island"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  2,
+                         "scenery":  4,
+                         "technical":  1,
+                         "climbing":  3,
+                         "remoteness":  2
+                     },
+    "text1":  [
+                  "Top of the Coromandel is a short and beautiful coastal route. From Coromandel township it heads into the northern peninsula, linking steep gravel climbs and quiet sealed roads",
+                  "The loop is scenic from start to finish, with views across the Hauraki Gulf to Great Barrier Island, remote bays, forested hills and rugged northern coastline. Although the total distance is modest, the climbing is sharp and frequent. ",
+                  "Also note that after recent cyclone damage if you do the full loop you will find yourself pushing your bike up 500m of very steep walking track to get around the diversion. Worth talking to the local DOC office to get the latest info on the diversion and whether it is open or not."
+              ],
+    "text2":  "It can get hot in the middle of summer up here so make sure you carry lots of water and brings your swimming togs. The campsites are all right by stunning swimming spots.",
+    "text3":  "Aside from the brutal diversion in the middle of the loop this is a mellow climb and a (light!) gravel bike is a good fit. It is possible to get catch a ferry direct from Auckland to Coromandel town making this an epic weekend away trip from the big smoke."
+}

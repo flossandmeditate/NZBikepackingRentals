@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Kopiko Aotearoa 2024 West to East final</name>
+    <trkseg>
+      <trkpt lat="-39.276910" lon="173.766330">
+        <ele>23.0</ele>
+      </trkpt>
+      <trkpt lat="-39.234725" lon="173.918421">
+        <ele>231.0</ele>
+      </trkpt>
+      <trkpt lat="-39.150806" lon="174.060274">
+        <ele>237.5</ele>
+      </trkpt>
+      <trkpt lat="-39.025274" lon="174.141449">
+        <ele>25.0</ele>
+      </trkpt>
+      <trkpt lat="-39.045040" lon="174.280461">
+        <ele>91.7</ele>
+      </trkpt>
+      <trkpt lat="-39.132538" lon="174.404553">
+        <ele>126.6</ele>
+      </trkpt>
+      <trkpt lat="-39.163771" lon="174.569134">
+        <ele>148.3</ele>
+      </trkpt>
+      <trkpt lat="-39.153884" lon="174.712910">
+        <ele>211.0</ele>
+      </trkpt>
+      <trkpt lat="-39.036395" lon="174.806868">
+        <ele>189.9</ele>
+      </trkpt>
+      <trkpt lat="-38.969483" lon="174.916076">
+        <ele>296.1</ele>
+      </trkpt>
+      <trkpt lat="-38.845149" lon="174.984318">
+        <ele>151.6</ele>
+      </trkpt>
+      <trkpt lat="-38.785682" lon="175.121062">
+        <ele>177.9</ele>
+      </trkpt>
+      <trkpt lat="-38.777842" lon="175.244870">
+        <ele>195.9</ele>
+      </trkpt>
+      <trkpt lat="-38.703563" lon="175.362094">
+        <ele>341.6</ele>
+      </trkpt>
+      <trkpt lat="-38.661581" lon="175.448646">
+        <ele>531.0</ele>
+      </trkpt>
+      <trkpt lat="-38.606502" lon="175.518702">
+        <ele>486.1</ele>
+      </trkpt>
+      <trkpt lat="-38.559651" lon="175.623530">
+        <ele>981.9</ele>
+      </trkpt>
+      <trkpt lat="-38.547914" lon="175.657663">
+        <ele>754.5</ele>
+      </trkpt>
+      <trkpt lat="-38.484980" lon="175.768103">
+        <ele>413.2</ele>
+      </trkpt>
+      <trkpt lat="-38.424271" lon="175.818441">
+        <ele>256.3</ele>
+      </trkpt>
+      <trkpt lat="-38.401805" lon="175.997401">
+        <ele>240.8</ele>
+      </trkpt>
+      <trkpt lat="-38.349768" lon="176.130876">
+        <ele>453.2</ele>
+      </trkpt>
+      <trkpt lat="-38.366357" lon="176.253374">
+        <ele>397.4</ele>
+      </trkpt>
+      <trkpt lat="-38.310244" lon="176.386137">
+        <ele>438.7</ele>
+      </trkpt>
+      <trkpt lat="-38.289379" lon="176.582023">
+        <ele>490.3</ele>
+      </trkpt>
+      <trkpt lat="-38.270241" lon="176.780586">
+        <ele>241.9</ele>
+      </trkpt>
+      <trkpt lat="-38.121683" lon="176.785829">
+        <ele>193.1</ele>
+      </trkpt>
+      <trkpt lat="-37.973252" lon="176.832725">
+        <ele>7.8</ele>
+      </trkpt>
+      <trkpt lat="-37.944942" lon="176.978090">
+        <ele>8.4</ele>
+      </trkpt>
+      <trkpt lat="-38.017097" lon="177.067974">
+        <ele>15.8</ele>
+      </trkpt>
+      <trkpt lat="-38.008350" lon="177.151908">
+        <ele>18.9</ele>
+      </trkpt>
+      <trkpt lat="-37.990549" lon="177.311385">
+        <ele>6.1</ele>
+      </trkpt>
+      <trkpt lat="-37.946341" lon="177.502048">
+        <ele>47.6</ele>
+      </trkpt>
+      <trkpt lat="-37.862139" lon="177.617101">
+        <ele>21.8</ele>
+      </trkpt>
+      <trkpt lat="-37.768335" lon="177.680699">
+        <ele>27.1</ele>
+      </trkpt>
+      <trkpt lat="-37.681280" lon="177.788909">
+        <ele>23.3</ele>
+      </trkpt>
+      <trkpt lat="-37.619163" lon="177.914269">
+        <ele>10.7</ele>
+      </trkpt>
+      <trkpt lat="-37.574679" lon="178.087817">
+        <ele>97.1</ele>
+      </trkpt>
+      <trkpt lat="-37.602400" lon="178.261917">
+        <ele>36.2</ele>
+      </trkpt>
+      <trkpt lat="-37.629801" lon="178.416386">
+        <ele>4.8</ele>
+      </trkpt>
+      <trkpt lat="-37.689090" lon="178.548280">
+        <ele>133.2</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

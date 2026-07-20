@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Aotea Great Barrier Is</name>
+    <trkseg>
+      <trkpt lat="-36.320790" lon="175.485710">
+        <ele>5.6</ele>
+      </trkpt>
+      <trkpt lat="-36.230406" lon="175.465686">
+        <ele>20.3</ele>
+      </trkpt>
+      <trkpt lat="-36.145583" lon="175.434440">
+        <ele>130.2</ele>
+      </trkpt>
+      <trkpt lat="-36.210550" lon="175.376278">
+        <ele>120.3</ele>
+      </trkpt>
+      <trkpt lat="-36.269079" lon="175.498674">
+        <ele>7.7</ele>
+      </trkpt>
+      <trkpt lat="-36.320480" lon="175.485590">
+        <ele>6.7</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

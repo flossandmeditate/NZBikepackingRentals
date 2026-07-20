@@ -1,0 +1,65 @@
+﻿{
+    "routes":  [
+                   {
+                       "id":  "alps-to-ocean",
+                       "file":  "alps-to-ocean.json"
+                   },
+                   {
+                       "id":  "aotea-loop",
+                       "file":  "aotea-loop.json"
+                   },
+                   {
+                       "id":  "Best-of-the-West",
+                       "file":  "best-of-the-west.json"
+                   },
+                   {
+                       "id":  "Coromandel-Top-Loop",
+                       "file":  "coromandel-top-loop.json"
+                   },
+                   {
+                       "id":  "kahurangi-500",
+                       "file":  "kahurangi-500.json"
+                   },
+                   {
+                       "id":  "kopiko",
+                       "file":  "kopiko.json"
+                   },
+                   {
+                       "id":  "mountains-to-sea",
+                       "file":  "mountains-to-sea-nga-ara-tuhono.json"
+                   },
+                 
+                   {
+                       "id":  "shaky-isles-north",
+                       "file":  "shaky-isles-north.json"
+                   },
+                   {
+                       "id":  "shaky-isles-south",
+                       "file":  "shaky-isles-south.json"
+                   },
+                   {
+                       "id":  "sounds-2-sounds",
+                       "file":  "sounds-2-sounds.json"
+                   },
+                   {
+                       "id":  "st-james-loop",
+                       "file":  "st-james-loop.json"
+                   },
+                   {
+                       "id":  "tour-aotearoa-north-island",
+                       "file":  "tour-aotearoa-north-island.json"
+                   },
+                   {
+                       "id":  "tour-aotearoa-south-island",
+                       "file":  "tour-aotearoa-south-island.json"
+                   },
+                   {
+                       "id":  "tuatara-1000",
+                       "file":  "tuatara-1000.json"
+                   },
+                   {
+                       "id":  "west-coast-wilderness-trail",
+                       "file":  "west-coast-wilderness-trail.json"
+                   }
+               ]
+}

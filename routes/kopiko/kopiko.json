@@ -1,0 +1,54 @@
+{
+    "id":  "kopiko",
+    "file":  "routes/kopiko/Kopiko.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/53738597",
+    "name":  "Kopiko",
+    "days":  "10-20",
+    "distanceLabel":  "1050 km",
+    "totalElevationMeters":  16000,
+    "surfaceSplit":  "50% Gravel / 50% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "Cross an entire island, from volcanoes to the wild west coast.",
+    "bestSeason":  "Nov - May",
+    "moreInfo":  [
+                     "https://www.kennett.co.nz/shop",
+                     "https://www.touraotearoa.nz/p/kopiko.html",
+                     "https://www.facebook.com/groups/366075710744657",
+                     "https://www.nzcycletrail.com/find-your-ride/bikepacking/popular-bikepacking-routes/kopiko-aotearoa",
+                     "https://www.timbertrail.nz/",
+                     "https://www.thetimbertrail.nz/campepic"
+                 ],
+    "youtubeVideos":  [
+                          "https://www.youtube.com/watch?v=tXRi9BUMDhI\u0026pp=ygUNYmlraW5nIGtvcGlrbw%3D%3D",
+                          "https://www.youtube.com/watch?v=Fzqno-wCkdQ",
+                          "https://www.youtube.com/watch?v=vNg0qSE2i-0"
+                      ],
+    "tags":  [
+                 "long",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "tuatara-1000",
+                          
+                          "shaky-isles-north",
+                          "tour-aotearoa-north-island"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  4,
+                         "scenery":  4,
+                         "technical":  2,
+                         "climbing":  4,
+                         "remoteness":  5
+                     },
+    "text1":  [
+                  "Created by the Kennett Brothers, Kōpiko Aotearoa crosses the North Island at its widest point, linking East Cape with Cape Egmont beneath Mount Taranaki. Their detailed guidebooks are great for planning  and buying a copy is a great way to support their work developing New Zealand’s bikepacking routes.",
+                  "More than 1,000 kilometres of back roads, gravel, forest trails and quiet rural country create one of New Zealand’s great coast-to-coast bikepacking journeys.",
+                  "The route can be ridden in either direction, with no universally preferred way to tackle it. Whichever coast you begin from, arranging transport to the start and home from the finish requires thought and planning."
+              ],
+    "text2":  "Between the two capes, the Kōpiko strings together an extraordinary cross-section of the North Island. Highlights include the remote country of the eastern ranges, geothermal landscapes south of Rotorua, the Waikato River Trails, the great suspension bridges and ancient forest of the Timber Trail, and the quiet roads of the Forgotten World Highway. Although most of the riding is not highly technical, the Kōpiko is a serious physical undertaking. More than 16,000 metres of climbing is packed into the complete route.",
+    "text3":  "Resupply, accommodation and mobile coverage can be widely spaced, especially through the eastern and more remote sections. Riders should plan each day carefully, carry enough food and water for unexpected delays, and be prepared to camp."
+}

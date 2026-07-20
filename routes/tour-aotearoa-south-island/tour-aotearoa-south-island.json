@@ -1,0 +1,53 @@
+{
+    "id":  "tour-aotearoa-south-island",
+    "file":  "routes/tour-aotearoa-south-island/Tour Aotearoa - South Island.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/47691697",
+    "name":  "Tour Aotearoa - South Island",
+    "days":  "15-30",
+    "distanceLabel":  "1,500 km",
+    "totalElevationMeters":  21000,
+    "surfaceSplit":  "45% Gravel / 55% Road / 0% Track",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "Cross the South Island on New Zealand\u0027s ultimate bikepacking journey.",
+    "bestSeason":  "Dec - April",
+    "moreInfo":  [
+                "                     https://www.kennett.co.nz/product/tour-aotearoa-official-guides",
+                     "https://www.facebook.com/groups/110925305926187",
+                     "https://www.touraotearoa.nz/p/map_22.html",
+                     "https://en.wikipedia.org/wiki/Tour_Aotearoa",
+                     "https://www.nzcycletrail.com/find-your-ride/bikepacking/popular-bikepacking-routes/tour-aotearoa",
+                     "https://ultradistancebiking.blog/2021/02/02/tour-aotearoa-land-of-the-long-white-cloud-new-zealand-end-to-end-march-2020/"
+                 ],
+    "youtubeVideos":  [
+                          "https://youtu.be/1FbZXmHbdbQ?si=f3fHWiQ9O0gYMFkS",
+                          "https://www.youtube.com/watch?v=4fvo7-EVUwM"
+                      ],
+    "tags":  [
+                 "long",
+                 "south island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "tour-aotearoa-north-island",
+                          "shaky-isles-north",
+                          "shaky-isles-south"
+                          
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  5,
+                         "scenery":  5,
+                         "technical":  2,
+                         "climbing":  4,
+                         "remoteness":  3
+                     },
+    "text1":  [
+  "               This Kennett Brothers route continues the Tour Aotearoa from Picton to Bluff through some of the finest cycling country in New Zealand. The South Island route combines rugged mountain tracks, long gravel valleys, peaceful backroads and established cycle trails, carrying riders from the Marlborough Sounds through Nelson and the wild West Coast before crossing the Southern Alps and continuing south through Otago and Southland."
+              ],
+    "text2":  "This half of the Tour Aotearoa delivers extraordinary landscapes: native forest, abandoned mining country, wild beaches, alpine passes, turquoise lakes and the immense mountain scenery surrounding Wānaka and Queenstown. Highlights include the Maungatapu Track, the remote settlements of Big River and Waiuta, the West Coast Wilderness Trail and the final journey across Southland to Stirling Point at Bluff.",
+    "text3":  "The riding generally isn't technical, but rough backcountry tracks, sustained climbing and long distances make it a serious journey. West Coast weather can transform a comfortable day into a difficult one, while some sections require careful planning around food and accommodation."
+}
+
+

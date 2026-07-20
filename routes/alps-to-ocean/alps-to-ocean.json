@@ -1,0 +1,48 @@
+{
+    "id":  "alps-to-ocean",
+    "file":  "routes/alps-to-ocean/Alps to Ocean.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/45134560",
+    "name":  "Alps to Ocean",
+    "days":  "4-8",
+    "distanceLabel":  "300 km",
+    "totalElevationMeters":  2200,
+    "surfaceSplit":  "75% Gravel / 25% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "easy",
+    "difficulty":  "2/5",
+    "description":  "From New Zealand\u0027s highest peaks to the Pacific Ocean.",
+    "bestSeason":  "Dec - April",
+    "moreInfo":  [
+                     "https://www.alps2ocean.com/",
+                     "https://www.nzcycletrail.com/find-your-ride/23-great-rides/alps-2-ocean",
+                     "https://www.facebook.com/Alps2OceanCycleTrail",
+                     "https://waitakinz.com/explore/alps-2-ocean-cycle-trail",
+                     "https://www.ohau.co.nz/lake-ohau-lodge/accommodation"
+                 ],
+    "youtubeVideos":  "https://youtu.be/ZRLDJOv4eBk?si=IyEJl6EZ_CCPIbqI",
+    "tags":  [
+                 "short",
+                 "easy",
+                 "south island"
+             ],
+    "similarRoutes":  [
+                          "west-coast-wilderness-trail",
+                          "sounds-2-sounds",
+                          "tuatara-1000"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  2,
+                         "scenery":  5,
+                         "technical":  2,
+                         "climbing":  2,
+                         "remoteness":  2
+                     },
+    "text1":  [
+                  "One of NZ most beautiful rides along well maintained tracks connecting 3 alpine lakes.",
+                  "Most riders begin in Lake Tekapo, while those wanting the full alpine experience can start in Aoraki / Mt Cook Village for an even more spectacular opening day.",
+                  "Ride it in spring for snow-capped peaks and wild lupins, or in autumn for crisp mornings and quieter trails. Summer is beautiful but can be hot and exposed, so carry plenty of water between towns."
+              ],
+    "text2":  "Excellent signage, frequent accommodation, cafés and resupply options make this one of New Zealand\u0027s most beginner-friendly multi-day bikepacking routes.",
+    "text3":  "Although the overall trend is downhill towards Oamaru, don\u0027t expect a free ride—there are still a handful of climbs to earn the incredible views. The ride beside the vivid blue waters of Lake Benmore is one of the highlights. Adventurous riders can return to Lake Tekapo via the quiet gravel roads of Hakataramea Pass to create a memorable loop."
+}

@@ -1,0 +1,40 @@
+{
+    "id":  "raglan-500",
+    "file":  "routes/raglan-500/Raglan 500.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/47084339",
+    "name":  "Raglan 500",
+    "days":  3,
+    "distanceLabel":  "498 km",
+    "totalElevationMeters":  13119,
+    "surfaceSplit":  "55% Gravel / 25% Road / 20% Track",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "A varied Waikato loop with coastal sections, gravel roads, and steady climbing.",
+    "bestSeason":  "Nov - May",
+    "moreInfo":  null,
+    "youtubeVideos":  null,
+    "tags":  "multi-day",
+    "similarRoutes":  [
+                          "mountains-to-sea",
+                          "st-james-loop",
+                          "tour-aotearoa-north-island"
+                      ],
+    "disabled":  true,
+    "routeProfile":  {
+                         "adventure":  4,
+                         "scenery":  5,
+                         "technical":  3,
+                         "climbing":  5,
+                         "remoteness":  4
+                     },
+    "text1":  [
+                  "This bikepacking route can be done all year through.",
+                  "Start and finish is in Raglan, home of one of the most world famous left hand surf breaks.",
+                  "The route goes north and south of Raglan with a decent amount of climbing.",
+                  "There are not a lot of accommodation and food supply options outside of Raglan, so planning ahead a bit is not a bad idea.",
+                  "This loop can be done in 2 to 5 days."
+              ],
+    "text2":  "You will handle mixed gravel roads, coastal wind, and steady climbing over multiple days. Resupply exists, but the gaps are long enough that some planning is still required.",
+    "text3":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer. For this 3-day route, we recommend a Gravel Bike to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

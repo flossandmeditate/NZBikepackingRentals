@@ -1,0 +1,49 @@
+{
+    "id":  "west-coast-wilderness-trail",
+    "file":  "routes/west-coast-wilderness-trail/West_Coast_Wilderness_Trail.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/45764035",
+    "name":  "West Coast Wilderness Trail",
+    "days":  "2-3",
+    "distanceLabel":  "130 km",
+    "totalElevationMeters":  1000,
+    "surfaceSplit":  "85% Gravel / 15% Road / 0% Track",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "easy",
+    "difficulty":  "2/5",
+    "description":  "Rainforest, rivers and an easy roll beside the Tasman Sea.",
+    "bestSeason":  "Dec - April",
+    "moreInfo":  ["https://westcoastwildernesstrail.co.nz/",
+     "https://www.facebook.com/WestCoastWildernessTrail",
+     "https://www.nzcycletrail.com/find-your-ride/23-great-rides/west-coast-wilderness-trail"   ,
+     "https://railnewzealand.com/train-services/the-tranz-alpine","https://hokitikaairport.co.nz/",
+     "https://westcoast.co.nz/visit/see-do/outdoors-and-adventure/cycling/west-coast-wilderness-trail/",
+     "https://angelalovescycling.substack.com/p/repost-west-coast-wilderness-trail",
+     "https://www.rossbeachtop10.co.nz/"
+                  ],
+    "youtubeVideos": ["https://www.youtube.com/watch?v=3YhxMjwWobA", "https://www.youtube.com/watch?v=RN5JHpRpxYg"],
+    "tags":  [
+                 "short",
+                 "south island",
+                 "easy"
+             ],
+    "similarRoutes":  [
+                          "aotea-loop",
+                    
+                          "alps-to-ocean"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  3,
+                         "scenery":  3,
+                         "technical":  1,
+                         "climbing":  1,
+                         "remoteness":  2
+                     },
+    "text1":  [
+                  "Follow the West Coast Wilderness Trail for around 130 km from Greymouth to the historic gold-mining town of Ross. Usually ridden over two to three days, this mostly off-road Great Ride winds through ancient rainforest, around tranquil lakes and across rivers on beautifully constructed bridges and old railway corridors. It is also one of the most scenic and approachable sections of the Tour Aotearoa South Island route."
+              ],
+    "text2":  "The landscapes change constantly, from Greymouth’s rugged coastline to the forested foothills of the Southern Alps, the clear waters of Lake Kaniere and the wetlands surrounding Hokitika. Make time to explore Hokitika’s waterfront and coastal walkway, where clear weather can reveal the snow-covered Southern Alps—and occasionally even Aoraki/Mount Cook—rising beyond the coast.",
+    "text3":  "The TranzAlpine train crosses the Southern Alps daily from Christchurch to Greymouth, creating a spectacular start to the journey, while scheduled flights connect Christchurch with Hokitika."
+}
+
+

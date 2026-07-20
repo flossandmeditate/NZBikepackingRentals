@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Dirk · NZ Bikepacking Rentals</title>
+<style>
+:root{
+  --ink:#1d1f1a;
+  --paper:#f4efe3;
+  --bone:#fffaf0;
+  --muted:#6f7568;
+  --green:#25362c;
+  --green2:#35483b;
+  --rust:#b75b25;
+  --line:#d8d0be;
+  --side:#ded8ca;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--side);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.site{
+  width:min(1180px,100%);
+  margin:auto;
+  background:var(--paper);
+  box-shadow:0 0 28px rgba(0,0,0,.18);
+}
+
+.nav{
+  height:64px;
+  background:#171a17;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  position:relative;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:11px;
+}
+
+.logo{
+  font-weight:900;
+  font-size:18px;
+  letter-spacing:.02em;
+}
+
+.logo a,.nav a{
+  color:#ddd;
+  text-decoration:none;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+}
+
+.nav-links a{margin-left:22px}
+
+.nav-toggle{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:4px;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  padding:0;
+}
+
+.nav-toggle-lines,
+.nav-toggle-lines:before,
+.nav-toggle-lines:after{
+  content:"";
+  display:block;
+  width:18px;
+  height:2px;
+  background:currentColor;
+  transition:transform .18s ease, opacity .18s ease;
+}
+
+.nav-toggle-lines{position:relative}
+.nav-toggle-lines:before{position:absolute;top:-6px}
+.nav-toggle-lines:after{position:absolute;top:6px}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines{background:transparent}
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines:before{transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines:after{transform:translateY(-6px) rotate(-45deg)}
+
+.hero{
+  position:relative;
+  min-height:300px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:44px 64px;
+  isolation:isolate;
+  border-bottom:8px solid #20231f;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("images/DirkMechanic.webp");
+  background-size:cover;
+  background-position:center 25%;
+  z-index:-2;
+  filter:contrast(1.03) saturate(.9);
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.14), rgba(0,0,0,.68));
+  z-index:-1;
+}
+
+.kicker{
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:.14em;
+  color:#f2c98a;
+  margin:0 0 8px;
+}
+
+.hero h1{
+  margin:0 0 10px;
+  color:white;
+  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  font-size:64px;
+  line-height:.92;
+  text-transform:uppercase;
+  text-shadow:0 3px 14px #000;
+}
+
+.hero p{
+  margin:0;
+  color:#f2ead8;
+  max-width:760px;
+  font-size:19px;
+  line-height:1.5;
+}
+
+.main{
+  padding:42px 64px 56px;
+  background:var(--bone);
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:340px 1fr;
+  gap:24px;
+  align-items:start;
+}
+
+.panel{
+  background:#f8f5ec;
+  border:1px solid var(--line);
+  padding:20px;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+}
+
+.panel h2{
+  margin:0 0 14px;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:13px;
+}
+
+.contact-list{display:grid;gap:10px}
+
+.contact-item{
+  border-top:1px solid var(--line);
+  padding-top:10px;
+  font-family:Arial,sans-serif;
+  font-size:13px;
+  line-height:1.5;
+  color:#3a3a30;
+}
+
+.contact-item b{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:11px;
+  color:#606551;
+  margin-bottom:2px;
+}
+
+.contact-item a{
+  color:var(--rust);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.form-wrap h2{
+  margin:0 0 8px;
+  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  font-size:42px;
+  line-height:.95;
+}
+
+.form-wrap p{
+  margin:0 0 18px;
+  color:#474d41;
+  font-size:16px;
+  line-height:1.65;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-family:Arial,sans-serif;
+}
+
+.field.full{grid-column:1 / -1}
+
+.field label{
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:11px;
+  color:#5f6453;
+  font-weight:bold;
+}
+
+.field input,
+.field textarea{
+  width:100%;
+  border:1px solid #c9bea8;
+  background:#fffdf7;
+  color:#232621;
+  font:14px/1.45 Arial,sans-serif;
+  padding:12px;
+}
+
+.field textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+.btn{
+  margin-top:14px;
+  display:inline-block;
+  width:max-content;
+  background:var(--rust);
+  color:white;
+  padding:14px 18px;
+  text-decoration:none;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:12px;
+  border:none;
+  cursor:pointer;
+  box-shadow:4px 4px 0 rgba(0,0,0,.2);
+}
+
+.btn[disabled]{
+  opacity:.7;
+  cursor:not-allowed;
+}
+
+.form-note{
+  margin-top:10px;
+  font-family:Arial,sans-serif;
+  color:#666b59;
+  font-size:12px;
+}
+
+.enquiry-status{
+  margin-top:10px;
+  padding:10px 12px;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  line-height:1.4;
+  letter-spacing:.03em;
+  border:1px solid var(--line);
+  background:#f8f5ec;
+  display:none;
+}
+
+.enquiry-status.visible{display:block}
+
+.enquiry-status.success{
+  border-color:#9fb69f;
+  background:#edf5ed;
+  color:#224222;
+}
+
+.enquiry-status.error{
+  border-color:#d8a28d;
+  background:#fff1ea;
+  color:#7a2f10;
+}
+
+.footer{
+  background:#171a17;
+  color:#bbb;
+  text-align:center;
+  padding:42px 20px;
+  position:relative;
+  min-height:78px;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.footer .footer-logo{
+  position:absolute;
+  left:16px;
+  bottom:12px;
+  width:84px;
+  height:auto;
+  opacity:.95;
+}
+
+.footer .social-links{
+  display:inline-flex;
+  gap:14px;
+  margin-left:18px;
+  flex-wrap:wrap;
+}
+
+.footer .social-links a{
+  color:#f2ead8;
+  text-decoration:none;
+  font-weight:700;
+  width:18px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.footer .social-links a:hover{
+  color:white;
+}
+
+.footer .social-links svg{
+  width:16px;
+  height:16px;
+  display:block;
+}
+
+@media(max-width:900px){
+  .hero{padding:34px 22px;min-height:250px}
+  .hero h1{font-size:46px}
+  .hero p{font-size:17px}
+  .main{padding:32px 22px 42px}
+  .contact-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:760px){
+  .nav{height:58px;padding:0 16px}
+  .logo{font-size:15px}
+  .nav-toggle{display:inline-flex}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:58px;
+    left:0;
+    right:0;
+    background:#1f221f;
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    flex-direction:column;
+    align-items:stretch;
+    z-index:20;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{
+    margin-left:0;
+    padding:14px 16px;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+  .nav-links a:first-child{border-top:none}
+
+  .footer{
+    min-height:0;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .footer .footer-logo{
+    position:static;
+    left:auto;
+    bottom:auto;
+    width:42px;
+  }
+
+  .footer .social-links{
+    margin-left:0;
+  }
+}
+</style>
+</head>
+<body>
+<div class="site">
+  <nav class="nav">
+    <div class="logo"><a href="index.html">NZBikepackingRentals.com</a></div>
+    <button class="nav-toggle" id="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav-links">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+    <div class="nav-links" id="main-nav-links">
+      <a href="builder.html">Bike Rentals</a>
+      <a href="routes.html">NZ Routes</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <p class="kicker">Contact</p>
+    <h1>Talk to Dirk</h1>
+    <!-- <p>Tell us your route, timing, and riding style. Dirk will help you line up the right bikepacking setup for your New Zealand trip.</p> -->
+  </header>
+
+  <main class="main">
+    <div class="contact-grid">
+      <aside class="panel">
+        <h2>Direct Contact</h2>
+        <div class="contact-list">
+          <div class="contact-item">
+            <b>Email</b>
+            <a href="mailto:cycleryraglan@gmail.com">cycleryraglan@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <b>Phone</b>
+            <a href="tel:+64210000000">+64 21 238 0818</a>
+          </div>
+          <div class="contact-item">
+            <b>Find Us</b>
+            <a href="https://maps.app.goo.gl/S9pi5TUSrmsCA5JH9" target="_blank">10 Bankart St, Raglan 3225</a>
+          </div>
+        </div>
+      </aside>
+
+      <section class="panel form-wrap">
+        <h2>Enquiry Form</h2>
+       <!--  <p>Send through your dates, route ideas, rider height, and any must-have gear. We will come back with a setup recommendation and availability.</p>
+ -->
+        <form id="contactForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="Phone" type="text">
+            </div>
+            <div class="field full">
+              <label for="message">Trip Details</label>
+              <textarea id="message" name="Message" placeholder="Trip dates, rider height, luggage style, camping plans, and any preferences"></textarea>
+            </div>
+          </div>
+          <button class="btn" id="sendEnquiryBtn" type="submit">Send Enquiry to Dirk</button>
+          <div id="enquiryStatus" class="enquiry-status" aria-live="polite"></div>
+          <!-- <p class="form-note">This form sends your enquiry directly to Dirk and confirms delivery on this page.</p> -->
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="https://www.cycleryraglan.co.nz" target="_blank" rel="noreferrer noopener" aria-label="Visit Cyclery Raglan">
+      <img class="footer-logo" src="images/Logo.webp" alt="NZ Bikepacking Rentals logo" loading="lazy">
+    </a>
+    <!-- <span>NZBikepackingRentals.com · Aotearoa bikepacking rentals</span> -->
+    <span class="social-links">
+      <a href="https://www.instagram.com/cycleryraglan/" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/CycleryRaglan" target="_blank" rel="noreferrer noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h3z"/></svg>
+      </a>
+    </span>
+  </footer>
+</div>
+<script>
+(function(){
+  const toggle = document.getElementById('mobile-nav-toggle');
+  const links = document.getElementById('main-nav-links');
+  if(!toggle || !links) return;
+
+  function setMenuOpen(open){
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  }
+
+  toggle.addEventListener('click', function(){
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    setMenuOpen(!isOpen);
+  });
+
+  links.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){ setMenuOpen(false); });
+  });
+
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 760) setMenuOpen(false);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const el = {
+    form: document.getElementById('contactForm'),
+    sendEnquiryBtn: document.getElementById('sendEnquiryBtn'),
+    enquiryStatus: document.getElementById('enquiryStatus'),
+    email: document.getElementById('email'),
+    phone: document.getElementById('phone'),
+    message: document.getElementById('message')
+  };
+
+  function setEnquiryStatus(message, kind){
+    if(!el.enquiryStatus) return;
+    el.enquiryStatus.textContent = message;
+    el.enquiryStatus.classList.add('visible');
+    el.enquiryStatus.classList.remove('success', 'error');
+    if(kind === 'success' || kind === 'error') el.enquiryStatus.classList.add(kind);
+  }
+
+  function getContactPayload(){
+    return {
+      email: (el.email.value || '').trim(),
+      phone: (el.phone.value || '').trim(),
+      message: (el.message.value || '').trim(),
+      page: {url: window.location.href}
+    };
+  }
+
+  function buildContactSummaryText(payload){
+    return [
+      'New contact enquiry received.',
+      '',
+      'Email: ' + (payload.email || 'Not provided'),
+      'Phone: ' + (payload.phone || 'Not provided'),
+      '',
+      'Trip Details:',
+      payload.message || 'Not provided',
+      '',
+      'Page URL: ' + window.location.href
+    ].join('\n');
+  }
+
+  async function sendViaFormSubmit(payload){
+    const endpoint = 'https://formsubmit.co/ajax/chris.robert.watson@gmail.com';
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: 'New Contact Enquiry - ' + payload.email,
+        email: payload.email,
+        phone: payload.phone,
+        message: buildContactSummaryText(payload),
+        _captcha: 'false'
+      })
+    });
+
+    let body = null;
+    try { body = await response.json(); } catch { body = null; }
+
+    if(!response.ok){
+      const message = body && body.message ? String(body.message) : 'Form fallback failed with status ' + response.status;
+      throw new Error(message);
+    }
+  }
+
+  async function submitContactEnquiry(event){
+    if(event) event.preventDefault();
+    if(!el.sendEnquiryBtn) return;
+
+    if(window.location.protocol === 'file:'){
+      setEnquiryStatus('This page is being opened as a local file. Please run it through the site server so enquiries can be sent.', 'error');
+      return;
+    }
+
+    const payload = getContactPayload();
+
+    if(!payload.email || !payload.email.includes('@')){
+      setEnquiryStatus('Please enter a valid email address before sending your enquiry.', 'error');
+      el.email.focus();
+      return;
+    }
+
+    el.sendEnquiryBtn.disabled = true;
+    setEnquiryStatus('Sending your enquiry...', null);
+
+    try {
+      const apiBase = String(window.ENQUIRY_API_BASE || '').replace(/\/$/, '');
+      const endpoint = (apiBase || '') + '/api/contact-enquiries';
+      let apiFailedMessage = '';
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+
+        let responseBody = null;
+        try { responseBody = await response.json(); } catch { responseBody = null; }
+
+        if(!response.ok){
+          const serverMessage = responseBody && responseBody.error ? String(responseBody.error) : '';
+          apiFailedMessage = serverMessage || ('Request failed with status ' + response.status);
+        }
+      } catch (apiErr) {
+        apiFailedMessage = apiErr && apiErr.message ? String(apiErr.message) : 'Primary API request failed.';
+      }
+
+      if(apiFailedMessage){
+        await sendViaFormSubmit(payload);
+      }
+
+      setEnquiryStatus('Thank you for your enquiry, we will be in touch shortly.', 'success');
+      el.form.reset();
+    } catch (err) {
+      const errorText = err && err.message ? String(err.message) : '';
+      if(errorText){
+        setEnquiryStatus('Could not send enquiry: ' + errorText, 'error');
+      } else {
+        setEnquiryStatus('Sorry, there was a problem sending your enquiry. Please try again in a moment.', 'error');
+      }
+      console.error('Failed to send contact enquiry:', err);
+    } finally {
+      el.sendEnquiryBtn.disabled = false;
+    }
+  }
+
+  if(el.form) el.form.addEventListener('submit', submitContactEnquiry);
+})();
+</script>
+</body>
+</html>

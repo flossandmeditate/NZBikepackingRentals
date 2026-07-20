@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Route Details v2 · NZ Bikepacking Rentals</title>
+<style>
+:root{
+	--ink:#1d1f1a;
+	--paper:#f4efe3;
+	--bone:#fffaf0;
+	--muted:#6f7568;
+	--green:#25362c;
+	--green2:#35483b;
+	--rust:#b75b25;
+	--line:#d8d0be;
+	--mint:#dfece3;
+	--side:#ded8ca;
+	--olive:#3d473e;
+}
+*{box-sizing:border-box}
+body{
+	margin:0;
+	background:radial-gradient(circle at top,#efe8d8 0,#ddd5c5 42%,#d4ccbd 100%);
+	color:var(--ink);
+	font-family:Georgia,"Times New Roman",serif;
+}
+.site{
+	width:min(1200px,100%);
+	margin:auto;
+	background:var(--paper);
+	box-shadow:0 0 32px rgba(0,0,0,.2);
+}
+.page-head{
+	padding:18px 26px;
+	background:#171a17;
+	color:#d5d9d3;
+	font-family:Arial,sans-serif;
+	text-transform:uppercase;
+	letter-spacing:.1em;
+	font-size:11px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+}
+.page-head b{color:#fff;font-size:15px;letter-spacing:.02em}
+.hero-shell{padding:24px 24px 8px;background:#efebdf;border-bottom:1px solid #dbd2bf}
+.top-photo-grid{
+	display:grid;
+	grid-template-columns:1.45fr .95fr;
+	gap:8px;
+	min-height:430px;
+}
+.top-photo{
+	position:relative;
+	overflow:hidden;
+	background:#d8d0be;
+	border-radius:3px;
+}
+.top-photo img{
+	width:100%;
+	height:100%;
+	object-fit:cover;
+	display:block;
+}
+.top-photo-main{min-height:430px}
+.top-photo-stack{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.top-photo-stack .top-photo{min-height:211px}
+.see-more-photos{
+	position:absolute;
+	inset:0;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	border:0;
+	width:100%;
+	background:linear-gradient(180deg,rgba(16,20,16,.1),rgba(16,20,16,.62));
+	color:#fff;
+	font-family:Arial,sans-serif;
+	cursor:pointer;
+	text-shadow:0 1px 4px rgba(0,0,0,.5);
+}
+.see-more-photos:hover{background:linear-gradient(180deg,rgba(16,20,16,.22),rgba(16,20,16,.74))}
+.see-more-inner{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	gap:6px;
+	padding:8px;
+	transform:translateY(6px);
+}
+.see-more-icon{
+	width:56px;
+	height:42px;
+	display:block;
+}
+.see-more-icon rect,.see-more-icon path,.see-more-icon circle{
+	stroke:#fff;
+	stroke-width:2;
+	fill:none;
+}
+.see-more-count{
+	font-size:48px;
+	line-height:1;
+	font-weight:800;
+	letter-spacing:.01em;
+}
+.see-more-label{
+	font-size:11px;
+	font-weight:700;
+	text-transform:uppercase;
+	letter-spacing:.18em;
+}
+.hero-card{
+	width:min(760px,calc(100% - 24px));
+	margin:-74px 0 0 28px;
+	background:#d9d5cb;
+	border:1px solid #ccc4b2;
+	padding:26px 30px;
+	box-shadow:0 10px 24px rgba(0,0,0,.15);
+	position:relative;
+	z-index:4;
+}
+.kicker{
+	margin:0 0 10px;
+	font-family:Arial,sans-serif;
+	text-transform:uppercase;
+	font-size:11px;
+	letter-spacing:.16em;
+	color:#556555;
+}
+.hero-card h1{
+	margin:0 0 12px;
+	color:#30332d;
+	font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
+	font-size:62px;
+	line-height:.92;
+	text-transform:uppercase;
+}
+.hero-card p{
+	margin:0;
+	font-size:19px;
+	line-height:1.55;
+	max-width:690px;
+	color:#32352f;
+}
+.hero-tag{
+	display:inline-block;
+	margin-top:14px;
+	padding:8px 12px;
+	background:#edf2e6;
+	color:#2f3d31;
+	border:1px solid #b9c8b6;
+	font-family:Arial,sans-serif;
+	font-size:11px;
+	letter-spacing:.12em;
+	text-transform:uppercase;
+}
+.stats-band{
+	padding:16px 24px;
+	background:var(--mint);
+	border-bottom:1px solid #c8d6cb;
+}
+.stats-grid{
+	display:grid;
+	grid-template-columns:repeat(6,1fr);
+	gap:12px;
+}
+.stat-card{
+	background:#f8fbf7;
+	border:1px solid #cbdbce;
+	padding:11px 10px;
+	display:grid;
+	grid-template-columns:28px 1fr;
+	column-gap:8px;
+	align-items:center;
+	min-height:78px;
+}
+.stat-icon svg{display:block;width:24px;height:24px;stroke:var(--green2)}
+.stat-label{
+	font-family:Arial,sans-serif;
+	font-size:10px;
+	letter-spacing:.1em;
+	text-transform:uppercase;
+	color:#4d5a4f;
+	line-height:1.3;
+}
+.stat-value{
+	font-family:Arial,sans-serif;
+	font-size:22px;
+	font-weight:800;
+	line-height:1;
+	color:var(--green);
+	margin-top:2px;
+}
+.layout{
+	display:grid;
+	grid-template-columns:minmax(0,2.1fr) minmax(280px,1fr);
+	gap:22px;
+	padding:34px 24px 44px;
+	background:var(--bone);
+}
+.main-col{display:grid;gap:18px}
+.panel{
+	background:#f8f5ec;
+	border:1px solid var(--line);
+	box-shadow:0 8px 20px rgba(0,0,0,.08);
+	overflow:hidden;
+}
+.panel-head{
+	padding:14px 16px;
+	background:linear-gradient(90deg,#f5efe2,#ece4d2);
+	border-bottom:1px solid var(--line);
+	display:flex;
+	align-items:center;
+	gap:10px;
+}
+.panel-head h2{
+	margin:0;
+	font-family:Arial,sans-serif;
+	font-size:13px;
+	text-transform:uppercase;
+	letter-spacing:.12em;
+	color:#2f3d31;
+}
+.section-icon{
+	width:28px;
+	height:28px;
+	display:grid;
+	place-items:center;
+	border-radius:999px;
+	background:#e7edde;
+	border:1px solid #bfcdbd;
+	flex-shrink:0;
+}
+.section-icon svg{width:17px;height:17px;stroke:var(--green2);display:block}
+.panel-body{padding:18px 18px 20px}
+.panel-body p{margin:0 0 16px;font-size:17px;line-height:1.72}
+.panel-body p:last-child{margin-bottom:0}
+.gallery-wrap{position:relative}
+.gallery-track{position:relative;width:100%;height:430px;background:#d9d2c1}
+.gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .45s ease;pointer-events:none}
+.gallery-slide.active{opacity:1;pointer-events:auto}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-nav{
+	position:absolute;
+	top:50%;
+	transform:translateY(-50%);
+	z-index:3;
+	width:42px;
+	height:42px;
+	border:0;
+	border-radius:999px;
+	background:rgba(20,23,20,.62);
+	color:#fff;
+	font-size:24px;
+	line-height:1;
+	cursor:pointer;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.gallery-nav:hover{background:rgba(20,23,20,.78)}
+.gallery-nav.prev{left:12px}
+.gallery-nav.next{right:12px}
+.gallery-dots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.gallery-dot{width:10px;height:10px;border-radius:999px;border:0;background:rgba(255,255,255,.52);cursor:pointer;padding:0}
+.gallery-dot.active{background:#fff;box-shadow:0 0 0 2px rgba(23,26,23,.28)}
+.video-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.video-embed{position:relative;width:100%;padding-top:56.25%;background:#151515;border:1px solid var(--line)}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.rwgps-embed{width:100%;height:700px;border:0;display:block;background:#efeadf}
+.side-col{display:grid;gap:14px;align-content:start}
+.side-card{
+	background:#f8f5ec;
+	border:1px solid var(--line);
+	box-shadow:0 8px 22px rgba(0,0,0,.12);
+	padding:16px;
+	font-family:Arial,sans-serif;
+}
+.side-card h3{
+	margin:0 0 8px;
+	text-transform:uppercase;
+	font-size:12px;
+	letter-spacing:.1em;
+	color:#2f3d31;
+}
+.side-card p,.side-card li{margin:0;font-size:13px;line-height:1.55;color:#3a3a30}
+.side-card ul{margin:0;padding-left:18px}
+.difficulty-rating{
+	display:inline-block;
+	padding:4px 8px;
+	border:1px solid #becbbf;
+	background:#eaf2e9;
+	color:#24402c;
+	font-size:11px;
+	font-weight:800;
+	letter-spacing:.08em;
+	text-transform:uppercase;
+	margin-bottom:8px;
+}
+.btn-col{display:grid;gap:8px}
+.btn{
+	display:block;
+	background:var(--rust);
+	color:#fff;
+	padding:11px 14px;
+	text-decoration:none;
+	text-align:center;
+	font-family:Arial,sans-serif;
+	text-transform:uppercase;
+	font-weight:900;
+	letter-spacing:.08em;
+	font-size:11px;
+	box-shadow:4px 4px 0 rgba(0,0,0,.2);
+}
+.btn.dark{background:var(--green2)}
+.helper-note{
+	font-family:Arial,sans-serif;
+	font-size:12px;
+	line-height:1.5;
+	color:#4b4f45;
+	background:#f2ecde;
+	border-top:1px solid var(--line);
+	padding:10px 14px;
+}
+.footer{
+	background:#171a17;
+	color:#bbb;
+	text-align:center;
+	padding:32px 20px;
+	position:relative;
+	min-height:72px;
+	font-family:Arial,sans-serif;
+	font-size:12px;
+	letter-spacing:.08em;
+	text-transform:uppercase;
+}
+
+.footer .footer-logo{
+	position:absolute;
+	left:16px;
+	bottom:10px;
+	width:80px;
+	height:auto;
+	opacity:.95;
+}
+@media(max-width:1050px){
+	.stats-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px){
+	.hero-shell{padding:18px 18px 8px}
+	.top-photo-grid{grid-template-columns:1fr;min-height:0}
+	.top-photo-main{min-height:260px}
+	.top-photo-stack .top-photo{min-height:150px}
+	.hero-card{width:calc(100% - 16px);margin:-30px 0 0 8px;padding:20px 18px}
+	.hero-card h1{font-size:46px}
+	.hero-card p{font-size:17px}
+	.hero-tag{margin-top:12px}
+	.layout{grid-template-columns:1fr;padding:28px 20px 34px}
+	.gallery-track{height:270px}
+	.rwgps-embed{height:560px}
+}
+@media(max-width:640px){
+	.page-head{padding:14px 18px}
+	.hero-shell{padding:14px 12px 8px}
+	.top-photo-stack{gap:6px}
+	.top-photo-stack .top-photo{min-height:118px}
+	.see-more-inner{transform:translateY(4px);gap:4px}
+	.see-more-icon{width:42px;height:32px}
+	.see-more-count{font-size:36px}
+	.see-more-label{font-size:10px;letter-spacing:.16em}
+	.hero-card h1{font-size:36px}
+	.stats-band{padding:14px 12px}
+	.stats-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+	.stat-card{padding:10px 8px;grid-template-columns:22px 1fr;min-height:70px}
+	.stat-icon svg{width:18px;height:18px}
+	.stat-value{font-size:18px}
+	.panel-body p{font-size:16px;line-height:1.68}
+}
+</style>
+</head>
+<body>
+<div class="site">
+	<header class="page-head">
+		<span>Route Prototype</span>
+		<b>NZBikepackingRentals.com</b>
+	</header>
+
+	<section class="hero-shell">
+		<div class="top-photo-grid" id="top-photo-grid">
+			<div class="top-photo top-photo-main">
+				<img id="top-photo-main" alt="Main route photo" loading="lazy">
+			</div>
+			<div class="top-photo-stack">
+				<div class="top-photo"><img id="top-photo-1" alt="Route photo 2" loading="lazy"></div>
+				<div class="top-photo"><img id="top-photo-2" alt="Route photo 3" loading="lazy"></div>
+				<div class="top-photo"><img id="top-photo-3" alt="Route photo 4" loading="lazy"></div>
+				<div class="top-photo">
+					<img id="top-photo-4" alt="Route photo 5" loading="lazy">
+					<button class="see-more-photos" id="see-more-photos" type="button" aria-label="See more photos">
+						<span class="see-more-inner">
+							<svg class="see-more-icon" viewBox="0 0 24 18" aria-hidden="true">
+								<rect x="2.3" y="2.3" width="19.4" height="13.4" rx="2.6"></rect>
+								<circle cx="8" cy="7" r="1.5"></circle>
+								<path d="m5.4 13.3 4-3.2 2.5 2 2.1-1.8 4.6 3"></path>
+							</svg>
+							<span class="see-more-count" id="see-more-count">+0</span>
+							<span class="see-more-label">images</span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<article class="hero-card">
+			<p class="kicker" id="hero-kicker">NZ Bikepacking Route</p>
+			<h1 id="route-name">Loading route...</h1>
+			<p id="route-desc">Fetching route information...</p>
+			<div class="hero-tag" id="season-tag">Best season loading...</div>
+		</article>
+	</section>
+
+	<section class="stats-band">
+		<div class="stats-grid" id="stats-grid"></div>
+	</section>
+
+	<section class="layout">
+		<div class="main-col">
+			<article class="panel">
+				<div class="panel-head">
+					<span class="section-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 20h18"/><path d="M4 16l4-4 4 3 6-7 2 2"/></svg>
+					</span>
+					<h2>Route Summary</h2>
+				</div>
+				<div class="panel-body" id="route-summary">
+					<p>Loading route summary...</p>
+				</div>
+			</article>
+
+			<section class="panel" id="gallery-panel">
+				<div class="panel-head">
+					<span class="section-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m8 13 2-2 4 4 2-2 2 2"/></svg>
+					</span>
+					<h2>Route Photos</h2>
+				</div>
+				<div class="gallery-wrap" id="photo-gallery"></div>
+			</section>
+
+			<section class="panel" id="rwgps-section" style="display:none">
+				<div class="panel-head">
+					<span class="section-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+					</span>
+					<h2>Route Map</h2>
+				</div>
+				<iframe class="rwgps-embed" id="rwgps-embed" title="Route map and elevation" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+				<p class="helper-note">Interactive map and elevation profile powered by Ride with GPS.</p>
+			</section>
+
+			<section class="panel" id="videos-section" style="display:none">
+				<div class="panel-head">
+					<span class="section-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/></svg>
+					</span>
+					<h2>Route Video</h2>
+				</div>
+				<div class="panel-body">
+					<div class="video-grid" id="video-gallery"></div>
+				</div>
+			</section>
+		</div>
+
+		<aside class="side-col">
+			<div class="side-card" id="action-card">
+				<h3>Route Tools</h3>
+				<div class="btn-col" id="action-buttons"></div>
+			</div>
+			<div class="side-card">
+				<h3>Difficulty</h3>
+				<div class="difficulty-rating" id="difficulty-level">Loading...</div>
+				<p id="difficulty-explanation">Loading difficulty details...</p>
+			</div>
+			<div class="side-card">
+				<h3>Best Season</h3>
+				<p id="season-text"></p>
+			</div>
+			<div class="side-card">
+				<h3>Resupply</h3>
+				<p id="resupply-text"></p>
+			</div>
+			<div class="side-card">
+				<h3>Accommodation</h3>
+				<p id="accommodation-text"></p>
+			</div>
+			<div class="side-card">
+				<h3>Trickiest Section</h3>
+				<p id="trickiest-text"></p>
+			</div>
+			<div class="side-card">
+				<h3>Be Aware Of</h3>
+				<p id="aware-text"></p>
+			</div>
+			<div class="side-card">
+				<h3>Local Notes</h3>
+				<p id="tips-text"></p>
+			</div>
+			<div class="side-card">
+				<h3>Useful Links</h3>
+				<ul id="links-list"></ul>
+			</div>
+		</aside>
+	</section>
+
+	<footer class="footer">
+		<a href="https://www.cycleryraglan.co.nz" target="_blank" rel="noreferrer noopener" aria-label="Visit Cyclery Raglan">
+			<img class="footer-logo" src="images/Logo.webp" alt="NZ Bikepacking Rentals logo" loading="lazy">
+		</a>
+		<span>NZBikepackingRentals.com · Aotearoa bikepacking rentals · ride prepared</span>
+	</footer>
+</div>
+
+<script src="storage-config.js"></script>
+<script>
+(function(){
+	const storageConfig = window.ROUTE_STORAGE || {};
+	const params = new URLSearchParams(location.search);
+
+	function firstNonEmpty(values){
+		for(const value of values){
+			const normalized = String(value || '').trim();
+			if(normalized) return normalized;
+		}
+		return '';
+	}
+	function getStoredRouteId(){
+		const keys = ['selectedRouteId', 'routeId', 'lastRouteId', 'currentRouteId'];
+		for(const key of keys){
+			try{
+				const sessionValue = sessionStorage.getItem(key);
+				if(String(sessionValue || '').trim()) return String(sessionValue).trim();
+			}catch{}
+			try{
+				const localValue = localStorage.getItem(key);
+				if(String(localValue || '').trim()) return String(localValue).trim();
+			}catch{}
+		}
+		return '';
+	}
+	function getRequestedRouteId(){
+		const hashParams = new URLSearchParams(String(location.hash || '').replace(/^#/, ''));
+		return firstNonEmpty([
+			params.get('id'),
+			params.get('routeId'),
+			params.get('route_id'),
+			params.get('route'),
+			params.get('slug'),
+			hashParams.get('id'),
+			hashParams.get('routeId'),
+			hashParams.get('route'),
+			getStoredRouteId()
+		]);
+	}
+	function selectRoute(routes, requestedId){
+		if(!Array.isArray(routes) || !routes.length) return null;
+		const cleanId = String(requestedId || '').trim();
+		if(cleanId){
+			const exact = routes.find(route => String(route?.id || '') === cleanId);
+			if(exact) return exact;
+			const lowered = cleanId.toLowerCase();
+			const caseInsensitive = routes.find(route => String(route?.id || '').toLowerCase() === lowered);
+			if(caseInsensitive) return caseInsensitive;
+		}
+		return routes.find(route => route && typeof route === 'object' && String(route.id || '').trim()) || routes[0] || null;
+	}
+	let requestedRouteId = getRequestedRouteId();
+
+	function setText(id, value){
+		const el = document.getElementById(id);
+		if(el) el.textContent = value || 'Not specified';
+	}
+	function fmtKm(m){ return Number.isFinite(m) ? `${(m/1000).toFixed(m < 10000 ? 1 : 0)} km` : ''; }
+	function isUsableImagePath(path){
+		if(typeof path !== 'string') return false;
+		const trimmed = path.trim();
+		return /^images\//i.test(trimmed) || /^routes\//i.test(trimmed);
+	}
+	const routePhotoFallbackPool = [
+		'images/IMG20230407123248.jpg',
+		'images/IMG20230407123339.jpg',
+		'images/IMG20230404152757.jpg',
+		'images/IMG20230406123601.jpg',
+		'images/IMG20230327135544.jpg',
+		'images/IMG20230327122109.jpg',
+		'images/IMG20230403114937.jpg',
+		'images/IMG20230403075949.jpg',
+		'images/IMG20240404134026.jpg',
+		'images/IMG20240404141833.jpg',
+		'images/IMG20240404160808.jpg',
+		'images/IMG20240407114007.jpg',
+		'images/IMG20241029082316.jpg',
+		'images/IMG20241030114415.jpg',
+		'images/IMG20250723091903.jpg'
+	];
+	function stableIndexFromText(text, mod){
+		const source = String(text || 'route');
+		let hash = 0;
+		for(let i = 0; i < source.length; i++) hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
+		return mod > 0 ? hash % mod : 0;
+	}
+	function getRoutePhotos(route){
+		const directHighlight = typeof route?.highlightImage === 'string' ? route.highlightImage.trim() : '';
+		if(isUsableImagePath(directHighlight)) return [directHighlight];
+		const routeFile = String(route?.file || '').trim().replace(/\\/g, '/');
+		if(/^routes\//i.test(routeFile) && routeFile.includes('/')) {
+			const folder = routeFile.split('/').slice(0, -1).join('/');
+			if(folder) return [`${folder}/a.webp`];
+		}
+		const routeId = String(route?.id || '').trim();
+		if(routeId) return [`routes/${routeId}/a.webp`];
+		const legacyPhotos = Array.isArray(route?.photos) ? route.photos.filter(isUsableImagePath) : [];
+		if(legacyPhotos.length) return [legacyPhotos[0]];
+		const start = stableIndexFromText(route?.id || route?.name, routePhotoFallbackPool.length);
+		return [routePhotoFallbackPool[start]];
+	}
+	function normalizeImagePath(path){
+		return String(path || '').trim().replace(/\\/g, '/').replace(/^\.\//, '').toLowerCase();
+	}
+	function getRouteFolderPath(route){
+		const highlight = String(route?.highlightImage || '').trim().replace(/\\/g, '/');
+		if(/^routes\//i.test(highlight) && highlight.includes('/')) return highlight.split('/').slice(0, -1).join('/');
+		const gpxPath = String(route?.file || '').trim().replace(/\\/g, '/');
+		if(/^routes\//i.test(gpxPath) && gpxPath.includes('/')) return gpxPath.split('/').slice(0, -1).join('/');
+		const routeId = String(route?.id || '').trim();
+		return routeId ? `routes/${routeId}` : '';
+	}
+	function getHighlightStem(route, highlight){
+		const raw = String(highlight || '').trim().split('/').pop() || '';
+		const stem = raw.replace(/\.[^.]+$/, '');
+		const match = stem.match(/^(.*?)(\d+)$/);
+		if(!match) return null;
+		return { prefix: match[1], index: Number(match[2]) };
+	}
+	async function imageExists(path){
+		const safePath = encodeURI(path);
+		try{
+			const head = await fetch(safePath, {method:'HEAD', cache:'no-store'});
+			if(head.ok) return true;
+		}catch{}
+		try{
+			const get = await fetch(safePath, {cache:'no-store'});
+			if(get.ok){
+				if(get.body && typeof get.body.cancel === 'function') get.body.cancel();
+				return true;
+			}
+		}catch{}
+		return false;
+	}
+	async function listRouteFolderImages(folder){
+		const folderUrl = encodeURI(folder.endsWith('/') ? folder : `${folder}/`);
+		try{
+			const response = await fetch(folderUrl, {cache:'no-store'});
+			if(!response.ok) return [];
+			const html = await response.text();
+			const exts = '(?:jpg|jpeg|png|webp|gif|avif)';
+			const hrefRegex = new RegExp(`href=["']([^"']+\\.${exts})["']`, 'ig');
+			const fileNames = [];
+			let match;
+			while((match = hrefRegex.exec(html))){
+				const href = String(match[1] || '');
+				const decoded = decodeURIComponent(href);
+				const fileName = decoded.split('/').pop();
+				if(fileName) fileNames.push(fileName);
+			}
+			return Array.from(new Set(fileNames)).map(name => `${folder}/${name}`);
+		}catch{
+			return [];
+		}
+	}
+	async function discoverRouteGalleryPhotos(route, highlight){
+		const folder = getRouteFolderPath(route);
+		if(!folder) return [];
+
+		const fromFolderListing = await listRouteFolderImages(folder);
+		if(fromFolderListing.length){
+			const highlightNormalized = normalizeImagePath(highlight);
+			return fromFolderListing
+				.filter(path => normalizeImagePath(path) !== highlightNormalized)
+				.sort((a, b) => a.localeCompare(b, undefined, {sensitivity:'base'}));
+		}
+
+		const exts = ['jpg','jpeg','png','webp','gif','avif'];
+		const candidates = [];
+		const seen = new Set();
+		const stem = getHighlightStem(route, highlight);
+		const maxIndex = 30;
+
+		function addCandidate(candidate){
+			if(seen.has(candidate)) return;
+			seen.add(candidate);
+			candidates.push(candidate);
+		}
+
+		if(stem && (stem.prefix || stem.index >= 0)){
+			for(let i = 1; i <= maxIndex; i++){
+				for(const ext of exts) addCandidate(`${folder}/${stem.prefix}${i}.${ext}`);
+			}
+		}
+
+		for(let i = 1; i <= maxIndex; i++){
+			for(const ext of exts){
+				addCandidate(`${folder}/${i}.${ext}`);
+				addCandidate(`${folder}/img${i}.${ext}`);
+				addCandidate(`${folder}/photo${i}.${ext}`);
+			}
+		}
+
+		const checks = await Promise.all(candidates.map(async candidate => ({ candidate, exists: await imageExists(candidate) })));
+		const highlightNormalized = normalizeImagePath(highlight);
+		return checks
+			.filter(item => item.exists)
+			.map(item => item.candidate)
+			.filter(path => normalizeImagePath(path) !== highlightNormalized)
+			.sort((a, b) => a.localeCompare(b, undefined, {sensitivity:'base'}));
+	}
+	async function getRouteGalleryPhotos(route){
+		const highlight = getRoutePhotos(route)[0];
+		const normalizedHighlight = normalizeImagePath(highlight);
+		const apiGalleryPhotos = Array.isArray(route?.galleryPhotos)
+			? route.galleryPhotos.filter(isUsableImagePath)
+			: [];
+		if(apiGalleryPhotos.length){
+			return apiGalleryPhotos.filter(photo => normalizeImagePath(photo) !== normalizedHighlight);
+		}
+		const legacyPhotos = Array.isArray(route?.photos) ? route.photos.filter(isUsableImagePath) : [];
+		if(legacyPhotos.length > 1){
+			return legacyPhotos.slice(1).filter(photo => normalizeImagePath(photo) !== normalizedHighlight);
+		}
+		const discovered = await discoverRouteGalleryPhotos(route, highlight);
+		if(discovered.length) return discovered;
+		return routePhotoFallbackPool.filter(photo => normalizeImagePath(photo) !== normalizedHighlight);
+	}
+	function parseDaysRange(value){
+		const numeric = Number(value);
+		if(Number.isFinite(numeric) && numeric > 0){
+			const rounded = Math.round(numeric);
+			return { min: rounded, max: rounded };
+		}
+
+		const text = String(value || '').trim();
+		if(!text) return null;
+
+		const rangeMatch = text.match(/(\d+(?:\.\d+)?)\s*[-\u2013\u2014]\s*(\d+(?:\.\d+)?)/);
+		if(rangeMatch){
+			const a = Math.round(Number(rangeMatch[1]));
+			const b = Math.round(Number(rangeMatch[2]));
+			if(Number.isFinite(a) && Number.isFinite(b) && a > 0 && b > 0){
+				return { min: Math.min(a, b), max: Math.max(a, b) };
+			}
+		}
+
+		const singleMatch = text.match(/\d+(?:\.\d+)?/);
+		if(singleMatch){
+			const n = Math.round(Number(singleMatch[0]));
+			if(Number.isFinite(n) && n > 0){
+				return { min: n, max: n };
+			}
+		}
+
+		return null;
+	}
+	function getDaysDisplay(route){
+		const parsed = parseDaysRange(route?.days);
+		if(parsed){
+			const core = parsed.min === parsed.max ? `${parsed.min}` : `${parsed.min}-${parsed.max}`;
+			return `${core} days`;
+		}
+		const est = estimateDays(route);
+		return est ? `${est} days` : '—';
+	}
+	function estimateDays(route){
+		const parsed = parseDaysRange(route?.days);
+		if(parsed) return parsed.max;
+		if(Number.isFinite(route.distanceMeters)) return Math.max(1, Math.ceil((route.distanceMeters / 1000) / 100));
+		if(route.distanceLabel){
+			const v = Number.parseFloat(String(route.distanceLabel).replace(/,/g,''));
+			if(Number.isFinite(v)) return Math.max(1, Math.ceil(v / 100));
+		}
+		return null;
+	}
+	function getRideWithGpsUrl(route){
+		if(typeof route?.rideWithGpsUrl === 'string' && /ridewithgps\.com/i.test(route.rideWithGpsUrl)) {
+			return route.rideWithGpsUrl.trim();
+		}
+		const links = getMoreInfoLinks(route).map(entry => entry.url);
+		return links.find(link => /ridewithgps\.com/i.test(String(link || ''))) || null;
+	}
+	function getMoreInfoLinks(route){
+		const values = Array.isArray(route?.moreInfo) ? route.moreInfo : [];
+		return values.map(item => {
+			if(typeof item === 'string'){
+				const url = item.trim();
+				return url ? {url, label: ''} : null;
+			}
+			if(item && typeof item === 'object'){
+				const url = String(item.url || item.href || item.link || '').trim();
+				if(!url) return null;
+				const label = String(item.label || item.text || item.title || '').trim();
+				return {url, label};
+			}
+			return null;
+		}).filter(Boolean);
+	}
+	function getRideWithGpsRouteId(route){
+		const url = getRideWithGpsUrl(route);
+		if(!url) return null;
+
+		try{
+			const parsed = new URL(url);
+			if(!/ridewithgps\.com$/i.test(parsed.hostname)) return null;
+			const pathMatch = parsed.pathname.match(/\/routes\/(\d+)/i);
+			if(pathMatch && pathMatch[1]) return pathMatch[1];
+			const queryId = parsed.searchParams.get('id') || parsed.searchParams.get('route_id');
+			if(queryId && /^\d+$/.test(queryId)) return queryId;
+		}catch{}
+
+		const fallbackMatch = String(url).match(/ridewithgps\.com\/routes\/(\d+)/i);
+		return fallbackMatch && fallbackMatch[1] ? fallbackMatch[1] : null;
+	}
+	async function fetchRoutesCatalog(){
+		const supabase = storageConfig?.supabase || {};
+		const isSupabaseMode = storageConfig?.mode === 'supabase' && supabase.url && supabase.anonKey;
+
+		if(isSupabaseMode){
+			const table = supabase.table || 'routes';
+			const endpoint = `${supabase.url.replace(/\/$/, '')}/rest/v1/${encodeURIComponent(table)}?select=*`;
+			const response = await fetch(endpoint, {
+				headers: {
+					apikey: supabase.anonKey,
+					Authorization: `Bearer ${supabase.anonKey}`,
+					Accept: 'application/json'
+				},
+				cache: 'no-store'
+			});
+			if(response.ok) return await response.json();
+		}
+
+		try{
+			const apiResponse = await fetch('/api/routes', {cache:'no-store'});
+			if(apiResponse.ok) return await apiResponse.json();
+		}catch{}
+
+		try{
+			const indexResponse = await fetch('data/routes-index.json', {cache:'no-store'});
+			if(indexResponse.ok){
+				const parsed = await indexResponse.json();
+				const entries = (() => {
+					const source = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
+					return source.map(item => {
+						if(typeof item === 'string') return {id: item, file: 'route.json'};
+						if(item && typeof item === 'object'){
+							return {
+								id: String(item.id || '').trim(),
+								file: String(item.file || 'route.json').trim() || 'route.json'
+							};
+						}
+						return null;
+					}).filter(item => item && item.id);
+				})();
+				if(entries.length){
+					const routeResponses = await Promise.all(entries.map(async entry => {
+						const routeRes = await fetch(`routes/${encodeURIComponent(entry.id)}/${encodeURIComponent(entry.file)}`, {cache:'no-store'});
+						if(!routeRes.ok) return null;
+						try { return await routeRes.json(); } catch { return null; }
+					}));
+					const routes = routeResponses.filter(route => route && typeof route === 'object' && !Array.isArray(route));
+					if(routes.length) return routes;
+				}
+			}
+		}catch{}
+
+		throw new Error('Failed to load routes catalog');
+	}
+	function getYouTubeId(value){
+		const raw = String(value || '').trim();
+		if(!raw) return '';
+		if(/^[a-zA-Z0-9_-]{11}$/.test(raw)) return raw;
+		try{
+			const url = new URL(raw);
+			if(url.hostname.includes('youtu.be')) {
+				const id = url.pathname.replace(/^\//, '').split('/')[0];
+				return /^[a-zA-Z0-9_-]{11}$/.test(id) ? id : '';
+			}
+			if(url.hostname.includes('youtube.com')) {
+				const fromQuery = url.searchParams.get('v');
+				if(fromQuery && /^[a-zA-Z0-9_-]{11}$/.test(fromQuery)) return fromQuery;
+				const parts = url.pathname.split('/').filter(Boolean);
+				const embedIdx = parts.findIndex(part => part === 'embed' || part === 'shorts' || part === 'live');
+				if(embedIdx >= 0 && parts[embedIdx + 1] && /^[a-zA-Z0-9_-]{11}$/.test(parts[embedIdx + 1])) {
+					return parts[embedIdx + 1];
+				}
+			}
+		}catch{}
+		return '';
+	}
+	function getYouTubeVideoIds(route){
+		const values = Array.isArray(route?.youtubeVideos) ? route.youtubeVideos : [];
+		return values.map(getYouTubeId).filter(Boolean).slice(0,3);
+	}
+	function formatSurfaceSplit(route){
+		if(typeof route?.surfaceSplit === 'string' && route.surfaceSplit.trim()) return route.surfaceSplit.trim();
+		const sealed = Number(route.sealedPct);
+		const gravel = Number(route.gravelPct);
+		const track = Number(route.singletrackPct);
+		const parts = [];
+		if(Number.isFinite(gravel) && gravel > 0) parts.push(`${gravel}% Gravel`);
+		if(Number.isFinite(sealed) && sealed > 0) parts.push(`${sealed}% Road`);
+		if(Number.isFinite(track) && track > 0) parts.push(`${track}% Track`);
+		return parts.length ? parts.join(' / ') : null;
+	}
+	function fmtElevation(route){
+		if(typeof route?.totalElevationLabel === 'string' && route.totalElevationLabel.trim()) return route.totalElevationLabel.trim();
+		if(typeof route?.climbingLabel === 'string' && route.climbingLabel.trim()) return route.climbingLabel.trim();
+		const gain = route.totalElevationMeters ?? route.elevationGainMeters ?? route.climbingMeters ?? route.totalClimbMeters;
+		const n = Number(gain);
+		if(!Number.isFinite(n) || n <= 0) return null;
+		return `${n.toLocaleString()} m`;
+	}
+	function normalizeDifficultyTier(value){
+		const plain = String(value || '').trim().toLowerCase();
+		if(plain === 'easy' || plain === 'intermediate' || plain === 'hard') return plain;
+		const fractionMatch = plain.match(/(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);
+		if(fractionMatch){
+			const top = Number(fractionMatch[1]);
+			const bottom = Number(fractionMatch[2]);
+			if(Number.isFinite(top) && Number.isFinite(bottom) && bottom > 0){
+				const normalized = (top / bottom) * 5;
+				if(normalized <= 2) return 'easy';
+				if(normalized >= 4) return 'hard';
+				return 'intermediate';
+			}
+		}
+		const numericMatch = plain.match(/\d+(?:\.\d+)?/);
+		if(numericMatch){
+			const score = Number(numericMatch[0]);
+			if(Number.isFinite(score)){
+				if(score <= 2) return 'easy';
+				if(score >= 4) return 'hard';
+				return 'intermediate';
+			}
+		}
+		return 'intermediate';
+	}
+	function titleCaseDifficulty(tier){ return tier.charAt(0).toUpperCase() + tier.slice(1); }
+	function getRouteDifficultyProfile(route){
+		const level = normalizeDifficultyTier(route?.difficultyLevel || route?.difficulty);
+		const generic = {
+			easy: 'This route stays close to regular services and has straightforward terrain. It is a good choice for riders wanting a lower-risk multi-day trip.',
+			intermediate: 'This route mixes manageable terrain with enough climbing and distance to require planning. Riders with some bikepacking experience should find it achievable.',
+			hard: 'This route includes bigger elevation, remoteness, or technical surfaces that increase commitment. Plan refuelling and weather windows carefully before starting.'
+		};
+		return {
+			level,
+			explanation: (typeof route?.difficultyExplanation === 'string' && route.difficultyExplanation.trim())
+				? route.difficultyExplanation.trim()
+				: generic[level]
+		};
+	}
+	function escapeHtml(value){
+		return String(value || '').replace(/[&<>"']/g, ch => ({
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;',
+			"'": '&#39;'
+		}[ch]));
+	}
+	function renderRouteSummary(route, difficultyProfile){
+		const summaryContainer = document.getElementById('route-summary');
+		if(!summaryContainer) return;
+
+		if(Array.isArray(route?.routeSummary) && route.routeSummary.length){
+			summaryContainer.innerHTML = route.routeSummary
+				.map(text => String(text || '').trim())
+				.filter(Boolean)
+				.map(text => `<p>${escapeHtml(text)}</p>`)
+				.join('');
+			return;
+		}
+		if(typeof route?.routeSummary === 'string' && route.routeSummary.trim()){
+			summaryContainer.innerHTML = `<p>${escapeHtml(route.routeSummary.trim())}</p>`;
+			return;
+		}
+
+		const days = estimateDays(route);
+		const distance = route.distanceLabel || (Number.isFinite(route.distanceMeters) ? fmtKm(route.distanceMeters) : null);
+		const surface = formatSurfaceSplit(route) || 'mixed surfaces across road, gravel, and track';
+		const season = route.bestSeason || 'the more stable spring to autumn months';
+		const difficulty = titleCaseDifficulty(difficultyProfile?.level || normalizeDifficultyTier(route?.difficulty));
+		const resupply = route.resupply || 'variable refuelling gaps where carrying extra water and food is wise';
+		const accommodation = route.accommodation || 'a mix of camping, huts, and local stays depending on your pace';
+		const caution = route.beAwareOf || 'weather swings and changing trail conditions in exposed sections';
+		const crux = route.trickiestSection || 'The most committing section usually comes late in the day, so leave margin for weather, navigation, and conservative pacing.';
+
+		const paragraph1 = `${route.name} is a ${difficulty.toLowerCase()} bikepacking route${distance ? ` covering about ${distance}` : ''}${days ? `, commonly ridden over ${days} day${days === 1 ? '' : 's'}` : ''}. ${route.description || 'It combines scenic riding with enough variety to stay engaging from start to finish.'} Riders can expect ${surface} as the route unfolds.`;
+		const paragraph2 = `Good planning makes this route far more enjoyable. The best riding window is generally ${season}, with resupply described as ${resupply}. Overnight options are typically ${accommodation}, so most riders can choose between lighter days with more stops or longer pushes between services.`;
+		const paragraph3 = `The key section to manage is: ${crux} Keep a close eye on ${caution}, especially if conditions change during the day. A steady pace, a conservative weather call, and extra water or food buffer are usually the difference between a stressful day and a great one.`;
+
+		summaryContainer.innerHTML = [paragraph1, paragraph2, paragraph3]
+			.map(text => `<p>${escapeHtml(text)}</p>`)
+			.join('');
+	}
+	function renderStats(route, difficultyProfile){
+		const statsGrid = document.getElementById('stats-grid');
+		if(!statsGrid) return;
+		const distance = route.distanceLabel || (Number.isFinite(route.distanceMeters) ? fmtKm(route.distanceMeters) : '—');
+		const elevation = fmtElevation(route) || '—';
+		const surface = formatSurfaceSplit(route) || 'Mixed';
+		const highest = route.highestPointLabel || (Number.isFinite(route.highestMeters) ? `${route.highestMeters.toLocaleString()} m` : '—');
+		const duration = getDaysDisplay(route);
+		const difficulty = titleCaseDifficulty(difficultyProfile.level);
+
+		const items = [
+			{
+				label: 'Distance',
+				value: distance,
+				icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/><circle cx="5" cy="12" r="2"/></svg>'
+			},
+			{
+				label: 'Elevation Gain',
+				value: elevation,
+				icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m4 18 6-8 4 5 6-9"/><path d="m14 6h6v6"/></svg>'
+			},
+			{
+				label: 'Estimated Duration',
+				value: duration,
+				icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>'
+			},
+			{
+				label: 'Difficulty',
+				value: difficulty,
+				icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3 4 7v6c0 5 4.8 7.7 8 8 3.2-.3 8-3 8-8V7z"/><path d="M9 13h6"/></svg>'
+			},
+			{
+				label: 'Highest Point',
+				value: highest,
+				icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 18h18"/><path d="m6 18 5-8 3 4 2-3 2 7"/></svg>'
+			},
+			{
+				label: 'Surface Split',
+				value: surface,
+				icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>'
+			}
+		];
+
+		statsGrid.innerHTML = items.map(item => `
+			<div class="stat-card">
+				<div class="stat-icon">${item.icon}</div>
+				<div>
+					<div class="stat-label">${item.label}</div>
+					<div class="stat-value">${escapeHtml(item.value)}</div>
+				</div>
+			</div>
+		`).join('');
+	}
+	function renderTopPhotoGrid(route, photos){
+		const usable = Array.isArray(photos) ? photos.filter(Boolean) : [];
+		if(!usable.length) return;
+
+		const picks = [];
+		for(let i = 0; i < 5; i++) picks.push(usable[i % usable.length]);
+
+		const main = document.getElementById('top-photo-main');
+		const p1 = document.getElementById('top-photo-1');
+		const p2 = document.getElementById('top-photo-2');
+		const p3 = document.getElementById('top-photo-3');
+		const p4 = document.getElementById('top-photo-4');
+		const seeMoreCount = document.getElementById('see-more-count');
+
+		if(main){
+			main.src = picks[0];
+			main.alt = `${route?.name || 'Route'} main photo`;
+		}
+		if(p1) p1.src = picks[1];
+		if(p2) p2.src = picks[2];
+		if(p3) p3.src = picks[3];
+		if(p4) p4.src = picks[4];
+
+		const seeMoreBtn = document.getElementById('see-more-photos');
+		if(seeMoreBtn){
+			const extraCount = Math.max(0, usable.length - 5);
+			const countToShow = extraCount > 0 ? extraCount : usable.length;
+			if(seeMoreCount) seeMoreCount.textContent = `+${countToShow}`;
+			seeMoreBtn.setAttribute('aria-label', `See ${countToShow} more images`);
+			seeMoreBtn.onclick = () => {
+				const panel = document.getElementById('gallery-panel');
+				if(panel) panel.scrollIntoView({behavior:'smooth', block:'start'});
+			};
+		}
+	}
+	function initRouteGallery(container, photos, routeName){
+		if(!container) return;
+		const items = Array.isArray(photos) ? photos.filter(Boolean) : [];
+		if(!items.length){
+			container.innerHTML = '';
+			const panel = document.getElementById('gallery-panel');
+			if(panel) panel.style.display = 'none';
+			return;
+		}
+
+		const safeName = escapeHtml(routeName || 'Route photo');
+		const slidesHtml = items.map((src, idx) => `
+			<div class="gallery-slide${idx === 0 ? ' active' : ''}" data-slide-index="${idx}">
+				<img src="${src}" alt="${safeName} photo ${idx + 1}" loading="lazy">
+			</div>
+		`).join('');
+		const dotsHtml = items.map((_, idx) => `
+			<button type="button" class="gallery-dot${idx === 0 ? ' active' : ''}" data-dot-index="${idx}" aria-label="Show photo ${idx + 1}"></button>
+		`).join('');
+
+		container.innerHTML = `
+			<div class="gallery-track">${slidesHtml}</div>
+			<button type="button" class="gallery-nav prev" aria-label="Previous photo">&#10094;</button>
+			<button type="button" class="gallery-nav next" aria-label="Next photo">&#10095;</button>
+			<div class="gallery-dots">${dotsHtml}</div>
+		`;
+
+		const slideEls = Array.from(container.querySelectorAll('.gallery-slide'));
+		const dotEls = Array.from(container.querySelectorAll('.gallery-dot'));
+		const prevBtn = container.querySelector('.gallery-nav.prev');
+		const nextBtn = container.querySelector('.gallery-nav.next');
+
+		if(items.length <= 1){
+			if(prevBtn) prevBtn.style.display = 'none';
+			if(nextBtn) nextBtn.style.display = 'none';
+			const dotsWrap = container.querySelector('.gallery-dots');
+			if(dotsWrap) dotsWrap.style.display = 'none';
+			return;
+		}
+
+		let activeIndex = 0;
+		let timer = null;
+		function renderActive(index){
+			activeIndex = (index + items.length) % items.length;
+			slideEls.forEach((el, idx) => el.classList.toggle('active', idx === activeIndex));
+			dotEls.forEach((el, idx) => el.classList.toggle('active', idx === activeIndex));
+		}
+		function next(){ renderActive(activeIndex + 1); }
+		function prev(){ renderActive(activeIndex - 1); }
+		function stopAuto(){
+			if(timer){
+				clearInterval(timer);
+				timer = null;
+			}
+		}
+		function startAuto(){
+			stopAuto();
+			timer = setInterval(next, 5000);
+		}
+
+		if(prevBtn){
+			prevBtn.addEventListener('click', () => {
+				prev();
+				startAuto();
+			});
+		}
+		if(nextBtn){
+			nextBtn.addEventListener('click', () => {
+				next();
+				startAuto();
+			});
+		}
+		dotEls.forEach((dot, idx) => {
+			dot.addEventListener('click', () => {
+				renderActive(idx);
+				startAuto();
+			});
+		});
+
+		container.addEventListener('mouseenter', stopAuto);
+		container.addEventListener('mouseleave', startAuto);
+		startAuto();
+	}
+	function renderLinks(route){
+		const linksList = document.getElementById('links-list');
+		if(!linksList) return;
+		const links = getMoreInfoLinks(route).filter(entry => !/ridewithgps\.com/i.test(entry.url));
+		linksList.innerHTML = links.length
+			? links.map(entry => {
+				const url = entry.url;
+				let label = entry.label;
+				if(!label){
+					try { label = new URL(url).hostname.replace(/^www\./, ''); } catch { label = url; }
+				}
+				return `<li><a href="${url}" target="_blank" rel="noreferrer noopener" style="color:var(--rust);font-weight:700">${escapeHtml(label)}</a></li>`;
+			}).join('')
+			: '<li>No external links available.</li>';
+	}
+	function renderActionButtons(route, rideWithGpsUrl){
+		const wrap = document.getElementById('action-buttons');
+		const card = document.getElementById('action-card');
+		if(!wrap || !card) return;
+		const gpxHref = route.file ? encodeURI(route.file) : '#';
+		const html = [];
+		if(rideWithGpsUrl) html.push(`<a class="btn" href="${encodeURI(rideWithGpsUrl)}" target="_blank" rel="noreferrer noopener">View on Ride with GPS</a>`);
+		if(route.file) html.push(`<a class="btn dark" href="${gpxHref}" download>Download GPX</a>`);
+		if(html.length){
+			wrap.innerHTML = html.join('');
+		}else{
+			card.style.display = 'none';
+		}
+	}
+	async function loadRoute(){
+		let routes = [];
+		try{
+			routes = await fetchRoutesCatalog();
+		}catch{
+			setText('route-name', 'Route Load Error');
+			setText('route-desc', 'Could not load route data.');
+			return;
+		}
+
+		const route = selectRoute(routes, requestedRouteId);
+		if(!route){
+			setText('route-name', 'Route Not Found');
+			setText('route-desc', 'No valid routes were found in the route data.');
+			return;
+		}
+
+		requestedRouteId = String(route.id || '').trim();
+		if(requestedRouteId){
+			try { sessionStorage.setItem('selectedRouteId', requestedRouteId); } catch {}
+			try { localStorage.setItem('selectedRouteId', requestedRouteId); } catch {}
+
+			const nextSearch = new URLSearchParams(location.search);
+			if(nextSearch.get('id') !== requestedRouteId){
+				nextSearch.set('id', requestedRouteId);
+				const nextQuery = nextSearch.toString();
+				const nextUrl = `${location.pathname}${nextQuery ? `?${nextQuery}` : ''}${location.hash || ''}`;
+				history.replaceState(null, '', nextUrl);
+			}
+		}
+
+		document.title = `${route.name} · Route v2 · NZ Bikepacking Routes`;
+		setText('route-name', route.name);
+		setText('route-desc', route.description);
+		setText('tips-text', route.tips || 'Check weather windows, confirm resupply timing, and carry backup navigation.');
+		setText('season-text', route.bestSeason);
+		setText('resupply-text', route.resupply);
+		setText('accommodation-text', route.accommodation);
+		setText('aware-text', route.beAwareOf);
+		setText('trickiest-text', route.trickiestSection || 'Check conditions carefully before committing to the most remote section.');
+
+		const highlightPhotos = getRoutePhotos(route);
+		const galleryPhotos = await getRouteGalleryPhotos(route);
+		renderTopPhotoGrid(route, [highlightPhotos[0], ...galleryPhotos]);
+		const kicker = document.getElementById('hero-kicker');
+		if(kicker) kicker.textContent = route.region || route.location || 'NZ Bikepacking Route';
+		const seasonTag = document.getElementById('season-tag');
+		if(seasonTag) seasonTag.textContent = `Best Season: ${route.bestSeason || 'Plan by local conditions'}`;
+
+		const difficultyProfile = getRouteDifficultyProfile(route);
+		const difficultyLevel = document.getElementById('difficulty-level');
+		const difficultyExplanation = document.getElementById('difficulty-explanation');
+		if(difficultyLevel) difficultyLevel.textContent = titleCaseDifficulty(difficultyProfile.level);
+		if(difficultyExplanation) difficultyExplanation.textContent = difficultyProfile.explanation;
+
+		renderRouteSummary(route, difficultyProfile);
+		renderStats(route, difficultyProfile);
+		renderLinks(route);
+
+		initRouteGallery(document.getElementById('photo-gallery'), galleryPhotos.slice(0, 20), route.name);
+
+		const videosSection = document.getElementById('videos-section');
+		const videoGallery = document.getElementById('video-gallery');
+		const videoIds = getYouTubeVideoIds(route);
+		if(videoIds.length && videosSection && videoGallery){
+			videosSection.style.display = '';
+			videoGallery.innerHTML = videoIds.map(id => `
+				<div class="video-embed">
+					<iframe
+						src="https://www.youtube.com/embed/${id}"
+						title="${route.name} video"
+						loading="lazy"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen>
+					</iframe>
+				</div>
+			`).join('');
+		}else if(videosSection && videoGallery){
+			videosSection.style.display = 'none';
+			videoGallery.innerHTML = '';
+		}
+
+		const rwgpsSection = document.getElementById('rwgps-section');
+		const rwgpsEmbed = document.getElementById('rwgps-embed');
+		const rideWithGpsUrl = getRideWithGpsUrl(route);
+		const rideWithGpsRouteId = getRideWithGpsRouteId(route);
+		if(rideWithGpsRouteId && rwgpsSection && rwgpsEmbed){
+			const embedUrl = `https://ridewithgps.com/embeds?type=route&sampleGraph=true&overlay=esriTopo&hideFullLink=1&metricUnits=true&id=${encodeURIComponent(rideWithGpsRouteId)}`;
+			rwgpsSection.style.display = '';
+			rwgpsEmbed.src = embedUrl;
+		}else if(rwgpsSection && rwgpsEmbed){
+			rwgpsSection.style.display = 'none';
+			rwgpsEmbed.removeAttribute('src');
+		}
+
+		renderActionButtons(route, rideWithGpsUrl);
+	}
+
+	loadRoute();
+})();
+</script>
+</body>
+</html>

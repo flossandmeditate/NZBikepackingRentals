@@ -1,0 +1,1371 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bike Builder v2 · NZ Bikepacking Rentals</title>
+<style>
+:root{
+  --ink:#1d1f1a;
+  --paper:#f4efe3;
+  --bone:#fffaf0;
+  --muted:#6f7568;
+  --green:#25362c;
+  --green2:#35483b;
+  --rust:#b75b25;
+  --line:#d8d0be;
+  --mint:#dfece3;
+  --side:#ded8ca;
+  --accent:#1f6f78;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:radial-gradient(circle at 20% 10%, #eee7d8 0%, #ded8ca 45%, #d2ccbe 100%);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.site{
+  width:min(1180px,100%);
+  margin:auto;
+  background:var(--paper);
+  box-shadow:0 0 28px rgba(0,0,0,.18);
+  min-height:100vh;
+}
+
+.nav{
+  height:64px;
+  background:#171a17;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  position:relative;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:11px;
+}
+
+.logo{font-weight:900;font-size:18px;letter-spacing:.02em}
+.logo a,.nav a{color:#ddd;text-decoration:none}
+.nav a{margin-left:22px}
+
+.nav-links{display:flex;align-items:center}
+
+.nav-toggle{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:4px;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  padding:0;
+}
+
+.nav-toggle-lines,
+.nav-toggle-lines:before,
+.nav-toggle-lines:after{
+  content:"";
+  display:block;
+  width:18px;
+  height:2px;
+  background:currentColor;
+  transition:transform .18s ease, opacity .18s ease;
+}
+
+.nav-toggle-lines{position:relative}
+.nav-toggle-lines:before{position:absolute;top:-6px}
+.nav-toggle-lines:after{position:absolute;top:6px}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines{background:transparent}
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines:before{transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines:after{transform:translateY(-6px) rotate(-45deg)}
+
+.hero{
+  position:relative;
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:24px 64px;
+  isolation:isolate;
+  border-bottom:8px solid #20231f;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("images/Bannerbridge.webp");
+  background-size:cover;
+  background-position:center;
+  z-index:-2;
+  filter:contrast(1.05) saturate(.85);
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.7));
+  z-index:-1;
+}
+
+.hero h1{
+  margin:0 0 8px;
+  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  text-transform:uppercase;
+  font-size:60px;
+  line-height:.9;
+  letter-spacing:.02em;
+  color:white;
+  text-shadow:0 3px 14px #000;
+}
+
+.hero p{margin:0;max-width:700px;font-size:19px;line-height:1.45;color:#f2ead8}
+
+.hero-copy-mobile{display:none}
+
+.builder-layout{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:0;
+}
+
+.controls{
+  background:var(--bone);
+  padding:34px 36px 40px;
+  border-right:1px solid var(--line);
+  min-width:0;
+}
+
+.visual{
+  background:#f1ebdd;
+  padding:28px 30px 32px;
+  min-width:0;
+}
+
+.block{
+  border:1px solid var(--line);
+  background:white;
+  padding:14px 14px 12px;
+  margin-bottom:14px;
+}
+
+.option-rows{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+#mobile-preview-anchor,
+#desktop-preview-anchor{
+  display:none;
+}
+
+.option-rows .block{
+  margin-bottom:0;
+}
+
+#contact-block{
+  margin-top:14px;
+}
+
+.block h2{
+  margin:0 0 8px;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:12px;
+  color:#334137;
+}
+
+.block p{margin:0 0 10px;font-size:14px;line-height:1.5;color:#3d4437}
+
+.option-help{
+  margin:8px 0 0;
+  font-size:12px;
+  line-height:1.45;
+  color:#b75b25 !important;
+  font-style:italic;
+}
+
+.option-help:empty{display:none}
+
+.option-help a{
+  color:var(--rust);
+  font-style:normal;
+  font-weight:700;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px 12px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.field.full{grid-column:1/-1}
+
+.field label{
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:11px;
+  color:var(--muted);
+}
+
+.field select,.field textarea,.field input{
+  border:1px solid var(--line);
+  background:white;
+  padding:10px 11px;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  color:var(--ink);
+  width:100%;
+  min-width:0;
+}
+
+.field textarea{resize:vertical;min-height:80px}
+
+.field select:focus,.field textarea:focus,.field input:focus{
+  outline:none;
+  border-color:var(--rust);
+  box-shadow:0 0 0 3px rgba(183,91,37,.16);
+}
+
+.dirk-cta{
+  border:1px dashed #b7a98d;
+  background:#f9f3e6;
+  padding:12px 13px;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  line-height:1.5;
+  margin-bottom:14px;
+}
+
+.dirk-cta a{color:var(--rust);font-weight:700}
+
+.preview-wrap{
+  background:transparent;
+  box-shadow:none;
+  padding:0;
+}
+
+.preview-wrap.mobile-sticky-preview{
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:#f1ebdd;
+  padding:8px 0 10px;
+}
+
+.bike-image-stage{
+  position:relative;
+  overflow:hidden;
+  border:none;
+  background:#fff;
+  aspect-ratio:16/9;
+}
+
+.bike-layer{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.bike-layer.hidden{display:none}
+
+.scene-label{
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:11px;
+  color:#566153;
+  margin:0 0 8px;
+}
+
+.scene-bike-name{
+  display:none;
+}
+
+.summary{
+  margin-top:14px;
+  border:1px solid var(--line);
+  background:#f8f5ec;
+  padding:18px;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+}
+
+.summary h3{
+  margin:0;
+  padding:0 0 12px;
+  border-bottom:2px solid #20231f;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:12px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
+  padding:9px 0;
+  border-bottom:1px solid var(--line);
+  font-family:Arial,sans-serif;
+  font-size:12px;
+}
+
+.summary-row:last-child{border-bottom:none}
+
+.summary-row .item-name{
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  font-weight:bold;
+}
+
+.summary-row .item-name.discount-label{
+  color:var(--accent);
+}
+
+.summary-row .item-val{
+  color:var(--rust);
+  font-weight:bold;
+  text-align:right;
+}
+
+.item-price{
+  margin-left:6px;
+  font-size:12px;
+  color:#8a7662;
+  font-weight:600;
+}
+
+.summary-total{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:2px solid #20231f;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.summary-total .price{font-size:22px;line-height:1;color:var(--green);font-weight:700;letter-spacing:0}
+
+.actions{
+  margin-top:14px;
+  display:grid;
+  gap:10px;
+}
+
+.btn{
+  display:block;
+  border:none;
+  text-decoration:none;
+  text-align:center;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:11px;
+  font-weight:800;
+  padding:12px 14px;
+}
+
+.btn[disabled]{
+  opacity:.7;
+  cursor:not-allowed;
+}
+
+.btn.primary{background:var(--rust);color:white}
+.btn.dark{background:#2a3d31;color:white}
+.btn.ghost{background:transparent;color:#2a3d31;border:1px solid #9e967f}
+
+.enquiry-status{
+  margin-top:10px;
+  padding:10px 12px;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  line-height:1.4;
+  letter-spacing:.03em;
+  border:1px solid var(--line);
+  background:#f8f5ec;
+  display:none;
+}
+
+.enquiry-status.visible{display:block}
+
+.enquiry-status.success{
+  border-color:#9fb69f;
+  background:#edf5ed;
+  color:#224222;
+}
+
+.enquiry-status.error{
+  border-color:#d8a28d;
+  background:#fff1ea;
+  color:#7a2f10;
+}
+
+.footer{
+  background:#171a17;
+  color:#bbb;
+  text-align:center;
+  padding:42px 20px;
+  position:relative;
+  min-height:78px;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.footer .footer-logo{
+  position:absolute;
+  left:16px;
+  bottom:12px;
+  width:84px;
+  height:auto;
+  opacity:.95;
+}
+
+.footer .social-links{
+  display:inline-flex;
+  gap:14px;
+  margin-left:18px;
+  flex-wrap:wrap;
+}
+
+.footer .social-links a{
+  color:#f2ead8;
+  text-decoration:none;
+  font-weight:700;
+  width:18px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.footer .social-links a:hover{
+  color:white;
+}
+
+.footer .social-links svg{
+  width:16px;
+  height:16px;
+  display:block;
+}
+
+@media(max-width:940px){
+  .hero{min-height:150px;padding:16px 22px}
+  .hero h1{font-size:46px}
+  .builder-layout{grid-template-columns:1fr}
+  .controls{padding:24px 18px;border-right:none;border-bottom:1px solid var(--line)}
+  .visual{padding:22px 18px 28px}
+  .grid{grid-template-columns:1fr}
+  .option-rows{grid-template-columns:1fr}
+}
+
+@media(max-width:760px){
+  .nav{height:58px;padding:0 16px}
+  .logo{font-size:15px}
+  .nav-toggle{display:inline-flex}
+
+  .hero-copy-desktop{display:none}
+  .hero-copy-mobile{display:inline}
+
+  #bike-size-block .grid{grid-template-columns:1fr 1fr}
+  #contact-block .grid{grid-template-columns:1fr}
+  #bikeHelp{display:none !important}
+  .option-rows{grid-template-columns:1fr}
+  .option-rows > .preview-wrap.mobile-sticky-preview{grid-column:1/-1}
+  #bagsHelp,#campingHelp,#cookingHelp,#navigationHelp{display:none !important}
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:58px;
+    left:0;
+    right:0;
+    background:#1f221f;
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    flex-direction:column;
+    align-items:stretch;
+    z-index:20;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{
+    margin-left:0;
+    padding:14px 16px;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+  .nav-links a:first-child{border-top:none}
+
+  .footer{
+    min-height:0;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .footer .footer-logo{
+    position:static;
+    left:auto;
+    bottom:auto;
+    width:42px;
+  }
+
+  .footer .social-links{
+    margin-left:0;
+  }
+
+  .preview-wrap.mobile-sticky-preview{
+    top:0;
+  }
+}
+
+@media(max-width:520px){
+  #bike-size-block .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="site">
+  <nav class="nav">
+    <div class="logo"><a href="index.html">NZBikepackingRentals.com</a></div>
+    <button class="nav-toggle" id="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav-links">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+    <div class="nav-links" id="main-nav-links">
+      <a href="builder.html">Bike Rentals</a>
+      <a href="routes.html">NZ Routes</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Build your rental rig</h1>
+    <p><span class="hero-copy-desktop">Pick a bike, load up the bags and add the camping kit. <br>We'll be in touch to help finalize your setup.</span><span class="hero-copy-mobile">Chose a setup. We'll be in touch.</span></p>
+  </header>
+
+  <main class="builder-layout">
+    <section class="controls">
+      <div class="dirk-cta">Not sure what setup suits your route? <a href="contact.html">Talk to Dirk.</a></div>
+
+      <div class="block" id="bike-size-block">
+        <h2>Bike & Size</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="bikeType"></label>
+            <select id="bikeType">
+              <option value="gravel" selected>Gravel Bike</option>
+              <option value="mtb">Hardtail MTB</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="frameSize"></label>
+            <select id="frameSize">
+              
+              <option>S</option>
+              <option selected>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+          </div>
+          <div class="field full">
+            <p class="option-help" id="bikeHelp">Fast and efficient on mixed gravel and sealed roads, ideal for longer mileage days and smoother surfaces.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-rows">
+        <div id="mobile-preview-anchor" aria-hidden="true"></div>
+
+        <div class="block">
+          <h2>Bags</h2>
+          <div class="field">
+            <label for="bags"></label>
+            <select id="bags">
+              <option value="none" selected>None</option>
+              <option value="light">Bikepacking bags - small</option>
+              <option value="heavy">Bikepacking bags - large</option>
+              <option value="panniers">Panniers</option>
+              <option value="trailer">Quest offroad Trailer</option>
+            </select>
+            <p class="option-help" id="bagsHelp"></p>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>Camping</h2>
+          <div class="field">
+            <label for="camping"></label>
+            <select id="camping">
+              <option value="none" selected>None</option>
+              <option value="basic">1-2 man lightweight tent</option>
+              <option value="full">Tent and sleeping mat</option>
+            </select>
+            <p class="option-help" id="campingHelp"></p>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>Cooking</h2>
+          <div class="field">
+            <label for="cooking"></label>
+            <select id="cooking">
+              <option value="none" selected>None</option>
+              <option value="kit">Cooker, pots and pans</option>
+            </select>
+            <p class="option-help" id="cookingHelp"></p>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>Navigation</h2>
+          <div class="field">
+            <label for="navigation"></label>
+            <select id="navigation">
+              <option value="phone" selected>None </option>
+              <option value="gps">GPS device</option>
+            </select>
+            <p class="option-help" id="navigationHelp"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block" id="contact-block">
+        <h2></h2>
+        <div class="grid">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="..." />
+          </div>
+          <div class="field">
+            <label for="startDate">Start Date</label>
+            <input id="startDate" type="date" />
+          </div>
+          <div class="field">
+            <label for="endDate">End Date</label>
+            <input id="endDate" type="date" />
+          </div>
+          <div class="field full">
+            <label for="notes">Additional information</label>
+            <textarea id="notes" placeholder="Anything we should know for fit, route plans, dates, or preferences?&#10;Gear drop off in Auckland is possible"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="visual">
+      <!-- <p class="scene-label">Live setup preview</p> -->
+      <div id="desktop-preview-anchor" aria-hidden="true"></div>
+      <div class="preview-wrap">
+        <div class="bike-image-stage" aria-label="Bike setup preview">
+          <img id="layerBackground" class="bike-layer" src="images/builder/gravel.webp" alt="Bike background" />
+          <img id="layerBags" class="bike-layer" src="images/builder/LightBikepack.webp" alt="Luggage overlay" />
+          <img id="layerCamping" class="bike-layer" src="images/builder/Camping.webp" alt="Camping overlay" />
+          <img id="layerCampingMat" class="bike-layer hidden" src="images/builder/campingmat.webp" alt="Camping mat overlay" />
+          <img id="layerCooking" class="bike-layer hidden" src="images/builder/cooker.webp" alt="Cooking kit overlay" />
+          <img id="layerGps" class="bike-layer hidden" src="images/builder/GPS.webp" alt="GPS overlay" />
+        </div>
+        <p class="scene-bike-name" id="bikeLabel">Gravel Bike</p>
+      </div>
+
+      <div class="summary">
+        <h3>Your Setup Summary</h3>
+        <div class="summary-row"><span class="item-name">Bike</span><span class="item-val"><span id="sumBike">Gravel Bike</span><span class="item-price" id="sumBikePrice">$200/wk</span></span></div>
+        <div class="summary-row"><span class="item-name">Bags</span><span class="item-val"><span id="sumBags">Bring own bags (no bags)</span><span class="item-price" id="sumBagsPrice">$0/wk</span></span></div>
+        <div class="summary-row"><span class="item-name">Camping</span><span class="item-val"><span id="sumCamp">No camping kit</span><span class="item-price" id="sumCampPrice">$0/wk</span></span></div>
+        <div class="summary-row"><span class="item-name">Cooking</span><span class="item-val"><span id="sumCooking">No cooking kit</span><span class="item-price" id="sumCookingPrice">$0/wk</span></span></div>
+        <div class="summary-row"><span class="item-name">Navigation</span><span class="item-val"><span id="sumNav">None (phone)</span><span class="item-price" id="sumNavPrice">$0/wk</span></span></div>
+        <div class="summary-row"><span class="item-name">Duration</span><span class="item-val" id="sumDuration">Not set</span></div>
+        <div class="summary-row"><span class="item-name">Dates</span><span class="item-val" id="sumDates">Not set</span></div>
+        <div class="summary-row"><span class="item-name discount-label">Discount for long rentals</span><span class="item-val" id="sumDiscount">0% ($0)</span></div>
+        <div class="summary-total"><span>Estimated Total</span><span class="price" id="sumPrice">$1360 NZD</span></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="sendEnquiryBtn" type="button">Send Enquiry</button>
+        <div id="enquiryStatus" class="enquiry-status" aria-live="polite"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <a href="https://www.cycleryraglan.co.nz" target="_blank" rel="noreferrer noopener" aria-label="Visit Cyclery Raglan">
+      <img class="footer-logo" src="images/Logo.webp" alt="NZ Bikepacking Rentals logo" loading="lazy">
+    </a>
+    <!-- <span>NZBikepackingRentals.com · Aotearoa bikepacking rentals</span> -->
+    <span class="social-links">
+      <a href="https://www.instagram.com/cycleryraglan/" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/CycleryRaglan" target="_blank" rel="noreferrer noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h3z"/></svg>
+      </a>
+    </span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const toggle = document.getElementById('mobile-nav-toggle');
+  const links = document.getElementById('main-nav-links');
+  if(!toggle || !links) return;
+
+  function setMenuOpen(open){
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  }
+
+  toggle.addEventListener('click', function(){
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    setMenuOpen(!isOpen);
+  });
+
+  links.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){ setMenuOpen(false); });
+  });
+
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 760) setMenuOpen(false);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const prices = {
+    bike: {gravel:200, mtb:200},
+    bags: {none:0, light:60, heavy:80, panniers:40, trailer:50},
+    camping: {none:0, basic:50, full:70},
+    cooking: {none:0, kit:30},
+    navigation: {phone:0, gps:20}
+  };
+
+  const labels = {
+    bike: {gravel:'Gravel Bike', mtb:'MTB'},
+    bags: {none:'Bring own bags (no bags)', light:'Small bikepacking', heavy:'Large bikepacking', panniers:'Panniers', trailer:'Trailer'},
+    camping: {none:'No camping kit', basic:'1-2 man tent', full:'Tent and sleeping mat'},
+    cooking: {none:'No cooking kit', kit:'Cooker, pots and pans'},
+    navigation: {phone:'None (phone)', gps:'GPS device'}
+  };
+
+  const helperText = {
+    bike: {
+      gravel: 'Fast and efficient on mixed gravel and sealed roads, ideal for longer mileage days and smoother surfaces.',
+      mtb: 'More control on singletrack, loose descents, and chunkier backcountry terrain. Ideal for the K500 and other more technical routes '
+    },
+    bags: {
+      none: '',
+      light: 'Frame, saddle and cockpit storage for fast-moving trips, credit-card touring, or lighter overnight rides.',
+      heavy: 'High-capacity bikepacking loadout for longer remote trips where you need extra layers, food, and spares.',
+      panniers: 'Stable high-volume carrying for road touring and riders prioritizing easy access and organization.',
+      trailer: 'Maximum carrying capacity for expedition loads and bulky extra gear.'
+    },
+    camping: {
+      none: '',
+      basic: 'Leightweight 1-2 person tent for overnight stays on the trail.',
+      full: 'Tent plus inflatable sleeping mat for camping.'
+    },
+    cooking: {
+      none: '',
+      kit: 'Cooking pots and pans kit for camp meals on multi-day trips.'
+    },
+    navigation: {
+      phone: '',
+      gps: 'Basic GPS cycle computer with 2 hours of battery life. We can help you road your routes and gpx files onto the device before you leave.'
+    }
+  };
+
+  const helperHtml = {
+    bags: {
+      trailer: 'Maximum carrying capacity for expedition loads and bulky extra gear. We use <a href="https://www.questbiketrailers.com/" target="_blank" rel="noreferrer noopener">Quest offroad bike trailers</a>.'
+    }
+  };
+
+  const imageSources = {
+    bike: {
+      gravel: 'images/builder/gravel.webp',
+      mtb: 'images/builder/Mtb.webp'
+    },
+    bags: {
+      none: '',
+      light: {
+        gravel: 'images/builder/LightBikepack.webp',
+        mtb: 'images/builder/MTBLightBikepack.webp'
+      },
+      heavy: {
+        gravel: 'images/builder/HeavyBikepack.webp',
+        mtb: 'images/builder/MTBHeavyBikepack.webp'
+      },
+      panniers: 'images/builder/Panniers.webp',
+      trailer: 'images/builder/Trailer.webp'
+    },
+    camping: {
+      none: '',
+      basic: 'images/builder/Camping.webp',
+      full: 'images/builder/Camping.webp'
+    },
+    campingMat: {
+      none: '',
+      basic: '',
+      full: 'images/builder/campingmat.webp'
+    },
+    cooking: {
+      none: '',
+      kit: 'images/builder/cooker.webp'
+    },
+    navigation: {
+      phone: '',
+      gps: 'images/builder/GPS.webp'
+    }
+  };
+
+  const el = {
+    bikeType: document.getElementById('bikeType'),
+    startDate: document.getElementById('startDate'),
+    endDate: document.getElementById('endDate'),
+    bags: document.getElementById('bags'),
+    camping: document.getElementById('camping'),
+    cooking: document.getElementById('cooking'),
+    navigation: document.getElementById('navigation'),
+    frameSize: document.getElementById('frameSize'),
+    bikeHelp: document.getElementById('bikeHelp'),
+    bagsHelp: document.getElementById('bagsHelp'),
+    campingHelp: document.getElementById('campingHelp'),
+    cookingHelp: document.getElementById('cookingHelp'),
+    navigationHelp: document.getElementById('navigationHelp'),
+    notes: document.getElementById('notes'),
+    email: document.getElementById('email'),
+    phone: document.getElementById('phone'),
+    sumBike: document.getElementById('sumBike'),
+    sumBikePrice: document.getElementById('sumBikePrice'),
+    sumBags: document.getElementById('sumBags'),
+    sumBagsPrice: document.getElementById('sumBagsPrice'),
+    sumCamp: document.getElementById('sumCamp'),
+    sumCampPrice: document.getElementById('sumCampPrice'),
+    sumCooking: document.getElementById('sumCooking'),
+    sumCookingPrice: document.getElementById('sumCookingPrice'),
+    sumNav: document.getElementById('sumNav'),
+    sumNavPrice: document.getElementById('sumNavPrice'),
+    sumDuration: document.getElementById('sumDuration'),
+    sumDates: document.getElementById('sumDates'),
+    sumDiscount: document.getElementById('sumDiscount'),
+    sumPrice: document.getElementById('sumPrice'),
+    bikeLabel: document.getElementById('bikeLabel'),
+    layerBackground: document.getElementById('layerBackground'),
+    layerBags: document.getElementById('layerBags'),
+    layerCamping: document.getElementById('layerCamping'),
+    layerCampingMat: document.getElementById('layerCampingMat'),
+    layerCooking: document.getElementById('layerCooking'),
+    layerGps: document.getElementById('layerGps'),
+    sendEnquiryBtn: document.getElementById('sendEnquiryBtn'),
+    enquiryStatus: document.getElementById('enquiryStatus')
+  };
+
+  function toInputDate(date){
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  function parseInputDate(value){
+    const raw = String(value || '').trim();
+    if(!raw) return null;
+
+    const ddmmyyyy = raw.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+    if(ddmmyyyy){
+      const day = Number(ddmmyyyy[1]);
+      const month = Number(ddmmyyyy[2]) - 1;
+      const year = Number(ddmmyyyy[3]);
+      const date = new Date(year, month, day);
+      if(date.getFullYear() === year && date.getMonth() === month && date.getDate() === day){
+        return date;
+      }
+      return null;
+    }
+
+    const isoMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if(isoMatch){
+      const year = Number(isoMatch[1]);
+      const month = Number(isoMatch[2]) - 1;
+      const day = Number(isoMatch[3]);
+      const date = new Date(year, month, day);
+      if(date.getFullYear() === year && date.getMonth() === month && date.getDate() === day){
+        return date;
+      }
+    }
+
+    const fallback = new Date(raw);
+    return Number.isNaN(fallback.getTime()) ? null : fallback;
+  }
+
+  function shiftMonths(date, monthCount){
+    const shifted = new Date(date);
+    shifted.setMonth(shifted.getMonth() + monthCount);
+    return shifted;
+  }
+
+  function getTripDaysFromDates(startDate, endDate){
+    if(!startDate || !endDate) return null;
+
+    const start = parseInputDate(startDate);
+    const end = parseInputDate(endDate);
+    if(!start || !end) return null;
+    if(end <= start) return null;
+
+    const dayMs = 24 * 60 * 60 * 1000;
+    return Math.ceil((end - start) / dayMs);
+  }
+
+  function getBilledWeeksFromDays(days){
+    if(!Number.isFinite(days) || days <= 0) return 1;
+    return Math.max(1, Math.ceil(days / 7));
+  }
+
+  function getBikeCharge(days){
+    if(Number.isFinite(days) && days > 0 && days < 7){
+      return 50 * days;
+    }
+    return prices.bike.gravel * getBilledWeeksFromDays(days);
+  }
+
+  function formatDaysLabel(days){
+    if(!Number.isFinite(days) || days <= 0) return 'Not set';
+    return days === 1 ? '1 day' : `${days} days`;
+  }
+
+  function formatDateShort(value){
+    const raw = String(value || '').trim();
+    if(!raw) return 'Not set';
+
+    const date = parseInputDate(raw);
+    if(!date) return raw;
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
+  function formatOrdinalDay(day){
+    const n = Number(day);
+    if(!Number.isFinite(n)) return '';
+    const abs = Math.abs(Math.trunc(n));
+    const remainder100 = abs % 100;
+    if(remainder100 >= 11 && remainder100 <= 13) return `${abs}th`;
+    switch(abs % 10){
+      case 1: return `${abs}st`;
+      case 2: return `${abs}nd`;
+      case 3: return `${abs}rd`;
+      default: return `${abs}th`;
+    }
+  }
+
+  function formatFriendlyDate(value){
+    const raw = String(value || '').trim();
+    if(!raw) return 'Not set';
+
+    const date = parseInputDate(raw);
+    if(!date) return raw;
+
+    const month = date.toLocaleDateString('en-NZ', {month:'long'});
+    const year = date.getFullYear();
+    return `${formatOrdinalDay(date.getDate())} ${month} ${year}`;
+  }
+
+  function formatDateRangeLabel(startDate, endDate){
+    if(!startDate || !endDate) return 'Not set';
+    return `${formatDateShort(startDate)} to ${formatDateShort(endDate)}`;
+  }
+
+  function applyDefaultDates(){
+    const now = new Date();
+    el.startDate.value = toInputDate(shiftMonths(now, 1));
+    const end = new Date(shiftMonths(now, 1));
+    end.setDate(end.getDate() + 21);
+    el.endDate.value = toInputDate(end);
+  }
+
+  function setLayer(imgEl, src){
+    if(src){
+      imgEl.src = src;
+      imgEl.classList.remove('hidden');
+      return;
+    }
+
+    imgEl.classList.add('hidden');
+  }
+
+  function getBagOverlaySource(bagType, bikeType){
+    const bagSource = imageSources.bags[bagType];
+    if(typeof bagSource === 'string') return bagSource;
+    if(!bagSource || typeof bagSource !== 'object') return '';
+    return bagSource[bikeType] || bagSource.gravel || '';
+  }
+
+  function getCurrentSelections(){
+    const bike = el.bikeType.value;
+    const bags = el.bags.value;
+    const camp = el.camping.value;
+    const cooking = el.cooking.value;
+    const nav = el.navigation.value;
+    const tripDays = getTripDaysFromDates(el.startDate.value, el.endDate.value);
+    const billedWeeks = getBilledWeeksFromDays(tripDays);
+    const bikeCharge = getBikeCharge(tripDays);
+    const weeklyTotal = prices.bike[bike] + prices.bags[bags] + prices.camping[camp] + prices.cooking[cooking] + prices.navigation[nav];
+    const addonWeeks = billedWeeks;
+    const addonCharge = (
+      prices.bags[bags] +
+      prices.camping[camp] +
+      prices.cooking[cooking] +
+      prices.navigation[nav]
+    ) * addonWeeks;
+    const subtotal = Math.round(bikeCharge + addonCharge);
+    const discountPercent = getDiscountPercent(billedWeeks);
+    const discountAmount = Math.round(subtotal * (discountPercent / 100));
+    const total = subtotal - discountAmount;
+
+    const items = [
+      {name: labels.bike[bike], val: Number.isFinite(tripDays) && tripDays > 0 && tripDays < 7 ? '$50/day' : formatWeeklyPrice(prices.bike[bike]), weeklyPrice: prices.bike[bike], type: 'Bike'},
+      {name: labels.bags[bags], val: formatWeeklyPrice(prices.bags[bags]), weeklyPrice: prices.bags[bags], type: 'Bags'},
+      {name: labels.camping[camp], val: formatWeeklyPrice(prices.camping[camp]), weeklyPrice: prices.camping[camp], type: 'Camping'},
+      {name: labels.cooking[cooking], val: formatWeeklyPrice(prices.cooking[cooking]), weeklyPrice: prices.cooking[cooking], type: 'Cooking'},
+      {name: labels.navigation[nav], val: formatWeeklyPrice(prices.navigation[nav]), weeklyPrice: prices.navigation[nav], type: 'Navigation'}
+    ];
+
+    return {
+      bike,
+      bags,
+      camp,
+      cooking,
+      nav,
+      tripDays,
+      billedWeeks,
+      weeklyTotal,
+      subtotal,
+      discountPercent,
+      discountAmount,
+      total,
+      items
+    };
+  }
+
+  function setEnquiryStatus(message, kind){
+    if(!el.enquiryStatus) return;
+    el.enquiryStatus.textContent = message;
+    el.enquiryStatus.classList.add('visible');
+    el.enquiryStatus.classList.remove('success', 'error');
+    if(kind === 'success' || kind === 'error') el.enquiryStatus.classList.add(kind);
+  }
+
+  function getEnquiryPayload(){
+    const selected = getCurrentSelections();
+    return {
+      contact: {
+        email: (el.email.value || '').trim(),
+        phone: (el.phone.value || '').trim(),
+        additionalInfo: (el.notes.value || '').trim()
+      },
+      booking: {
+        startDate: el.startDate.value || '',
+        endDate: el.endDate.value || '',
+        days: selected.tripDays,
+        weeks: selected.billedWeeks,
+        frameSize: el.frameSize.value || ''
+      },
+      pricing: {
+        weeklyTotal: selected.weeklyTotal,
+        subtotal: selected.subtotal,
+        discountPercent: selected.discountPercent,
+        discountAmount: selected.discountAmount,
+        total: selected.total
+      },
+      items: selected.items,
+      page: {url: window.location.href}
+    };
+  }
+
+  function buildEnquirySummaryText(payload){
+    const contact = payload.contact || {};
+    const booking = payload.booking || {};
+    const pricing = payload.pricing || {};
+    const items = Array.isArray(payload.items) ? payload.items : [];
+
+    const lines = [
+      'New bike builder enquiry received.',
+      '',
+      'Contact',
+      'Email: ' + (contact.email || 'Not provided'),
+      'Phone: ' + (contact.phone || 'Not provided'),
+      'Additional info: ' + (contact.additionalInfo || 'Not provided'),
+      '',
+      'Trip',
+      'Start: ' + formatDateShort(booking.startDate),
+      'End: ' + formatDateShort(booking.endDate),
+      'Days: ' + (booking.days || 'Not set'),
+      'Frame size: ' + (booking.frameSize || 'Not set'),
+      '',
+      'Selected kit'
+    ];
+
+    if(items.length){
+      items.forEach((item, idx) => {
+        lines.push((idx + 1) + '. ' + (item.name || 'Unnamed item') + ' (' + (item.val || '$0/week') + ')');
+      });
+    } else {
+      lines.push('No items selected');
+    }
+
+    lines.push('');
+    lines.push('Pricing');
+    lines.push('Weekly total: $' + (pricing.weeklyTotal || 0));
+    lines.push('Subtotal: $' + (pricing.subtotal || 0));
+    lines.push('Discount: ' + (pricing.discountPercent || 0) + '%');
+    lines.push('Discount amount: $' + (pricing.discountAmount || 0));
+    lines.push('Total: $' + (pricing.total || 0));
+    lines.push('');
+    lines.push('Page URL: ' + window.location.href);
+
+    return lines.join('\n');
+  }
+
+  async function sendViaFormSubmit(payload){
+    const endpoint = 'https://formsubmit.co/ajax/chris.robert.watson@gmail.com';
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: 'New Bike Builder Enquiry - ' + payload.contact.email,
+        email: payload.contact.email,
+        phone: payload.contact.phone || '',
+        additionalInfo: payload.contact.additionalInfo || '',
+        message: buildEnquirySummaryText(payload),
+        _captcha: 'false'
+      })
+    });
+
+    let body = null;
+    try {
+      body = await response.json();
+    } catch (_parseErr) {
+      body = null;
+    }
+
+    if(!response.ok){
+      const message = body && body.message ? String(body.message) : 'Form fallback failed with status ' + response.status;
+      throw new Error(message);
+    }
+  }
+
+  async function submitEnquiry(){
+    if(!el.sendEnquiryBtn) return;
+
+    if(window.location.protocol === 'file:'){
+      setEnquiryStatus('This page is being opened as a local file. Please run it through the site server so enquiries can be sent.', 'error');
+      return;
+    }
+
+    const payload = getEnquiryPayload();
+
+    if(!payload.contact.email){
+      setEnquiryStatus('Please enter your email address before sending your enquiry.', 'error');
+      el.email.focus();
+      return;
+    }
+
+    if(!payload.booking.startDate || !payload.booking.endDate){
+      setEnquiryStatus('Please select your trip start and end dates.', 'error');
+      return;
+    }
+
+    el.sendEnquiryBtn.disabled = true;
+    setEnquiryStatus('Sending your enquiry...', null);
+
+    try {
+      const apiBase = String(window.ENQUIRY_API_BASE || '').replace(/\/$/, '');
+      const endpoint = (apiBase || '') + '/api/enquiries';
+      let apiFailedMessage = '';
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+
+        let responseBody = null;
+        try {
+          responseBody = await response.json();
+        } catch (_parseErr) {
+          responseBody = null;
+        }
+
+        if(!response.ok){
+          const serverMessage = responseBody && responseBody.error ? String(responseBody.error) : '';
+          apiFailedMessage = serverMessage || ('Request failed with status ' + response.status);
+        }
+      } catch (apiErr) {
+        apiFailedMessage = apiErr && apiErr.message ? String(apiErr.message) : 'Primary API request failed.';
+      }
+
+      if(apiFailedMessage){
+        await sendViaFormSubmit(payload);
+      }
+
+      setEnquiryStatus('Thank you for your enquiry, we will be in touch shortly.', 'success');
+    } catch (err) {
+      const errorText = err && err.message ? String(err.message) : '';
+      if(errorText){
+        setEnquiryStatus('Could not send enquiry: ' + errorText, 'error');
+      } else {
+        setEnquiryStatus('Sorry, there was a problem sending your enquiry. Please try again in a moment.', 'error');
+      }
+      console.error('Failed to send enquiry:', err);
+    } finally {
+      el.sendEnquiryBtn.disabled = false;
+    }
+  }
+
+  function formatWeeklyPrice(value){
+    return '$' + value + '/wk';
+  }
+
+  function formatBikePrice(tripDays){
+    if(Number.isFinite(tripDays) && tripDays > 0 && tripDays < 7){
+      return '$50/day';
+    }
+    return '$200/wk';
+  }
+
+  function getDiscountPercent(weeks){
+    if(weeks <= 3) return 0;
+    if(weeks >= 10) return 40;
+    return Math.round(((weeks - 3) / 7) * 40);
+  }
+
+  function update(){
+    const bike = el.bikeType.value;
+    const bags = el.bags.value;
+    const camp = el.camping.value;
+    const cooking = el.cooking.value;
+    const nav = el.navigation.value;
+    const startDate = el.startDate.value;
+    const endDate = el.endDate.value;
+    const tripDays = getTripDaysFromDates(startDate, endDate);
+
+    el.sumBike.textContent = labels.bike[bike];
+    el.sumBags.textContent = labels.bags[bags];
+    el.sumCamp.textContent = labels.camping[camp];
+    el.sumCooking.textContent = labels.cooking[cooking];
+    el.sumNav.textContent = labels.navigation[nav];
+    el.bikeHelp.textContent = helperText.bike[bike];
+    el.bagsHelp.innerHTML = (helperHtml.bags[bags] || '').trim();
+    if(!el.bagsHelp.innerHTML) el.bagsHelp.textContent = helperText.bags[bags];
+    el.campingHelp.textContent = helperText.camping[camp];
+    el.cookingHelp.textContent = helperText.cooking[cooking];
+    el.navigationHelp.textContent = helperText.navigation[nav];
+    el.sumBikePrice.textContent = formatBikePrice(tripDays);
+    el.sumBagsPrice.textContent = formatWeeklyPrice(prices.bags[bags]);
+    el.sumCampPrice.textContent = formatWeeklyPrice(prices.camping[camp]);
+    el.sumCookingPrice.textContent = formatWeeklyPrice(prices.cooking[cooking]);
+    el.sumNavPrice.textContent = formatWeeklyPrice(prices.navigation[nav]);
+    el.sumDuration.textContent = formatDaysLabel(tripDays);
+    el.sumDates.textContent = formatDateRangeLabel(startDate, endDate);
+    el.bikeLabel.textContent = labels.bike[bike];
+
+    setLayer(el.layerBackground, imageSources.bike[bike]);
+    setLayer(el.layerBags, getBagOverlaySource(bags, bike));
+    setLayer(el.layerCamping, imageSources.camping[camp]);
+    setLayer(el.layerCampingMat, imageSources.campingMat[camp]);
+    setLayer(el.layerCooking, imageSources.cooking[cooking]);
+    setLayer(el.layerGps, imageSources.navigation[nav]);
+
+    const selected = getCurrentSelections();
+
+    el.sumDiscount.textContent = selected.discountPercent + '% (-$' + selected.discountAmount + ')';
+    el.sumPrice.textContent = '$' + selected.total + ' NZD';
+  }
+
+  const previewWrap = document.querySelector('.preview-wrap');
+  const mobilePreviewAnchor = document.getElementById('mobile-preview-anchor');
+  const desktopPreviewAnchor = document.getElementById('desktop-preview-anchor');
+
+  function placeMobileStickyPreview(){
+    if(!previewWrap || !mobilePreviewAnchor || !desktopPreviewAnchor) return;
+
+    const isMobile = window.matchMedia('(max-width:760px)').matches;
+    if(isMobile){
+      mobilePreviewAnchor.insertAdjacentElement('afterend', previewWrap);
+      previewWrap.classList.add('mobile-sticky-preview');
+    }else{
+      desktopPreviewAnchor.insertAdjacentElement('afterend', previewWrap);
+      previewWrap.classList.remove('mobile-sticky-preview');
+    }
+  }
+
+  ['change','input'].forEach(evt => {
+    el.bikeType.addEventListener(evt, update);
+    el.startDate.addEventListener(evt, update);
+    el.endDate.addEventListener(evt, update);
+    el.bags.addEventListener(evt, update);
+    el.camping.addEventListener(evt, update);
+    el.cooking.addEventListener(evt, update);
+    el.navigation.addEventListener(evt, update);
+    el.frameSize.addEventListener(evt, update);
+    el.notes.addEventListener(evt, update);
+    el.email.addEventListener(evt, update);
+    el.phone.addEventListener(evt, update);
+  });
+
+  if(el.sendEnquiryBtn){
+    el.sendEnquiryBtn.addEventListener('click', submitEnquiry);
+  }
+
+  window.addEventListener('resize', placeMobileStickyPreview);
+
+  applyDefaultDates();
+  placeMobileStickyPreview();
+  update();
+})();
+</script>
+</body>
+</html>

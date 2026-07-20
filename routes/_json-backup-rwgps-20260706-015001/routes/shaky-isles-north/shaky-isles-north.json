@@ -1,0 +1,47 @@
+﻿{
+    "id":  "shaky-isles-north",
+    "file":  "routes/shaky-isles-north/Shaky Isles North.gpx",
+    "name":  "Shaky Isles North",
+    "days":  9,
+    "distanceLabel":  "1,601 km",
+    "totalElevationMeters":  33792,
+    "surfaceSplit":  "45% Gravel / 15% Road / 40% Track",
+    "recommendedBike":  "Hardtail MTB",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "description":  "A tough North Island route with remote stretches and mixed surfaces.",
+    "bestSeason":  "Oct-Apr",
+    "moreInfo":  "https://ridewithgps.com/routes/53174615",
+    "photos":  [
+                   "routes/shaky-isles-north/sn12.jpg",
+                   "routes/shaky-isles-north/sn2.jpg",
+                   "routes/shaky-isles-north/sn3.jpg",
+                   "routes/shaky-isles-north/sn4.jpg",
+                   "routes/shaky-isles-north/sn5.jpg",
+                   "routes/shaky-isles-north/sn6.jpg",
+                   "routes/shaky-isles-north/sn7.jpg",
+                   "routes/shaky-isles-north/sn8.jpg",
+                   "routes/shaky-isles-north/sn9.jpg",
+                   "routes/shaky-isles-north/sn11.jpg",
+                   "routes/shaky-isles-north/sn1.jpg",
+                   "routes/shaky-isles-north/sn13.jpg",
+                   "routes/shaky-isles-north/sn10.jpg"
+               ],
+    "youtubeVideos":  "https://youtu.be/1gAkUyKSOPw?si=mx4PiY4HOAdZrm2J",
+    "tags":  [
+                 "long",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "Shaky Isles North has rougher lines, bigger climbing days, and more remote riding than easier touring routes. Longer gaps between dependable services push it into hard territory.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The Timber Trail and Mokau headwaters combination is the most remote two-day block, requiring good weather judgement and full food carry.",
+    "routeSummary":  [
+                         "Shaky Isles North is a hard bikepacking route covering about 1,601 km, commonly ridden over 9 days. A tough North Island route with remote stretches and mixed surfaces. Riders can expect 45% Gravel / 15% Road / 40% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Oct-Apr, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The Timber Trail and Mokau headwaters combination is the most remote two-day block, requiring good weather judgement and full food carry. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 9-day route, we recommend a Hardtail MTB to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

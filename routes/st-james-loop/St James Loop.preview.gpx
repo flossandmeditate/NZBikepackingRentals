@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>St James Loop</name>
+    <trkseg>
+      <trkpt lat="-42.442799" lon="172.797226">
+        <ele>818.7</ele>
+      </trkpt>
+      <trkpt lat="-42.276860" lon="172.769844">
+        <ele>1003.0</ele>
+      </trkpt>
+      <trkpt lat="-42.251918" lon="172.632496">
+        <ele>800.9</ele>
+      </trkpt>
+      <trkpt lat="-42.340384" lon="172.584615">
+        <ele>772.8</ele>
+      </trkpt>
+      <trkpt lat="-42.418560" lon="172.672766">
+        <ele>713.9</ele>
+      </trkpt>
+      <trkpt lat="-42.443846" lon="172.796463">
+        <ele>823.9</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

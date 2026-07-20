@@ -1,0 +1,2450 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NZ Bikepacking Rentals</title>
+
+<style>
+:root{
+  --ink:#1d1f1a;
+  --paper:#f4efe3;
+  --bone:#fffaf0;
+  --muted:#6f7568;
+  --green:#25362c;
+  --green2:#35483b;
+  --rust:#b75b25;
+  --line:#d8d0be;
+  --mint:#dfece3;
+  --side:#ded8ca;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--side);
+  color:var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.site{
+  width:min(1220px,100%);
+  margin:auto;
+  background:var(--paper);
+  box-shadow:0 0 28px rgba(0,0,0,.18);
+}
+
+.nav{
+  height:64px;
+  background:#171a17;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  position:relative;
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:11px;
+}
+
+.logo{
+  font-weight:900;
+  font-size:18px;
+  letter-spacing:.02em;
+}
+
+.logo a,.nav a{
+  color:#ddd;
+  text-decoration:none;
+}
+
+.nav-links a{margin-left:22px}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+}
+
+.nav-toggle{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:4px;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  padding:0;
+}
+
+.nav-toggle-lines,
+.nav-toggle-lines:before,
+.nav-toggle-lines:after{
+  content:"";
+  display:block;
+  width:18px;
+  height:2px;
+  background:currentColor;
+  transition:transform .18s ease, opacity .18s ease;
+}
+
+.nav-toggle-lines{
+  position:relative;
+}
+
+.nav-toggle-lines:before{
+  position:absolute;
+  top:-6px;
+}
+
+.nav-toggle-lines:after{
+  position:absolute;
+  top:6px;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines{
+  background:transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines:before{
+  transform:translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines:after{
+  transform:translateY(-6px) rotate(-45deg);
+}
+
+.nz-kicker{
+  background:#a6502e;
+  border-bottom:1px solid #8f4428;
+  padding:6px 18px;
+  display:flex;
+  align-items:center;
+  font-family:Arial, sans-serif;
+  letter-spacing:.03em;
+  font-size:14px;
+  line-height:1.3;
+  color:#fff7ec;
+}
+
+.nz-kicker strong{
+  color:white;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.hero-choice{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:560px;
+  border-bottom:8px solid #20231f;
+}
+
+.hero-mobile-image{display:none}
+
+.choice{
+  position:relative;
+  overflow:hidden;
+  padding:42px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:560px;
+  isolation:isolate;
+}
+
+.choice-link{
+  position:absolute;
+  inset:0;
+  z-index:5;
+}
+
+.choice > *{
+  position:relative;
+  z-index:2;
+}
+
+.choice > .choice-link{
+  z-index:5;
+}
+
+.choice:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  z-index:-2;
+  filter:contrast(1.05) saturate(.9);
+}
+
+.choice:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.62)),
+    radial-gradient(circle at center, transparent, rgba(0,0,0,.28));
+  z-index:-1;
+}
+
+.choice.how:before{
+  background-image:url("images/Hero1.webp");
+}
+
+.choice.where:before{
+  background-image:url("images/Hero2.webp");
+}
+
+.choice-label{
+  position:absolute;
+  top:28px;
+  left:28px;
+  background:#111;
+  color:white;
+  padding:9px 13px;
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:.1em;
+}
+
+.choice h1{
+  margin:0 0 12px;
+  color:white;
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:64px;
+  line-height:.92;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  text-shadow:0 3px 14px #000;
+}
+
+.choice p{
+  margin:0 0 22px;
+  color:#f2ead8;
+  font-size:19px;
+  line-height:1.45;
+  max-width:460px;
+}
+
+.btn{
+  display:inline-block;
+  width:max-content;
+  background:var(--rust);
+  color:white;
+  padding:14px 18px;
+  text-decoration:none;
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:12px;
+  border:none;
+  cursor:pointer;
+  box-shadow:4px 4px 0 rgba(0,0,0,.25);
+}
+
+.btn.dark{background:var(--rust)}
+
+.route-cta::after{
+  content:"\2192";
+  display:inline-block;
+  margin-left:8px;
+  line-height:1;
+}
+
+.route-link-mobile{display:none}
+.intro-mobile-copy{display:none;font-weight:400}
+.featured-copy-mobile{display:none}
+.mobile-hide-stat{display:block}
+
+.stats{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--mint);
+  padding:14px 24px;
+  font-family:Arial, sans-serif;
+  border-top:1px solid #c7d4c8;
+  border-bottom:1px solid #c7d4c8;
+}
+
+.stats-tagline{
+  margin:0;
+  color:#314236;
+  font-size:16px;
+  line-height:1.45;
+  text-align:center;
+}
+
+.stats-tagline-mobile{display:none}
+
+.stats-tagline a{
+  color:var(--rust);
+  font-weight:700;
+}
+
+.stats-tagline a:hover{
+  color:#8f4428;
+}
+
+.main{
+  display:grid;
+  grid-template-columns:1fr 270px;
+  gap:38px;
+  padding:46px 64px;
+  background:var(--bone);
+}
+
+.article h2{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform:uppercase;
+  font-size:34px;
+  margin:28px 0 12px;
+}
+
+.article p{
+  font-size:17px;
+  line-height:1.75;
+  margin:0 0 20px;
+}
+
+.drop{
+  float:left;
+  font-size:58px;
+  line-height:.9;
+  padding:8px 10px 0 0;
+  color:var(--rust);
+}
+
+.intro{
+  font-weight:bold;
+}
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:13px;
+  margin:30px 0;
+}
+
+.photo-grid img{
+  width:100%;
+  height:440px;
+  object-fit:cover;
+}
+
+.photo-grid .wide{
+  grid-column:1/3;
+  height:280px;
+}
+
+.callout{
+  border:1px solid var(--line);
+  background:#f8f5ec;
+  padding:22px;
+  margin:32px 0;
+  box-shadow:6px 6px 0 #e4ded0;
+}
+
+.callout h3{
+  margin:0 0 10px;
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-size:14px;
+  letter-spacing:.1em;
+}
+
+.card{
+  background:#f8f5ec;
+  border:1px solid var(--line);
+  padding:18px;
+  margin-bottom:18px;
+  font-family:Arial, sans-serif;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+}
+
+.card h3{
+  margin:0 0 14px;
+  text-transform:uppercase;
+  font-size:14px;
+  letter-spacing:.12em;
+}
+
+.card img{
+  width:100%;
+  display:block;
+  margin-bottom:12px;
+}
+
+.route-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.route-list li{
+  border-top:1px solid var(--line);
+  padding:10px 0;
+  font-size:13px;
+}
+
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:8px solid #20231f;
+}
+
+.split.single{
+  grid-template-columns:1fr;
+}
+
+.panel{
+  min-height:520px;
+  padding:42px;
+  position:relative;
+  overflow:hidden;
+}
+
+.panel h2{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:46px;
+  text-transform:uppercase;
+  line-height:1;
+  margin:0 0 14px;
+}
+
+.panel p{
+  font-size:18px;
+  line-height:1.5;
+  max-width:430px;
+}
+
+.builder{background:#eee8da}
+.map{background:#dfe6dc}
+
+.fleet-header{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:24px;
+  align-items:start;
+  margin-bottom:20px;
+}
+
+.fleet-header p{
+  margin:0;
+  font-size:18px;
+  line-height:1.5;
+  max-width:none;
+}
+
+.fleet-header .btn{
+  align-self:flex-start;
+  justify-self:end;
+}
+
+.bike{
+  width:92%;
+  max-width:520px;
+  display:block;
+  margin:30px auto 15px;
+  filter:contrast(1.05);
+}
+
+.fleet-gallery{
+  margin-top:26px;
+  width:min(900px, 88%);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.fleet-gallery-carousel{
+  position:relative;
+  border:1px solid #abb39e;
+  background:#dfe6dc;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+
+.fleet-gallery-track{
+  position:relative;
+  width:100%;
+  height:620px;
+  background:#cfd7cb;
+}
+
+.fleet-gallery-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .45s ease;
+  pointer-events:none;
+}
+
+.fleet-gallery-slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.fleet-gallery-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+  cursor:pointer;
+}
+
+.fleet-gallery-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:999px;
+  background:rgba(20,23,20,.62);
+  color:#fff;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.fleet-gallery-nav:hover{
+  background:rgba(20,23,20,.78);
+}
+
+.fleet-gallery-nav.prev{
+  left:12px;
+}
+
+.fleet-gallery-nav.next{
+  right:12px;
+}
+
+.fleet-gallery-dots{
+  position:absolute;
+  left:50%;
+  bottom:16px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  z-index:3;
+}
+
+.fleet-gallery-dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  border:0;
+  background:rgba(255,255,255,.52);
+  cursor:pointer;
+  padding:0;
+}
+
+.fleet-gallery-dot.active{
+  background:#fff;
+  box-shadow:0 0 0 2px rgba(23,26,23,.28);
+}
+
+.fleet-gallery-count{
+  position:absolute;
+  right:16px;
+  bottom:14px;
+  z-index:3;
+  padding:6px 10px;
+  background:rgba(20,23,20,.66);
+  color:#fffaf0;
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.carousel{
+  display:none;
+}
+
+.carousel-track{
+  display:flex;
+  height:100%;
+  transition:transform 0.6s ease-in-out;
+}
+
+.carousel-slide{
+  min-width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.carousel-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+
+.carousel-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:34px;
+  height:34px;
+  border:none;
+  border-radius:50%;
+  background:rgba(17,17,17,.58);
+  color:#f7f2dc;
+  font-size:18px;
+  line-height:1;
+  cursor:pointer;
+  z-index:3;
+  display:grid;
+  place-items:center;
+  transition:background .2s ease, transform .2s ease;
+}
+
+.carousel-arrow:hover{
+  background:rgba(17,17,17,.78);
+}
+
+.carousel-arrow:focus-visible{
+  outline:2px solid #f7f2dc;
+  outline-offset:2px;
+}
+
+.carousel-arrow.prev{
+  left:10px;
+}
+
+.carousel-arrow.next{
+  right:10px;
+}
+
+.route-line{
+  position:absolute;
+  width:220px;
+  height:120px;
+  left:38%;
+  top:95px;
+  border-top:5px solid var(--rust);
+  border-radius:50%;
+  transform:rotate(-26deg);
+  display:none;
+}
+
+.map-label{
+  position:absolute;
+  background:#f7f2dc;
+  padding:7px 10px;
+  font-family:Arial, sans-serif;
+  font-weight:bold;
+  font-size:12px;
+  box-shadow:2px 2px 0 rgba(0,0,0,.18);
+  display:none;
+}
+
+.l1{left:41%;top:80px}
+.l2{left:23%;top:150px}
+.l3{right:6%;top:190px}
+.l4{left:43%;bottom:42px}
+
+.feature-band{
+  background:#252824;
+  color:white;
+  padding:44px 64px;
+}
+
+.feature-band h2{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform:uppercase;
+  font-size:34px;
+  margin:0 0 18px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:14px;
+}
+
+.gallery img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+}
+
+.gallery img:first-child{
+  grid-row:span 2;
+  height:434px;
+}
+
+.gear-row{
+  background:linear-gradient(135deg, #ece8df 0%, #e6dfd1 100%);
+  padding:42px 64px;
+}
+
+.about-owner{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:26px;
+  align-items:center;
+  background:#fffaf0;
+  border:1px solid var(--line);
+  box-shadow:8px 8px 0 rgba(0,0,0,.08);
+  padding:24px;
+}
+
+.about-photo{
+  margin:0;
+}
+
+.about-photo img{
+  width:100%;
+  border:1px solid #cfc4ad;
+  display:block;
+  object-fit:cover;
+}
+
+.about-copy{
+  font-family:Arial, sans-serif;
+  color:#2f332e;
+}
+
+.about-kicker{
+  margin:0 0 6px;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#7e3b22;
+  font-weight:bold;
+}
+
+.about-copy h3{
+  margin:0 0 12px;
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  font-size:40px;
+  line-height:.95;
+  color:#1f241f;
+}
+
+.about-title-mobile{display:none}
+
+.about-text-mobile{display:none}
+
+.about-copy p{
+  margin:0 0 12px;
+  font-size:16px;
+  line-height:1.6;
+  max-width:720px;
+}
+
+.about-trust{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin-top:8px;
+}
+
+.trust-chip{
+  background:#f4efe3;
+  border:1px solid var(--line);
+  padding:10px 12px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:#35483b;
+  font-weight:bold;
+}
+
+.footer{
+  background:#171a17;
+  color:#bbb;
+  text-align:center;
+  padding:42px 20px;
+  position:relative;
+  min-height:78px;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.footer .footer-logo{
+  position:absolute;
+  left:16px;
+  bottom:12px;
+  width:84px;
+  height:auto;
+  opacity:.95;
+}
+.footer .social-links{
+  display:inline-flex;
+  gap:14px;
+  margin-left:18px;
+  flex-wrap:wrap;
+}
+
+.footer .social-links a{
+  color:#f2ead8;
+  text-decoration:none;
+  font-weight:700;
+  width:18px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.footer .social-links a:hover{
+  color:white;
+}
+
+.footer .social-links svg{
+  width:16px;
+  height:16px;
+  display:block;
+}
+@media(max-width:760px){
+  .nav{
+    height:58px;
+    padding:0 16px;
+  }
+
+  .nav-toggle{
+    display:inline-flex;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:58px;
+    left:0;
+    right:0;
+    background:#1f221f;
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    flex-direction:column;
+    align-items:stretch;
+    z-index:20;
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links a{
+    margin-left:0;
+    padding:14px 16px;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+
+  .nav-links a:first-child{
+    border-top:none;
+  }
+
+  .logo{font-size:15px}
+
+  .logo{
+    font-size:0;
+    line-height:1;
+  }
+
+  .logo::after{
+    content:"NZ BIKEPACKING RENTALS";
+    display:inline;
+    font-size:12px;
+    letter-spacing:.06em;
+    font-weight:900;
+    color:#ddd;
+  }
+
+  .nz-kicker{
+    padding:12px 16px;
+    font-size:12px;
+    line-height:1.5;
+  }
+
+  .hero-choice{
+    display:block;
+    position:relative;
+    min-height:0;
+    border-bottom:none;
+    padding-bottom:0;
+  }
+
+  .hero-mobile-image{
+    display:block;
+    position:relative;
+    height:340px;
+    background:url("images/HeroMobile.webp") center/cover no-repeat;
+    border-bottom:4px solid #20231f;
+  }
+
+  .hero-mobile-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.42)),
+      radial-gradient(circle at 50% 35%, transparent 0%, rgba(0,0,0,.24) 100%);
+    pointer-events:none;
+  }
+
+  .choice{
+    position:absolute;
+    bottom:8px;
+    width:calc(50% - 8px);
+    min-height:0;
+    min-height:162px;
+    padding:58px 12px 14px;
+    justify-content:flex-start;
+    text-align:center;
+    isolation:auto;
+    border:1px solid rgba(255,255,255,.28);
+    backdrop-filter:saturate(110%) blur(2px);
+    box-shadow:0 8px 24px rgba(0,0,0,.22);
+  }
+
+  .choice:before,
+  .choice:after{
+    display:none;
+  }
+
+  .choice.how{
+    left:8px;
+    background:rgba(243,236,225,.54);
+    clip-path:polygon(0 0, 100% 12%, 100% 100%, 0 100%);
+  }
+
+  .choice.where{
+    right:8px;
+    background:linear-gradient(160deg,rgba(42,45,47,.73) 0%, rgba(22,26,31,.83) 100%);
+    clip-path:polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+    border-color:rgba(245,239,228,.42);
+    box-shadow:inset 0 0 0 1px rgba(245,239,228,.3), 0 8px 24px rgba(0,0,0,.22);
+  }
+
+  .choice-label{
+    position:static;
+    background:none;
+    padding:0;
+    margin:0 0 8px;
+    font-size:10px;
+    letter-spacing:.12em;
+    color:var(--rust);
+  }
+
+  .choice.how .choice-label,
+  .choice.where .choice-label{
+    font-size:0;
+  }
+
+  .choice.how .choice-label::before,
+  .choice.where .choice-label::before{
+    font-size:11px;
+    letter-spacing:.13em;
+    font-weight:900;
+  }
+
+  .choice.how .choice-label::before{
+    content:"BIKE RENTALS";
+  }
+
+  .choice.where .choice-label::before{
+    content:"NZ ROUTES";
+  }
+
+  .choice.where .choice-label{
+    color:#d9894f;
+  }
+
+  .choice h1{
+    font-size:0;
+    line-height:.92;
+    margin:0 0 12px;
+    text-shadow:none;
+    letter-spacing:.01em;
+    white-space:normal;
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+
+  .choice.how h1::before,
+  .choice.where h1::before{
+    display:block;
+    width:100%;
+    font-size:clamp(24px, 6vw, 36px);
+    line-height:1;
+    white-space:nowrap;
+    text-align:center;
+  }
+
+  .choice.how h1::before{
+    content:"BUILD YOUR RIG";
+  }
+
+  .choice.where h1::before{
+    content:"FIND A RIDE";
+  }
+
+  .choice.how h1{
+    color:#171a17;
+  }
+
+  .choice.where h1{
+    color:#f2f0ea;
+  }
+
+  .choice p{
+    display:none;
+  }
+
+  .choice .btn{
+    margin-top:0px;
+    padding:0;
+    background:transparent;
+    box-shadow:none;
+    color:var(--rust);
+    font-size:0;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .choice .btn::before{
+    content:"\2192";
+    font-size:36px;
+    line-height:1;
+  }
+
+  .choice.where .btn{
+    color:#d9894f;
+  }
+
+  .stats{
+    padding:12px 16px;
+  }
+
+  .stats-tagline{
+    font-size:14px;
+    line-height:1.5;
+  }
+
+  .stats-tagline-desktop{display:none}
+  .stats-tagline-mobile{display:inline;font-size:18px}
+
+  .intro-desktop-copy{display:none}
+  .intro-mobile-copy{display:inline}
+  .mobile-hide{display:none}
+
+  .featured-copy-desktop{display:none}
+  .featured-copy-mobile{display:block}
+  .mobile-hide-stat{display:none}
+
+  .route-card-copy{display:none}
+  .route-link-desktop{display:none}
+  .route-link-mobile{display:inline}
+
+  aside .card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:12px 14px;
+    margin-bottom:8px;
+  }
+
+  aside .card h3{
+    margin:0;
+    flex:1;
+  }
+
+  aside .card .route-cta,
+  aside .card .route-cta.dark{
+    background:transparent;
+    box-shadow:none;
+    color:var(--rust);
+    padding:0;
+    font-size:12px;
+    letter-spacing:.08em;
+    display:inline-flex;
+    align-items:center;
+    white-space:nowrap;
+  }
+
+  .resource-section.expanded h4::after{content:"−";}
+
+  .travel-band{
+    padding:28px 22px;
+  }
+
+  .travel-band h2{
+    margin:0 0 6px;
+    font-size:34px;
+    line-height:.92;
+  }
+
+  .travel-band > p{
+    margin:0 0 14px;
+    font-size:14px;
+    line-height:1.45;
+  }
+
+  .travel-grid{
+    gap:8px;
+  }
+
+  .travel-toggle{
+    padding:10px 38px 10px 10px;
+  }
+
+  .travel-toggle h3{
+    font-size:13px;
+    line-height:1;
+  }
+
+  .travel-toggle::after{
+    right:12px;
+    font-size:24px;
+  }
+
+  .travel-body{
+    padding:0 12px 14px;
+  }
+
+  .resources-grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .resource-section{
+    border-top:1px solid rgba(255,255,255,.16);
+    padding-top:0;
+  }
+
+  .resource-section h4{
+    margin:0;
+    padding:12px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+  }
+
+  .resource-section:not(.expanded) h4{
+    padding:2px 0;
+    line-height:1.05;
+  }
+
+  .resource-section h4::after{
+    content:"+";
+    font-size:18px;
+    line-height:1;
+    color:#f2c98a;
+    margin-left:12px;
+  }
+
+  .resource-section ul{
+    display:none;
+    padding-bottom:12px;
+  }
+
+  .resource-section.expanded ul{
+    display:block;
+  }
+
+  .inspiration-grid{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:6px;
+    margin-right:-2px;
+  }
+
+  .inspiration-grid::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .inspiration-grid::-webkit-scrollbar-thumb{
+    background:rgba(31,36,31,.28);
+    border-radius:999px;
+  }
+
+  .inspiration-video{
+    flex:0 0 84vw;
+    max-width:420px;
+    scroll-snap-align:start;
+  }
+
+  .main{
+    display:block;
+    padding:34px 22px;
+  }
+
+  .fleet-header{
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:start;
+  }
+
+  .fleet-header .btn{
+    align-self:start;
+    justify-self:end;
+    white-space:nowrap;
+  }
+
+  .fleet-gallery-track{
+    height:auto;
+    aspect-ratio:898 / 620;
+  }
+
+  .panel{
+    min-height:auto;
+    padding:34px 22px;
+  }
+
+  .panel h2{
+    font-size:38px;
+  }
+
+  .carousel-arrow{
+    width:30px;
+    height:30px;
+    font-size:16px;
+  }
+
+  .photo-grid{
+    grid-template-columns:1fr;
+  }
+
+  .photo-grid img{
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+  }
+
+  .photo-grid .wide{
+    grid-column:auto;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .gallery img,
+  .gallery img:first-child{
+    height:260px;
+    grid-row:auto;
+  }
+
+  .gear-row{
+    padding:32px 22px;
+  }
+
+  .about-owner{
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:18px;
+  }
+
+  .about-photo{
+    aspect-ratio:4/3;
+    overflow:hidden;
+  }
+
+  .about-photo img{
+    width:100%;
+    height:100%;
+    max-height:none;
+    object-fit:cover;
+  }
+
+  .about-copy h3{
+    font-size:34px;
+  }
+
+  .about-title-desktop{display:none}
+  .about-title-mobile{display:inline}
+  .about-text-desktop{display:none}
+  .about-text-mobile{display:block}
+
+  .about-trust{
+    grid-template-columns:1fr;
+  }
+
+  .footer{
+    min-height:0;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .footer .footer-logo{
+    position:static;
+    left:auto;
+    bottom:auto;
+    width:42px;
+  }
+
+  .footer .social-links{
+    margin-left:0;
+  }
+}
+
+/* ---- FEATURED ROUTE DETAIL ---- */
+.featured-band{
+  background:#252824;
+  color:white;
+  padding:56px 64px;
+  margin:0;
+}
+
+.featured-band .label{
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:.14em;
+  color:#f2c98a;
+  margin:0 0 8px;
+}
+
+.featured-band h2{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:54px;
+  text-transform:uppercase;
+  margin:0 0 6px;
+  line-height:.95;
+}
+
+.featured-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:42px;
+  margin-top:28px;
+}
+
+.featured-wrap img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:block;
+}
+
+.featured-info p{
+  font-size:17px;
+  line-height:1.7;
+  color:#d8d0be;
+  margin:0 0 20px;
+}
+
+.feat-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:24px 0;
+}
+
+.feat-stat{
+  border-top:2px solid var(--rust);
+  padding-top:10px;
+  font-family:Arial, sans-serif;
+}
+
+.feat-stat b{
+  display:block;
+  font-size:26px;
+  color:white;
+}
+
+.feat-stat span{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:#999;
+}
+
+.btn-lg{
+  display:inline-block;
+  background:var(--rust);
+  color:white;
+  padding:15px 22px;
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:12px;
+  text-decoration:none;
+  box-shadow:4px 4px 0 rgba(0,0,0,.3);
+  margin-right:10px;
+}
+
+.btn-lg.dark{background:var(--rust)}
+
+/* ---- CALLOUT BAND ---- */
+.callout-band{
+  background:var(--mint);
+  border-top:3px solid var(--green);
+  border-bottom:3px solid var(--green);
+  padding:36px 64px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:28px;
+  font-family:Arial, sans-serif;
+}
+
+.callout-item h3{
+  text-transform:uppercase;
+  font-size:13px;
+  letter-spacing:.1em;
+  margin:0 0 8px;
+  color:var(--green);
+}
+
+.callout-item p{
+  font-size:14px;
+  line-height:1.55;
+  margin:0;
+  color:#3a4838;
+}
+
+/* ---- RESOURCES BAND ---- */
+.resources-band{
+  background:#252824;
+  border-top:3px solid var(--rust);
+  border-bottom:3px solid var(--rust);
+  padding:48px 64px;
+  font-family:Arial, sans-serif;
+}
+
+.resources-band h2{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:42px;
+  text-transform:uppercase;
+  margin:0 0 12px;
+  color:var(--rust);
+  line-height:1;
+}
+
+.resources-band > p{
+  font-size:16px;
+  color:#f3ecdd;
+  margin:0 0 28px;
+}
+
+/* ---- TRAVEL GUIDE BAND ---- */
+.travel-band{
+  background:#f7f2e8;
+  border-top:3px solid var(--green2);
+  border-bottom:3px solid var(--green2);
+  padding:52px 64px;
+}
+
+.travel-band h2{
+  margin:0 0 10px;
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:44px;
+  text-transform:uppercase;
+  line-height:.95;
+  color:var(--ink);
+}
+
+.travel-band > p{
+  margin:0 0 28px;
+  max-width:none;
+  font-family:Arial, sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  color:#3a3f34;
+}
+
+.travel-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:24px;
+  align-items:start;
+}
+
+.travel-card{
+  background:#fffaf0;
+  border:1px solid var(--line);
+  box-shadow:6px 6px 0 rgba(0,0,0,.08);
+  font-family:Arial, sans-serif;
+  overflow:hidden;
+  align-self:start;
+}
+
+.travel-toggle{
+  list-style:none;
+  cursor:pointer;
+  padding:20px 52px 20px 20px;
+  position:relative;
+}
+
+.travel-toggle::-webkit-details-marker{
+  display:none;
+}
+
+.travel-toggle::marker{
+  content:"";
+}
+
+.travel-toggle::after{
+  content:"+";
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:28px;
+  line-height:1;
+  color:var(--rust);
+  transition:transform .2s ease;
+}
+
+.travel-card[open] .travel-toggle::after{
+  content:"−";
+}
+
+.travel-toggle h3{
+  margin:0;
+  color:var(--green);
+  font-size:20px;
+  text-transform:uppercase;
+  line-height:1.1;
+  letter-spacing:.1em;
+}
+
+.travel-body{
+  padding:0 20px 22px;
+}
+
+.travel-body img{
+  width:100%;
+  height:180px;
+  display:block;
+  object-fit:cover;
+  border:1px solid #d6cab2;
+  margin:0 0 12px;
+}
+
+.travel-body p{
+  margin:0;
+  font-size:14px;
+  line-height:1.6;
+  color:#3a4338;
+}
+
+.travel-links{
+  list-style:none;
+  padding:0;
+  margin:14px 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.travel-links a{
+  display:inline-block;
+  padding:6px 9px;
+  border:1px solid #cbbfa8;
+  background:#f5efe3;
+  color:var(--green);
+  text-decoration:none;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:700;
+}
+
+.travel-links a:hover{
+  color:var(--rust);
+  border-color:var(--rust);
+}
+
+.resources-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.resource-section h4{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--rust);
+  margin:0 0 12px;
+  font-weight:bold;
+}
+
+.resource-section ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.resource-section li{
+  margin:0 0 8px;
+}
+
+.resource-section a{
+  color:#f7f0e2;
+  text-decoration:none;
+  font-size:14px;
+  line-height:1.5;
+  transition:color .15s;
+}
+
+.resource-section a:hover{
+  color:var(--rust);
+}
+
+/* ---- GALLERY STRIP ---- */
+.gallery-strip{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+  margin:0;
+}
+
+.gallery-strip img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.85);
+  transition:filter .2s;
+}
+
+.gallery-strip img:hover{filter:saturate(1.1)}
+
+/* ---- INSPIRATION VIDEO BAND ---- */
+.inspiration-band{
+  background:#efe7d8;
+  border-top:3px solid var(--green2);
+  border-bottom:3px solid var(--green2);
+  padding:50px 64px;
+}
+
+.inspiration-band h2{
+  margin:0 0 10px;
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:46px;
+  text-transform:uppercase;
+  letter-spacing:.01em;
+  color:#1f241f;
+  line-height:.95;
+}
+
+.inspiration-band p{
+  margin:0 0 22px;
+  font-family:Arial, sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  color:#3d4238;
+}
+
+.inspiration-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+
+.inspiration-video{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  border:1px solid #cbbfa8;
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
+  background:#151515;
+}
+
+.inspiration-video iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+@media(max-width:1000px){
+  .featured-wrap{display:block}
+  .featured-wrap img{height:240px;margin-bottom:24px}
+  .featured-band{padding:36px 22px}
+  .featured-band h2{font-size:40px}
+  .featured-info .btn-lg{padding:15px 16px}
+  .feat-stats{grid-template-columns:repeat(2,1fr)}
+  .callout-band{grid-template-columns:1fr;padding:28px 22px}
+  .travel-band{padding:36px 22px}
+  .travel-band h2{font-size:34px}
+  .travel-grid{grid-template-columns:1fr;gap:18px}
+  .travel-toggle{padding:18px 48px 18px 18px}
+  .travel-body{padding:0 18px 20px}
+  .travel-body img{height:160px}
+  .resources-band{padding:36px 22px}
+  .resources-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .resources-band h2{font-size:32px}
+  .gallery-strip{grid-template-columns:repeat(2,1fr)}
+  .gallery-strip img{height:160px}
+  .inspiration-band{padding:36px 22px}
+  .inspiration-band h2{font-size:36px}
+  .inspiration-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:600px){
+  .travel-grid{grid-template-columns:1fr}
+  .resources-grid{grid-template-columns:1fr}
+  .inspiration-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:760px){
+  .travel-band{
+    padding:18px 16px !important;
+  }
+
+  .travel-band h2{
+    margin:0 0 4px !important;
+    font-size:32px !important;
+    line-height:.95 !important;
+  }
+
+  .travel-band > p{
+    margin:0 0 10px !important;
+    font-size:15px !important;
+    line-height:1.45 !important;
+  }
+
+  .travel-grid{
+    gap:8px !important;
+  }
+
+  .travel-toggle{
+    padding:11px 38px 11px 12px !important;
+  }
+
+  .travel-toggle h3{
+    font-size:13px !important;
+    line-height:1.05 !important;
+    letter-spacing:.08em !important;
+  }
+
+  .travel-toggle::after{
+    right:10px !important;
+    font-size:23px !important;
+  }
+
+  .travel-body{
+    padding:0 12px 12px !important;
+  }
+
+  .inspiration-grid{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:6px;
+    margin-right:-2px;
+  }
+
+  .inspiration-grid::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .inspiration-grid::-webkit-scrollbar-thumb{
+    background:rgba(31,36,31,.28);
+    border-radius:999px;
+  }
+
+  .inspiration-video{
+    flex:0 0 84vw;
+    max-width:420px;
+    scroll-snap-align:start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="site">
+
+  <nav class="nav">
+    <div class="logo">NZBikepackingRentals.com</div>
+    <button class="nav-toggle" id="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav-links">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+    <div class="nav-links" id="main-nav-links">
+      <a href="builder.html">Bike Rentals</a>
+      <a href="routes.html">NZ Routes</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+<!--   <section class="nz-kicker">
+    <div>Travel light. Let us sort the rest.   <strong>Raglan Cycery</strong> are here to help you get the most from your New Zealand bike trip.</div>
+  </section>
+ -->
+  <section class="hero-choice">
+    <div class="hero-mobile-image" aria-hidden="true"></div>
+    <div class="choice how">
+      <div class="choice-label">How to Bikepack in NZ</div>
+      <a class="choice-link" href="builder.html" aria-label="Build your rental rig"></a>
+      <h1>Build your rental rig</h1>
+      <p>Bike, bags and camping gear for touring in NZ.</p>
+      <a class="btn" href="builder.html">Build Your Bike</a>
+    </div>
+
+    <div class="choice where">
+      <div class="choice-label">Where to Bikepack in NZ</div>
+      <a class="choice-link" href="routes.html" aria-label="Explore NZ routes"></a>
+      <h1>Explore NZ routes</h1>
+      <p>Ride where the locals ride.</p>
+      <a class="btn dark" href="routes.html">Explore Routes</a>
+    </div>
+  </section>
+
+  <section class="stats">
+    <p class="stats-tagline"><span class="stats-tagline-desktop">Want to travel New Zealand by bike — but don't fancy hauling your whole setup halfway across the world? <a href="contact.html">Talk to us.</a></span><span class="stats-tagline-mobile"><b>BIKEPACKING NEW ZEALAND, MADE SIMPLE</b></span></p>
+  </section>
+
+  <main class="main">
+    <article class="article">
+      <p class="intro"><span class="intro-desktop-copy"><span class="drop">W</span>e are <b>Cyclery Raglan</b>, based on the west coast of the North Island, and we do full bikepacking rentals for visiting riders.</span><span class="intro-mobile-copy"><span class="drop">B</span>ased in <b>Raglan on New Zealand’s wild west coast</b>, we build complete bikepacking rental rigs and share the routes worth riding. Whether you’re new to bikepacking or planning your next big adventure, we’ll help you get rolling.</span></p>
+
+      <p class="mobile-hide">Travel light. Land in Auckland, make your way to <a href="https://www.waikatonz.com/places-to-go/raglan/" target="_blank" rel="noreferrer noopener" style="color:var(--rust);font-weight:700">Raglan</a> (90 minutes drive), and your bike and kit will be waiting. Auckland gear drop-off is also possible by arrangement. Take a day or two here in this famous fun surf town to shake off the jetlag - then roll out. </p>
+      
+
+      <!-- <h2>Rent or buy</h2>
+      <p>We work with you to build up a custom bike rig with bags, camping gear and other essentials. You can <b>rent</b> for your trip duration or choose to <b>buy </b>outright if you're planning to stay a while. Sorting your own bike? We can also help you figure out the right bags, tyres, route - just drop us a line.</p>
+ -->
+      <div class="photo-grid">
+        <!-- <img src="images/Action3.jpg" alt=""> -->
+  <!--       <img src="images/IMG_2648.jpg" alt=""> -->  
+          <img src="images/Inspo1.webp" alt="">
+      </div>
+
+    </article>
+
+    <aside>
+      <div class="card">
+        <h3>New to bikepacking?</h3>
+        <p class="route-card-copy"> Check out these handpicked <b>beginner-friendly routes</b>.</p>
+    
+        <a class="btn route-cta" href="routes.html?filter=easy"><span class="route-link-desktop">Easy Routes</span><span class="route-link-mobile">Easy Routes</span></a>
+      </div>
+
+      <div class="card">
+        <h3>Epic Adventure?</h3>
+        <p class="route-card-copy">More experienced and <b>looking for a challenge?</b></p>
+        
+        <a class="btn dark route-cta" href="routes.html?filter=long"><span class="route-link-desktop">Long Routes</span><span class="route-link-mobile">Long Routes</span></a>
+      </div>
+
+       <div class="card">
+        <h3>Technical Riding?</h3>
+        <p class="route-card-copy">Multi-day Grade 3-4 <b>world class trails</b> across remote terrain that demands skill, fitness, and endurance.</p>
+       
+        <a class="btn dark route-cta" href="routes.html?filter=hard"><span class="route-link-desktop">Hard Routes</span><span class="route-link-mobile">Hard Routes</span></a>
+      </div>
+
+    </aside>
+  </main>
+
+  <section class="travel-band" aria-labelledby="travel-title">
+    <h2 id="travel-title">New Zealand biking paradise</h2>
+    <p>New Zealand touring is a little different. Here are some of the frequently asked questions about touring in NZ: </p>
+
+    <div class="travel-grid">
+      <details class="travel-card">
+        <summary class="travel-toggle">
+          <h3>Bike Gear</h3>
+        </summary>
+        <div class="travel-body">
+          <img src="images/Gear.webp" alt="Bikepacking scene for what bike to bring" loading="lazy" />
+          <p>Whilst a classic touring bike with skinny tyres will work on the sealed roads of NZ, nice wide tyres and even front suspension is recommended to get you off the busy dangerous highways and allow you access the real gems of cycling in New Zealand. Panniers and a heavy setup will work but to make the most of the stunning trails we'd recommend a lighter bikepacking setup. Bike shops are far apart, so carry a solid tool kit and learn some basic repair skills. </p>
+          <ul class="travel-links">
+          <li><a href="https://www.highlux.co.nz/2023/12/south-america-bikepacking-packing-list-2023-2024/" target="_blank" rel="noreferrer noopener">Packlist - Mark Watson</a></li>
+          <li><a href="https://www.youtube.com/watch?v=U6cYioZHIvs" target="_blank" rel="noreferrer noopener">GCN Gear Video</a></li>
+         
+          </ul>
+        </div>
+      </details>
+      <details class="travel-card">
+        <summary class="travel-toggle">
+          <h3>When to ride</h3>
+        </summary>
+        <div class="travel-body">
+          <img src="images/when.jpeg" alt="Bikepacking scene for when to ride" loading="lazy" />
+          <p>Summer and autumn (December to April) are the best cycling months in NZ with warmer weather and longer daylight. Spring can be excellent too, but expect more wind, rain and mud. If you want the simplest trip, aim for the shoulder of summer when the roads are drier and resupply is easier. If you have the right gear (and attitude) then you can bike most routes all year round however in NZ the weather changes can be quick and extreme so plan wisely.</p>
+          <ul class="travel-links">
+          <li><a href="https://www.metservice.com/" target="_blank" rel="noreferrer noopener">MetService</a></li>
+          <li><a href="https://weather.niwa.co.nz/parks" target="_blank" rel="noreferrer noopener">NIWA</a></li>
+  
+          <li><a href="https://www.doc.govt.nz/parks-and-recreation/know-before-you-go/weather/" target="_blank" rel="noreferrer noopener">DOC Weather</a></li>
+          </ul>
+        </div>
+      </details>
+
+      
+
+  
+      <details class="travel-card">
+        <summary class="travel-toggle">
+          <h3>Accommodation</h3>
+        </summary>
+        <div class="travel-body">
+          <img src="images/Camp1.jpg" alt="Bikepacking scene for freedom camping" loading="lazy" />
+          <p>New Zealand has a wide range of overnight options for bikepackers: freedom camping, DOC campsites, DOC backcountry huts, holiday parks, hostels, Airbnb and Warmshowers. Freedom camping rules vary by district, so always check local signage and council rules before stopping anywhere unofficial. Mixing these options gives you flexibility across both remote backcountry sections and bigger towns.</p>
+          <ul class="travel-links">
+          <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-stay/" target="_blank" rel="noreferrer noopener">DOC Campsites</a></li>
+          <li><a href="https://www.warmshowers.org/" target="_blank" rel="noreferrer noopener">Warmshowers</a></li>
+          <li><a href="https://www.newzealand.com/nz/feature/free-camping/" target="_blank" rel="noreferrer noopener">Freedom Camping</a></li>
+ <li><a href="https://campermate.com/en/search?poi_public_current%5Bquery%5D=campground&poi_public_current%5Bmenu%5D%5Bcountry%5D=New%20Zealand" target="_blank" rel="noreferrer noopener">Camper Mate</a></li>
+
+          <li><a href="https://top10.co.nz/" target="_blank" rel="noreferrer noopener">TOP 10 Holiday Parks</a></li>
+         
+          </ul>
+        </div>
+      </details>
+      <details class="travel-card">
+        <summary class="travel-toggle">
+          <h3>Navigation</h3>
+        </summary>
+        <div class="travel-body">
+          <img src="images/Navi2.jpg" alt="Bikepacking scene for navigation" loading="lazy" />
+          <p>The best way to tour is with the route preloaded onto a GPS device on your bike. Also worth having offline maps on your phone (see links below) and even a paper copy. Plan as if towns are further apart than they look on a map, carry enough food, water and repair spares, and download maps before you leave town because coverage can get patchy in backcountry valleys. Cell coverage can disappear quickly once you get out of the towns. Many riders have a personal locator beacon with them in case of emergency and patchy cell range.</p>
+          <ul class="travel-links">
+          <li><a href="https://ridewithgps.com/" target="_blank" rel="noreferrer noopener">RideWithGPS</a></li>
+          <li><a href="https://nztopo50.sqrl.net/" target="_blank" rel="noreferrer noopener">NZTopo50</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="travel-card">
+        <summary class="travel-toggle">
+          <h3>What to pack</h3>
+        </summary>
+        <div class="travel-body">
+          <img src="images/clothing.jpg" alt="Bikepacking clothing and weather scene" loading="lazy" />
+          <p>New Zealand weather can swing from blazing hot sun to snow in the same day. Even if you are riding in the middle of summer make sure you pack layers, a proper rain shell, a good warm jacket.  The Sun in New Zealand is intense so bring lots of sunblock and UV rated clothing .New Zealand is usually slower, steeper, wetter, windier, and more remote than it looks on a map so plan accordingly. Links to full example packing lists below...
+            
+          <ul class="travel-links">
+             <li><a href="https://www.nzcycletrail.com/need-to-know/what-to-pack" target="_blank" rel="noreferrer noopener">Packlist - NZ Cycle trail</a></li>
+             <li><a href="https://www.macpac.co.nz/explore/learn/gear-guides/what-to-pack-bikepacking.html" target="_blank" rel="noreferrer noopener">Packlist - Macpac</a></li>
+         
+          </ul>
+        </div>
+      </details>
+      <details class="travel-card">
+        <summary class="travel-toggle">
+          <h3>North vs south</h3>
+        </summary>
+        <div class="travel-body">
+          <img src="images/Wild1.jpg" alt="North Island and South Island bikepacking scene" loading="lazy" />
+          <p>The North Island can feel tropical with golden beaches and banana palms, while the South Island is wilder with the southern alps dominating the landscape. Both islands are beautiful and rugged are provide excellent bikepacking opportunities. A good idea is to join up a north island route with a island route and use the Wellington to Picton Ferry to connect the two. </p>
+          <ul class="travel-links">
+          
+          <li><a href="https://activeadventures.com/blog/north-island-vs-south-island-of-new-zealand-how-to-pick" target="_blank" rel="noreferrer noopener">Active Adventures -North vs South</a></li>
+          <li><a href="https://www.wildkiwi.com/blog/north-island-vs-south-island-new-zealand" target="_blank" rel="noreferrer noopener">Wild Kiwi - North vs South</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="travel-card">
+        <summary class="travel-toggle">
+          <h3>Public Transport</h3>
+        </summary>
+        <div class="travel-body">
+          <img src="images/Plane1.webp" alt="Bikepacking scene for flights and bikes" loading="lazy" />
+          <p>Internal flights are quick and affordable. JetStar and AirNZ are the two main flight options. Local bike shops will often give you a cardboard bike box for the flight. Pedals, handlebar and front wheel off and you are set. Most airports also have bike build stations with pumps, tools and a stand. For moving between the North and South Islands,  Bluebridge and Interislander run multiple daily Ferry crossings. Trains in NZ are almost non existent. The bus network is limited and slow but will usually allow clean bikes onboard.</p>
+          <ul class="travel-links">
+          <li><a href="https://www.airnewzealand.co.nz" target="_blank" rel="noreferrer noopener">Air NZ</a></li>
+          <li><a href="https://www.jetstar.com/nz/en/home" target="_blank" rel="noreferrer noopener">Jetstar</a></li>
+          <li><a href="https://www.bluebridge.co.nz/" target="_blank" rel="noreferrer noopener">Bluebridge Ferry</a></li>
+          <li><a href="https://www.interislander.co.nz/" target="_blank" rel="noreferrer noopener">Interislander Ferry</a></li>
+          <li><a href="https://www.intercity.co.nz/" target="_blank" rel="noreferrer noopener">Intercity Bus</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="travel-card">
+        <summary class="travel-toggle">
+          <h3>Visas and entry</h3>
+        </summary>
+        <div class="travel-body">
+          <img src="images/Feet.webp" alt="Bikepacking scene for visas and entry" loading="lazy" />
+          <p>You'll need a visa to enter New Zealand, you can apply online. A standard visa is 6 months but working holiday visas allow for longer stays and work opportunities. Check the links below...</p>
+          <ul class="travel-links">
+          <li><a href="https://www.immigration.govt.nz/visas/visitor-visa/" target="_blank" rel="noreferrer noopener">Visitor Visa</a></li>
+          <li><a href="https://www.immigration.govt.nz/work/working-holiday-visas/" target="_blank" rel="noreferrer noopener">Working Holiday Visas</a></li>
+          </ul>
+        </div>
+      </details>
+      
+    </div>
+  </section>
+
+  <section class="split single">
+    <div class="panel map" id="routes">
+      <h2>Our Fleet</h2>
+      <div class="fleet-header">
+        <p>Some of the many setups we have built up and tested on New Zealand's most demanding backcountry routes.</p>
+        <a class="btn dark" href="builder.html">Build Your Bike</a>
+      </div>
+
+      <div class="fleet-gallery" id="fleet-gallery">
+        <div class="fleet-gallery-carousel" aria-label="Our fleet gallery">
+          <div class="fleet-gallery-track"></div>
+          <button type="button" class="fleet-gallery-nav prev" aria-label="Previous fleet image">&#10094;</button>
+          <button type="button" class="fleet-gallery-nav next" aria-label="Next fleet image">&#10095;</button>
+          <div class="fleet-gallery-dots" aria-label="Fleet gallery pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-band">
+    <div class="label">Featured Route</div>
+    <h2>Tour Aotearoa</h2>
+
+    <div class="featured-wrap">
+      <img src="routes/tour-aotearoa-south-island/5.webp" alt="Tour Aotearoa">
+      <div class="featured-info">
+        <p class="featured-copy-desktop">Cycle the full length of New Zealand on this classic route, from Cape Reinga in the far north to Bluff in the deep south. 3,000 km on gravel roads, forest tracks, quiet country lanes and singletrack through every landscape Aotearoa has to offer.</p>
+        <p class="featured-copy-desktop">One of the most celebrated bikepacking routes in the world — remote, challenging, and deeply rewarding. This route was made by the Kennett brothers and is run as an event every year; however, you can ride it anytime of the year. Makes a great trip for 1-3 months of riding.</p>
+        <p class="featured-copy-mobile">Cycle 3,000 km from Cape Reinga to Bluff on one of the world’s great bikepacking routes, crossing gravel roads, forest tracks, quiet lanes and singletrack. Remote, challenging and deeply rewarding, the Tour Aotearoa can be ridden as an event or independently over one to three months.</p>
+
+           <div class="feat-stats">
+          <div class="feat-stat"><b>3,000</b><span>Kilometres</span></div>
+          <div class="feat-stat mobile-hide-stat"><b>30–100</b><span>Days</span></div>
+          <div class="feat-stat"><b>39,000m</b><span>Climbing</span></div>
+          <div class="feat-stat"><b>Dec - May</b><span>Best Months</span></div>
+          <div class="feat-stat mobile-hide-stat"><b>Gravel</b><span>Bike Type</span></div>
+          <div class="feat-stat"><b>Intermediate</b><span>Difficulty</span></div>
+        </div>
+
+        <a class="btn-lg" href="route.html?id=tour-aotearoa-north-island">View Route (North)</a>
+          <a class="btn-lg" href="route.html?id=tour-aotearoa-south-island">View Route (South)</a>
+      <!--   <a class="btn-lg dark" href="builder.html">Recommended Bike Setup</a>
+       --></div>
+    </div>
+  </section>
+
+<!--   <div class="gallery-strip">
+    <img src="images/IMG20251130121129.jpg" alt="">
+    <img src="images/IMG20230403114937.jpg" alt="">
+    <img src="images/IMG20230404152757.jpg" alt="">
+    <img src="images/IMG20230407123248.jpg" alt="">
+    <img src="images/IMG20230407123339.jpg" alt="">
+  </div> -->
+
+  <section class="inspiration-band" aria-labelledby="inspiration-title">
+    <h2 id="inspiration-title">Inspiration</h2>
+    <p>Dreaming about riding in A otearoa? Here are a few films to spark route ideas, build stoke, and help you picture the adventure.</p>
+    <div class="inspiration-grid">
+      <div class="inspiration-video"><iframe src="https://www.youtube.com/embed/E_BbCqTHVbA" title="NZ bikepacking inspiration video 1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="inspiration-video"><iframe src="https://www.youtube.com/embed/9gVQZAXdyEA" title="NZ bikepacking inspiration video 2" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="inspiration-video"><iframe src="https://www.youtube.com/embed/Lg9T_PEFLmc" title="NZ bikepacking inspiration video 3" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="inspiration-video"><iframe src="https://www.youtube.com/embed/1FbZXmHbdbQ" title="NZ bikepacking inspiration video 4" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="inspiration-video"><iframe src="https://www.youtube.com/embed/jZjCvzjkKc0" title="NZ bikepacking inspiration video 5" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="inspiration-video"><iframe src="https://www.youtube.com/embed/0XLakKiLh3s" title="NZ bikepacking inspiration video 6" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="inspiration-video"><iframe src="https://www.youtube.com/embed/YVuXZ2q13G4" title="NZ bikepacking inspiration video 7" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="inspiration-video"><iframe src="https://www.youtube.com/embed/vNg0qSE2i-0" title="NZ bikepacking inspiration video 8" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </div>
+  </section>
+
+  <div class="resources-band">
+    <h2>Resources</h2>
+    <p></p>
+    <div class="resources-grid">
+      <div class="resource-section">
+        <h4>Trail Resources</h4>
+        <ul>
+          <li><a href="https://www.nzcycletrail.com/find-your-ride/23-great-rides" target="_blank" rel="noreferrer noopener">NZ Cycle Trail</a></li>
+          <li><a href="https://www.newzealand.com/nz/feature/cycle-trails/" target="_blank" rel="noreferrer noopener">NZ Great Rides</a></li>
+          <li><a href="https://www.doc.govt.nz/parks-and-recreation/things-to-do/mountain-biking/" target="_blank" rel="noreferrer noopener">DOC Mountain Biking</a></li>
+          <li><a href="https://issuu.com/nzmountainsafetycouncil/docs/170703.msc.com.mountainbike.guide?e=2922887/50795310" target="_blank" rel="noreferrer noopener">Mountain Safety NZ</a></li>
+        </ul>
+      </div>
+      <div class="resource-section">
+        <h4>Routes & Inspiration</h4>
+        <ul>
+          <li><a href="https://ridewithgps.com/explore?a=cycling%3Agravel&b=n!Raglan!174.867940!-37.799790~250km&length=169*km" target="_blank" rel="noreferrer noopener">RideWithGPS</a></li>
+          <li><a href="https://www.trailforks.com/region/new-zealand/" target="_blank" rel="noreferrer noopener">Trailforks NZ</a></li>
+          <li><a href="https://www.wildernessmag.co.nz" target="_blank" rel="noreferrer noopener">Wilderness Magazine</a></li>
+          <li><a href="https://www.nzcyclingjournal.com/" target="_blank" rel="noreferrer noopener">NZ Cycling Journal</a></li>
+          <li><a href="https://www.greatkiwigravel.com/" target="_blank" rel="noreferrer noopener">Great Kiwi Gravel</a></li>
+          <li><a href="https://www.kennett.co.nz" target="_blank" rel="noreferrer noopener">The Kennett Brothers</a></li>
+          <li><a href="https://www.trailhub.co.nz/inspiration/bikepacking-for-beginners/" target="_blank" rel="noreferrer noopener">Trailhub - Bikepacking for Beginners</a></li>
+          <li><a href="https://warmshowersblog.org/" target="_blank" rel="noreferrer noopener">Warm Showers</a></li>
+         
+        </ul>
+      </div>
+      <div class="resource-section">
+        <h4>Classic NZ Rides</h4>
+        <ul>
+          <li><a href="https://www.highlux.co.nz/2018/11/bikepacking-basics-a-beginners-guide-to-multi-day-dirt-rides/" target="_blank" rel="noreferrer noopener">Highlux - Bikepacking Basics</a></li>
+           <li><a href="https://www.touraotearoa.nz/p/home.html" target="_blank" rel="noreferrer noopener">Tour Aotearoa</a></li>
+          <li><a href="https://oldghostroad.org.nz/" target="_blank" rel="noreferrer noopener">Old Ghost Road</a></li>
+          <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/paparoa-national-park/things-to-do/tracks/paparoa-track/" target="_blank" rel="noreferrer noopener">Paparoa Track</a></li>
+          <li><a href="https://www.alps2ocean.com/" target="_blank" rel="noreferrer noopener">Alps 2 Ocean</a></li>
+          <li><a href="https://www.touraotearoa.nz/p/sound-to-sound.html" target="_blank" rel="noreferrer noopener">Sounds to Sounds</a></li>
+          <li><a href="https://www.nzcycletrail.com/find-your-ride/bikepacking/popular-bikepacking-routes/kopiko-aotearoa" target="_blank" rel="noreferrer noopener">Kopiko Aotearoa</a></li>
+          <li><a href="https://www.doc.govt.nz/documents/parks-and-recreation/tracks-and-walks/nelson-marlborough/heaphy-track-brochure.pdf" target="_blank" rel="noreferrer noopener">Heaphy Track</a></li>
+          <li><a href="https://www.queencharlottetrack.co.nz/bike-the-track/" target="_blank" rel="noreferrer noopener">Queen Charlotte Track</a></li>
+        </ul>
+      </div>
+      <div class="resource-section">
+        <h4>Local Gear Makers</h4>
+        <ul>
+          <li><a href="https://www.groundeffect.co.nz" target="_blank" rel="noreferrer noopener">Ground Effect Clothes</a></li>
+          <li><a href="https://www.paperroads.com" target="_blank" rel="noreferrer noopener">Paper Roads Bike Bags </a></li>
+          <li><a href="https://cactusoutdoor.co.nz" target="_blank" rel="noreferrer noopener">Cactus Outdoor</a></li>
+          <li><a href="https://www.macpac.co.nz/" target="_blank" rel="noreferrer noopener">Macpac</a></li>
+            <li><a href="https://www.stealthbikebags.com" target="_blank" rel="noreferrer noopener">Stealth Bike Bags</a></li>
+          <li><a href="https://robo-kiwi.co.nz/" target="_blank" rel="noreferrer noopener">Robo Kiwi</a></li>
+        
+          <li><a href="https://www.questbiketrailers.com/" target="_blank" rel="noreferrer noopener">Quest Bike Trailers</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="gear-row" id="planning">
+    <div class="about-owner">
+      <figure class="about-photo">
+        <img src="images/DirkChris.webp" alt="Dirk, owner of Raglan Cyclery, working as a mechanic">
+      </figure>
+      <div class="about-copy">
+        <p class="about-kicker">About Us</p>
+ <h3><span class="about-title-desktop">Meet Dirk and Chris from the Raglan Cyclery</span><span class="about-title-mobile">Meet Dirk and Chris</span></h3>
+
+    <p class="about-text-desktop">Dirk has been running Raglan Cyclery and hiring out bikes since 2011. He has helped riders from first-timers to big-trip veterans get rolling with confidence. As an avid cyclist himself, every recommendation comes from real miles on New Zealand terrain.</p>
+
+    <p class="about-text-mobile">Dirk has run Raglan Cyclery and hired bikes since 2011, helping everyone from first-timers to seasoned adventurers get rolling with confidence. An avid cyclist, his recommendations come from real miles on New Zealand roads and trails.</p>
+
+    <p class="about-text-desktop">Chris is the other half of the team, a passionate cyclist with a love of adventure and the road less travelled, he brings firsthand experience and enthusiasm to every conversation. Every rental setup is prepared by two people who genuinely care that your trip is smooth, safe, and memorable.</p>
+
+    <p class="about-text-mobile">Chris brings a love of adventure, firsthand bikepacking experience and genuine enthusiasm to every conversation. Together, they prepare every rental setup with one goal: a smooth, safe and memorable trip.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <a href="https://www.cycleryraglan.co.nz" target="_blank" rel="noreferrer noopener" aria-label="Visit Cyclery Raglan">
+      <img class="footer-logo" src="images/Logo.webp" alt="NZ Bikepacking Rentals logo" loading="lazy">
+    </a>
+    <!-- <span>NZBikepackingRentals.com · Aotearoa bikepacking rentals</span> -->
+    <span class="social-links">
+      <a href="https://www.instagram.com/cycleryraglan/" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/CycleryRaglan" target="_blank" rel="noreferrer noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h3z"/></svg>
+      </a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+(() => {
+  const heroChoices = Array.from(document.querySelectorAll('.hero-choice .choice'));
+  heroChoices.forEach(choice => {
+    if(choice.dataset.tileLinkBound === 'true') return;
+    const tileLink = choice.querySelector('.choice-link[href]');
+    if(!tileLink) return;
+
+    choice.style.cursor = 'pointer';
+    choice.addEventListener('click', event => {
+      const target = event.target;
+      const interactive = target.closest('a,button,input,select,textarea,summary,label');
+      if(interactive && interactive !== tileLink) return;
+      window.location.href = tileLink.getAttribute('href');
+    });
+
+    choice.dataset.tileLinkBound = 'true';
+  });
+
+  const toggle = document.getElementById('mobile-nav-toggle');
+  const links = document.getElementById('main-nav-links');
+  if(!toggle || !links) return;
+
+  function setMenuOpen(open){
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    setMenuOpen(!isOpen);
+  });
+
+  links.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 760) {
+      setMenuOpen(false);
+    }
+  });
+})();
+</script>
+
+<script>
+(() => {
+  const gallery = document.getElementById('fleet-gallery');
+  if(!gallery) return;
+  const fleetBuilderPage = 'builder.html';
+
+  const track = gallery.querySelector('.fleet-gallery-track');
+  const dotsWrap = gallery.querySelector('.fleet-gallery-dots');
+  const prevBtn = gallery.querySelector('.fleet-gallery-nav.prev');
+  const nextBtn = gallery.querySelector('.fleet-gallery-nav.next');
+  const carousel = gallery.querySelector('.fleet-gallery-carousel');
+  let slides = [];
+  let dots = [];
+  const fleetImagePaths = [
+    'images/Builds/aaTour1.webp',
+    'images/Builds/aBuild59.webp',
+    'images/Builds/abBuild57.webp',
+    'images/Builds/abc.webp',
+    'images/Builds/Build10.webp',
+    'images/Builds/Build13.webp',
+    'images/Builds/Build2.webp',
+    'images/Builds/Build51.webp',
+    'images/Builds/Build53.webp',
+    'images/Builds/Build6.webp',
+    'images/Builds/Hard1.webp'
+  ];
+
+  function buildFleetGallery(imagePaths){
+    if(!track || !dotsWrap || !Array.isArray(imagePaths) || !imagePaths.length) return;
+
+    const slidesHtml = imagePaths.map((imgPath, index) =>
+      `<div class="fleet-gallery-slide${index === 0 ? ' active' : ''}" data-slide-index="${index}"><img src="${imgPath}" alt="Fleet build ${index + 1}" loading="lazy"></div>`
+    ).join('');
+    const dotsHtml = imagePaths.map((_, index) =>
+      `<button type="button" class="fleet-gallery-dot${index === 0 ? ' active' : ''}" data-dot-index="${index}" aria-label="Show fleet image ${index + 1}"></button>`
+    ).join('');
+
+    track.innerHTML = slidesHtml;
+    dotsWrap.innerHTML = dotsHtml;
+    slides = Array.from(gallery.querySelectorAll('.fleet-gallery-slide'));
+    dots = Array.from(gallery.querySelectorAll('.fleet-gallery-dot'));
+  }
+
+  function loadFleetImages(){
+    buildFleetGallery(fleetImagePaths);
+  }
+
+  function setNavigationVisibility(slideCount){
+    if(prevBtn) prevBtn.style.display = slideCount <= 1 ? 'none' : '';
+    if(nextBtn) nextBtn.style.display = slideCount <= 1 ? 'none' : '';
+    if(dotsWrap) dotsWrap.style.display = slideCount <= 1 ? 'none' : '';
+  }
+
+  function bindDotHandlers(startAuto, renderActive){
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        renderActive(index);
+        startAuto();
+      });
+    });
+  }
+
+  function bindImageNavigation(){
+    if(!track) return;
+    track.addEventListener('click', (event) => {
+      const targetImage = event.target.closest('.fleet-gallery-slide img');
+      if(!targetImage) return;
+      window.location.href = fleetBuilderPage;
+    });
+  }
+
+  async function init(){
+    await loadFleetImages();
+    slides = Array.from(gallery.querySelectorAll('.fleet-gallery-slide'));
+    dots = Array.from(gallery.querySelectorAll('.fleet-gallery-dot'));
+    bindImageNavigation();
+
+    setNavigationVisibility(slides.length);
+    if(!slides.length) return;
+    if(slides.length <= 1) return;
+
+    let activeIndex = 0;
+    let timer = null;
+
+    function renderActive(index){
+      activeIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => slide.classList.toggle('active', slideIndex === activeIndex));
+      dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === activeIndex));
+    }
+
+    function next(){
+      renderActive(activeIndex + 1);
+    }
+
+    function prev(){
+      renderActive(activeIndex - 1);
+    }
+
+    function stopAuto(){
+      if(timer){
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function startAuto(){
+      stopAuto();
+      timer = setInterval(next, 5000);
+    }
+
+    if(prevBtn){
+      prevBtn.addEventListener('click', () => {
+        prev();
+        startAuto();
+      });
+    }
+
+    if(nextBtn){
+      nextBtn.addEventListener('click', () => {
+        next();
+        startAuto();
+      });
+    }
+
+    bindDotHandlers(startAuto, renderActive);
+
+    if(carousel){
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+    }
+
+    renderActive(0);
+    startAuto();
+  }
+
+  init();
+})();
+</script>
+
+<script>
+// Update route counts dynamically from API or split-route index
+(function() {
+  async function updateRouteCounts() {
+    try {
+      let count = 0;
+      try {
+        const apiRes = await fetch('/api/routes', { cache: 'no-store' });
+        if (apiRes.ok) {
+          const routes = await apiRes.json();
+          count = Array.isArray(routes) ? routes.length : 0;
+        }
+      } catch {}
+
+      if (!count) {
+        const indexRes = await fetch('data/routes-index.json', { cache: 'no-store' });
+        if (indexRes.ok) {
+          const parsed = await indexRes.json();
+          const ids = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
+          count = ids.length;
+        }
+      }
+
+      const els = [
+        document.getElementById('route-count-home'),
+        document.getElementById('route-count-stats')
+      ];
+      els.forEach(el => {
+        if (el) el.textContent = count;
+      });
+    } catch (err) {
+      console.warn('Failed to fetch route count', err);
+    }
+  }
+  document.addEventListener('DOMContentLoaded', updateRouteCounts);
+})();
+</script>
+
+<script>
+// Mobile accordion for Resources section
+(function() {
+  const resourcesBand = document.querySelector('.resources-band');
+  if(!resourcesBand) return;
+
+  const sections = Array.from(resourcesBand.querySelectorAll('.resource-section'));
+  const mobileQuery = window.matchMedia('(max-width:760px)');
+
+  function applyAccordionState(isMobile) {
+    sections.forEach(section => {
+      const header = section.querySelector('h4');
+      const list = section.querySelector('ul');
+      if(!header || !list) return;
+
+      if(isMobile) {
+        section.classList.remove('expanded');
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'false');
+        list.hidden = true;
+      } else {
+        section.classList.remove('expanded');
+        header.removeAttribute('role');
+        header.removeAttribute('tabindex');
+        header.removeAttribute('aria-expanded');
+        list.hidden = false;
+      }
+    });
+  }
+
+  function toggleSection(section) {
+    const header = section.querySelector('h4');
+    const list = section.querySelector('ul');
+    if(!header || !list || !mobileQuery.matches) return;
+
+    const open = section.classList.toggle('expanded');
+    header.setAttribute('aria-expanded', open ? 'true' : 'false');
+    list.hidden = !open;
+  }
+
+  sections.forEach(section => {
+    const header = section.querySelector('h4');
+    if(!header || header.dataset.mobileAccordionBound === 'true') return;
+
+    header.addEventListener('click', () => toggleSection(section));
+    header.addEventListener('keydown', event => {
+      if(event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleSection(section);
+      }
+    });
+    header.dataset.mobileAccordionBound = 'true';
+  });
+
+  applyAccordionState(mobileQuery.matches);
+  mobileQuery.addEventListener('change', event => applyAccordionState(event.matches));
+})();
+</script>
+
+</body>
+</html>

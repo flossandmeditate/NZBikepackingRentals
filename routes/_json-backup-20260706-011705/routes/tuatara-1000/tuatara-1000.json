@@ -1,0 +1,44 @@
+﻿{
+    "id":  "tuatara-1000",
+    "file":  "routes/tuatara-1000/Tuatara 1000.gpx",
+    "name":  "Tuatara 1000",
+    "days":  10,
+    "distanceLabel":  "1,072 km",
+    "totalElevationMeters":  16635,
+    "surfaceSplit":  "45% Gravel / 15% Road / 40% Track",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "recommendedBike":  "Hardtail MTB",
+    "description":  "A hard South Island route with big distance and sustained climbing.",
+    "bestSeason":  "Nov-Mar",
+    "moreInfo":  "https://ridewithgps.com/routes/53481082",
+    "photos":  [
+                   "routes/tuatara-1000/Placeholder1.jpg",
+                   "routes/tuatara-1000/Placeholder2.jpg",
+                   "routes/tuatara-1000/Placeholder3.jpeg",
+                   "routes/tuatara-1000/Placeholder4.jpg",
+                   "routes/tuatara-1000/Placeholder5.jpg",
+                   "routes/tuatara-1000/Placeholder6.jpg",
+                   "routes/tuatara-1000/Placeholder7.jpg",
+                   "routes/tuatara-1000/Placeholder8.jpg",
+                   "routes/tuatara-1000/Placeholder9.jpg",
+                   "routes/tuatara-1000/Placeholder10.jpg"
+               ],
+    "youtubeVideos":  "https://youtu.be/ZaN-Y-GOqmc?si=uxEZnBOFkPr_6Ri2",
+    "tags":  [
+                 "long",
+                 "south island",
+                 "intermediate difficulty"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "This is a long South Island challenge with repeated climbing and exposed weather sections. Backcountry planning and durable daily pacing are key to finishing well.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "Multiple river crossings and backcountry navigation in the Fiordland margins make the southern third the hardest section to manage safely.",
+    "routeSummary":  [
+                         "Tuatara 1000 is a hard bikepacking route covering about 1,072 km, commonly ridden over 10 days. A hard South Island route with big distance and sustained climbing. Riders can expect 45% Gravel / 15% Road / 40% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Nov-Mar, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: Multiple river crossings and backcountry navigation in the Fiordland margins make the southern third the hardest section to manage safely. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 10-day route, we recommend a Hardtail MTB to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

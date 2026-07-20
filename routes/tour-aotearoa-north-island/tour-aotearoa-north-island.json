@@ -1,0 +1,50 @@
+{
+    "id":  "tour-aotearoa-north-island",
+    "file":  "routes/tour-aotearoa-north-island/Tour Aotearoa - North Island.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/45744252",
+    "name":  "Tour Aotearoa - North Island",
+    "days":  "17-35",
+    "distanceLabel":  "1,650 km",
+    "totalElevationMeters":  18000,
+    "surfaceSplit":  "25% Gravel / 75% Road / 0% Track",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "Ride the length of the North Island, one adventure at a time.",
+    "bestSeason":  "Nov - May",
+    "moreInfo":  [
+                     "                     https://www.kennett.co.nz/product/tour-aotearoa-official-guides",
+                     "https://www.facebook.com/groups/110925305926187",
+                     "https://www.touraotearoa.nz/p/map_22.html",
+                     "https://en.wikipedia.org/wiki/Tour_Aotearoa",
+                     "https://www.nzcycletrail.com/find-your-ride/bikepacking/popular-bikepacking-routes/tour-aotearoa",
+                     "https://ultradistancebiking.blog/2021/02/02/tour-aotearoa-land-of-the-long-white-cloud-new-zealand-end-to-end-march-2020/"
+                 ],
+    "youtubeVideos":  [
+                          "https://youtu.be/5RBi9SPFjOU?si=KHR4YsiBUC-2qV1W",
+                          "https://www.youtube.com/watch?v=kOMXjdnaSEw"
+                      ],
+    "tags":  [
+                 "long",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "tour-aotearoa-south-island",
+                          "shaky-isles-north",
+                          "shaky-isles-south"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  4,
+                         "scenery":  4,
+                         "technical":  2,
+                         "climbing":  3,
+                         "remoteness":  3
+                     },
+    "text1":  [
+                  "Ride the length of the North Island from Cape Reinga to Wellington on the northern half of New Zealand’s best-known bikepacking journey. Created by the legendary Kennett Brothers, the route begins with an unforgettable ride down Ninety Mile Beach before linking forest tracks, gravel roads, cycle trails and quiet backroads through Northland, Auckland, the Waikato, the central plateau and the lower North Island. It is an enormous journey, but one with plenty of towns, accommodation and resupply points along the way."
+              ],
+    "text2":  "Ninety Mile Beach can be either a glorious introduction or one of the hardest days of the journey. Wind direction, tides and sand conditions make an enormous difference, so plan the start carefully and avoid riding close to high tide. Reaching Cape Reinga also takes some organisation, as public transport options are limited and many riders arrange a dedicated shuttle.",
+    "text3":  "The North Island route is physically demanding rather than highly technical, with the challenge coming from repeated long days, changing surfaces and accumulated fatigue."
+}

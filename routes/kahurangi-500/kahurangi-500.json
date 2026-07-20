@@ -1,0 +1,55 @@
+{
+    "id":  "kahurangi-500",
+    "file":  "routes/kahurangi-500/Kahurangi 500.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/33882858",
+    "name":  "Kahurangi 500",
+    "days":  "6-12",
+    "distanceLabel":  "520 km",
+    "totalElevationMeters":  9000,
+    "surfaceSplit":  "60% Gravel / 40% Road",
+    "recommendedBike":  "MTB",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "description":  "The best 500k of biking in New Zealand???",
+    "bestSeason":  "Oct - Nov",
+    "moreInfo":  [
+                     "https://www.facebook.com/TheOldGhostRoad",
+                     "https://www.doc.govt.nz/globalassets/documents/parks-and-recreation/tracks-and-walks/nelson-marlborough/heaphy-track-mountain-biking-flyer.pdf",
+                     "https://www.mtbtrailstrust.org.nz/rameka-track",
+                     "https://www.doc.govt.nz/globalassets/documents/parks-and-recreation/tracks-and-walks/nelson-marlborough/heaphy-track-mountain-biking-flyer.pdf",
+                     "https://roughandtumble.co.nz/",
+                     "https://oldghostroad.org.nz/"
+                 ],
+    "youtubeVideos":  [
+                          "https://youtu.be/EV57a3f8Ec0?si=zOf0qqeI497P78FI",
+                          "https://www.youtube.com/watch?v=7JpDBimQAB8"
+                      ],
+    "tags":  [
+                 "long",
+                 "south island",
+                 "difficult"
+             ],
+    "similarRoutes":  [
+                          "best-of-the-west",
+                          "st-james-loop",
+                          "shaky-isles-south"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  5,
+                         "scenery":  5,
+                         "technical":  5,
+                         "climbing":  5,
+                         "remoteness":  5
+                     },
+    "text1":  [
+                  "The Kahurangi 500 is a huge backcountry circuit around Kahurangi National Park, combining the Old Ghost Road, Heaphy Track, Rāmeka Track and Porika Track with remote gravel roads.",
+                  "This is a mountain-bike journey rather than a conventional gravel tour. Long stretches of Grade 3 and Grade 4 singletrack demand confident handling, particularly when the bike is fully loaded. We recommend plenty of suspension on your bike."
+              ],
+    "text2":  [
+                  "The Old Ghost Road supplies some of the route’s most dramatic riding. Dense West Coast forest onto exposed ridgelines before dropping through steep switchbacks towards the Mōkihinui River.",
+                  "The Heaphy offers an equally memorable journey, subtropical nīkau palms on the beach, tussock downs and native forest. It is a New Zealand Great Walk, and mountain bikes are permitted only from 1 May to 30 November. All huts on Heaphy and Old Ghost must be booked in advance.",
+                  "The Rāmeka and Porika tracks add further steep, rough and often slippery riding."
+              ],
+    "text3":  "You can make this route a 600km lap starting and finishing from Nelson; however, most people start in Murchinson or Westport."
+}

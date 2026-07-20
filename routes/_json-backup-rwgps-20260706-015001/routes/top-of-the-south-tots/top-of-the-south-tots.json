@@ -1,0 +1,44 @@
+﻿{
+    "id":  "top-of-the-south-tots",
+    "file":  "routes/top-of-the-south-tots/Top of the South (TOTS).gpx",
+    "name":  "Top of the South (TOTS)",
+    "days":  5,
+    "distanceLabel":  "1,106 km",
+    "totalElevationMeters":  22873,
+    "surfaceSplit":  "45% Gravel / 15% Road / 40% Track",
+    "recommendedBike":  "Hardtail MTB",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "description":  "A challenging top-of-the-south mission with long climbs and changing conditions.",
+    "bestSeason":  "Nov-Apr",
+    "moreInfo":  "https://ridewithgps.com/routes/31704591",
+    "photos":  [
+                   "routes/top-of-the-south-tots/Placeholder1.jpg",
+                   "routes/top-of-the-south-tots/Placeholder2.jpg",
+                   "routes/top-of-the-south-tots/Placeholder3.jpeg",
+                   "routes/top-of-the-south-tots/Placeholder4.jpg",
+                   "routes/top-of-the-south-tots/Placeholder5.jpg",
+                   "routes/top-of-the-south-tots/Placeholder6.jpg",
+                   "routes/top-of-the-south-tots/Placeholder7.jpg",
+                   "routes/top-of-the-south-tots/Placeholder8.jpg",
+                   "routes/top-of-the-south-tots/Placeholder9.jpg",
+                   "routes/top-of-the-south-tots/Placeholder10.jpg"
+               ],
+    "youtubeVideos":  null,
+    "tags":  [
+                 "long",
+                 "difficult",
+                 "south island"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "Steep forestry climbs, weather volatility, and remote links combine into a demanding multi-day route. Riders should be confident with backcountry decision-making and long effort blocks.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The Pelorus and Queen Charlotte singletrack arrives near the end when legs are already heavy from days of forestry climbing.",
+    "routeSummary":  [
+                         "Top of the South (TOTS) is a hard bikepacking route covering about 1,106 km, commonly ridden over 5 days. A challenging top-of-the-south mission with long climbs and changing conditions. Riders can expect 45% Gravel / 15% Road / 40% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Nov-Apr, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The Pelorus and Queen Charlotte singletrack arrives near the end when legs are already heavy from days of forestry climbing. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 5-day route, we recommend a Hardtail MTB to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

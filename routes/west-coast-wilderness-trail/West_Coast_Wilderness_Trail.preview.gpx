@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>West Coast Wild</name>
+    <trkseg>
+      <trkpt lat="-42.447940" lon="171.216080" />
+      <trkpt lat="-42.573355" lon="171.149198" />
+      <trkpt lat="-42.701758" lon="171.213599" />
+      <trkpt lat="-42.812213" lon="171.245544" />
+      <trkpt lat="-42.781458" lon="171.126824" />
+      <trkpt lat="-42.735898" lon="170.942615" />
+      <trkpt lat="-42.832815" lon="170.864999" />
+      <trkpt lat="-42.892810" lon="170.811120" />
+    </trkseg>
+  </trk>
+</gpx>

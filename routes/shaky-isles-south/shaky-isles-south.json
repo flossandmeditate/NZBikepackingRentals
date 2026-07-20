@@ -1,0 +1,55 @@
+{
+    "id":  "shaky-isles-south",
+    "file":  "routes/shaky-isles-south/Shaky Isles South.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/47697311",
+    "name":  "Shaky Isles South",
+    "days":  "12-30",
+    "distanceLabel":  "1,250 km",
+    "totalElevationMeters":  12500,
+    "surfaceSplit":  "45% Gravel / 55% Road ",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "4/5",
+    "description":  "A South Island odyssey through mountains, lakes and forgotten roads.",
+    "bestSeason":  "Dec - April",
+    "moreInfo":  [
+                     "https://ridewithgps.com/routes/48530026",
+                     "https://www.nzcyclingjournal.com/shaky-isles-a-tale-of-two-directions/",
+                     "https://www.tourtewaipounamu.co.nz/sic",
+                     "https://www.instagram.com/brianinpics/"
+                 ],
+    "youtubeVideos":  [
+                          "https://youtu.be/1gAkUyKSOPw?si=mx4PiY4HOAdZrm2J",
+                          "https://youtu.be/OkSClUx5Ahc?si=Jt0VQOo3PAEpv8rw"
+                      ],
+    "tags":  [
+                 "long",
+                 "south island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "shaky-isles-north",
+                          "tuatara-1000",
+                          "tour-aotearoa-south-island"
+                      ],
+    "disabled":  false,
+    "routeProfile":  {
+                         "adventure":  5,
+                         "scenery":  5,
+                         "technical":  2,
+                         "climbing":  4,
+                         "remoteness":  4
+                     },
+    "text1":  [
+                  "Created by Brian Alder, the organiser behind Tour Te Waipounamu, Shaky Isles is one of New Zealand’s newest long-distance bikepacking routes. The first challenge was held in January 2023. It can be ridden as part of the complete Shaky Isles route or taken on as a substantial bikepacking adventure in its own right.",
+                  "The idea behind the route is simple but ambitious: avoid busy highways wherever practical and use gravel roads, cycle trails and short stretches of 4WD track to reveal a quieter and wilder version of New Zealand."
+              ],
+    "text2":  [
+                  "The South Island delivers the enormous landscapes. The route passes through high country, broad river valleys, dry inland basins and the open farmland of Southland, with epic views of the southern alps.",
+                  "Most of the course is rideable and not especially technical, although you will be deep in the backcountry at times and come prepared"
+              ],
+    "text3":  [
+                  "Weather is one of the South Island’s defining challenges. Fast incoming wind, rain (and snow!) can transform an otherwise straightforward section and some rivers and gravel roads may require care. Resupply options can be patchy so plan ahead.",
+                  "Because Shaky Isles is still a young and evolving route, download Brian Alder’s latest official GPX file before leaving."
+              ]
+}

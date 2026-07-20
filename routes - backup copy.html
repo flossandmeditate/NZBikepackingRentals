@@ -1,0 +1,2065 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NZ Bikepacking Routes · NZ Bikepacking Rentals</title>
+
+<style>
+:root{
+  --ink:#1d1f1a;
+  --paper:#f4efe3;
+  --bone:#fffaf0;
+  --muted:#6f7568;
+  --green:#25362c;
+  --green2:#35483b;
+  --rust:#b75b25;
+  --line:#d8d0be;
+  --mint:#dfece3;
+  --side:#ded8ca;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--side);
+  color:var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.site{
+  width:min(1180px,100%);
+  margin:auto;
+  background:var(--paper);
+  box-shadow:0 0 28px rgba(0,0,0,.18);
+}
+
+.nav{
+  height:64px;
+  background:#171a17;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:11px;
+}
+
+.logo{font-weight:900;font-size:18px;letter-spacing:.02em}
+.logo a{color:white;text-decoration:none}
+.nav a{color:#ddd;text-decoration:none;margin-left:22px}
+
+/* ---- PAGE HERO ---- */
+.page-hero{
+  position:relative;
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:26px 64px;
+  isolation:isolate;
+  border-bottom:8px solid #20231f;
+  background:url("images/Bannerghost.webp") center/cover no-repeat;
+}
+
+.page-hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.72));
+  z-index:-1;
+}
+
+.page-hero .kicker{
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:.14em;
+  color:#f2c98a;
+  margin:0 0 10px;
+}
+
+.page-hero h1{
+  margin:0 0 14px;
+  color:white;
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:72px;
+  line-height:.9;
+  text-transform:uppercase;
+  text-shadow:0 3px 14px #000;
+}
+
+.page-hero p{
+  margin:0;
+  color:#f2ead8;
+  font-size:19px;
+  max-width:580px;
+  line-height:1.45;
+}
+
+/* ---- FILTER BAR ---- */
+.filter-bar{
+  background:#ece5d6;
+  border-bottom:1px solid var(--line);
+  padding:14px 64px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  flex-wrap:wrap;
+}
+
+.filter-bar span{color:var(--muted);margin-right:4px}
+
+.filter-btn{
+  border:1px solid var(--line);
+  background:white;
+  padding:6px 13px;
+  cursor:pointer;
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  transition:background .12s, border-color .12s;
+}
+
+.filter-btn:hover{
+  background:var(--green);
+  color:white;
+  border-color:var(--green);
+}
+
+.filter-btn.active{
+  background:var(--rust);
+  color:white;
+  border-color:var(--rust);
+}
+
+/* ---- ISLAND SECTION ---- */
+.island-section{
+  padding:48px 64px 0;
+}
+
+.island-head{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  margin-bottom:26px;
+  border-bottom:3px solid #20231f;
+  padding-bottom:14px;
+}
+
+.island-head h2{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:42px;
+  text-transform:uppercase;
+  margin:0;
+  line-height:1;
+}
+
+.island-head .island-count{
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--muted);
+}
+
+/* ---- ROUTE CARDS ---- */
+.route-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-bottom:48px;
+}
+
+#all-routes-grid .route-card{
+  cursor:default;
+}
+
+#all-routes-grid .route-card:hover{
+  box-shadow:0 8px 28px rgba(0,0,0,.18);
+  transform:translateY(-2px);
+}
+
+.route-card{
+  border:1px solid var(--line);
+  background:white;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(0,0,0,.09);
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+  transition:box-shadow .15s, transform .15s;
+}
+
+.route-card:hover{
+  box-shadow:0 8px 28px rgba(0,0,0,.18);
+  transform:translateY(-2px);
+}
+
+.route-card.featured{
+  grid-column:span 2;
+}
+
+.route-img{
+  position:relative;
+  overflow:hidden;
+}
+
+a.route-img{
+  display:block;
+  text-decoration:none;
+}
+
+.route-card .route-img img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
+  transition:transform .3s;
+}
+
+.route-card.featured .route-img img{
+  height:280px;
+}
+
+.route-card:hover .route-img img{
+  transform:scale(1.04);
+}
+
+.route-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  font-family:Arial, sans-serif;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  padding:5px 9px;
+  font-weight:bold;
+}
+
+.badge-easy{background:#dfece3;color:#25362c}
+.badge-intermediate{background:#fff3e0;color:#a05000}
+.badge-hard{background:#fce8e3;color:#8b2800}
+.badge-epic{background:#20231f;color:white}
+
+.route-body{
+  padding:18px 20px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+.route-body h3{
+  margin:0 0 6px;
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:26px;
+  text-transform:uppercase;
+  line-height:1;
+}
+
+.route-body .region{
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--rust);
+  margin:0 0 10px;
+}
+
+.route-body p{
+  margin:0 0 16px;
+  font-size:14px;
+  line-height:1.55;
+  color:#3a3a30;
+  flex:1;
+}
+
+.route-meta{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+.route-meta b{
+  display:block;
+  font-size:17px;
+  color:var(--ink);
+  line-height:1.1;
+}
+
+.route-actions{
+  display:flex;
+  gap:8px;
+  width:100%;
+}
+
+.btn-sm{
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:bold;
+  padding:9px 13px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.route-actions .btn-sm{
+  flex:1;
+  width:100%;
+  text-align:center;
+}
+
+.btn-sm.primary{background:var(--rust);color:white}
+.btn-sm.secondary{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn-sm:hover.primary{background:#9a4b1e}
+.btn-sm:hover.secondary{background:var(--mint)}
+
+/* ---- FEATURED ROUTE DETAIL ---- */
+.featured-band{
+  background:#252824;
+  color:white;
+  padding:56px 64px;
+  margin:0;
+}
+
+.featured-band .label{
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:.14em;
+  color:#f2c98a;
+  margin:0 0 8px;
+}
+
+.featured-band h2{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:54px;
+  text-transform:uppercase;
+  margin:0 0 6px;
+  line-height:.95;
+}
+
+.featured-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:42px;
+  margin-top:28px;
+}
+
+.featured-wrap img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:block;
+}
+
+.featured-info p{
+  font-size:17px;
+  line-height:1.7;
+  color:#d8d0be;
+  margin:0 0 20px;
+}
+
+.feat-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:24px 0;
+}
+
+.feat-stat{
+  border-top:2px solid var(--rust);
+  padding-top:10px;
+  font-family:Arial, sans-serif;
+}
+
+.feat-stat b{
+  display:block;
+  font-size:26px;
+  color:white;
+}
+
+.feat-stat span{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:#999;
+}
+
+.btn-lg{
+  display:inline-block;
+  background:var(--rust);
+  color:white;
+  padding:15px 22px;
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:12px;
+  text-decoration:none;
+  box-shadow:4px 4px 0 rgba(0,0,0,.3);
+  margin-right:10px;
+}
+
+.btn-lg.dark{background:var(--green2)}
+
+/* ---- CALLOUT BAND ---- */
+.callout-band{
+  background:#f8efe2;
+  border-top:4px solid var(--rust);
+  border-bottom:4px solid var(--rust);
+  padding:42px 64px;
+  display:block;
+  font-family:Arial, sans-serif;
+  text-align:center;
+}
+
+.callout-item h3{
+  text-transform:uppercase;
+  font-size:28px;
+  letter-spacing:.1em;
+  margin:0 0 12px;
+  color:#8b2800;
+}
+
+.callout-item p{
+  font-size:18px;
+  line-height:1.5;
+  margin:0;
+  color:#3a3a30;
+}
+
+/* ---- GALLERY STRIP ---- */
+.gallery-strip{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+  margin:0;
+}
+
+.gallery-strip img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.85);
+  transition:filter .2s;
+}
+
+.gallery-strip img:hover{filter:saturate(1.1)}
+
+/* ---- FOOTER ---- */
+.footer{
+  background:#171a17;
+  color:#bbb;
+  text-align:center;
+  padding:42px 20px;
+  position:relative;
+  min-height:78px;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.footer .footer-logo{
+  position:absolute;
+  left:16px;
+  bottom:12px;
+  width:84px;
+  height:auto;
+  opacity:.95;
+}
+
+.footer .social-links{
+  display:inline-flex;
+  gap:14px;
+  margin-left:18px;
+  flex-wrap:wrap;
+}
+
+.footer .social-links a{
+  color:#f2ead8;
+  text-decoration:none;
+  font-weight:700;
+  width:18px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.footer .social-links a:hover{
+  color:white;
+}
+
+.footer .social-links svg{
+  width:16px;
+  height:16px;
+  display:block;
+}
+
+@media(max-width:900px){
+  .page-hero{padding:22px 22px;min-height:180px}
+  .page-hero h1{font-size:50px}
+  .island-section{padding:32px 22px 0}
+  .filter-bar{padding:12px 16px}
+  .route-grid{grid-template-columns:1fr}
+  .route-card.featured{grid-column:auto}
+  .featured-wrap{display:block}
+  .featured-wrap img{height:240px;margin-bottom:24px}
+  .featured-band{padding:36px 22px}
+  .featured-band h2{font-size:40px}
+  .feat-stats{grid-template-columns:repeat(2,1fr)}
+  .callout-band{padding:30px 22px}
+  .callout-item h3{font-size:22px}
+  .callout-item p{font-size:16px}
+  .gallery-strip{grid-template-columns:repeat(2,1fr)}
+  .gallery-strip img{height:160px}
+}
+
+@media(max-width:600px){
+}
+
+/* ---- MAP SECTION ---- */
+.map-section{
+  border-top:8px solid #20231f;
+  border-bottom:8px solid #20231f;
+}
+
+.map-section-header{
+  background:#252824;
+  color:white;
+  padding:20px 64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.map-section-header h2{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:36px;
+  text-transform:uppercase;
+  margin:0;
+  line-height:1;
+}
+
+.map-section-header .map-kicker{
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:#f2c98a;
+  margin:0 0 4px;
+}
+
+.map-section-header .map-hint{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:flex-end;
+  align-items:center;
+  max-width:58%;
+}
+
+.map-section-header .map-hint .filter-label{
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:#f2c98a;
+}
+
+.map-wrap{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  height:620px;
+}
+
+#route-map{
+  height:100%;
+  z-index:0;
+  background:#D5E8EB;
+}
+
+.map-panel{
+  background:var(--bone);
+  border-left:2px solid #20231f;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+.map-panel-head{
+  padding:12px 16px;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  font-family:Arial, sans-serif;
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:.1em;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-shrink:0;
+}
+
+.map-panel-head .mp-count{
+  color:var(--muted);
+  font-size:10px;
+}
+
+.map-panel-search{
+  padding:8px 12px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+  flex-shrink:0;
+}
+
+.map-panel-search input{
+  width:100%;
+  background:white;
+  border:1px solid var(--line);
+  padding:7px 10px;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  color:var(--ink);
+  outline:none;
+}
+
+.map-panel-search input::placeholder{color:var(--muted)}
+.map-panel-search input:focus{border-color:var(--rust)}
+
+.map-route-list{
+  overflow-y:auto;
+  flex:1;
+}
+
+.map-route-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-bottom:1px solid var(--line);
+  cursor:pointer;
+  transition:background .1s;
+  font-family:Arial, sans-serif;
+}
+
+.map-route-item:hover{background:var(--mint)}
+
+.map-route-item.active{
+  background:var(--mint);
+  border-left:3px solid var(--rust);
+  padding-left:11px;
+}
+
+.map-route-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  flex-shrink:0;
+}
+
+.map-route-name{
+  font-size:13px;
+  font-weight:bold;
+  color:var(--ink);
+  flex:1;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.map-route-stats{
+  color:var(--muted);
+  font-size:11px;
+  white-space:nowrap;
+}
+
+.map-loading{
+  padding:14px 16px;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.map-spinner{
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  border:2px solid var(--line);
+  border-top-color:var(--rust);
+  animation:mapspin .9s linear infinite;
+  flex-shrink:0;
+}
+
+@keyframes mapspin{to{transform:rotate(360deg)}}
+
+.map-detail{
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  flex:1;
+}
+
+.map-detail.visible{
+  display:flex;
+}
+
+.map-detail-back{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:none;
+  border:none;
+  border-bottom:1px solid var(--line);
+  padding:10px 14px;
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+  cursor:pointer;
+  width:100%;
+  text-align:left;
+  flex-shrink:0;
+  transition:color .12s;
+}
+
+.map-detail-back:hover{color:var(--rust)}
+
+.map-detail-scroll{
+  overflow-y:auto;
+  flex:1;
+  padding:14px 16px;
+}
+
+.map-detail-name{
+  font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size:28px;
+  text-transform:uppercase;
+  line-height:1;
+  margin:0 0 4px;
+}
+
+.map-detail-region{
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--rust);
+  margin:0 0 10px;
+}
+
+.map-detail-desc{
+  font-size:13px;
+  line-height:1.6;
+  color:#3a3a30;
+  margin:0 0 12px;
+}
+
+.map-detail-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  margin-bottom:12px;
+}
+
+.map-detail-stat{
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:7px 9px;
+  font-family:Arial, sans-serif;
+}
+
+.map-detail-stat .ds-label{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--muted);
+}
+
+.map-detail-stat .ds-value{
+  font-size:14px;
+  font-weight:bold;
+  margin-top:2px;
+}
+
+.map-detail-actions{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:0 14px 14px;
+  flex-shrink:0;
+}
+
+.map-btn{
+  display:block;
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  font-weight:bold;
+  letter-spacing:.08em;
+  padding:11px 14px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  text-align:center;
+  box-shadow:3px 3px 0 rgba(0,0,0,.18);
+}
+
+.map-btn.primary{background:var(--rust);color:white}
+.map-btn.dark{background:var(--green);color:white}
+.map-btn.route-primary{
+  background:var(--rust);
+  color:white;
+  font-size:13px;
+  letter-spacing:.1em;
+  padding:13px 14px;
+}
+
+@media(max-width:900px){
+  .map-wrap{grid-template-columns:1fr;height:auto}
+  #route-map{height:360px}
+  .map-panel{height:320px;border-left:none;border-top:2px solid #20231f}
+  .map-section-header{padding:16px 22px;display:block}
+  .map-section-header h2{font-size:28px}
+  .map-section-header .map-hint{max-width:none;justify-content:flex-start;margin-top:12px}
+}
+</style>
+
+<script>
+// Update route count dynamically from API or split-route index
+(function() {
+  async function updateRouteCount() {
+    try {
+      let count = 0;
+      try {
+        const apiRes = await fetch('/api/routes', { cache: 'no-store' });
+        if (apiRes.ok) {
+          const routes = await apiRes.json();
+          count = Array.isArray(routes) ? routes.length : 0;
+        }
+      } catch {}
+
+      if (!count) {
+        const indexRes = await fetch('data/routes-index.json', { cache: 'no-store' });
+        if (indexRes.ok) {
+          const parsed = await indexRes.json();
+          const ids = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
+          count = ids.length;
+        }
+      }
+
+      const el = document.getElementById('route-count');
+      if (el) el.textContent = count;
+    } catch (err) {
+      console.warn('Failed to fetch route count', err);
+    }
+  }
+  document.addEventListener('DOMContentLoaded', updateRouteCount);
+})();
+</script>
+
+<!-- Leaflet map -->
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/dist/leaflet-gpx.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tmcw/togeojson@5.6.0/dist/togeojson.umd.min.js"></script>
+<script src="storage-config.js"></script>
+</head>
+<body>
+
+<div class="site">
+
+  <nav class="nav">
+    <div class="logo"><a href="index.html">NZBikepackingRentals.com</a></div>
+    <div class="nav-links">
+      <a href="builder.html">Bike Rentals</a>
+      <a href="routes.html">NZ Routes</a>
+      <a href="contact.html">Contact</a>
+      
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <h1>NZ Routes</h1>
+    <p>Ride where the locals ride. Hand-picked routes across Aotearoa — gravel roads, forest trails, high passes and long backcountry valleys.</p>
+  </div>
+
+  <!-- INTERACTIVE MAP SECTION -->
+  <section class="map-section">
+    <div class="map-section-header">
+      <div>
+        <div class="map-kicker">Interactive Route Explorer</div>
+        <h2>Explore on the Map</h2>
+      </div>
+      <div class="map-hint">
+        <span class="filter-label">Filter</span>
+        <button class="filter-btn active" onclick="filterRoutes('all', this)">All Routes</button>
+        <button class="filter-btn" onclick="filterRoutes('short', this)">Short</button>
+        <button class="filter-btn" onclick="filterRoutes('long', this)">Long</button>
+        <button class="filter-btn" onclick="filterRoutes('easy', this)">Easy</button>
+        <button class="filter-btn" onclick="filterRoutes('intermediate', this)">Intermediate</button>
+        <button class="filter-btn" onclick="filterRoutes('hard', this)">Hard</button>
+        <button class="filter-btn" onclick="filterRoutes('north', this)">North Island</button>
+        <button class="filter-btn" onclick="filterRoutes('south', this)">South Island</button>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <div id="route-map"></div>
+      <div class="map-panel">
+        <div class="map-panel-head">
+          <span>Routes</span>
+          <span class="mp-count" id="map-route-count">Loading…</span>
+        </div>
+        <div class="map-panel-search">
+          <input type="search" id="map-search" placeholder="Search routes…">
+        </div>
+        <div class="map-route-list" id="map-route-list">
+          <div class="map-loading">
+            <span class="map-spinner"></span>
+            <span id="map-loading-text">Loading routes…</span>
+          </div>
+        </div>
+        <div class="map-detail" id="map-detail">
+          <button class="map-detail-back" id="map-detail-back">&#8592; All routes</button>
+          <div class="map-detail-scroll" id="map-detail-scroll"></div>
+          <div class="map-detail-actions" id="map-detail-actions"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Routes below are generated from /api/routes or routes/<id>/<route-file>.json via data/routes-index.json. -->
+  <section class="island-section" id="all-routes-section">
+    <div class="island-head">
+      <h2 id="all-routes-title">All Routes</h2>
+      <span class="island-count" id="all-routes-count">Loading routes</span>
+    </div>
+    <div class="route-grid" id="all-routes-grid">
+      <div class="map-loading">Loading routes…</div>
+    </div>
+  </section>
+
+  <!-- FEATURED ROUTE DETAIL -->
+ <!--  <section class="featured-band">
+    <div class="label">Featured Route</div>
+    <h2>Tour Aotearoa</h2>
+
+    <div class="featured-wrap">
+      <img src="images/Going-Your-Own-Way-New-Zealand-Matt-Bark_25-1536x1024.jpg" alt="Tour Aotearoa">
+      <div class="featured-info">
+        <p>The full length of New Zealand, from Cape Reinga in the far north to Bluff in the deep south. 3,000+ km on gravel roads, forest tracks and quiet country lanes through every landscape Aotearoa has to offer.</p>
+        <p>Most riders take 25–30 days. It is one of the most celebrated bikepacking routes in the world — remote, challenging, and deeply rewarding.</p>
+
+        <div class="feat-stats">
+          <div class="feat-stat"><b>3,000+</b><span>Kilometres</span></div>
+          <div class="feat-stat"><b>25–30</b><span>Days</span></div>
+          <div class="feat-stat"><b>35,000m</b><span>Climbing</span></div>
+          <div class="feat-stat"><b>March</b><span>Best Month</span></div>
+          <div class="feat-stat"><b>Gravel</b><span>Bike Type</span></div>
+          <div class="feat-stat"><b>Epic</b><span>Difficulty</span></div>
+        </div>
+
+        <a class="btn-lg" href="#">Download GPX</a>
+        <a class="btn-lg dark" href="builder.html">Build a Full Kit</a>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- CALLOUT BAND -->
+<!--   <div class="callout-band">
+    <div class="callout-item">
+      <h3>Are we missing a classic route?</h3>
+      <p>Let us know here and we'll consider adding it to our collection.</p>
+    </div>
+    </div> -->
+
+  <!-- GALLERY STRIP -->
+  
+  <footer class="footer">
+    <a href="https://www.cycleryraglan.co.nz" target="_blank" rel="noreferrer noopener" aria-label="Visit Cyclery Raglan">
+      <img class="footer-logo" src="images/Logo.webp" alt="NZ Bikepacking Rentals logo" loading="lazy">
+    </a>
+    <span>NZBikepackingRentals.com · Aotearoa bikepacking rentals · ride prepared</span>
+    <span class="social-links">
+      <a href="https://www.instagram.com/cycleryraglan/" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/CycleryRaglan" target="_blank" rel="noreferrer noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h3z"/></svg>
+      </a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+let currentRouteFilter = 'all';
+
+function getInitialFilterFromUrl(){
+  const params = new URLSearchParams(location.search);
+  const filter = String(params.get('filter') || '').toLowerCase();
+  const allowed = new Set(['all', 'short', 'long', 'easy', 'intermediate', 'hard', 'north', 'south']);
+  return allowed.has(filter) ? filter : 'all';
+}
+
+function getDurationMaxDays(text){
+  const values = String(text || '').match(/\d+/g);
+  if(!values || values.length === 0) return null;
+  return Math.max(...values.map(Number));
+}
+
+function normalizeDifficulty(value){
+  const plain = String(value || '').trim().toLowerCase();
+  if(!plain) return '';
+  if(plain === 'easy' || plain === 'hard' || plain === 'intermediate') return plain;
+  if(plain === 'difficult') return 'hard';
+
+  const numericMatch = plain.match(/(\d+)/);
+  const rating = numericMatch ? Number(numericMatch[1]) : null;
+  if(rating === null) return 'intermediate';
+  if(rating <= 2) return 'easy';
+  if(rating >= 4) return 'hard';
+  return 'intermediate';
+}
+
+function normalizeRouteTag(value){
+  const plain = String(value || '').trim().toLowerCase();
+  if(!plain) return '';
+  if(plain === 'difficult') return 'hard';
+  if(plain === 'intermediate difficulty') return 'intermediate';
+  if(plain === 'north island') return 'north';
+  if(plain === 'south island') return 'south';
+  return plain;
+}
+
+function getNormalizedRouteTags(meta){
+  const tags = Array.isArray(meta?.tags) ? meta.tags : [];
+  return tags.map(normalizeRouteTag).filter(Boolean);
+}
+
+function getRouteDifficulty(meta){
+  const tags = getNormalizedRouteTags(meta);
+  if(tags.includes('easy')) return 'easy';
+  if(tags.includes('intermediate')) return 'intermediate';
+  if(tags.includes('hard')) return 'hard';
+  return normalizeDifficulty(meta?.difficulty || meta?.datasetDifficulty);
+}
+
+function getDistanceKm(meta){
+  if(Number.isFinite(meta.distanceMeters)) return meta.distanceMeters / 1000;
+
+  const distanceText = String(meta.distanceText || meta.distanceLabel || '').replace(/,/g, '');
+  const value = Number.parseFloat(distanceText);
+  return Number.isFinite(value) ? value : null;
+}
+
+function parseDaysRange(value){
+  const numeric = Number(value);
+  if(Number.isFinite(numeric) && numeric > 0){
+    const rounded = Math.round(numeric);
+    return { min: rounded, max: rounded };
+  }
+
+  const text = String(value || '').trim();
+  if(!text) return null;
+
+  const rangeMatch = text.match(/(\d+(?:\.\d+)?)\s*[-\u2013\u2014]\s*(\d+(?:\.\d+)?)/);
+  if(rangeMatch){
+    const a = Math.round(Number(rangeMatch[1]));
+    const b = Math.round(Number(rangeMatch[2]));
+    if(Number.isFinite(a) && Number.isFinite(b) && a > 0 && b > 0){
+      return { min: Math.min(a, b), max: Math.max(a, b) };
+    }
+  }
+
+  const singleMatch = text.match(/\d+(?:\.\d+)?/);
+  if(singleMatch){
+    const n = Math.round(Number(singleMatch[0]));
+    if(Number.isFinite(n) && n > 0){
+      return { min: n, max: n };
+    }
+  }
+
+  return null;
+}
+
+function getDaysDisplay(meta, compact){
+  const parsed = parseDaysRange(meta?.days);
+  if(parsed){
+    const core = parsed.min === parsed.max ? `${parsed.min}` : `${parsed.min}-${parsed.max}`;
+    return compact ? `${core}d` : `${core} days`;
+  }
+
+  const estimated = getEstimatedDays(meta);
+  if(!Number.isFinite(estimated)) return '';
+  return compact ? `${estimated}d` : `${estimated} days`;
+}
+
+  function getTotalElevationLabel(meta){
+    const n = Number(meta?.totalElevationMeters);
+    if(!Number.isFinite(n) || n <= 0) return '';
+    return `${Math.round(n).toLocaleString()} m`;
+  }
+
+function getEstimatedDays(meta){
+  const parsed = parseDaysRange(meta?.days);
+  if(parsed) return parsed.max;
+  const distanceKm = getDistanceKm(meta);
+  if(!Number.isFinite(distanceKm)) return null;
+  return Math.max(1, Math.ceil(distanceKm / 100));
+}
+
+function matchesRouteFilterMeta(meta, filter){
+  if(filter === 'all') return true;
+
+  const tags = getNormalizedRouteTags(meta);
+  const difficulty = getRouteDifficulty(meta);
+  const hasShortTag = tags.includes('short');
+  const hasLongTag = tags.includes('long');
+  const island = String(meta.island || meta.datasetIsland || '').toLowerCase();
+  const estimatedDays = getEstimatedDays(meta);
+  const tripDays = estimatedDays;
+
+  if(filter === 'short') {
+    if(hasShortTag || hasLongTag) return hasShortTag;
+    return Number.isFinite(tripDays) ? tripDays <= 4 : false;
+  }
+  if(filter === 'long') {
+    if(hasShortTag || hasLongTag) return hasLongTag;
+    return Number.isFinite(tripDays) ? tripDays > 4 : false;
+  }
+  if(filter === 'north' || filter === 'south') return tags.includes(filter) || island === filter;
+  return difficulty === filter;
+}
+
+function filterRoutes(filter, btn){
+  currentRouteFilter = filter;
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+
+  window.dispatchEvent(new CustomEvent('route-filter-change', { detail: { filter } }));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const initialFilter = getInitialFilterFromUrl();
+  if(initialFilter !== 'all'){
+    const button = Array.from(document.querySelectorAll('.filter-btn')).find(el => el.getAttribute('onclick')?.includes(`'${initialFilter}'`));
+    filterRoutes(initialFilter, button || null);
+  }
+});
+</script>
+
+<script>
+// ---- INTERACTIVE MAP -------------------------------------------------------
+(function(){
+  // ========================================================================
+  // ROUTE CATALOG (single source of truth)
+  // Preferred source is per-route files in: routes/<route-id>/<route-file>.json
+  // Optional static index file for no-server mode: data/routes-index.json
+  //
+  // Each route should include:
+  // id, file, name, days, difficulty, description, highlightImage, moreInfo
+  // Optional but recommended:
+  // bestSeason, resupply, tips, tags, accommodation, riverCrossings
+  // ========================================================================
+  const ROUTES_INDEX_URL = 'data/routes-index.json';
+  const FILE_PREFIX = '';
+  const storageConfig = window.ROUTE_STORAGE || {};
+  const NZ_BOUNDS   = L.latLngBounds([-48.5, 165.0], [-33.8, 179.5]);
+  const OVERVIEW_ZOOM_OFFSET = 1;
+  const BASE_W = 2, SEL_W = 5, HOV_W = 7;
+  const DIM_COL = '#c8bfa8', DIM_OPA = 0.3;
+  const HIT_W  = 20;
+
+  // --- Map init ---
+  const routeMap = L.map('route-map', {
+    zoomControl: true,
+    attributionControl: true,
+    maxBounds: NZ_BOUNDS,
+    maxBoundsViscosity: 0.8,
+    minZoom: 5
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd', maxZoom: 19, noWrap: true,
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+  }).addTo(routeMap);
+
+  function fitOverview(){
+    routeMap.fitBounds(NZ_BOUNDS, { padding: [10, 10] });
+    routeMap.setZoom(routeMap.getZoom() + OVERVIEW_ZOOM_OFFSET);
+  }
+
+  fitOverview();
+  setTimeout(() => routeMap.invalidateSize(), 300);
+  window.addEventListener('resize', () => routeMap.invalidateSize());
+
+  // --- Colour palette (golden-angle HSL) ---
+  function hslHex(h, s, l) {
+    s = Math.max(0, Math.min(1, s)); l = Math.max(0, Math.min(1, l));
+    const c = (1 - Math.abs(2*l-1)) * s, hp = (h%360)/60;
+    const x = c * (1 - Math.abs((hp%2)-1));
+    let r=0,g=0,b=0;
+    if(hp<1){r=c;g=x}else if(hp<2){r=x;g=c}else if(hp<3){g=c;b=x}
+    else if(hp<4){g=x;b=c}else if(hp<5){r=x;b=c}else{r=c;b=x}
+    const m=l-c/2, h2=v=>Math.round((v+m)*255).toString(16).padStart(2,'0');
+    return `#${h2(r)}${h2(g)}${h2(b)}`;
+  }
+  function buildPalette(n) {
+    const out=[]; let h=0;
+    for(let i=0;i<n;i++){h=(h+137.508)%360; out.push(hslHex(h,0.75,i%2?0.52:0.44));}
+    return out;
+  }
+
+  // --- Helpers ---
+  function fmtKm(m){ return Number.isFinite(m) ? `${(m/1000).toFixed(m<10000?1:0)} km` : ''; }
+  function fmtElev(m){ return Number.isFinite(m) ? `&#8593; ${Math.round(m).toLocaleString()} m` : ''; }
+
+  function geoLen(gj) {
+    const R=6371000, r=d=>d*Math.PI/180;
+    const seg=(a,b)=>{const[lo1,la1]=a,[lo2,la2]=b;const dLa=r(la2-la1),dLo=r(lo2-lo1);const s=Math.sin(dLa/2)**2+Math.cos(r(la1))*Math.cos(r(la2))*Math.sin(dLo/2)**2;return 2*R*Math.asin(Math.sqrt(s));};
+    let t=0; const add=c=>{for(let i=1;i<c.length;i++)t+=seg(c[i-1],c[i]);};
+    (gj.features||[gj]).forEach(f=>{const g=f.geometry;if(!g)return;if(g.type==='LineString')add(g.coordinates);if(g.type==='MultiLineString')g.coordinates.forEach(add);});
+    return t;
+  }
+  function geoElev(gj,n=2) {
+    let gain=0;
+    const add=c=>{for(let i=1;i<c.length;i++){const p=c[i-1][2],q=c[i][2];if(typeof p==='number'&&typeof q==='number'&&q-p>n)gain+=q-p;}};
+    (gj.features||[gj]).forEach(f=>{const g=f.geometry;if(!g)return;if(g.type==='LineString')add(g.coordinates);if(g.type==='MultiLineString')g.coordinates.forEach(add);});
+    return gain;
+  }
+
+  // --- State ---
+  const routeLayers = new Map();
+  const routesMeta  = new Map();
+  let allRoutes = [];
+  let selectedId = null;
+  let loaded = 0;
+  let total = 0;
+  let fullLoaded = 0;
+  let fullTotal = 0;
+  let isEnhancingWithFullTracks = false;
+  let activeRouteFilter = window.currentRouteFilter || 'all';
+
+  const islandOverrides = {
+    'kahurangi 500': 'south'
+  };
+
+  const requiredRouteFields = ['id', 'file', 'name', 'days', 'difficulty', 'description'];
+
+  function validateRouteCatalog(entries){
+    if(!Array.isArray(entries)) return [];
+
+    entries.forEach((entry, index) => {
+      const missing = requiredRouteFields.filter(field => entry?.[field] === undefined || entry?.[field] === null || entry?.[field] === '');
+      if(missing.length){
+        console.warn(`Route catalog: entry ${index + 1} is missing fields: ${missing.join(', ')}`, entry);
+      }
+    });
+
+    return entries;
+  }
+
+  async function fetchRoutesCatalog(){
+    const supabase = storageConfig?.supabase || {};
+    const isSupabaseMode = storageConfig?.mode === 'supabase' && supabase.url && supabase.anonKey;
+
+    if(isSupabaseMode){
+      const table = supabase.table || 'routes';
+      const endpoint = `${supabase.url.replace(/\/$/, '')}/rest/v1/${encodeURIComponent(table)}?select=*`;
+      const response = await fetch(endpoint, {
+        headers: {
+          apikey: supabase.anonKey,
+          Authorization: `Bearer ${supabase.anonKey}`,
+          Accept: 'application/json'
+        },
+        cache: 'no-store'
+      });
+
+      if(response.ok){
+        return validateRouteCatalog(await response.json());
+      }
+
+      console.warn('Supabase routes fetch failed, falling back to local JSON', response.status);
+    }
+
+    try {
+      const apiResponse = await fetch('/api/routes', {cache:'no-store'});
+      if(apiResponse.ok) {
+        return validateRouteCatalog(await apiResponse.json());
+      }
+    } catch {}
+
+    try {
+      const indexResponse = await fetch(ROUTES_INDEX_URL, {cache:'no-store'});
+      if(indexResponse.ok) {
+        const parsed = await indexResponse.json();
+        const entries = (() => {
+          const source = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
+          return source.map(item => {
+            if(typeof item === 'string') return {id: item, file: 'route.json'};
+            if(item && typeof item === 'object') {
+              return {
+                id: String(item.id || '').trim(),
+                file: String(item.file || 'route.json').trim() || 'route.json'
+              };
+            }
+            return null;
+          }).filter(item => item && item.id);
+        })();
+
+        if(entries.length) {
+          const routeResponses = await Promise.all(entries.map(async entry => {
+            const routeRes = await fetch(`routes/${encodeURIComponent(entry.id)}/${encodeURIComponent(entry.file)}`, {cache:'no-store'});
+            if(!routeRes.ok) return null;
+            try { return await routeRes.json(); } catch { return null; }
+          }));
+          const catalogEntries = routeResponses.filter(route => route && typeof route === 'object' && !Array.isArray(route));
+          if(catalogEntries.length) return validateRouteCatalog(catalogEntries);
+        }
+      }
+    } catch {}
+
+    throw new Error(`Failed to load ${ROUTES_INDEX_URL}`);
+  }
+
+  // --- DOM refs ---
+  const listEl       = document.getElementById('map-route-list');
+  const detailEl     = document.getElementById('map-detail');
+  const detailScroll = document.getElementById('map-detail-scroll');
+  const detailActions= document.getElementById('map-detail-actions');
+  const detailBack   = document.getElementById('map-detail-back');
+  const searchInput  = document.getElementById('map-search');
+  const countEl      = document.getElementById('map-route-count');
+  const loadingTextEl= document.getElementById('map-loading-text');
+  const allRoutesTitleEl = document.getElementById('all-routes-title');
+  const allRoutesGridEl = document.getElementById('all-routes-grid');
+  const allRoutesCountEl = document.getElementById('all-routes-count');
+
+  function inferIslandFromLat(lat) {
+    if(!Number.isFinite(lat)) return '';
+    return lat > -41.5 ? 'north' : 'south';
+  }
+
+  function resolveIsland(routeName, fallbackIsland) {
+    const key = String(routeName || '').trim().toLowerCase();
+    if(Object.prototype.hasOwnProperty.call(islandOverrides, key)) {
+      return islandOverrides[key];
+    }
+    return fallbackIsland || '';
+  }
+
+  function routeMatchesActiveFilter(route) {
+    return matchesRouteFilterMeta(route || {}, activeRouteFilter);
+  }
+
+  function sortRoutesAlphabetically(items){
+    items.sort((a, b) => {
+      const aName = String(a?.name || a?.id || '').trim();
+      const bName = String(b?.name || b?.id || '').trim();
+      return aName.localeCompare(bName, undefined, { sensitivity: 'base' });
+    });
+  }
+
+  function getFilterHeading(filter){
+    const labels = {
+      all: 'All Routes',
+      short: 'Short Routes',
+      long: 'Long Routes',
+      easy: 'Easy Routes',
+        intermediate: 'Intermediate Routes',
+      hard: 'Hard Routes',
+      north: 'North Island Routes',
+      south: 'South Island Routes'
+    };
+    return labels[filter] || 'All Routes';
+  }
+
+  function getRoutePageHref(route) {
+    return `route.html?id=${encodeURIComponent(route.id || '')}`;
+  }
+
+  function parseDifficultyScore(value){
+    const text = String(value || '').trim();
+    const fractionMatch = text.match(/(\d+(?:\.\d+)?)\s*\/\s*\d+/);
+    if(fractionMatch) return Number(fractionMatch[1]);
+    const numericMatch = text.match(/\d+(?:\.\d+)?/);
+    return numericMatch ? Number(numericMatch[0]) : NaN;
+  }
+
+  function getDefaultRecommendedSetup(route){
+    const difficultyScore = parseDifficultyScore(route?.difficulty);
+    const singletrackPct = Number(route?.singletrackPct);
+    const routeDays = parseDaysRange(route?.days)?.max;
+    const roughRoute = (Number.isFinite(difficultyScore) && difficultyScore >= 4)
+      || (Number.isFinite(singletrackPct) && singletrackPct >= 25);
+
+    const weeks = Number.isFinite(routeDays) && routeDays > 0
+      ? Math.max(1, Math.ceil(routeDays / 7))
+      : 1;
+
+    const options = [
+      'Frame Bag (Large)',
+      'Saddle Bag (13L)',
+      'Sleeping Quilt (3-Season)',
+      'GPS Device (Garmin)'
+    ];
+
+    if(roughRoute) {
+      options.push('Bar Roll + Harness', 'Power Bank (20,000mAh)', 'Water Filter');
+    }
+
+    return {
+      bike: roughRoute ? 'Hardtail MTB' : 'Gravel Bike',
+      size: 'M',
+      weeks,
+      options
+    };
+  }
+
+  function getRouteRecommendedSetup(route){
+    const defaults = getDefaultRecommendedSetup(route);
+    const setup = (route && typeof route.recommendedSetup === 'object' && route.recommendedSetup)
+      ? route.recommendedSetup
+      : {};
+
+    const bike = typeof setup.bike === 'string' && setup.bike.trim() ? setup.bike.trim() : defaults.bike;
+    const size = typeof setup.size === 'string' && setup.size.trim() ? setup.size.trim().toUpperCase() : defaults.size;
+    const weeksRaw = Number(setup.weeks);
+    const weeks = Number.isFinite(weeksRaw) ? Math.max(1, Math.min(10, Math.round(weeksRaw))) : defaults.weeks;
+    const options = Array.isArray(setup.options)
+      ? setup.options.map(item => String(item || '').trim()).filter(Boolean)
+      : defaults.options;
+
+    return { bike, size, weeks, options };
+  }
+
+  function getRecommendedBuilderHref(route){
+    const setup = getRouteRecommendedSetup(route);
+    const params = new URLSearchParams();
+    params.set('route', route?.id || '');
+    params.set('routeName', route?.name || 'Route');
+    params.set('bike', setup.bike);
+    params.set('size', setup.size);
+    params.set('weeks', String(setup.weeks));
+    params.set('options', setup.options.join('|'));
+    return `builder.html?${params.toString()}`;
+  }
+
+  function getRideWithGpsUrl(route){
+    if(typeof route?.rideWithGpsUrl === 'string' && /ridewithgps\.com/i.test(route.rideWithGpsUrl)) {
+      return route.rideWithGpsUrl.trim();
+    }
+    const links = Array.isArray(route?.moreInfo) ? route.moreInfo : [];
+    for(const item of links){
+      if(typeof item === 'string'){
+        if(/ridewithgps\.com/i.test(item)) return item;
+        continue;
+      }
+      if(item && typeof item === 'object'){
+        const candidate = String(item.url || item.href || item.link || '').trim();
+        if(/ridewithgps\.com/i.test(candidate)) return candidate;
+      }
+    }
+    return null;
+  }
+
+  function isLocalImagePath(path){
+    if(typeof path !== 'string') return false;
+    const trimmed = path.trim();
+    return /^(\.\/)?(images|routes)\//i.test(trimmed) && !/^https?:\/\//i.test(trimmed);
+  }
+
+  function getLocalRoutePhotos(route){
+    const candidatePhotos = [];
+    const directHighlight = typeof route?.highlightImage === 'string' ? route.highlightImage.trim() : '';
+    if(isLocalImagePath(directHighlight)) candidatePhotos.push(directHighlight);
+    const legacyPhotos = Array.isArray(route?.photos) ? route.photos.filter(isLocalImagePath) : [];
+    if(!candidatePhotos.length && legacyPhotos.length) candidatePhotos.push(legacyPhotos[0]);
+    return candidatePhotos;
+  }
+
+  const thumbnailFallbackPool = [
+    'images/IMG20200225145839.jpg',
+    'images/IMG20200302163036.jpg',
+    'images/IMG20200314155259.jpg',
+    'images/IMG20211211103312.jpg',
+    'images/IMG20220425140808.jpg',
+    'images/IMG20230211101921.jpg',
+    'images/IMG20230327122109.jpg',
+    'images/IMG20230327135544.jpg',
+    'images/IMG20230330142119.jpg',
+    'images/IMG20230401131309.jpg',
+    'images/IMG20230403075949.jpg',
+    'images/IMG20230403114937.jpg',
+    'images/IMG20230404152757.jpg',
+    'images/IMG20230406123601.jpg',
+    'images/IMG20230407123248.jpg',
+    'images/IMG20230407123339.jpg',
+    'images/IMG20240404134026.jpg',
+    'images/IMG20240404141833.jpg',
+    'images/IMG20240407114007.jpg',
+    'images/IMG20241029082316.jpg',
+    'images/IMG20241030114415.jpg',
+    'images/IMG20250331111242.jpg',
+    'images/IMG20251102144437.jpg',
+    'images/IMG20251130121129.jpg',
+    'images/IMG20260118105523.jpg',
+    'images/IMG_4103.jpg',
+    'images/IMG_4293.jpg',
+    'images/IMG_4557.jpg',
+    'images/IMG_4590.jpg',
+    'images/IMG_4661.jpg'
+  ];
+
+  function stableIndexFromText(text, mod){
+    const source = String(text || 'route');
+    let hash = 0;
+    for(let i = 0; i < source.length; i++) {
+      hash = (hash * 31 + source.charCodeAt(i)) >>> 0;
+    }
+    return mod > 0 ? hash % mod : 0;
+  }
+
+  function getThumbnailForRoute(route, usedImages){
+    const localPhotos = getLocalRoutePhotos(route);
+    if(localPhotos.length){
+      const preferred = localPhotos[0];
+      if(!usedImages.has(preferred)) {
+        usedImages.add(preferred);
+        return preferred;
+      }
+      for(const photo of localPhotos){
+        if(!usedImages.has(photo)) {
+          usedImages.add(photo);
+          return photo;
+        }
+      }
+    }
+
+    const start = stableIndexFromText(route.id || route.name, thumbnailFallbackPool.length);
+    for(let i = 0; i < thumbnailFallbackPool.length; i++) {
+      const candidate = thumbnailFallbackPool[(start + i) % thumbnailFallbackPool.length];
+      if(!usedImages.has(candidate)) {
+        usedImages.add(candidate);
+        return candidate;
+      }
+    }
+
+    return thumbnailFallbackPool[start] || 'images/IMG20230407123248.jpg';
+  }
+
+  function escapeHtml(value){
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function renderAllRoutesGrid(items){
+    if(!allRoutesGridEl) return;
+    allRoutesGridEl.innerHTML = '';
+
+    if(!items.length){
+      allRoutesGridEl.innerHTML = '<div class="map-loading">No routes found for this filter</div>';
+      if(allRoutesCountEl) allRoutesCountEl.textContent = '0 routes';
+      return;
+    }
+
+    const frag = document.createDocumentFragment();
+    const usedImages = new Set();
+    items.forEach(route => {
+      const difficulty = getRouteDifficulty(route);
+      const badgeClass = difficulty ? `badge-${difficulty}` : 'badge-intermediate';
+      const badgeLabel = difficulty ? difficulty.charAt(0).toUpperCase() + difficulty.slice(1) : 'Route';
+      const image = getThumbnailForRoute(route, usedImages);
+      const distance = route.distanceLabel || (Number.isFinite(route.distanceMeters) ? fmtKm(route.distanceMeters) : '');
+      const elevation = getTotalElevationLabel(route);
+      const routePage = getRoutePageHref(route);
+
+      const card = document.createElement('article');
+      card.className = 'route-card';
+      card.innerHTML = `
+        <a class="route-img" href="${routePage}" aria-label="View route ${escapeHtml(route.name || 'Route')}">
+          <img src="${escapeHtml(image)}" alt="${escapeHtml(route.name || 'Route')}">
+          <span class="route-badge ${badgeClass}">${escapeHtml(badgeLabel)}</span>
+        </a>
+        <div class="route-body">
+          <h3>${escapeHtml(route.name || 'Route')}</h3>
+          <div class="region">${escapeHtml(route.island === 'north' ? 'North Island' : route.island === 'south' ? 'South Island' : 'Aotearoa')}</div>
+          <p>${escapeHtml(route.description || 'Route details and planning notes available on the route page.')}</p>
+          <div class="route-meta">
+            <div><b>${escapeHtml(distance)}</b>Distance</div>
+            <div><b>${escapeHtml(elevation)}</b>Elevation</div>
+          </div>
+          <div class="route-actions">
+            <a class="btn-sm primary" href="${routePage}">VIEW ROUTE</a>
+          </div>
+        </div>
+      `;
+      frag.appendChild(card);
+    });
+
+    allRoutesGridEl.appendChild(frag);
+    if(allRoutesCountEl) allRoutesCountEl.textContent = `${items.length} route${items.length !== 1 ? 's' : ''}`;
+  }
+
+  // --- Layer styling ---
+  function setStyle(obj, style) {
+    if(!obj) return;
+    if(obj.type==='gpx')    obj.layer.getPolyline?.()?.setStyle?.(style);
+    if(obj.type==='geojson') obj.layer.setStyle?.(style);
+  }
+  function setRouteVisibility(obj, visible) {
+    if(!obj) return;
+    if(obj.hitLayer) {
+      obj.hitLayer.setStyle?.({opacity: visible ? 0.001 : 0, interactive: visible});
+      if(obj.hitLayer.options) obj.hitLayer.options.interactive = visible;
+    }
+  }
+  function applyStyles() {
+    routeLayers.forEach((obj, id) => {
+      const meta = routesMeta.get(id);
+      const matches = routeMatchesActiveFilter(meta);
+
+      if(!matches) {
+        setStyle(obj, {color:DIM_COL, weight:BASE_W, opacity:0});
+        setRouteVisibility(obj, false);
+      } else if(selectedId && id!==selectedId) {
+        setStyle(obj, {color:DIM_COL, weight:BASE_W, opacity:DIM_OPA});
+        setRouteVisibility(obj, true);
+      } else if(id===selectedId) {
+        setStyle(obj, {color:obj.color, weight:SEL_W,  opacity:1});
+        setRouteVisibility(obj, true);
+      } else {
+        setStyle(obj, {color:obj.color, weight:BASE_W,  opacity:0.9});
+        setRouteVisibility(obj, true);
+      }
+    });
+  }
+  function hoverOn(id) {
+    if(!routeMatchesActiveFilter(routesMeta.get(id))) return;
+    const obj = routeLayers.get(id);
+    setStyle(obj, {color:obj?.color, weight:HOV_W, opacity:1});
+    document.querySelector(`.map-route-item[data-id="${id}"]`)?.classList.add('active');
+  }
+  function hoverOff(id) {
+    const obj = routeLayers.get(id);
+    if(!obj) return;
+    if(!routeMatchesActiveFilter(routesMeta.get(id))) {
+      setStyle(obj, {color:DIM_COL, weight:BASE_W, opacity:0});
+      setRouteVisibility(obj, false);
+      document.querySelector(`.map-route-item[data-id="${id}"]`)?.classList.remove('active');
+      return;
+    }
+    if(id===selectedId)      setStyle(obj, {color:obj.color, weight:SEL_W, opacity:1});
+    else if(selectedId)      setStyle(obj, {color:DIM_COL,   weight:BASE_W, opacity:DIM_OPA});
+    else                     setStyle(obj, {color:obj.color, weight:BASE_W, opacity:0.9});
+    setRouteVisibility(obj, true);
+    if(id!==selectedId) document.querySelector(`.map-route-item[data-id="${id}"]`)?.classList.remove('active');
+  }
+
+  // --- Select / detail ---
+  function selectRoute(id) {
+    if(!routeMatchesActiveFilter(routesMeta.get(id))) return;
+    selectedId = id;
+    applyStyles();
+    const obj = routeLayers.get(id);
+    if(obj){ const b=obj.layer.getBounds?.(); if(b&&b.isValid()) routeMap.fitBounds(b,{padding:[20,20]}); }
+    const meta = routesMeta.get(id);
+    if(meta) showDetail(meta);
+    document.querySelectorAll('.map-route-item').forEach(el => el.classList.toggle('active', el.dataset.id===id));
+  }
+
+  function showDetail(route) {
+    listEl.style.display = 'none';
+    detailEl.classList.add('visible');
+    const dist = route.distanceLabel || (Number.isFinite(route.distanceMeters) ? fmtKm(route.distanceMeters) : '');
+    const duration = getDaysDisplay(route, false);
+    const climbing = getTotalElevationLabel(route);
+    detailScroll.innerHTML = `
+      <div class="map-detail-name">${route.name||'Route'}</div>
+      <div class="map-detail-region">${route.bestSeason||''}</div>
+      <p class="map-detail-desc">${route.description||''}</p>
+      <div class="map-detail-grid">
+        ${dist?`<div class="map-detail-stat"><div class="ds-label">Distance</div><div class="ds-value">${dist}</div></div>`:''}
+        ${duration?`<div class="map-detail-stat"><div class="ds-label">Duration</div><div class="ds-value">${duration}</div></div>`:''}
+        ${climbing?`<div class="map-detail-stat"><div class="ds-label">Climbing</div><div class="ds-value">${climbing}</div></div>`:''}
+        ${route.difficulty?`<div class="map-detail-stat"><div class="ds-label">Difficulty</div><div class="ds-value">${route.difficulty}</div></div>`:''}
+      </div>
+    `;
+    detailActions.innerHTML = `
+      <a class="map-btn route-primary" href="${getRoutePageHref(route)}">View Full Route</a>
+    
+    `;
+  }
+
+  function hideDetail() {
+    selectedId = null;
+    applyStyles();
+    detailEl.classList.remove('visible');
+    listEl.style.display = '';
+    document.querySelectorAll('.map-route-item').forEach(el => el.classList.remove('active'));
+    fitOverview();
+  }
+
+  detailBack?.addEventListener('click', hideDetail);
+
+  // --- List rendering ---
+  function renderList(items) {
+    listEl.innerHTML = '';
+    if(!items.length){ listEl.innerHTML='<div class="map-loading">No routes found</div>'; return; }
+    items.forEach(r => {
+      const el = document.createElement('div');
+      el.className = 'map-route-item' + (r.id===selectedId?' active':'');
+      el.dataset.id = r.id;
+      const dist = r.distanceLabel || (Number.isFinite(r.distanceMeters) ? fmtKm(r.distanceMeters) : '');
+      const days = getDaysDisplay(r, true);
+      el.innerHTML = `
+        <span class="map-route-dot" style="background:${r.color}"></span>
+        <span class="map-route-name">${r.name||'Route'}</span>
+        <span class="map-route-stats">${[dist,days].filter(Boolean).join(' · ')}</span>
+      `;
+      el.addEventListener('click',    () => selectRoute(r.id));
+      el.addEventListener('mouseenter',() => hoverOn(r.id));
+      el.addEventListener('mouseleave',() => hoverOff(r.id));
+      listEl.appendChild(el);
+    });
+    const previewRemaining = total - loaded;
+    if(previewRemaining > 0){
+      const loadEl = document.createElement('div');
+      loadEl.className = 'map-loading';
+      loadEl.innerHTML = `<span class="map-spinner"></span><span>Loading ${previewRemaining} more route${previewRemaining!==1?'s':''}…</span>`;
+      listEl.appendChild(loadEl);
+    } else if(isEnhancingWithFullTracks && fullLoaded < fullTotal) {
+      const loadEl = document.createElement('div');
+      loadEl.className = 'map-loading';
+      loadEl.innerHTML = `<span class="map-spinner"></span><span>Refining map lines ${fullLoaded}/${fullTotal}</span>`;
+      listEl.appendChild(loadEl);
+    }
+  }
+
+  function applySearch() {
+    const q = (searchInput?.value||'').trim().toLowerCase();
+    const filteredRoutes = allRoutes.filter(routeMatchesActiveFilter);
+    const visibleRoutes = q ? filteredRoutes.filter(r => (r.name||'').toLowerCase().includes(q)) : filteredRoutes;
+    if(allRoutesTitleEl) allRoutesTitleEl.textContent = getFilterHeading(activeRouteFilter);
+    renderList(visibleRoutes);
+    renderAllRoutesGrid(visibleRoutes);
+
+    if(countEl && total > 0) {
+      if(loaded < total) {
+        countEl.textContent = `${loaded} / ${total}`;
+      } else if(isEnhancingWithFullTracks && fullTotal > 0 && fullLoaded < fullTotal) {
+        countEl.textContent = `${visibleRoutes.length} route${visibleRoutes.length !== 1 ? 's' : ''} · refining ${fullLoaded}/${fullTotal}`;
+      } else {
+        countEl.textContent = `${visibleRoutes.length} route${visibleRoutes.length !== 1 ? 's' : ''}`;
+      }
+    }
+  }
+  searchInput?.addEventListener('input', applySearch);
+
+  window.addEventListener('route-filter-change', event => {
+    activeRouteFilter = event.detail?.filter || 'all';
+
+    if(selectedId && !routeMatchesActiveFilter(routesMeta.get(selectedId))) {
+      hideDetail();
+      return;
+    }
+
+    applyStyles();
+    applySearch();
+  });
+
+  function getPreviewFilePath(filePath){
+    const source = String(filePath || '').trim();
+    if(!/\.gpx$/i.test(source)) return source;
+    return source.replace(/\.gpx$/i, '.preview.gpx');
+  }
+
+  function buildUpdatedRoute(baseRoute, entry, layerResult, color){
+    const bounds = layerResult.layer.getBounds?.();
+    const centerLat = bounds?.getCenter?.().lat;
+    const inferredIsland = inferIslandFromLat(centerLat);
+    const island = resolveIsland(layerResult.name || entry.name, inferredIsland);
+
+    return {
+      ...baseRoute,
+      name: entry.name || baseRoute.name || layerResult.name,
+      distanceMeters: Number.isFinite(baseRoute.distanceMeters) ? baseRoute.distanceMeters : layerResult.distanceMeters,
+      distanceLabel: baseRoute.distanceLabel || fmtKm(layerResult.distanceMeters),
+      elevGainMeters: Number.isFinite(baseRoute.elevGainMeters) ? baseRoute.elevGainMeters : layerResult.elevGainMeters,
+      color,
+      centerLat,
+      island
+    };
+  }
+
+  function replaceRouteLayers(id, layerResult, group, color){
+    const existing = routeLayers.get(id);
+    if(existing?.hitLayer) {
+      group.removeLayer(existing.hitLayer);
+    }
+    if(existing?.layer) {
+      group.removeLayer(existing.layer);
+    }
+
+    const stored = {
+      layer: layerResult.layer,
+      color,
+      type: layerResult.type,
+      hitLayer: layerResult.hitLayer || null
+    };
+    routeLayers.set(id, stored);
+  }
+
+  async function loadRouteLayer(fileUrl, entry, index, color, group, options = {}){
+    const measureElevation = options.measureElevation !== false;
+    if(window.L && L.GPX) {
+      return await new Promise((resolve, reject) => {
+        let done = false;
+        const layer = new L.GPX(encodeURI(fileUrl), {
+          async: true,
+          marker_options: {startIcon:null, endIcon:null, shadowUrl:null},
+          polyline_options: {color, weight:BASE_W, opacity:0.9}
+        });
+
+        layer.on('loaded', async e => {
+          if(done) return;
+          done = true;
+
+          group.addLayer(e.target);
+
+          const dist = e.target.get_distance?.();
+          let elev = null;
+          if(measureElevation && window.toGeoJSON) {
+            try {
+              const r2 = await fetch(encodeURI(fileUrl), {cache:'no-store'});
+              const xml = new DOMParser().parseFromString(await r2.text(), 'text/xml');
+              elev = geoElev(toGeoJSON.gpx(xml));
+            } catch{}
+          }
+
+          let hitLayer = null;
+          const poly = e.target.getPolyline?.();
+          if(poly) {
+            poly.on('click',     () => selectRoute(entry.id));
+            poly.on('mouseover', () => hoverOn(entry.id));
+            poly.on('mouseout',  () => hoverOff(entry.id));
+            hitLayer = L.polyline(poly.getLatLngs(), {color:'#000', opacity:0.001, weight:HIT_W, interactive:true});
+            hitLayer.on('click',     () => selectRoute(entry.id));
+            hitLayer.on('mouseover', () => hoverOn(entry.id));
+            hitLayer.on('mouseout',  () => hoverOff(entry.id));
+            hitLayer.addTo(group).bringToFront();
+            poly.bringToFront();
+          }
+
+          resolve({
+            layer: e.target,
+            type: 'gpx',
+            hitLayer,
+            distanceMeters: dist,
+            elevGainMeters: elev,
+            name: entry.name || e.target.get_name?.() || `Route ${index + 1}`
+          });
+        });
+
+        layer.on('error', () => {
+          if(done) return;
+          done = true;
+          reject(new Error(`GPX load failed: ${fileUrl}`));
+        });
+      });
+    }
+
+    if(window.toGeoJSON) {
+      const res = await fetch(encodeURI(fileUrl), {cache:'no-store'});
+      if(!res.ok) throw new Error(`GPX fetch failed: ${fileUrl}`);
+      const xml = new DOMParser().parseFromString(await res.text(), 'text/xml');
+      const gj = toGeoJSON.gpx(xml);
+      const layer = L.geoJSON(gj, {style:{color, weight:BASE_W, opacity:0.9}}).addTo(group);
+      layer.on('click',     () => selectRoute(entry.id));
+      layer.on('mouseover', () => hoverOn(entry.id));
+      layer.on('mouseout',  () => hoverOff(entry.id));
+
+      return {
+        layer,
+        type: 'geojson',
+        hitLayer: null,
+        distanceMeters: geoLen(gj),
+        elevGainMeters: geoElev(gj),
+        name: entry.name || gj.features?.[0]?.properties?.name || `Route ${index + 1}`
+      };
+    }
+
+    throw new Error('No GPX parser available');
+  }
+
+  // --- Load GPX routes ---
+  async function loadMap() {
+    if(location.protocol==='file:') {
+      if(loadingTextEl) loadingTextEl.textContent='Run a local server (e.g. Live Server) to enable the map';
+      return;
+    }
+    let entries = [];
+    try {
+      const catalog = await fetchRoutesCatalog();
+      entries = catalog.filter(route => !route?.disabled);
+    } catch(e){ console.warn('routes.json fetch failed', e); }
+
+    if(!entries.length) {
+      if(loadingTextEl) loadingTextEl.textContent='No routes found. Check /api/routes or data/routes-index.json';
+      return;
+    }
+
+    const palette = buildPalette(Math.max(entries.length, 28));
+    const group   = L.featureGroup().addTo(routeMap);
+    const normalizedEntries = entries.map((route, idx) => ({
+      ...route,
+      id: route.id || `r${idx + 1}`
+    }));
+
+    loaded = 0;
+    total = normalizedEntries.length;
+    fullLoaded = 0;
+    fullTotal = normalizedEntries.length;
+    isEnhancingWithFullTracks = false;
+
+    allRoutes = [];
+    routesMeta.clear();
+    routeLayers.clear();
+
+    if(countEl) countEl.textContent=`0 / ${total}`;
+    if(loadingTextEl) loadingTextEl.textContent='Loading preview routes…';
+
+    await Promise.all(normalizedEntries.map(async (entry, i) => {
+      const color = entry.color || palette[i % palette.length];
+      const initialIsland = resolveIsland(entry.name, String(entry.island || '').toLowerCase());
+      const baseRoute = {...entry, color, island: initialIsland, distanceLabel: entry.distanceLabel || ''};
+
+      const previewFileUrl = FILE_PREFIX + getPreviewFilePath(entry.file);
+      const fallbackFileUrl = FILE_PREFIX + entry.file;
+
+      try {
+        let previewResult;
+        try {
+          previewResult = await loadRouteLayer(previewFileUrl, entry, i, color, group, {measureElevation: true});
+        } catch(previewErr) {
+          console.warn('Preview GPX load failed, using full track as fallback', previewFileUrl, previewErr);
+          previewResult = await loadRouteLayer(fallbackFileUrl, entry, i, color, group, {measureElevation: true});
+        }
+
+        const updated = buildUpdatedRoute(baseRoute, entry, previewResult, color);
+        routesMeta.set(entry.id, updated);
+        allRoutes.push(updated);
+        replaceRouteLayers(entry.id, previewResult, group, color);
+      } catch(err) {
+        console.warn('Preview stage load failed', entry.file, err);
+      } finally {
+        loaded++;
+        if(loaded === total) {
+          sortRoutesAlphabetically(allRoutes);
+        }
+        applyStyles();
+        applySearch();
+      }
+    }));
+
+    isEnhancingWithFullTracks = true;
+    if(loadingTextEl) loadingTextEl.textContent='Refining routes with full GPX tracks…';
+
+    // Let the preview map become interactive before full-track refinement starts.
+    await new Promise(resolve => setTimeout(resolve, 40));
+
+    let refinementTick = 0;
+    for(let i = 0; i < normalizedEntries.length; i++) {
+      const entry = normalizedEntries[i];
+      const color = entry.color || palette[i % palette.length];
+      const meta = routesMeta.get(entry.id);
+      const baseRoute = meta || {...entry, color, distanceLabel: entry.distanceLabel || ''};
+      const fullFileUrl = FILE_PREFIX + entry.file;
+
+      try {
+        // Full-track geometry is enough for visual refinement; avoid duplicate elevation parsing here.
+        const fullResult = await loadRouteLayer(fullFileUrl, entry, i, color, group, {measureElevation: false});
+        const updated = buildUpdatedRoute(baseRoute, entry, fullResult, color);
+        routesMeta.set(entry.id, updated);
+        const idx = allRoutes.findIndex(route => route.id === entry.id);
+        if(idx >= 0) {
+          allRoutes[idx] = updated;
+        } else {
+          allRoutes.push(updated);
+        }
+        replaceRouteLayers(entry.id, fullResult, group, color);
+
+        if(selectedId === entry.id) {
+          const active = routesMeta.get(entry.id);
+          if(active) {
+            showDetail(active);
+          }
+        }
+      } catch(err) {
+        console.warn('Full GPX load failed', entry.file, err);
+      } finally {
+        fullLoaded++;
+        refinementTick++;
+        if(fullLoaded === fullTotal) {
+          isEnhancingWithFullTracks = false;
+          if(loadingTextEl) loadingTextEl.textContent='Routes loaded';
+        }
+
+        // Reduce DOM churn while refining in background.
+        const shouldRefreshUi = fullLoaded === fullTotal || selectedId === entry.id || (refinementTick % 3 === 0);
+        if(shouldRefreshUi) {
+          sortRoutesAlphabetically(allRoutes);
+          applyStyles();
+          applySearch();
+        }
+      }
+
+      // Yield between routes so click/scroll/nav remains responsive.
+      await new Promise(resolve => setTimeout(resolve, 0));
+    }
+
+    sortRoutesAlphabetically(allRoutes);
+    applyStyles();
+    applySearch();
+  }
+
+  loadMap();
+})();
+</script>
+
+</body>
+</html>

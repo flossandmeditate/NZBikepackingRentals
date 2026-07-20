@@ -1,0 +1,49 @@
+﻿{
+    "id":  "kopiko",
+    "file":  "routes/kopiko/Kopiko.gpx",
+    "name":  "Kopiko",
+    "days":  10,
+    "distanceLabel":  "796 km",
+    "totalElevationMeters":  14385,
+    "surfaceSplit":  "45% Gravel / 15% Road / 40% Track",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "recommendedBike":  "Hardtail MTB",
+    "description":  "A cross-island route with substantial climbing and logistics planning.",
+    "bestSeason":  "Oct-Apr",
+    "moreInfo":  "https://ridewithgps.com/routes/51303633",
+    "photos":  [
+                   "routes/kopiko/k4.jpg",
+                   "routes/kopiko/k2.jpg",
+                   "routes/kopiko/k3.jpeg",
+                   "routes/kopiko/k5.jpg",
+                   "routes/kopiko/k6.jpeg",
+                   "routes/kopiko/k7.jpeg",
+                   "routes/kopiko/k8.jpeg",
+                   "routes/kopiko/k9.jpeg",
+                   "routes/kopiko/k10.jpeg",
+                   "routes/kopiko/k11.jpeg",
+                   "routes/kopiko/k12.jpg",
+                   "routes/kopiko/k13.jpg"
+               ],
+    "youtubeVideos":  [
+                          "https://www.youtube.com/watch?v=tXRi9BUMDhI\u0026pp=ygUNYmlraW5nIGtvcGlrbw%3D%3D",
+                          "https://www.youtube.com/watch?v=Fzqno-wCkdQ"
+                      ],
+    "tags":  [
+                 "long",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "disabled":  false,
+    "difficultyExplanation":  "Kopiko is a long cross-island mission with major climbing and remote stretches. Limited refuelling windows in some sections mean strong logistics and pacing are essential.",
+    "beAwareOf":  "Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress.",
+    "tips":  "Start early, carry a weather margin, and keep backup navigation plus an extra food and water buffer.",
+    "trickiestSection":  "The central Whanganui River Road is remote with limited resupply. Carry two extra days of food and confirm water before leaving small settlements.",
+    "routeSummary":  [
+                         "Kopiko is a hard bikepacking route covering about 796 km, commonly ridden over 10 days. A cross-island route with substantial climbing and logistics planning. Riders can expect 45% Gravel / 15% Road / 40% Track as the route unfolds.",
+                         "Good planning makes this route far more enjoyable. The best riding window is generally Oct-Apr, with resupply described as Carry enough food and water for longer gaps between settlements; verify opening hours before committing to remote sections.. Overnight options are typically A mix of camping, huts, and local stays depending on your pace and daily target distance..",
+                         "The key section to manage is: The central Whanganui River Road is remote with limited resupply. Carry two extra days of food and confirm water before leaving small settlements. Keep a close eye on Weather changes, wind exposure, and changing trail conditions can all materially affect daily progress., especially if conditions change during the day."
+                     ],
+    "recommendedSetupText":  "For this 10-day route, we recommend a Hardtail MTB to balance comfort and control across mixed terrain. This setup keeps key gear stable and easy to access over long days."
+}

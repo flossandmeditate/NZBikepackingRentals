@@ -1,0 +1,25 @@
+{
+    "id":  "raglan-500",
+    "file":  "routes/raglan-500/Raglan 500.gpx",
+    "name":  "Raglan 500",
+    "days":  3,
+    "difficulty":  "3/5",
+    "description":  "A varied Waikato loop with coastal sections, gravel roads, and steady climbing.",
+    "bestSeason":  "Year-round",
+    "moreInfo":  "https://ridewithgps.com/routes/47084339",
+    "photos":  [
+                   "routes/raglan-500/Placeholder1.jpeg",
+                   "routes/raglan-500/Placeholder2.jpg",
+                   "routes/raglan-500/Placeholder3.jpeg",
+                   "routes/raglan-500/Placeholder4.jpg",
+                   "routes/raglan-500/Placeholder5.jpg",
+                   "routes/raglan-500/Placeholder6.jpg",
+                   "routes/raglan-500/Placeholder7.jpg",
+                   "routes/raglan-500/Placeholder8.jpg",
+                   "routes/raglan-500/Placeholder9.jpg",
+                   "routes/raglan-500/Placeholder10.jpg"
+               ],
+    "youtubeVideos":  null,
+    "tags":  "multi-day",
+    "disabled":  false
+}

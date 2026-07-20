@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Mountains to Sea</name>
+    <trkseg>
+      <trkpt lat="-39.304850" lon="175.526840">
+        <ele>1629.9</ele>
+      </trkpt>
+      <trkpt lat="-39.387713" lon="175.386313">
+        <ele>646.2</ele>
+      </trkpt>
+      <trkpt lat="-39.351133" lon="175.303091">
+        <ele>589.9</ele>
+      </trkpt>
+      <trkpt lat="-39.306107" lon="175.201863">
+        <ele>247.0</ele>
+      </trkpt>
+      <trkpt lat="-39.219467" lon="175.127021">
+        <ele>598.7</ele>
+      </trkpt>
+      <trkpt lat="-39.232546" lon="174.981376">
+        <ele>150.2</ele>
+      </trkpt>
+      <trkpt lat="-39.386759" lon="175.008550">
+        <ele>220.0</ele>
+      </trkpt>
+      <trkpt lat="-39.540539" lon="175.064487">
+        <ele>174.7</ele>
+      </trkpt>
+      <trkpt lat="-39.650204" lon="175.171373">
+        <ele>61.8</ele>
+      </trkpt>
+      <trkpt lat="-39.770500" lon="175.165372">
+        <ele>81.0</ele>
+      </trkpt>
+      <trkpt lat="-39.894678" lon="175.090868">
+        <ele>13.2</ele>
+      </trkpt>
+      <trkpt lat="-39.947159" lon="174.981660">
+        <ele>2.6</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
