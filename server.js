@@ -8,7 +8,7 @@ const ROUTES_DIR_PATH = path.join(ROOT_DIR, 'routes');
 const FLEET_BUILDS_DIR_PATH = path.join(ROOT_DIR, 'images', 'Builds');
 const ENQUIRIES_LOG_PATH = path.join(ROOT_DIR, 'data', 'enquiries-log.json');
 const PORT = Number(process.env.PORT || 8080);
-const ENQUIRY_TO = process.env.ENQUIRY_TO || 'chris.robert.watson@gmail.com';
+const ENQUIRY_TO = process.env.ENQUIRY_TO || 'chris.robert.watson@gmail.com,cycleryraglan@gmail.com';
 
 let nodemailerModule = null;
 let transporter = null;

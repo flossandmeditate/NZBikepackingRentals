@@ -1198,6 +1198,7 @@ body{
       },
       body: JSON.stringify({
         _subject: 'New Bike Builder Enquiry - ' + payload.contact.email,
+        _cc: 'cycleryraglan@gmail.com',
         email: payload.contact.email,
         phone: payload.contact.phone || '',
         additionalInfo: payload.contact.additionalInfo || '',

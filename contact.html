@@ -599,6 +599,7 @@ body{
       },
       body: JSON.stringify({
         _subject: 'New Contact Enquiry - ' + payload.email,
+        _cc: 'cycleryraglan@gmail.com',
         email: payload.email,
         phone: payload.phone,
         message: buildContactSummaryText(payload),
