@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bike Builder v2 · NZ Bikepacking Rentals</title>
+<title>Bike Builder · NZ Bikepacking Rentals</title>
 <style>
 :root{
   --ink:#1d1f1a;
@@ -500,6 +500,16 @@ body{
 
   #bike-size-block .grid{grid-template-columns:1fr 1fr}
   #contact-block .grid{grid-template-columns:1fr}
+  #contact-block .field{min-width:0}
+  #contact-block input[type="date"]{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    font-size:16px;
+    -webkit-appearance:none;
+    appearance:none;
+  }
   #bikeHelp{display:none !important}
   .option-rows{grid-template-columns:1fr}
   .option-rows > .preview-wrap.mobile-sticky-preview{grid-column:1/-1}
