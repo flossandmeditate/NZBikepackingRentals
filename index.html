@@ -227,6 +227,32 @@ body{
   letter-spacing:.1em;
 }
 
+ .hero-price-badge{
+   position:absolute;
+   left:-8px;
+   bottom:265px;
+   padding:10px 16px 9px;
+   background:linear-gradient(180deg, #d36b2c 0%, #b75b25 100%);
+   color:#fff6e8;
+   font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+   font-size:28px;
+   line-height:1;
+   letter-spacing:.04em;
+   text-transform:uppercase;
+   box-shadow:0 10px 22px rgba(0,0,0,.24);
+   transform:rotate(-6deg);
+   transform-origin:left center;
+   z-index:3;
+ }
+
+ .hero-price-badge strong{
+   color:#ffffff;
+ }
+
+ .hero-price-badge-mobile{
+   display:none;
+ }
+
 .choice h1{
   margin:0 0 12px;
   color:white;
@@ -929,6 +955,7 @@ body{
     border:1px solid rgba(255,255,255,.28);
     backdrop-filter:saturate(110%) blur(2px);
     box-shadow:0 8px 24px rgba(0,0,0,.22);
+    overflow:visible;
   }
 
   .choice:before,
@@ -982,6 +1009,33 @@ body{
 
   .choice.where .choice-label{
     color:#d9894f;
+  }
+
+  .hero-price-badge{
+    display:none;
+  }
+
+  .hero-price-badge-mobile{
+    display:inline-block;
+    position:absolute;
+    left:-6px;
+    bottom:136px;
+    padding:7px 13px 6px;
+    background:linear-gradient(180deg, #d36b2c 0%, #b75b25 100%);
+    color:#fff6e8;
+    font-family:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size:18px;
+    line-height:1;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+    transform:rotate(-6deg);
+    transform-origin:left center;
+    z-index:6;
+  }
+
+  .hero-price-badge-mobile strong{
+    color:#ffffff;
   }
 
   .choice h1{
@@ -1705,6 +1759,17 @@ body{
 }
 
 @media(max-width:1000px){
+  .choice.how{
+    overflow:visible;
+  }
+
+  .hero-price-badge{
+    left:-6px;
+    bottom:346px;
+    padding:7px 13px 6px;
+    font-size:22px;
+  }
+
   .featured-wrap{display:block}
   .featured-wrap img{height:240px;margin-bottom:24px}
   .featured-band{padding:36px 22px}
@@ -1825,9 +1890,11 @@ body{
  -->
   <section class="hero-choice">
     <div class="hero-mobile-image" aria-hidden="true"></div>
+    <div class="hero-price-badge-mobile">From <strong>NZ$29/day</strong></div>
     <div class="choice how">
       <div class="choice-label">How to Bikepack in NZ</div>
       <a class="choice-link" href="builder.html" aria-label="Build your rental rig"></a>
+      <div class="hero-price-badge">From <strong>NZ$29/day</strong></div>
       <h1>Build your rental rig</h1>
       <p>Bike, bags and camping gear for touring in NZ.</p>
       <a class="btn" href="builder.html">Build Your Bike</a>
