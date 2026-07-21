@@ -432,7 +432,17 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 	const params = new URLSearchParams(location.search);
 	const routeId = params.get('id');
 
-	function setText(id, value){ document.getElementById(id).textContent = value || 'Not specified'; }
+	function formatTextValue(value){
+		if(Array.isArray(value)){
+			return value
+				.map(item => String(item || '').trim())
+				.filter(Boolean)
+				.join(' ');
+		}
+		return String(value || '').trim();
+	}
+
+	function setText(id, value){ document.getElementById(id).textContent = formatTextValue(value) || 'Not specified'; }
 	function clampProfileScore(value){
 		const n = Number(value);
 		if(!Number.isFinite(n)) return 0;
