@@ -2544,7 +2544,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const route = document.getElementById('suggestion-route');
   const message = document.getElementById('suggestion-message');
 
-  if(!form || !sendBtn || !status || !email || !route || !message) return;
+  if(!form || !sendBtn || !status || !email || !route) return;
 
   function setStatus(text, kind){
     status.textContent = text;
@@ -2605,7 +2605,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const payload = {
       email: String(email.value || '').trim(),
       route: String(route.value || '').trim(),
-      message: String(message.value || '').trim()
+      message: String((message && message.value) || '').trim()
     };
 
     if(!payload.email || !payload.email.includes('@')){
@@ -2635,7 +2635,7 @@ window.addEventListener('DOMContentLoaded', () => {
           body: JSON.stringify({
             email: payload.email,
             route: payload.route,
-            message: payload.message,
+            message: payload.message || ('Route suggestion: ' + payload.route),
             page: {url: window.location.href},
             type: 'route-suggestion'
           })
@@ -2657,6 +2657,7 @@ window.addEventListener('DOMContentLoaded', () => {
       }
 
       setStatus('Thank you, we will review your route suggestion.', 'success');
+      alert('Thanks for your suggestion!');
       form.reset();
     } catch (err) {
       const errorText = err && err.message ? String(err.message) : '';

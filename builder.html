@@ -654,6 +654,7 @@ body{
               <option value="none" selected>None</option>
               <option value="basic">1-2 man lightweight tent</option>
               <option value="full">Tent and sleeping mat</option>
+              <option value="full2">Tent and 2 sleeping mats</option>
             </select>
             <p class="option-help" id="campingHelp"></p>
           </div>
@@ -794,7 +795,7 @@ body{
   const prices = {
     bike: {gravel:200, mtb:200},
     bags: {none:0, light:60, heavy:80, panniers:40, trailer:50},
-    camping: {none:0, basic:50, full:70},
+    camping: {none:0, basic:50, full:70, full2:90},
     cooking: {none:0, kit:30},
     navigation: {phone:0, gps:20}
   };
@@ -802,7 +803,7 @@ body{
   const labels = {
     bike: {gravel:'Gravel Bike', mtb:'MTB'},
     bags: {none:'Bring own bags (no bags)', light:'Small bikepacking', heavy:'Large bikepacking', panniers:'Panniers', trailer:'Trailer'},
-    camping: {none:'No camping kit', basic:'1-2 man tent', full:'Tent and sleeping mat'},
+    camping: {none:'No camping kit', basic:'1-2 man tent', full:'Tent and sleeping mat', full2:'Tent and 2 sleeping mats'},
     cooking: {none:'No cooking kit', kit:'Cooker, pots and pans'},
     navigation: {phone:'None (phone)', gps:'GPS device'}
   };
@@ -821,8 +822,9 @@ body{
     },
     camping: {
       none: '',
-      basic: 'Leightweight 1-2 person tent for overnight stays on the trail.',
-      full: 'Tent plus inflatable sleeping mat for camping.'
+      basic: 'Lightweight 1-2 person tent for overnight stays on the trail.',
+      full: 'Tent plus inflatable sleeping mat for camping.',
+      full2: 'Tent plus two inflatable sleeping mats for camping.'
     },
     cooking: {
       none: '',
@@ -861,12 +863,14 @@ body{
     camping: {
       none: '',
       basic: 'images/builder/Camping.webp',
-      full: 'images/builder/Camping.webp'
+      full: 'images/builder/Camping.webp',
+      full2: 'images/builder/Camping.webp'
     },
     campingMat: {
       none: '',
       basic: '',
-      full: 'images/builder/campingmat.webp'
+      full: 'images/builder/campingmat.webp',
+      full2: 'images/builder/campingmat.webp'
     },
     cooking: {
       none: '',
