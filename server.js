@@ -262,6 +262,112 @@ function sanitizeId(value) {
     .replace(/-+/g, '-');
 }
 
+function escapeHtmlAttribute(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function getRequestOrigin(req) {
+  const forwardedProto = String(req.headers['x-forwarded-proto'] || '').split(',')[0].trim();
+  const forwardedHost = String(req.headers['x-forwarded-host'] || '').split(',')[0].trim();
+  const host = forwardedHost || String(req.headers.host || '').split(',')[0].trim();
+  if (!host) return '';
+
+  const protocol = forwardedProto || (/localhost|127\.0\.0\.1/i.test(host) ? 'http' : 'https');
+  return `${protocol}://${host}`;
+}
+
+function toAbsoluteUrl(origin, value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  if (/^https?:\/\//i.test(raw)) return raw;
+  if (!origin) return raw;
+
+  const normalized = raw.replace(/^\.?\//, '');
+  return `${origin}/${encodeURI(normalized)}`;
+}
+
+function getRouteShareDefaults(origin, currentPathWithSearch) {
+  const fallbackDescription = 'Detailed bikepacking route profiles with maps, GPX links, route stats, and recommended setup advice for New Zealand rides.';
+  const fallbackUrl = currentPathWithSearch || '/route.html';
+  const pageUrl = origin ? `${origin}${fallbackUrl}` : fallbackUrl;
+  const fallbackImage = toAbsoluteUrl(origin, 'images/Logo.webp') || 'images/Logo.webp';
+
+  return {
+    title: 'Route Details · NZ Bikepacking Rentals',
+    description: fallbackDescription,
+    url: pageUrl,
+    image: fallbackImage
+  };
+}
+
+async function getRouteShareMeta(req, urlObj) {
+  const origin = getRequestOrigin(req);
+  const pathWithSearch = `${urlObj.pathname || '/route.html'}${urlObj.search || ''}`;
+  const defaults = getRouteShareDefaults(origin, pathWithSearch);
+  const routeId = sanitizeId(urlObj.searchParams.get('id') || '');
+
+  if (!routeId) return defaults;
+
+  try {
+    const routes = await readRoutesCatalog();
+    const route = routes.find(item => sanitizeId(item?.id || '') === routeId);
+    if (!route) return defaults;
+
+    const canonicalRouteId = sanitizeId(route.id || routeId) || routeId;
+    const routeTitle = String(route.name || '').trim() || 'Route Details';
+    const routeDescription = String(route.description || '').trim() || defaults.description;
+    const highlightImage = getRouteHighlightImage(route);
+    const shareImage = toAbsoluteUrl(origin, highlightImage) || defaults.image;
+    const canonicalPath = `/route.html?id=${encodeURIComponent(canonicalRouteId)}`;
+
+    return {
+      title: `${routeTitle} · NZ Bikepacking Rentals`,
+      description: routeDescription,
+      url: origin ? `${origin}${canonicalPath}` : canonicalPath,
+      image: shareImage
+    };
+  } catch {
+    return defaults;
+  }
+}
+
+function renderRouteShareMetaBlock(meta) {
+  const title = escapeHtmlAttribute(meta.title);
+  const description = escapeHtmlAttribute(meta.description);
+  const url = escapeHtmlAttribute(meta.url);
+  const image = escapeHtmlAttribute(meta.image);
+
+  return `<!--ROUTE_SHARE_META_START-->
+<link rel="canonical" href="${url}" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NZ Bikepacking Rentals" />
+<meta property="og:title" content="${title}" />
+<meta property="og:description" content="${description}" />
+<meta property="og:url" content="${url}" />
+<meta property="og:image" content="${image}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="${title}" />
+<meta name="twitter:description" content="${description}" />
+<meta name="twitter:image" content="${image}" />
+<!--ROUTE_SHARE_META_END-->`;
+}
+
+async function injectRouteShareMeta(rawHtml, req, urlObj) {
+  const meta = await getRouteShareMeta(req, urlObj);
+  const dynamicBlock = renderRouteShareMetaBlock(meta);
+  const markerPattern = /<!--ROUTE_SHARE_META_START-->[\s\S]*?<!--ROUTE_SHARE_META_END-->/;
+
+  if (markerPattern.test(rawHtml)) {
+    return rawHtml.replace(markerPattern, dynamicBlock);
+  }
+
+  return rawHtml.replace('</head>', `${dynamicBlock}\n</head>`);
+}
+
 function routePayloadOrNull(payload) {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
     return null;
@@ -699,7 +805,8 @@ function safeResolvePath(urlPathname) {
   return absolute;
 }
 
-async function serveStatic(req, res, pathname) {
+async function serveStatic(req, res, urlObj) {
+  const pathname = urlObj.pathname;
   const filePath = safeResolvePath(pathname);
   if (!filePath) {
     return sendText(res, 403, 'Forbidden');
@@ -718,6 +825,13 @@ async function serveStatic(req, res, pathname) {
       const rawHtml = await fsp.readFile(filePath, 'utf8');
       const images = await listFleetBuildImages();
       const html = rawHtml.replace('<!--FLEET_IMAGES-->', renderFleetImagesScript(images));
+      res.writeHead(200, {'Content-Type': mime});
+      return res.end(html, 'utf8');
+    }
+
+    if (path.resolve(filePath) === path.join(ROOT_DIR, 'route.html')) {
+      const rawHtml = await fsp.readFile(filePath, 'utf8');
+      const html = await injectRouteShareMeta(rawHtml, req, urlObj);
       res.writeHead(200, {'Content-Type': mime});
       return res.end(html, 'utf8');
     }
@@ -741,7 +855,7 @@ const server = http.createServer(async (req, res) => {
       return await handleApi(req, res, pathname);
     }
 
-    return await serveStatic(req, res, pathname);
+    return await serveStatic(req, res, url);
   } catch (err) {
     return sendJson(res, 500, {error: `Server error: ${err.message}`});
   }
