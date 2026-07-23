@@ -445,11 +445,16 @@ body{
 
 .footer{
   background:#171a17;
+  border-top:2px solid var(--rust);
   color:#bbb;
   text-align:center;
   padding:42px 20px;
   position:relative;
   min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
   font-family:Arial,sans-serif;
   font-size:12px;
   letter-spacing:.08em;
@@ -465,9 +470,13 @@ body{
   opacity:.95;
 }
 
+.footer-nav{
+  display:none;
+}
+
 .footer .social-links{
   display:inline-flex;
-  gap:14px;
+  gap:16px;
   margin-left:18px;
   flex-wrap:wrap;
 }
@@ -476,8 +485,8 @@ body{
   color:#f2ead8;
   text-decoration:none;
   font-weight:700;
-  width:18px;
-  height:18px;
+  width:24px;
+  height:24px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -488,9 +497,65 @@ body{
 }
 
 .footer .social-links svg{
-  width:16px;
-  height:16px;
+  width:21px;
+  height:21px;
   display:block;
+}
+
+.footer-copy{
+  position:absolute;
+  left:50%;
+  bottom:8px;
+  transform:translateX(-50%);
+  color:#bbb;
+  font-size:11px;
+  letter-spacing:.06em;
+  text-transform:none;
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+@media(min-width:761px){
+  .footer{
+    padding:20px 76px 34px;
+    min-height:0;
+  }
+
+  .footer .footer-logo{
+    position:static;
+    left:auto;
+    bottom:auto;
+    width:56px;
+    flex:0 0 auto;
+  }
+
+  .footer-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:1;
+    gap:0;
+    min-width:0;
+    padding:0 120px;
+    white-space:nowrap;
+  }
+
+  .footer-nav a{
+    position:relative;
+    color:#ddd;
+    text-decoration:none;
+    font-weight:700;
+    padding:0 22px;
+    line-height:1;
+  }
+
+  .footer-nav a + a{
+    border-left:2px solid var(--rust);
+  }
+
+  .footer .social-links{
+    margin-left:22px;
+  }
 }
 
 @media(max-width:940px){
@@ -551,7 +616,7 @@ body{
 
   .footer{
     min-height:0;
-    padding:14px 16px;
+    padding:14px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -562,11 +627,15 @@ body{
     position:static;
     left:auto;
     bottom:auto;
-    width:42px;
+    width:48px;
   }
 
   .footer .social-links{
     margin-left:0;
+  }
+
+  .footer-nav{
+    display:none;
   }
 
   .preview-wrap.mobile-sticky-preview{
@@ -751,7 +820,12 @@ body{
     <a href="https://www.cycleryraglan.co.nz" target="_blank" rel="noreferrer noopener" aria-label="Visit Cyclery Raglan">
       <img class="footer-logo" src="images/Logo.webp" alt="NZ Bikepacking Rentals logo" loading="lazy">
     </a>
-    <!-- <span>NZBikepackingRentals.com · Aotearoa bikepacking rentals</span> -->
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="builder.html">Bike Rentals</a>
+      <a href="routes.html">Routes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
     <span class="social-links">
       <a href="https://www.instagram.com/cycleryraglan/" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
@@ -760,11 +834,17 @@ body{
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h3z"/></svg>
       </a>
     </span>
+    <span class="footer-copy">© <span id="footer-year"></span> Raglan Cyclery Limited</span>
   </footer>
 </div>
 
 <script>
 (function(){
+  const footerYear = document.getElementById('footer-year');
+  if(footerYear) {
+    footerYear.textContent = new Date().getFullYear();
+  }
+
   const toggle = document.getElementById('mobile-nav-toggle');
   const links = document.getElementById('main-nav-links');
   if(!toggle || !links) return;
