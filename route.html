@@ -15,7 +15,7 @@
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
-	gtag('config', 'G-5V7WSJPSC3');
+	gtag('config', 'G-5V7WSJPSC3', { send_page_view: false });
 </script>
 <style>
 :root{
@@ -443,6 +443,18 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 	}
 
 	function setText(id, value){ document.getElementById(id).textContent = formatTextValue(value) || 'Not specified'; }
+	function trackRoutePageView(route){
+		if(typeof gtag !== 'function' || !route) return;
+		const routeId = String(route.id || '').trim();
+		const routeName = String(route.name || '').trim();
+		gtag('event', 'page_view', {
+			page_title: routeName ? `${routeName} · NZ Bikepacking Routes` : document.title,
+			page_location: routeId ? `${location.origin}${location.pathname}?id=${encodeURIComponent(routeId)}` : location.href,
+			page_path: routeId ? `${location.pathname}?id=${encodeURIComponent(routeId)}` : location.pathname,
+			route_id: routeId || undefined,
+			route_name: routeName || undefined
+		});
+	}
 	function clampProfileScore(value){
 		const n = Number(value);
 		if(!Number.isFinite(n)) return 0;
@@ -1412,6 +1424,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		document.title = `${route.name} · NZ Bikepacking Routes`;
 		setText('route-name', route.name);
 		setText('route-desc', route.description);
+		trackRoutePageView(route);
 		const localNotesText = route.text3 || route.tips || 'Check weather windows, confirm resupply timing, and carry backup navigation.';
 		setText('tips-text', localNotesText);
 		setText('mobile-tips-text', localNotesText);
