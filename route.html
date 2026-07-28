@@ -28,7 +28,7 @@
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
-	gtag('config', 'G-5V7WSJPSC3');
+	gtag('config', 'G-5V7WSJPSC3', { send_page_view: false });
 </script>
 <style>
 :root{
@@ -218,7 +218,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 .route-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
 .route-body h3{margin:0 0 6px;font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;font-size:26px;text-transform:uppercase;line-height:1}
 .route-body .region{font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--rust);margin:0 0 10px}
-.route-body p{margin:0 0 16px;font-size:14px;line-height:1.55;color:#3a3a30;flex:1}
+.route-body p{margin:0 0 16px;font-family:Arial,sans-serif;font-size:14px;line-height:1.55;color:#3a3a30;flex:1}
 .route-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
 .route-meta b{display:block;font-size:17px;color:var(--ink);line-height:1.1}
 .route-actions{display:flex;gap:8px;width:100%}
@@ -478,6 +478,18 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 	}
 
 	function setText(id, value){ document.getElementById(id).textContent = formatTextValue(value) || 'Not specified'; }
+	function trackRoutePageView(route){
+		if(typeof gtag !== 'function' || !route) return;
+		const routeId = String(route.id || '').trim();
+		const routeName = String(route.name || '').trim();
+		gtag('event', 'page_view', {
+			page_title: routeName ? `${routeName} · NZ Bikepacking Routes` : document.title,
+			page_location: routeId ? `${location.origin}${location.pathname}?id=${encodeURIComponent(routeId)}` : location.href,
+			page_path: routeId ? `${location.pathname}?id=${encodeURIComponent(routeId)}` : location.pathname,
+			route_id: routeId || undefined,
+			route_name: routeName || undefined
+		});
+	}
 	function clampProfileScore(value){
 		const n = Number(value);
 		if(!Number.isFinite(n)) return 0;
@@ -1447,6 +1459,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		document.title = `${route.name} · NZ Bikepacking Routes`;
 		setText('route-name', route.name);
 		setText('route-desc', route.description);
+		trackRoutePageView(route);
 		const localNotesText = route.text3 || route.tips || 'Check weather windows, confirm resupply timing, and carry backup navigation.';
 		setText('tips-text', localNotesText);
 		setText('mobile-tips-text', localNotesText);
