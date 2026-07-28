@@ -1852,13 +1852,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }).addTo(routeMap);
 
   const raglanMessage = '<span class="raglan-popup-title">Raglan</span><span class="raglan-popup-body">The home of NZ Bikepacking Rentals.</span>';
-  raglanMarker.bindTooltip(raglanMessage, {
-    className: 'raglan-home-tooltip',
-    direction: 'left',
-    offset: L.point(-8, 0),
-    opacity: 1,
-    sticky: true
-  });
 
   raglanMarker.bindPopup(raglanMessage, {
     className: 'raglan-home-popup',
@@ -1867,11 +1860,11 @@ window.addEventListener('DOMContentLoaded', () => {
     offset: L.point(0, -6)
   });
 
-  raglanMarker.on('mouseover', () => raglanMarker.openTooltip());
-  raglanMarker.on('mouseout', () => raglanMarker.closeTooltip());
+  raglanMarker.on('mouseover', () => raglanMarker.openPopup());
+  raglanMarker.on('mouseout', () => raglanMarker.closePopup());
   raglanMarker.on('click', () => raglanMarker.openPopup());
-  raglanHitMarker.on('mouseover', () => raglanMarker.openTooltip());
-  raglanHitMarker.on('mouseout', () => raglanMarker.closeTooltip());
+  raglanHitMarker.on('mouseover', () => raglanMarker.openPopup());
+  raglanHitMarker.on('mouseout', () => raglanMarker.closePopup());
   raglanHitMarker.on('click', () => raglanMarker.openPopup());
 
   function updateRaglanMarkerRadius(){
