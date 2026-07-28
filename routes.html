@@ -1085,6 +1085,60 @@ a.route-img{
   padding:13px 14px;
 }
 
+.leaflet-tooltip.raglan-home-tooltip{
+  background:rgba(30,33,29,.82);
+  border:0;
+  border-radius:11px;
+  box-shadow:0 10px 22px rgba(0,0,0,.22);
+  color:#f7f2e6;
+  padding:11px 13px;
+  font-family:Arial, sans-serif;
+  width:176px;
+  max-width:176px;
+  white-space:normal;
+}
+
+.leaflet-tooltip.raglan-home-tooltip:before{
+  border-right-color:rgba(30,33,29,.82);
+}
+
+.leaflet-popup.raglan-home-popup .leaflet-popup-content-wrapper{
+  background:rgba(30,33,29,.82);
+  color:#f7f2e6;
+  border-radius:11px;
+  box-shadow:0 10px 22px rgba(0,0,0,.22);
+}
+
+.leaflet-popup.raglan-home-popup .leaflet-popup-content{
+  margin:11px 13px;
+  font-family:Arial, sans-serif;
+}
+
+.leaflet-popup.raglan-home-popup .leaflet-popup-tip{
+  background:rgba(30,33,29,.82);
+}
+
+.raglan-popup-title{
+  display:block;
+  font-size:20px;
+  line-height:1;
+  font-weight:700;
+  margin-bottom:6px;
+  letter-spacing:.01em;
+}
+
+.raglan-popup-body{
+  display:block;
+  font-size:13px;
+  line-height:1.35;
+  color:#efe8d8;
+}
+
+.leaflet-tooltip.raglan-home-tooltip .raglan-popup-title,
+.leaflet-tooltip.raglan-home-tooltip .raglan-popup-body{
+  white-space:normal;
+}
+
 @media(max-width:900px){
   .map-wrap{grid-template-columns:1fr;height:auto}
   #route-map{height:360px}
@@ -1730,6 +1784,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const BASE_W = 2, SEL_W = 5, HOV_W = 7;
   const DIM_COL = '#c8bfa8', DIM_OPA = 0.3;
   const HIT_W  = 20;
+  const RAGLAN_COORDS = [-37.8013029, 174.8702403];
 
   // --- Map init ---
   const routeMap = L.map('route-map', {
@@ -1744,6 +1799,58 @@ window.addEventListener('DOMContentLoaded', () => {
     subdomains: 'abcd', maxZoom: 19, noWrap: true,
     attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
   }).addTo(routeMap);
+
+  routeMap.createPane('raglanPane');
+  routeMap.getPane('raglanPane').style.zIndex = '650';
+
+  function getRaglanRadius(zoom){
+    const z = Number.isFinite(zoom) ? zoom : routeMap.getZoom();
+    const desktopBase = window.matchMedia('(max-width:480px)').matches
+      ? 4
+      : (window.matchMedia('(max-width:900px)').matches ? 5 : 6);
+
+    if(z <= 5) return Math.max(2, desktopBase - 3);
+    if(z <= 6) return Math.max(3, desktopBase - 2);
+    if(z <= 7) return Math.max(4, desktopBase - 1);
+    return desktopBase;
+  }
+
+  const raglanMarker = L.circleMarker(RAGLAN_COORDS, {
+    pane: 'raglanPane',
+    radius: getRaglanRadius(routeMap.getZoom()),
+    stroke: false,
+    fillColor: '#f07a1f',
+    fillOpacity: 1,
+    opacity: 1,
+    bubblingMouseEvents: false
+  }).addTo(routeMap);
+
+  const raglanMessage = '<span class="raglan-popup-title">Raglan</span><span class="raglan-popup-body">The home of NZ Bikepacking Rentals.</span>';
+  raglanMarker.bindTooltip(raglanMessage, {
+    className: 'raglan-home-tooltip',
+    direction: 'left',
+    offset: L.point(-8, 0),
+    opacity: 1,
+    sticky: true
+  });
+
+  raglanMarker.bindPopup(raglanMessage, {
+    className: 'raglan-home-popup',
+    closeButton: false,
+    autoPan: true,
+    offset: L.point(0, -6)
+  });
+
+  raglanMarker.on('mouseover', () => raglanMarker.openTooltip());
+  raglanMarker.on('mouseout', () => raglanMarker.closeTooltip());
+  raglanMarker.on('click', () => raglanMarker.openPopup());
+
+  function updateRaglanMarkerRadius(){
+    raglanMarker.setRadius(getRaglanRadius(routeMap.getZoom()));
+  }
+
+  window.addEventListener('resize', updateRaglanMarkerRadius);
+  routeMap.on('zoomend', updateRaglanMarkerRadius);
 
   function fitOverview(){
     routeMap.fitBounds(NZ_BOUNDS, { padding: [10, 10], animate: false });
@@ -1814,6 +1921,27 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const requiredRouteFields = ['id', 'file', 'name', 'days', 'difficulty', 'description'];
+  const colorSwapRouteIds = {
+    a: 'shaky-isles-north',
+    b: 'best-of-the-west'
+  };
+
+  function buildColorSwapLookup(entries, palette){
+    const lookup = new Map();
+    if(!Array.isArray(entries) || !Array.isArray(palette) || !palette.length) return lookup;
+
+    const idxA = entries.findIndex(route => String(route?.id || '').toLowerCase() === colorSwapRouteIds.a);
+    const idxB = entries.findIndex(route => String(route?.id || '').toLowerCase() === colorSwapRouteIds.b);
+    if(idxA < 0 || idxB < 0) return lookup;
+
+    const idA = String(entries[idxA]?.id || '').trim();
+    const idB = String(entries[idxB]?.id || '').trim();
+    if(!idA || !idB) return lookup;
+
+    lookup.set(idA.toLowerCase(), palette[idxB % palette.length]);
+    lookup.set(idB.toLowerCase(), palette[idxA % palette.length]);
+    return lookup;
+  }
 
   function validateRouteCatalog(entries){
     if(!Array.isArray(entries)) return [];
@@ -2546,10 +2674,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const palette = buildPalette(Math.max(entries.length, 28));
     const group   = L.featureGroup().addTo(routeMap);
-    const normalizedEntries = entries.map((route, idx) => ({
-      ...route,
-      id: route.id || `r${idx + 1}`
-    }));
+    const colorSwapLookup = buildColorSwapLookup(entries, palette);
+    const normalizedEntries = entries.map((route, idx) => {
+      const normalizedId = route.id || `r${idx + 1}`;
+      const swappedColor = colorSwapLookup.get(String(normalizedId).toLowerCase());
+      return {
+        ...route,
+        id: normalizedId,
+        color: route.color || swappedColor
+      };
+    });
 
     paletteState = palette;
     routeGroup = group;
