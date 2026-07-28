@@ -2,6 +2,8 @@
     "id":  "kopiko",
     "file":  "routes/kopiko/Kopiko.gpx",
     "rideWithGpsUrl":  "https://ridewithgps.com/routes/53738597",
+    "contributedby":  "",
+    "contributedbyURL":  "",
     "name":  "Kopiko",
     "days":  "10-20",
     "distanceLabel":  "1050 km",

@@ -1784,7 +1784,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const FULL_TRACK_ZOOM_STEPS = 2;
   const BASE_W = 2, SEL_W = 5, HOV_W = 7;
   const DIM_COL = '#c8bfa8', DIM_OPA = 0.3;
-  const HIT_W  = 20;
+  const DESKTOP_HIT_W = 20;
+  const MOBILE_HIT_W = 40;
   const RAGLAN_COORDS = [-37.8013029, 174.8702403];
 
   // --- Map init ---
@@ -1804,16 +1805,31 @@ window.addEventListener('DOMContentLoaded', () => {
   routeMap.createPane('raglanPane');
   routeMap.getPane('raglanPane').style.zIndex = '650';
 
+  function isMobileInteractionMode(){
+    return window.matchMedia('(max-width:900px)').matches || window.matchMedia('(pointer:coarse)').matches;
+  }
+
+  function getRouteHitWidth(){
+    return isMobileInteractionMode() ? MOBILE_HIT_W : DESKTOP_HIT_W;
+  }
+
   function getRaglanRadius(zoom){
     const z = Number.isFinite(zoom) ? zoom : routeMap.getZoom();
     const desktopBase = window.matchMedia('(max-width:480px)').matches
-      ? 4
-      : (window.matchMedia('(max-width:900px)').matches ? 5 : 6);
+      ? 9
+      : (window.matchMedia('(max-width:900px)').matches ? 8 : 6);
 
     if(z <= 5) return Math.max(2, desktopBase - 3);
     if(z <= 6) return Math.max(3, desktopBase - 2);
     if(z <= 7) return Math.max(4, desktopBase - 1);
     return desktopBase;
+  }
+
+  function getRaglanHitRadius(zoom){
+    const visibleRadius = getRaglanRadius(zoom);
+    return isMobileInteractionMode()
+      ? visibleRadius + 18
+      : visibleRadius + 8;
   }
 
   const raglanMarker = L.circleMarker(RAGLAN_COORDS, {
@@ -1823,6 +1839,15 @@ window.addEventListener('DOMContentLoaded', () => {
     fillColor: '#f07a1f',
     fillOpacity: 1,
     opacity: 1,
+    bubblingMouseEvents: false
+  }).addTo(routeMap);
+
+  const raglanHitMarker = L.circleMarker(RAGLAN_COORDS, {
+    pane: 'raglanPane',
+    radius: getRaglanHitRadius(routeMap.getZoom()),
+    stroke: false,
+    fillOpacity: 0,
+    opacity: 0,
     bubblingMouseEvents: false
   }).addTo(routeMap);
 
@@ -1845,12 +1870,35 @@ window.addEventListener('DOMContentLoaded', () => {
   raglanMarker.on('mouseover', () => raglanMarker.openTooltip());
   raglanMarker.on('mouseout', () => raglanMarker.closeTooltip());
   raglanMarker.on('click', () => raglanMarker.openPopup());
+  raglanHitMarker.on('mouseover', () => raglanMarker.openTooltip());
+  raglanHitMarker.on('mouseout', () => raglanMarker.closeTooltip());
+  raglanHitMarker.on('click', () => raglanMarker.openPopup());
 
   function updateRaglanMarkerRadius(){
-    raglanMarker.setRadius(getRaglanRadius(routeMap.getZoom()));
+    const zoom = routeMap.getZoom();
+    raglanMarker.setRadius(getRaglanRadius(zoom));
+    raglanHitMarker.setRadius(getRaglanHitRadius(zoom));
+
+    const hitPathReady = !!(raglanHitMarker && raglanHitMarker._path && raglanHitMarker._path.parentNode);
+    const markerPathReady = !!(raglanMarker && raglanMarker._path && raglanMarker._path.parentNode);
+    if(hitPathReady) raglanHitMarker.bringToFront();
+    if(markerPathReady) raglanMarker.bringToFront();
   }
 
-  window.addEventListener('resize', updateRaglanMarkerRadius);
+  let routeLayersRef = null;
+
+  function updateRouteHitWidths(){
+    const hitWidth = getRouteHitWidth();
+    if(!routeLayersRef) return;
+    routeLayersRef.forEach(obj => {
+      if(obj?.hitLayer) obj.hitLayer.setStyle({weight: hitWidth});
+    });
+  }
+
+  window.addEventListener('resize', () => {
+    updateRaglanMarkerRadius();
+    updateRouteHitWidths();
+  });
   routeMap.on('zoomend', updateRaglanMarkerRadius);
 
   function fitOverview(){
@@ -1904,6 +1952,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // --- State ---
   const routeLayers = new Map();
+  routeLayersRef = routeLayers;
   const routesMeta  = new Map();
   let allRoutes = [];
   let selectedId = null;
@@ -2607,12 +2656,13 @@ window.addEventListener('DOMContentLoaded', () => {
             poly.on('click',     () => selectRoute(entry.id));
             poly.on('mouseover', () => hoverOn(entry.id));
             poly.on('mouseout',  () => hoverOff(entry.id));
-            hitLayer = L.polyline(poly.getLatLngs(), {color:'#000', opacity:0.001, weight:HIT_W, interactive:true});
+            hitLayer = L.polyline(poly.getLatLngs(), {color:'#000', opacity:0.001, weight:getRouteHitWidth(), interactive:true});
             hitLayer.on('click',     () => selectRoute(entry.id));
             hitLayer.on('mouseover', () => hoverOn(entry.id));
             hitLayer.on('mouseout',  () => hoverOff(entry.id));
             hitLayer.addTo(group).bringToFront();
             poly.bringToFront();
+            updateRaglanMarkerRadius();
           }
 
           resolve({
