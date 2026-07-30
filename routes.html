@@ -1585,7 +1585,13 @@ function getInitialFilterFromUrl(){
 function shouldIncludeDisabledRoutesFromUrl(){
   const params = new URLSearchParams(location.search);
   const id = String(params.get('id') || '').trim().toLowerCase();
-  return id === 'allroutes';
+  return id === 'allroutes' || id === 'hidden';
+}
+
+function shouldShowOnlyDisabledRoutesFromUrl(){
+  const params = new URLSearchParams(location.search);
+  const id = String(params.get('id') || '').trim().toLowerCase();
+  return id === 'hidden';
 }
 
 function getDurationMaxDays(text){
@@ -2923,7 +2929,8 @@ window.addEventListener('DOMContentLoaded', () => {
     let entries = [];
     try {
       const catalog = await fetchRoutesCatalog();
-      entries = includeDisabledRoutes ? catalog : catalog.filter(route => !route?.disabled);
+      const onlyHiddenRoutes = shouldShowOnlyDisabledRoutesFromUrl();
+      entries = includeDisabledRoutes ? catalog : onlyHiddenRoutes ? catalog.filter(route => route?.disabled) : catalog.filter(route => !route?.disabled);
     } catch(e){ console.warn('routes.json fetch failed', e); }
 
     if(!entries.length) {
