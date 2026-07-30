@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>NZT25-05: Alps to Ocean</name>
+    <trkseg>
+      <trkpt lat="-43.775800" lon="170.151110">
+        <ele>639.2</ele>
+      </trkpt>
+      <trkpt lat="-43.930448" lon="170.196380">
+        <ele>562.2</ele>
+      </trkpt>
+      <trkpt lat="-44.087494" lon="170.211958">
+        <ele>546.0</ele>
+      </trkpt>
+      <trkpt lat="-44.202879" lon="170.145394">
+        <ele>505.6</ele>
+      </trkpt>
+      <trkpt lat="-44.269780" lon="170.006991">
+        <ele>483.7</ele>
+      </trkpt>
+      <trkpt lat="-44.264195" lon="169.842347">
+        <ele>530.5</ele>
+      </trkpt>
+      <trkpt lat="-44.342224" lon="169.813340">
+        <ele>706.1</ele>
+      </trkpt>
+      <trkpt lat="-44.452683" lon="169.945533">
+        <ele>432.2</ele>
+      </trkpt>
+      <trkpt lat="-44.546180" lon="170.090754">
+        <ele>368.5</ele>
+      </trkpt>
+      <trkpt lat="-44.588870" lon="170.198379">
+        <ele>286.2</ele>
+      </trkpt>
+      <trkpt lat="-44.663085" lon="170.352435">
+        <ele>276.2</ele>
+      </trkpt>
+      <trkpt lat="-44.762199" lon="170.508387">
+        <ele>191.8</ele>
+      </trkpt>
+      <trkpt lat="-44.849472" lon="170.686320">
+        <ele>131.2</ele>
+      </trkpt>
+      <trkpt lat="-44.944604" lon="170.676237">
+        <ele>209.3</ele>
+      </trkpt>
+      <trkpt lat="-45.011818" lon="170.828415">
+        <ele>63.9</ele>
+      </trkpt>
+      <trkpt lat="-45.104920" lon="170.972690">
+        <ele>0.4</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

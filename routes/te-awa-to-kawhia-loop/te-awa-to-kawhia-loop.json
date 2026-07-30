@@ -1,0 +1,46 @@
+{
+    "id":  "te-awa-to-kawhia-loop",
+    "file":  "routes/te-awa-to-kawhia-loop/Te Awa to Kawhia Loop.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/54614154",
+    "contributedby":  "",
+    "contributedbyURL":  "",
+    "name":  "Te Awa to Kawhia Loop",
+    "days":  "3-6",
+    "distanceLabel":  "338 km",
+    "totalElevationMeters":  4100,
+    "surfaceSplit":  "20% Gravel / 80% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "A Waikato crossover loop blending Te Awa River Ride flow with Raglan coast and the Kawhia backroad approach.",
+    "bestSeason":  "Year Round",
+    "moreInfo":  [
+                     "https://ridewithgps.com/routes/54614154"
+                 ],
+    "youtubeVideos":  [],
+    "tags":  [
+                 "short",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "geyserland-classic",
+                          "motu-trails-320",
+                          "mountains-to-sea"
+                      ],
+    "disabled":  true,
+    "routeProfile":  {
+                         "adventure":  3,
+                         "scenery":  4,
+                         "technical":  2,
+                         "climbing":  3,
+                         "remoteness":  3
+                     },
+    "text1":  [
+                  "Te Awa to Kawhia Loop combines the accessible river-path riding of the Waikato corridor with a much wilder west-coast feel once you swing out toward Raglan and Kawhia. It is a smart mixed-terrain option for riders who want a substantial loop without highly technical off-road demands.",
+                  "The route starts with smoother momentum on Te Awa sections around Hamilton, then transitions into hillier and more exposed roads as it heads toward the coast. That contrast gives the route personality: efficient kilometres early, then a more adventurous and weather-shaped second half.",
+                  "At just under 340km, it is ideal for a long-weekend push or a more comfortable four-to-six-day tour. Riders who enjoy linking cycle-trail infrastructure with classic NZ rural road riding will find this one particularly rewarding."
+              ],
+    "text2":  "Hamilton is the natural logistics anchor for this loop, with easy pre-ride shopping, accommodation and transport access. Once on route, service density drops as you move toward coastal and rural sectors, so resupply timing still matters.\n\nA gravel or all-road setup works well here. The route is predominantly sealed but includes enough gravel and variable shoulder quality that slightly wider tyres improve comfort and confidence, especially when carrying gear.\n\nDaily planning should account for wind direction and coastal exposure as much as distance. A day that looks moderate on paper can feel significantly bigger when crosswinds build on open sections between settlements.",
+    "text3":  "The loop is not highly technical, but it does demand solid road awareness and conservative weather judgement. Traffic conditions can vary by section, and some roads are narrow enough that visibility and light management become important safety factors.\n\nWest-coast weather can move quickly. Carry wet-weather layers, keep electronic navigation charged, and do not rely on a single food or water stop late in the day. Having one backup stop in mind each day reduces pressure and improves decision-making.\n\nBefore departure, confirm the latest route file and any known local works or detours on your RWGPS source. Small changes can materially affect timing on a loop with mixed urban, rural and coastal segments."
+}

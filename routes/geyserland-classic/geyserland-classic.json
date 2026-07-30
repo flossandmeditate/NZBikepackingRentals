@@ -1,0 +1,47 @@
+{
+    "id":  "geyserland-classic",
+    "file":  "routes/geyserland-classic/Geyserland Classic.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/41641163",
+    "contributedby":  "",
+    "contributedbyURL":  "",
+    "name":  "Geyserland Classic",
+    "days":  "2-4",
+    "distanceLabel":  "235 km",
+    "totalElevationMeters":  2700,
+    "surfaceSplit":  "25% Gravel / 75% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "A fast-moving geothermal loop linking Rotorua's forest roads, lakes and backcountry sectors.",
+    "bestSeason":  "Year Round",
+    "moreInfo":  [
+                     "https://ridewithgps.com/routes/41641163",
+                     "https://www.greatkiwigravel.com/"
+                 ],
+    "youtubeVideos":  [],
+    "tags":  [
+                 "short",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "motu-trails-320",
+                          "te-awa-to-kawhia-loop",
+                          "mountains-to-sea"
+                      ],
+    "disabled":  true,
+    "routeProfile":  {
+                         "adventure":  3,
+                         "scenery":  5,
+                         "technical":  2,
+                         "climbing":  3,
+                         "remoteness":  2
+                     },
+    "text1":  [
+                  "The Geyserland Classic is a Rotorua-based loop built for riders who want a compact bikepacking trip with real variety. In just over 230km it combines sealed backroads, rolling gravel sectors and a handful of longer rural drags, then keeps bringing you back to lakes, native forest and geothermal country.",
+                  "Compared with rougher backcountry routes, this one rides quickly and suits a loaded gravel bike well. The key challenge is not technical terrain but rhythm: repeated climbs, changing surfaces and weather exposure can turn a straightforward day into a big one if you start late or linger too long at viewpoints.",
+                  "It works equally well as a hard two-day push or a more relaxed long weekend mission. If you pace it over three to four days, there is enough flexibility to add side stops and still keep daily distances comfortable."
+              ],
+    "text2":  "Use Rotorua as your main logistics hub before and after the ride. Food, bike supplies and accommodation are easy to organize there, and the loop format means transport planning is simple compared with one-way routes.\n\nSurface-wise this route is mostly road with a meaningful gravel component, so 38-45mm tyres are a sweet spot for comfort and speed. A light setup is usually best, because there are enough climbs that bike weight is noticeable by the end of each day.\n\nWater and services are generally manageable compared with more remote NZ routes, but do not treat every settlement as a guaranteed resupply. Carry enough to bridge longer stretches, especially if you are riding outside peak travel periods.",
+    "text3":  "The biggest risk factor is weather volatility rather than technical riding. Rain can make some gravel sectors slower and colder than expected, while wind can dramatically change moving speed on exposed roads. Pack a proper waterproof layer even in summer.\n\nBecause this is a route many riders will complete quickly, there is a temptation to overcommit early. Keep some margin for late-day navigation, mechanicals and reduced daylight in shoulder seasons.\n\nCheck the latest route version on Ride with GPS before departure, and plan daily finish points that give you more than one accommodation or camping option in case your timing changes."
+}

@@ -1582,6 +1582,12 @@ function getInitialFilterFromUrl(){
   return allowed.has(filter) ? filter : 'all';
 }
 
+function shouldIncludeDisabledRoutesFromUrl(){
+  const params = new URLSearchParams(location.search);
+  const id = String(params.get('id') || '').trim().toLowerCase();
+  return id === 'allroutes';
+}
+
 function getDurationMaxDays(text){
   const values = String(text || '').match(/\d+/g);
   if(!values || values.length === 0) return null;
@@ -1925,6 +1931,207 @@ window.addEventListener('DOMContentLoaded', () => {
     return out;
   }
 
+  function hexToRgb(hex){
+    const value = String(hex || '').trim().replace('#', '');
+    if(!/^[0-9a-fA-F]{6}$/.test(value)) return null;
+    return {
+      r: parseInt(value.slice(0, 2), 16),
+      g: parseInt(value.slice(2, 4), 16),
+      b: parseInt(value.slice(4, 6), 16)
+    };
+  }
+
+  function rgbToHue(rgb){
+    if(!rgb) return 0;
+    const r = rgb.r / 255;
+    const g = rgb.g / 255;
+    const b = rgb.b / 255;
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const d = max - min;
+    if(d === 0) return 0;
+
+    let h;
+    if(max === r) h = ((g - b) / d) % 6;
+    else if(max === g) h = ((b - r) / d) + 2;
+    else h = ((r - g) / d) + 4;
+
+    return (h * 60 + 360) % 360;
+  }
+
+  function hueDistance(a, b){
+    const diff = Math.abs(a - b) % 360;
+    return diff > 180 ? 360 - diff : diff;
+  }
+
+  function haversineKm(lat1, lon1, lat2, lon2){
+    if(![lat1, lon1, lat2, lon2].every(Number.isFinite)) return Infinity;
+    const R = 6371;
+    const toRad = d => d * Math.PI / 180;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  function routeBoundsIntersect(a, b, padDeg = 0.15){
+    if(!a || !b) return false;
+    if(!Number.isFinite(a.minLat) || !Number.isFinite(a.maxLat) || !Number.isFinite(a.minLng) || !Number.isFinite(a.maxLng)) return false;
+    if(!Number.isFinite(b.minLat) || !Number.isFinite(b.maxLat) || !Number.isFinite(b.minLng) || !Number.isFinite(b.maxLng)) return false;
+
+    const aMinLat = a.minLat - padDeg;
+    const aMaxLat = a.maxLat + padDeg;
+    const aMinLng = a.minLng - padDeg;
+    const aMaxLng = a.maxLng + padDeg;
+    const bMinLat = b.minLat - padDeg;
+    const bMaxLat = b.maxLat + padDeg;
+    const bMinLng = b.minLng - padDeg;
+    const bMaxLng = b.maxLng + padDeg;
+
+    const latOverlap = aMinLat <= bMaxLat && aMaxLat >= bMinLat;
+    const lngOverlap = aMinLng <= bMaxLng && aMaxLng >= bMinLng;
+    return latOverlap && lngOverlap;
+  }
+
+  function buildRouteColorAssignments(routes, palette){
+    if(!Array.isArray(routes) || !routes.length || !Array.isArray(palette) || !palette.length) return new Map();
+
+    const hues = palette.map(color => rgbToHue(hexToRgb(color)));
+    const n = routes.length;
+    const neighbors = Array.from({length: n}, () => []);
+    const strongContrastPairs = new Set([
+      'tour-aotearoa-north-island|shaky-isles-north',
+      'shaky-isles-north|tour-aotearoa-north-island'
+    ]);
+
+    for(let i = 0; i < n; i++) {
+      const a = routes[i];
+      for(let j = i + 1; j < n; j++) {
+        const b = routes[j];
+        const dist = haversineKm(a.centerLat, a.centerLng, b.centerLat, b.centerLng);
+        const overlaps = routeBoundsIntersect(a, b, 0.2);
+        let weight = 0;
+
+        if(overlaps) weight = 3;
+        else if(dist < 80) weight = 2.5;
+        else if(dist < 140) weight = 2;
+        else if(dist < 220) weight = 1;
+
+        if(weight > 0) {
+          neighbors[i].push({idx: j, weight});
+          neighbors[j].push({idx: i, weight});
+        }
+
+        const aId = String(a?.id || '').trim().toLowerCase();
+        const bId = String(b?.id || '').trim().toLowerCase();
+        if(strongContrastPairs.has(`${aId}|${bId}`)) {
+          neighbors[i].push({idx: j, weight: 6});
+          neighbors[j].push({idx: i, weight: 6});
+        }
+      }
+    }
+
+    const routeOrder = routes
+      .map((route, idx) => {
+        const degreeWeight = neighbors[idx].reduce((sum, edge) => sum + edge.weight, 0);
+        return {idx, degreeWeight, id: String(route?.id || '')};
+      })
+      .sort((a, b) => {
+        if(b.degreeWeight !== a.degreeWeight) return b.degreeWeight - a.degreeWeight;
+        return a.id.localeCompare(b.id, undefined, {sensitivity: 'base'});
+      });
+
+    const assignments = new Array(n).fill(-1);
+    const usedColors = new Set();
+    const totalCandidates = Math.max(palette.length, n);
+
+    const candidateIndices = [];
+    for(let i = 0; i < totalCandidates; i++) candidateIndices.push(i % palette.length);
+
+    routeOrder.forEach((node, position) => {
+      const idx = node.idx;
+      let bestColor = -1;
+      let bestScore = -Infinity;
+
+      candidateIndices.forEach(candidate => {
+        // Keep colors unique until we run out.
+        if(usedColors.size < palette.length && usedColors.has(candidate)) return;
+
+        let score = 0;
+        let closestNeighborHueGap = 180;
+
+        neighbors[idx].forEach(edge => {
+          const otherColor = assignments[edge.idx];
+          if(otherColor < 0) return;
+          const gap = hueDistance(hues[candidate], hues[otherColor]);
+          closestNeighborHueGap = Math.min(closestNeighborHueGap, gap);
+          score += gap * edge.weight;
+        });
+
+        // Encourage early picks to spread across the wheel.
+        if(position === 0) {
+          score += hueDistance(hues[candidate], 0);
+        }
+
+        // Strongly reward bigger minimum gap to nearby routes.
+        score += closestNeighborHueGap * 4;
+
+        if(score > bestScore) {
+          bestScore = score;
+          bestColor = candidate;
+        }
+      });
+
+      if(bestColor < 0) {
+        bestColor = position % palette.length;
+      }
+
+      assignments[idx] = bestColor;
+      usedColors.add(bestColor);
+    });
+
+    const output = new Map();
+    routes.forEach((route, idx) => {
+      const colorIdx = assignments[idx] >= 0 ? assignments[idx] : (idx % palette.length);
+      output.set(String(route.id), palette[colorIdx]);
+    });
+    return output;
+  }
+
+  function applySpatiallySeparatedRouteColors(){
+    if(!Array.isArray(allRoutes) || !allRoutes.length) return;
+    if(!Array.isArray(paletteState) || !paletteState.length) return;
+
+    const routeColorMap = buildRouteColorAssignments(allRoutes, paletteState);
+    if(!routeColorMap.size) return;
+
+    allRoutes = allRoutes.map(route => {
+      const color = routeColorMap.get(String(route.id)) || route.color;
+      return {...route, color};
+    });
+
+    normalizedEntriesState = normalizedEntriesState.map(entry => {
+      const color = routeColorMap.get(String(entry.id)) || entry.color;
+      return {...entry, color};
+    });
+
+    routesMeta.forEach((route, id) => {
+      const color = routeColorMap.get(String(id));
+      if(!color) return;
+      routesMeta.set(id, {...route, color});
+    });
+
+    routeLayers.forEach((obj, id) => {
+      const color = routeColorMap.get(String(id));
+      if(!color || !obj) return;
+      obj.color = color;
+      setStyle(obj, {color: obj.color, weight: BASE_W, opacity: 0.9});
+    });
+  }
+
   // --- Helpers ---
   function fmtKm(m){ return Number.isFinite(m) ? `${(m/1000).toFixed(m<10000?1:0)} km` : ''; }
   function fmtElev(m){ return Number.isFinite(m) ? `&#8593; ${Math.round(m).toLocaleString()} m` : ''; }
@@ -1958,6 +2165,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let previewLoadComplete = false;
   let fullTracksLoaded = false;
   let fullTracksLoading = false;
+  const includeDisabledRoutes = shouldIncludeDisabledRoutesFromUrl();
 
   const islandOverrides = {
     'kahurangi 500': 'south'
@@ -2540,6 +2748,7 @@ window.addEventListener('DOMContentLoaded', () => {
   function buildUpdatedRoute(baseRoute, entry, layerResult, color){
     const bounds = layerResult.layer.getBounds?.();
     const centerLat = bounds?.getCenter?.().lat;
+    const centerLng = bounds?.getCenter?.().lng;
     const inferredIsland = inferIslandFromLat(centerLat);
     const island = resolveIsland(layerResult.name || entry.name, inferredIsland);
 
@@ -2551,6 +2760,11 @@ window.addEventListener('DOMContentLoaded', () => {
       elevGainMeters: Number.isFinite(baseRoute.elevGainMeters) ? baseRoute.elevGainMeters : layerResult.elevGainMeters,
       color,
       centerLat,
+      centerLng,
+      minLat: bounds?.getSouth?.(),
+      maxLat: bounds?.getNorth?.(),
+      minLng: bounds?.getWest?.(),
+      maxLng: bounds?.getEast?.(),
       island
     };
   }
@@ -2604,6 +2818,7 @@ window.addEventListener('DOMContentLoaded', () => {
     fullTracksLoading = false;
     if(loadingTextEl) loadingTextEl.textContent = 'Routes loaded';
     sortRoutesAlphabetically(allRoutes);
+    applySpatiallySeparatedRouteColors();
     applyStyles();
     applySearch();
   }
@@ -2708,7 +2923,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let entries = [];
     try {
       const catalog = await fetchRoutesCatalog();
-      entries = catalog.filter(route => !route?.disabled);
+      entries = includeDisabledRoutes ? catalog : catalog.filter(route => !route?.disabled);
     } catch(e){ console.warn('routes.json fetch failed', e); }
 
     if(!entries.length) {
@@ -2725,7 +2940,7 @@ window.addEventListener('DOMContentLoaded', () => {
       return {
         ...route,
         id: normalizedId,
-        color: route.color || swappedColor
+        color: route.color || swappedColor || palette[idx % palette.length]
       };
     });
 
@@ -2785,6 +3000,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     sortRoutesAlphabetically(allRoutes);
+    applySpatiallySeparatedRouteColors();
     applyStyles();
     applySearch();
   }

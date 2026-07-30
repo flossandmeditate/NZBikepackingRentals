@@ -1,0 +1,47 @@
+{
+    "id":  "remutaka-cycle-trail-loop",
+    "file":  "routes/remutaka-cycle-trail-loop/Remutaka Cycle Trail Loop.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/40148824",
+    "contributedby":  "",
+    "contributedbyURL":  "",
+    "name":  "Remutaka Cycle Trail Loop",
+    "days":  "1-2",
+    "distanceLabel":  "80 km",
+    "totalElevationMeters":  1100,
+    "surfaceSplit":  "60% Gravel / 40% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "A compact Wellington-region loop that mixes forest roads, rolling climbs and classic river-valley scenery.",
+    "bestSeason":  "Spring to Autumn",
+    "moreInfo":  [
+                     "https://ridewithgps.com/routes/40148824"
+                 ],
+    "youtubeVideos":  [],
+    "tags":  [
+                 "short",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "te-awa-to-kawhia-loop",
+                          "st-james-loop",
+                          "mountains-to-sea"
+                      ],
+    "disabled":  true,
+    "routeProfile":  {
+                         "adventure":  3,
+                         "scenery":  4,
+                         "technical":  2,
+                         "climbing":  3,
+                         "remoteness":  2
+                     },
+    "text1":  [
+                  "Another great New Zealand ride that starts in Petone and finishes in Wellington.",
+                  "Highlights include the Wainuiomata Coast Road and the Remutaka Rail Trail, giving the route a strong mix of coastal scenery, forested sections and classic rail-trail riding.",
+                  "The wind can make this ride quite challenging, especially on exposed stretches where pacing and shelter become important.",
+                  "There are limited accommodation options in Featherston, so if you want to finish the ride over two days, it is worth planning that section carefully."
+              ],
+    "text2":  "The route works best as a compact overnighter or a fast-paced weekend ride, depending on how much time you want to spend enjoying the scenery and how much climbing you want to take on. The combination of sealed roads, gravel segments and rail-trail sections makes it feel varied without being overly technical.\n\nA gravel bike is a natural fit here, though a sturdy road bike with wider tyres could still work well if you are happy to keep the pace steady. The main thing is to be prepared for changing surface quality and occasional wind exposure.",
+    "text3":  "Weather and wind are the biggest factors to respect on this ride. Even on a calm day, the exposed sections can feel much tougher than the distance suggests, so pack a shell and be ready to adjust your pace.\n\nIf you are travelling from outside the region, it is worth checking road and trail conditions before you go, especially if you plan to finish in Featherston or want to keep the ride flexible for a two-day format."
+}

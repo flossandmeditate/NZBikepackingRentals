@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Geyserland Classic (Regular Option)</name>
+    <trkseg>
+      <trkpt lat="-38.135610" lon="176.258760">
+        <ele>290.3</ele>
+      </trkpt>
+      <trkpt lat="-38.040665" lon="176.330759">
+        <ele>284.4</ele>
+      </trkpt>
+      <trkpt lat="-38.009411" lon="176.492212">
+        <ele>372.9</ele>
+      </trkpt>
+      <trkpt lat="-37.869002" lon="176.537997">
+        <ele>54.1</ele>
+      </trkpt>
+      <trkpt lat="-37.889246" lon="176.642259">
+        <ele>53.1</ele>
+      </trkpt>
+      <trkpt lat="-37.933958" lon="176.747965">
+        <ele>13.0</ele>
+      </trkpt>
+      <trkpt lat="-38.045638" lon="176.795777">
+        <ele>19.7</ele>
+      </trkpt>
+      <trkpt lat="-38.193493" lon="176.796170">
+        <ele>214.8</ele>
+      </trkpt>
+      <trkpt lat="-38.254530" lon="176.678271">
+        <ele>442.7</ele>
+      </trkpt>
+      <trkpt lat="-38.314292" lon="176.497185">
+        <ele>447.8</ele>
+      </trkpt>
+      <trkpt lat="-38.326765" lon="176.329184">
+        <ele>502.8</ele>
+      </trkpt>
+      <trkpt lat="-38.221229" lon="176.284788">
+        <ele>398.6</ele>
+      </trkpt>
+      <trkpt lat="-38.134910" lon="176.258600">
+        <ele>292.4</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

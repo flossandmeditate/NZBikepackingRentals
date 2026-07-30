@@ -186,9 +186,9 @@ if($outPath -and -not (Test-Path -LiteralPath $outPath)) {
 	New-Item -ItemType Directory -Path $outPath -Force | Out-Null
 }
 
-$files = Get-ChildItem -Path $inPath -Filter *.gpx -File -Recurse |
+$files = @(Get-ChildItem -Path $inPath -Filter *.gpx -File -Recurse |
 	Where-Object { $_.Name -notlike '*.preview.gpx' } |
-	Sort-Object FullName
+	Sort-Object FullName)
 if($files.Count -eq 0) {
 	throw "No GPX files found in $inPath"
 }

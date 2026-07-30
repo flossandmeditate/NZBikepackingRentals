@@ -17,6 +17,26 @@
                        "file":  "coromandel-top-loop.json"
                    },
                    {
+                       "id":  "southern-way-1000",
+                       "file":  "southern-way-1000.json"
+                   },
+                   {
+                       "id":  "te-awa-to-kawhia-loop",
+                       "file":  "te-awa-to-kawhia-loop.json"
+                   },
+                   {
+                       "id":  "motu-trails-320",
+                       "file":  "motu-trails-320.json"
+                   },
+                   {
+                       "id":  "remutaka-cycle-trail-loop",
+                       "file":  "remutaka-cycle-trail-loop.json"
+                   },
+                   {
+                       "id":  "geyserland-classic",
+                       "file":  "geyserland-classic.json"
+                   },
+                   {
                        "id":  "kahurangi-500",
                        "file":  "kahurangi-500.json"
                    },

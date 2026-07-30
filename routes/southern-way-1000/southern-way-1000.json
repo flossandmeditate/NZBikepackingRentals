@@ -1,0 +1,47 @@
+{
+    "id":  "southern-way-1000",
+    "file":  "routes/southern-way-1000/Southern Way 1000.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/54956657",
+    "contributedby":  "",
+    "contributedbyURL":  "",
+    "name":  "Southern Way 1000",
+    "days":  "8-14",
+    "distanceLabel":  "900 km",
+    "totalElevationMeters":  10100,
+    "surfaceSplit":  "80% Gravel / 20% Road",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "A lower South Island mega-loop linking Great Rides and long gravel connectors into one sustained tour.",
+    "bestSeason":  "Nov - Apr",
+    "moreInfo":  [
+                     "https://ridewithgps.com/routes/54956657",
+                     "http://southernway1000.nz"
+                 ],
+    "youtubeVideos":  [],
+    "tags":  [
+                 "long",
+                 "south island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "tuatara-1000",
+                          "tour-aotearoa-south-island",
+                          "shaky-isles-south"
+                      ],
+    "disabled":  true,
+    "routeProfile":  {
+                         "adventure":  4,
+                         "scenery":  5,
+                         "technical":  2,
+                         "climbing":  4,
+                         "remoteness":  4
+                     },
+    "text1":  [
+                  "Southern Way 1000 is a major South Island bikepacking journey built around a chain of established cycle trails and long connective gravel sectors. The route is designed as a full-scale expedition rather than a single trail, with big landscape transitions from alpine basins to river gorges, high-country stations and coastal edges.",
+                  "The current RWGPS line is just over 900km, while the wider Southern Way concept is presented as a route of up to 1,000km depending on options and updates. Either way, this is a serious multi-day mission where consistency matters more than daily heroics.",
+                  "A key appeal is how much dedicated trail infrastructure is included in one continuous trip. Waypoints on this version reference hallmark sections such as Around the Mountains, Lake Dunstan Trail, Otago Central Rail Trail, Clutha Gold and the Roxburgh Gorge corridor, creating a route that feels varied without becoming overly technical."
+              ],
+    "text2":  "Logistically, this route is one of the more approachable long South Island adventures because it links multiple towns and established trail systems. That gives you regular opportunities for food, accommodation and mechanical support, especially compared with fully remote backcountry lines.\n\nEven with those services, do not underestimate cumulative fatigue. Roughly ten thousand vertical metres spread over 900km still delivers repeated long days, and weather disruptions can quickly erase schedule buffer. For most riders, an 8-14 day plan is realistic depending on fitness, weather and how many side explorations are added.\n\nThere are route-specific connectors that require planning, including water-transport links on some trail gaps (for example the Roxburgh Gorge connection and Otago Harbour crossing where applicable). Confirm current operations and booking requirements before departure.",
+    "text3":  "The biggest planning trap on Southern Way is assuming that established trails automatically mean easy conditions. Wind, rain and temperature swings in the lower South Island can be significant in any month, and exposed sectors can become slow and energy-intensive.\n\nCarry a dependable layering system, lights for shoulder-season days, and enough repair capacity for consecutive rough-surface stages. Treat your itinerary as a framework, not a fixed script, and keep contingency options for weather holds or transport timing changes.\n\nAlways check the latest official route notes and RWGPS updates before rolling out. This route is evolving, and connector details can change as new sections open or temporary detours are introduced."
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Motu Trails 320</name>
+    <trkseg>
+      <trkpt lat="-38.671490" lon="178.030000">
+        <ele>6.4</ele>
+      </trkpt>
+      <trkpt lat="-38.534869" lon="177.910269">
+        <ele>25.0</ele>
+      </trkpt>
+      <trkpt lat="-38.454870" lon="177.777715">
+        <ele>55.5</ele>
+      </trkpt>
+      <trkpt lat="-38.391216" lon="177.640016">
+        <ele>324.0</ele>
+      </trkpt>
+      <trkpt lat="-38.280818" lon="177.541235">
+        <ele>500.8</ele>
+      </trkpt>
+      <trkpt lat="-38.171630" lon="177.506072">
+        <ele>532.0</ele>
+      </trkpt>
+      <trkpt lat="-38.121403" lon="177.409473">
+        <ele>87.9</ele>
+      </trkpt>
+      <trkpt lat="-38.007027" lon="177.287120">
+        <ele>7.4</ele>
+      </trkpt>
+      <trkpt lat="-38.033385" lon="177.442416">
+        <ele>68.7</ele>
+      </trkpt>
+      <trkpt lat="-38.137958" lon="177.493233">
+        <ele>530.8</ele>
+      </trkpt>
+      <trkpt lat="-38.237278" lon="177.543696">
+        <ele>655.4</ele>
+      </trkpt>
+      <trkpt lat="-38.363642" lon="177.508159">
+        <ele>527.2</ele>
+      </trkpt>
+      <trkpt lat="-38.486683" lon="177.438705">
+        <ele>608.5</ele>
+      </trkpt>
+      <trkpt lat="-38.530236" lon="177.547100">
+        <ele>305.0</ele>
+      </trkpt>
+      <trkpt lat="-38.565055" lon="177.721099">
+        <ele>138.1</ele>
+      </trkpt>
+      <trkpt lat="-38.640776" lon="177.882993">
+        <ele>12.5</ele>
+      </trkpt>
+      <trkpt lat="-38.670430" lon="178.009537">
+        <ele>6.9</ele>
+      </trkpt>
+      <trkpt lat="-38.671490" lon="178.030000">
+        <ele>6.4</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Te Awa to Kawhia -Hamilton Raglan K O  loop</name>
+    <trkseg>
+      <trkpt lat="-37.790970" lon="175.265990">
+        <ele>42.6</ele>
+      </trkpt>
+      <trkpt lat="-37.681720" lon="175.176695">
+        <ele>20.3</ele>
+      </trkpt>
+      <trkpt lat="-37.643061" lon="175.026034">
+        <ele>70.5</ele>
+      </trkpt>
+      <trkpt lat="-37.786940" lon="174.974196">
+        <ele>32.0</ele>
+      </trkpt>
+      <trkpt lat="-37.817041" lon="174.857113">
+        <ele>26.7</ele>
+      </trkpt>
+      <trkpt lat="-37.909736" lon="174.907769">
+        <ele>207.9</ele>
+      </trkpt>
+      <trkpt lat="-38.018553" lon="174.879463">
+        <ele>56.1</ele>
+      </trkpt>
+      <trkpt lat="-38.045199" lon="174.888633">
+        <ele>17.1</ele>
+      </trkpt>
+      <trkpt lat="-38.156427" lon="174.949148">
+        <ele>69.4</ele>
+      </trkpt>
+      <trkpt lat="-38.237014" lon="175.008301">
+        <ele>393.4</ele>
+      </trkpt>
+      <trkpt lat="-38.217984" lon="175.131496">
+        <ele>78.5</ele>
+      </trkpt>
+      <trkpt lat="-38.218659" lon="175.310762">
+        <ele>66.3</ele>
+      </trkpt>
+      <trkpt lat="-38.193000" lon="175.458032">
+        <ele>88.1</ele>
+      </trkpt>
+      <trkpt lat="-38.144853" lon="175.563488">
+        <ele>123.9</ele>
+      </trkpt>
+      <trkpt lat="-38.034492" lon="175.642103">
+        <ele>153.8</ele>
+      </trkpt>
+      <trkpt lat="-37.924096" lon="175.536467">
+        <ele>74.6</ele>
+      </trkpt>
+      <trkpt lat="-37.846791" lon="175.380010">
+        <ele>57.0</ele>
+      </trkpt>
+      <trkpt lat="-37.790970" lon="175.265710">
+        <ele>42.3</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
