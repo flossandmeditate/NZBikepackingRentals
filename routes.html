@@ -1585,7 +1585,7 @@ function getInitialFilterFromUrl(){
 function shouldIncludeDisabledRoutesFromUrl(){
   const params = new URLSearchParams(location.search);
   const id = String(params.get('id') || '').trim().toLowerCase();
-  return id === 'allroutes' || id === 'hidden';
+  return id === 'allroutes';
 }
 
 function shouldShowOnlyDisabledRoutesFromUrl(){
@@ -2930,7 +2930,11 @@ window.addEventListener('DOMContentLoaded', () => {
     try {
       const catalog = await fetchRoutesCatalog();
       const onlyHiddenRoutes = shouldShowOnlyDisabledRoutesFromUrl();
-      entries = includeDisabledRoutes ? catalog : onlyHiddenRoutes ? catalog.filter(route => route?.disabled) : catalog.filter(route => !route?.disabled);
+      if(onlyHiddenRoutes){
+        entries = catalog.filter(route => route?.disabled);
+      } else {
+        entries = includeDisabledRoutes ? catalog : catalog.filter(route => !route?.disabled);
+      }
     } catch(e){ console.warn('routes.json fetch failed', e); }
 
     if(!entries.length) {
