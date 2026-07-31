@@ -5,21 +5,23 @@
     "contributedby":  "",
     "contributedbyURL":  "",
     "name":  "Remutaka Cycle Trail Loop",
-    "days":  "1-2",
-    "distanceLabel":  "80 km",
-    "totalElevationMeters":  1100,
-    "surfaceSplit":  "60% Gravel / 40% Road",
+    "days":  "2-3",
+    "distanceLabel":  "144 km",
+    "totalElevationMeters":  1400,
+    "surfaceSplit":  "55% Gravel / 45% Road",
     "recommendedBike":  "Gravel Bike",
     "difficultyLevel":  "intermediate",
     "difficulty":  "3/5",
-    "description":  "A compact Wellington-region loop that mixes forest roads, rolling climbs and classic river-valley scenery.",
+    "description":  "A full Remutaka Great Ride loop linking river trail, rail trail, lake-edge roads and exposed south-coast riding.",
     "bestSeason":  "Spring to Autumn",
     "moreInfo":  [
-                     "https://ridewithgps.com/routes/40148824"
+                     "https://ridewithgps.com/routes/40148824",
+                     "https://www.wellingtonnz.com/visit/trails/remutaka-cycle-trail",
+                     "https://www.nzcycletrail.com/find-your-ride/23-great-rides/remutaka-cycle-trail"
                  ],
     "youtubeVideos":  [],
     "tags":  [
-                 "short",
+                 "medium",
                  "north island",
                  "intermediate difficulty"
              ],
@@ -31,17 +33,17 @@
     "disabled":  true,
     "routeProfile":  {
                          "adventure":  3,
-                         "scenery":  4,
+                         "scenery":  3,
                          "technical":  2,
-                         "climbing":  3,
+                         "climbing":  4,
                          "remoteness":  2
                      },
     "text1":  [
-                  "Another great New Zealand ride that starts in Petone and finishes in Wellington.",
-                  "Highlights include the Wainuiomata Coast Road and the Remutaka Rail Trail, giving the route a strong mix of coastal scenery, forested sections and classic rail-trail riding.",
-                  "The wind can make this ride quite challenging, especially on exposed stretches where pacing and shelter become important.",
-                  "There are limited accommodation options in Featherston, so if you want to finish the ride over two days, it is worth planning that section carefully."
+                  "This loop is a full-value Wellington region bikepacking ride that starts and finishes in Petone, combining multiple sections of the Remutaka Great Ride with a return leg back to the harbour.",
+                  "Expect a broad mix of terrain: mostly easy-rolling river trail, historic rail-trail climbing over the Remutaka Incline, quiet lake-edge roads, and exposed coastal stretches where conditions can shift quickly.",
+                  "Distance and total climbing are substantial for a weekend mission, so most riders will enjoy this as a 2-3 day trip rather than a rushed overnighter.",
+                  "Featherston is the main service and overnight hub on the eastern side, and planning food, water and transport options in advance makes the ride far more relaxed."
               ],
-    "text2":  "The route works best as a compact overnighter or a fast-paced weekend ride, depending on how much time you want to spend enjoying the scenery and how much climbing you want to take on. The combination of sealed roads, gravel segments and rail-trail sections makes it feel varied without being overly technical.\n\nA gravel bike is a natural fit here, though a sturdy road bike with wider tyres could still work well if you are happy to keep the pace steady. The main thing is to be prepared for changing surface quality and occasional wind exposure.",
-    "text3":  "Weather and wind are the biggest factors to respect on this ride. Even on a calm day, the exposed sections can feel much tougher than the distance suggests, so pack a shell and be ready to adjust your pace.\n\nIf you are travelling from outside the region, it is worth checking road and trail conditions before you go, especially if you plan to finish in Featherston or want to keep the ride flexible for a two-day format."
+    "text2":  "This route follows the character of the official Remutaka Cycle Trail, which is generally promoted as an intermediate 2-3 day ride. While technical riding is moderate, the overall challenge comes from cumulative distance, sustained headwind risk, and the need to keep moving efficiently across mixed surfaces.\n\nA gravel bike with reliable puncture protection is the best all-round choice, though a hardtail is also a strong option if comfort on rougher sections matters more than road speed.",
+    "text3":  "Wind and weather are the key variables here, especially along the southern coast and other exposed sections. Build flexibility into your daily plan, carry an extra warm layer, and check live trail alerts before departure.\n\nAt the time of update, temporary closures have affected parts of the Rail Trail near Cross Creek, so always verify current status through official trail channels before committing to the full loop."
 }
