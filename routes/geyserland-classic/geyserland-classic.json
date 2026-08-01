@@ -2,23 +2,26 @@
     "id":  "geyserland-classic",
     "file":  "routes/geyserland-classic/Geyserland Classic.gpx",
     "rideWithGpsUrl":  "https://ridewithgps.com/routes/41641163",
-    "contributedby":  "",
-    "contributedbyURL":  "",
+    "contributedby":  "Erik Westra",
+    "contributedbyURL":  "https://geyserlandbikepackingadventures.nz/",
     "name":  "Geyserland Classic",
-    "days":  "2-4",
+    "days":  "2-3",
     "distanceLabel":  "235 km",
     "totalElevationMeters":  2700,
     "surfaceSplit":  "25% Gravel / 75% Road",
     "recommendedBike":  "Gravel Bike",
     "difficultyLevel":  "intermediate",
     "difficulty":  "3/5",
-    "description":  "A fast-moving geothermal loop linking Rotorua's forest roads, lakes and backcountry sectors.",
-    "bestSeason":  "Year Round",
+    "description":  "A three-day Rotorua loop linking lakes, quiet backroads, the coast and geothermal country.",
+    "bestSeason":  "Nov - May",
     "moreInfo":  [
-                     "https://ridewithgps.com/routes/41641163",
-                     "https://www.greatkiwigravel.com/"
+                     "https://geyserlandbikepackingadventures.nz/events/123-2/",
+                     "https://kaihopu.myportfolio.com/geyserland-gravel-grind",
+                     "https://www.facebook.com/groups/546359062233738/",
+                     "https://www.bikingpheasant.com/classic-geyserland-gravel-grind-2018/",
+                     "https://www.rotoruatrailstrust.co.nz/trailsmap"
                  ],
-    "youtubeVideos":  [],
+    "youtubeVideos":  ["https://youtu.be/sGw8YhQAnEw?si=0vev8YPoHlaP4eHV"],
     "tags":  [
                  "short",
                  "north island",
@@ -32,16 +35,14 @@
     "disabled":  true,
     "routeProfile":  {
                          "adventure":  3,
-                         "scenery":  5,
+                         "scenery":  4,
                          "technical":  2,
                          "climbing":  3,
-                         "remoteness":  2
+                         "remoteness":  3
                      },
     "text1":  [
-                  "The Geyserland Classic is a Rotorua-based loop built for riders who want a compact bikepacking trip with real variety. In just over 230km it combines sealed backroads, rolling gravel sectors and a handful of longer rural drags, then keeps bringing you back to lakes, native forest and geothermal country.",
-                  "Compared with rougher backcountry routes, this one rides quickly and suits a loaded gravel bike well. The key challenge is not technical terrain but rhythm: repeated climbs, changing surfaces and weather exposure can turn a straightforward day into a big one if you start late or linger too long at viewpoints.",
-                  "It works equally well as a hard two-day push or a more relaxed long weekend mission. If you pace it over three to four days, there is enough flexibility to add side stops and still keep daily distances comfortable."
+                  "Erik Westra runs the Geyserland Classic as a friendly annual bikepacking event, alongside the shorter Geyserland Mini and the much larger Geyserland Mega. Join the event for the shared experience, or ride the publicly accessible route independently at any time of year."
               ],
-    "text2":  "Use Rotorua as your main logistics hub before and after the ride. Food, bike supplies and accommodation are easy to organize there, and the loop format means transport planning is simple compared with one-way routes.\n\nSurface-wise this route is mostly road with a meaningful gravel component, so 38-45mm tyres are a sweet spot for comfort and speed. A light setup is usually best, because there are enough climbs that bike weight is noticeable by the end of each day.\n\nWater and services are generally manageable compared with more remote NZ routes, but do not treat every settlement as a guaranteed resupply. Carry enough to bridge longer stretches, especially if you are riding outside peak travel periods.",
-    "text3":  "The biggest risk factor is weather volatility rather than technical riding. Rain can make some gravel sectors slower and colder than expected, while wind can dramatically change moving speed on exposed roads. Pack a proper waterproof layer even in summer.\n\nBecause this is a route many riders will complete quickly, there is a temptation to overcommit early. Keep some margin for late-day navigation, mechanicals and reduced daylight in shoulder seasons.\n\nCheck the latest route version on Ride with GPS before departure, and plan daily finish points that give you more than one accommodation or camping option in case your timing changes."
+    "text2":  "The Geyserland Classic is a 235 km loop from Rotorua to Matatā, returning through Rerewhakaaitu, Waikite Valley and the Te Ara Ahi cycleway. Expect quiet backroads, rolling gravel, lakes and plenty of climbing.<br>The riding is mostly non-technical but the remoteness and long gaps between services make it a proper bikepacking challenge. Ride it over three relaxed days or a more demanding overnighter.",
+    "text3":  "Rotorua is the natural start and finish, with plenty of accommodation and shops. Sneak in a couple of mountainbiking laps in the redwoods while you are in town - the trails are world class. <br>Resupply is available in Matatā, Te Teko and Waiotapu, but there is no reliable water between Te Teko and Rerewhakaaitu. "
 }
