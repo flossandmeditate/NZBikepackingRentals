@@ -78,6 +78,13 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 .main{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(340px,1fr);gap:28px;padding:42px 64px 18px;background:var(--bone)}
 .article,.route-facts{min-width:0}
 .article p{font-size:17px;line-height:1.75;margin:0 0 18px}
+.article #route-summary a,
+.article #route-summary a:visited,
+.article #route-summary a:hover,
+.article #route-summary a:active{
+	color:var(--rust);
+	text-decoration:none;
+}
 .article h2{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;text-transform:uppercase;font-size:34px;margin:28px 0 10px}
 .article > h2:first-child{margin-top:6px}
 .gallery{margin:20px 0}
@@ -1236,6 +1243,41 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		}[ch]));
 	}
 
+	function getSafeExternalUrl(value){
+		try {
+			const parsed = new URL(String(value || '').trim());
+			if(parsed.protocol === 'http:' || parsed.protocol === 'https:'){
+				return parsed.href;
+			}
+			return '';
+		} catch {
+			return '';
+		}
+	}
+
+	function renderInlineRichText(value){
+		const input = String(value || '');
+		const linkRegex = /\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)/gi;
+		let lastIndex = 0;
+		let html = '';
+		let match;
+
+		while((match = linkRegex.exec(input)) !== null){
+			html += escapeHtml(input.slice(lastIndex, match.index));
+			const label = String(match[1] || '').trim();
+			const safeHref = getSafeExternalUrl(match[2]);
+			if(safeHref){
+				html += `<a href="${escapeHtml(safeHref)}" target="_blank" rel="noreferrer noopener">${escapeHtml(label || safeHref)}</a>`;
+			} else {
+				html += escapeHtml(match[0]);
+			}
+			lastIndex = linkRegex.lastIndex;
+		}
+
+		html += escapeHtml(input.slice(lastIndex));
+		return html;
+	}
+
 	function renderRouteSummary(route, difficultyProfile){
 		const summaryContainer = document.getElementById('route-summary');
 		if(!summaryContainer) return;
@@ -1247,7 +1289,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 				.filter(Boolean);
 
 			if(!parts.length) return '';
-			return parts.map(part => `<p>${escapeHtml(part)}</p>`).join('');
+			return parts.map(part => `<p>${renderInlineRichText(part)}</p>`).join('');
 		}
 
 		if(Array.isArray(route?.text1) && route.text1.length){
@@ -1495,7 +1537,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 			.split(/<br\s*\/?>/i)
 			.map(part => part.trim())
 			.filter(Boolean)
-			.map(part => `<p>${escapeHtml(part)}</p>`)
+			.map(part => `<p>${renderInlineRichText(part)}</p>`)
 			.join('');
 		const localNotesText = route.text3 || route.tips || 'Check weather windows, confirm resupply timing, and carry backup navigation.';
 		const localNotesHtml = renderParagraphBlocks(localNotesText);

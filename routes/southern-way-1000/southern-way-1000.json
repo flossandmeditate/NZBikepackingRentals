@@ -5,24 +5,32 @@
     "contributedby":  "",
     "contributedbyURL":  "",
     "name":  "Southern Way 1000",
-    "days":  "8-14",
+    "days":  "7-14",
     "distanceLabel":  "900 km",
-    "totalElevationMeters":  10100,
-    "surfaceSplit":  "80% Gravel / 20% Road",
+    "totalElevationMeters":  10000,
+    "surfaceSplit":  "83% Gravel / 17% Road",
     "recommendedBike":  "Gravel Bike",
-    "difficultyLevel":  "intermediate",
-    "difficulty":  "3/5",
-    "description":  "A lower South Island mega-loop linking Great Rides and long gravel connectors into one sustained tour.",
+    "difficultyLevel":  "hard",
+    "difficulty":  "4/5",
+    "description":  "Seven Great Rides connected into one epic lower South Island loop.",
     "bestSeason":  "Nov - Apr",
     "moreInfo":  [
-                     "https://ridewithgps.com/routes/54956657",
-                     "http://southernway1000.nz"
+                     "https://www.trailhub.co.nz/itineraries/southern-way-1000/",
+                     "https://southernway.nz/southern-way-1000/",
+                     "https://www.southernlakestrails.nz/kawarau-gorge-trail",
+                     "https://www.aroundthemountains.co.nz/",
+                     "https://www.nzcycletrail.com/find-your-ride/heartland-rides/nevis-valley",
+                     "https://www.cluthagold.co.nz/",
+                     "https://www.otagocentralrailtrail.co.nz/",
+                     "https://www.centralotagonz.com/tracks-and-trails/lake-dunstan-trail/",
+                     "https://queenstowntrails.org.nz/"
+                     
                  ],
-    "youtubeVideos":  [],
+    "youtubeVideos":  ["https://www.youtube.com/watch?v=ZepXSGsSeew"],
     "tags":  [
                  "long",
                  "south island",
-                 "intermediate difficulty"
+                 "hard"
              ],
     "similarRoutes":  [
                           "tuatara-1000",
@@ -31,17 +39,15 @@
                       ],
     "disabled":  true,
     "routeProfile":  {
-                         "adventure":  4,
+                         "adventure":  5,
                          "scenery":  5,
-                         "technical":  2,
+                         "technical":  3,
                          "climbing":  4,
                          "remoteness":  4
                      },
     "text1":  [
-                  "Southern Way 1000 is a major South Island bikepacking journey built around a chain of established cycle trails and long connective gravel sectors. The route is designed as a full-scale expedition rather than a single trail, with big landscape transitions from alpine basins to river gorges, high-country stations and coastal edges.",
-                  "The current RWGPS line is just over 900km, while the wider Southern Way concept is presented as a route of up to 1,000km depending on options and updates. Either way, this is a serious multi-day mission where consistency matters more than daily heroics.",
-                  "A key appeal is how much dedicated trail infrastructure is included in one continuous trip. Waypoints on this version reference hallmark sections such as Around the Mountains, Lake Dunstan Trail, Otago Central Rail Trail, Clutha Gold and the Roxburgh Gorge corridor, creating a route that feels varied without becoming overly technical."
+                  "Launched in June 2026, the Southern Way 1000 is a new figure-eight bikepacking route through Otago and Southland. It links seven Great Rides: the Queenstown Trails, Around the Mountains, Roxburgh Gorge, Clutha Gold, Otago Central Rail Trail, Lake Dunstan Trail and the new Kawarau Gorge Trail.<br>The classic circuit is around 910 km, while recommended side trips bring the full journey close to 1,000 km. More than 80% is unpaved, including over 600 km of purpose-built cycle trail, with quiet rural and backcountry roads.<br><br>An excellent day by day itinerary has been put together by [trailhub](https://www.trailhub.co.nz/itineraries/southern-way-1000) and is well worth checking out."
               ],
-    "text2":  "Logistically, this route is one of the more approachable long South Island adventures because it links multiple towns and established trail systems. That gives you regular opportunities for food, accommodation and mechanical support, especially compared with fully remote backcountry lines.\n\nEven with those services, do not underestimate cumulative fatigue. Roughly ten thousand vertical metres spread over 900km still delivers repeated long days, and weather disruptions can quickly erase schedule buffer. For most riders, an 8-14 day plan is realistic depending on fitness, weather and how many side explorations are added.\n\nThere are route-specific connectors that require planning, including water-transport links on some trail gaps (for example the Roxburgh Gorge connection and Otago Harbour crossing where applicable). Confirm current operations and booking requirements before departure.",
-    "text3":  "The biggest planning trap on Southern Way is assuming that established trails automatically mean easy conditions. Wind, rain and temperature swings in the lower South Island can be significant in any month, and exposed sectors can become slow and energy-intensive.\n\nCarry a dependable layering system, lights for shoulder-season days, and enough repair capacity for consecutive rough-surface stages. Treat your itinerary as a framework, not a fixed script, and keep contingency options for weather holds or transport timing changes.\n\nAlways check the latest official route notes and RWGPS updates before rolling out. This route is evolving, and connector details can change as new sections open or temporary detours are introduced."
+    "text2":  "The route is divided into seven stages and normally takes one to two weeks, although each stage or Great Ride also works as a shorter trip. You can start anywhere, but Queenstown and Dunedin are the easiest access points, with airports, shops and transport options.",
+    "text3":  "Most of the riding is straightforward. The exception is the remote Grade 4 Nevis Road stage, which requires backcountry experience, suitable equipment and favourable weather."
 }
