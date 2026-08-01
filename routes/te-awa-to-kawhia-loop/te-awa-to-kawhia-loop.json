@@ -1,23 +1,27 @@
 {
     "id":  "te-awa-to-kawhia-loop",
     "file":  "routes/te-awa-to-kawhia-loop/Te Awa to Kawhia Loop.gpx",
-    "rideWithGpsUrl":  "https://ridewithgps.com/routes/54614154",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/56437303",
     "contributedby":  "",
     "contributedbyURL":  "",
-    "name":  "Te Awa to Kawhia Loop",
-    "days":  "3-6",
-    "distanceLabel":  "338 km",
+    "name":  "Te Awa to Kāwhia Loop",
+    "days":  "4-6",
+    "distanceLabel":  "345 km",
     "totalElevationMeters":  4100,
     "surfaceSplit":  "20% Gravel / 80% Road",
     "recommendedBike":  "Gravel Bike",
     "difficultyLevel":  "intermediate",
-    "difficulty":  "3/5",
-    "description":  "A Waikato crossover loop blending Te Awa River Ride flow with Raglan coast and the Kawhia backroad approach.",
-    "bestSeason":  "Year Round",
+    "difficulty":  "2/5",
+    "description":  "Grand Waikato loop linking riverside trails and remote west coast gravel around Kāwhia.",
+    
+    "bestSeason":  "Nov - May",
     "moreInfo":  [
-                     "https://ridewithgps.com/routes/54614154"
+                     "https://www.kennett.co.nz/",
+                     "https://www.kennett.co.nz/product/bikepacking-aotearoa",
+                     "https://www.nzcycletrail.com/find-your-ride/bikepacking/popular-bikepacking-routes/raglan-to-te-awa-loop",
+                     "https://www.te-awa.org.nz/trail-map/"
                  ],
-    "youtubeVideos":  [],
+    "youtubeVideos":  ["https://www.youtube.com/watch?v=bKYhkfZHJKA"],
     "tags":  [
                  "short",
                  "north island",
@@ -31,16 +35,15 @@
     "disabled":  true,
     "routeProfile":  {
                          "adventure":  3,
-                         "scenery":  4,
-                         "technical":  2,
+                         "scenery":  3,
+                         "technical":  1,
                          "climbing":  3,
                          "remoteness":  3
                      },
     "text1":  [
-                  "Te Awa to Kawhia Loop combines the accessible river-path riding of the Waikato corridor with a much wilder west-coast feel once you swing out toward Raglan and Kawhia. It is a smart mixed-terrain option for riders who want a substantial loop without highly technical off-road demands.",
-                  "The route starts with smoother momentum on Te Awa sections around Hamilton, then transitions into hillier and more exposed roads as it heads toward the coast. That contrast gives the route personality: efficient kilometres early, then a more adventurous and weather-shaped second half.",
-                  "At just under 340km, it is ideal for a long-weekend push or a more comfortable four-to-six-day tour. Riders who enjoy linking cycle-trail infrastructure with classic NZ rural road riding will find this one particularly rewarding."
+                  "Another fantastic Kennet Brothers' route combining the Te Awa river trail with the wild remote West Coast. Nothing too technical on this ride but you will need to be mindful of resupply spots in some of the more remote areas.<br>This substantial Waikato loop combines the smooth Te Awa River Ride with quiet rural roads, remote west-coast gravel and visits to the harbourside towns of Raglan and Kāwhia.<br> The riding is not especially technical, but don’t underestimate the distance or cumulative climbing. Long stretches between towns, exposed coastal weather and occasionally rough gravel make good preparation and reliable navigation important."
+
               ],
-    "text2":  "Hamilton is the natural logistics anchor for this loop, with easy pre-ride shopping, accommodation and transport access. Once on route, service density drops as you move toward coastal and rural sectors, so resupply timing still matters.\n\nA gravel or all-road setup works well here. The route is predominantly sealed but includes enough gravel and variable shoulder quality that slightly wider tyres improve comfort and confidence, especially when carrying gear.\n\nDaily planning should account for wind direction and coastal exposure as much as distance. A day that looks moderate on paper can feel significantly bigger when crosswinds build on open sections between settlements.",
-    "text3":  "The loop is not highly technical, but it does demand solid road awareness and conservative weather judgement. Traffic conditions can vary by section, and some roads are narrow enough that visibility and light management become important safety factors.\n\nWest-coast weather can move quickly. Carry wet-weather layers, keep electronic navigation charged, and do not rely on a single food or water stop late in the day. Having one backup stop in mind each day reduces pressure and improves decision-making.\n\nBefore departure, confirm the latest route file and any known local works or detours on your RWGPS source. Small changes can materially affect timing on a loop with mixed urban, rural and coastal segments."
+    "text2":  "At 345 km, the loop works best as a four-to-six-day journey. Strong riders can complete it in a long weekend, while a slower itinerary leaves time for Raglan, Kāwhia and the smaller communities along the way.<br>The loop can be joined anywhere. Services are considerably more limited on the western side, so plan food and water before leaving the larger towns.",
+    "text3":  "Hamilton and Cambridge provide the broadest range of transport, accommodation and resupply. The route also passes through our home base in Raglan—drop into Cyclery Raglan for local advice, supplies or a quick bike check."
 }

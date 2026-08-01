@@ -1,61 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
   <trk>
-    <name>Te Awa to Kawhia -Hamilton Raglan K O  loop</name>
+    <name>Te Awa to Kāwhia Loop</name>
     <trkseg>
-      <trkpt lat="-37.790970" lon="175.265990">
-        <ele>42.6</ele>
+      <trkpt lat="-37.769235" lon="175.266909">
+        <ele>27.5</ele>
       </trkpt>
-      <trkpt lat="-37.681720" lon="175.176695">
-        <ele>20.3</ele>
+      <trkpt lat="-37.664849" lon="175.142550">
+        <ele>22.3</ele>
       </trkpt>
-      <trkpt lat="-37.643061" lon="175.026034">
-        <ele>70.5</ele>
+      <trkpt lat="-37.673842" lon="175.004224">
+        <ele>48.8</ele>
       </trkpt>
-      <trkpt lat="-37.786940" lon="174.974196">
-        <ele>32.0</ele>
+      <trkpt lat="-37.819348" lon="174.975537">
+        <ele>13.6</ele>
       </trkpt>
-      <trkpt lat="-37.817041" lon="174.857113">
-        <ele>26.7</ele>
+      <trkpt lat="-37.838760" lon="174.845398">
+        <ele>129.5</ele>
       </trkpt>
-      <trkpt lat="-37.909736" lon="174.907769">
-        <ele>207.9</ele>
+      <trkpt lat="-37.920181" lon="174.914537">
+        <ele>247.7</ele>
       </trkpt>
-      <trkpt lat="-38.018553" lon="174.879463">
-        <ele>56.1</ele>
+      <trkpt lat="-38.028297" lon="174.869805">
+        <ele>24.6</ele>
       </trkpt>
-      <trkpt lat="-38.045199" lon="174.888633">
-        <ele>17.1</ele>
+      <trkpt lat="-38.048906" lon="174.906495">
+        <ele>5.9</ele>
       </trkpt>
-      <trkpt lat="-38.156427" lon="174.949148">
-        <ele>69.4</ele>
+      <trkpt lat="-38.137038" lon="174.990183">
+        <ele>269.6</ele>
       </trkpt>
-      <trkpt lat="-38.237014" lon="175.008301">
-        <ele>393.4</ele>
+      <trkpt lat="-38.152080" lon="175.135594">
+        <ele>77.0</ele>
       </trkpt>
-      <trkpt lat="-38.217984" lon="175.131496">
-        <ele>78.5</ele>
+      <trkpt lat="-38.222199" lon="175.294506">
+        <ele>60.4</ele>
       </trkpt>
-      <trkpt lat="-38.218659" lon="175.310762">
-        <ele>66.3</ele>
+      <trkpt lat="-38.202526" lon="175.448049">
+        <ele>125.4</ele>
       </trkpt>
-      <trkpt lat="-38.193000" lon="175.458032">
-        <ele>88.1</ele>
+      <trkpt lat="-38.284707" lon="175.555784">
+        <ele>468.8</ele>
       </trkpt>
-      <trkpt lat="-38.144853" lon="175.563488">
-        <ele>123.9</ele>
+      <trkpt lat="-38.209172" lon="175.657015">
+        <ele>329.7</ele>
       </trkpt>
-      <trkpt lat="-38.034492" lon="175.642103">
-        <ele>153.8</ele>
+      <trkpt lat="-38.076085" lon="175.628804">
+        <ele>137.2</ele>
       </trkpt>
-      <trkpt lat="-37.924096" lon="175.536467">
-        <ele>74.6</ele>
+      <trkpt lat="-37.965024" lon="175.569774">
+        <ele>110.4</ele>
       </trkpt>
-      <trkpt lat="-37.846791" lon="175.380010">
-        <ele>57.0</ele>
+      <trkpt lat="-37.884388" lon="175.428070">
+        <ele>68.1</ele>
       </trkpt>
-      <trkpt lat="-37.790970" lon="175.265710">
-        <ele>42.3</ele>
+      <trkpt lat="-37.806321" lon="175.293907">
+        <ele>35.2</ele>
+      </trkpt>
+      <trkpt lat="-37.769750" lon="175.267270">
+        <ele>27.5</ele>
       </trkpt>
     </trkseg>
   </trk>

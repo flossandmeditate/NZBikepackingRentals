@@ -7,19 +7,24 @@
     "name":  "Remutaka Cycle Trail Loop",
     "days":  "2-3",
     "distanceLabel":  "144 km",
-    "totalElevationMeters":  1400,
-    "surfaceSplit":  "55% Gravel / 45% Road",
+    "totalElevationMeters":  1450,
+    "surfaceSplit":  "35% Gravel / 65   % Road",
     "recommendedBike":  "Gravel Bike",
     "difficultyLevel":  "intermediate",
     "difficulty":  "3/5",
-    "description":  "A full Remutaka Great Ride loop linking river trail, rail trail, lake-edge roads and exposed south-coast riding.",
-    "bestSeason":  "Spring to Autumn",
+    "description":  "Wellington’s wild and varied gravel weekender.",
+    "bestSeason":  "Nov - May",
     "moreInfo":  [
-                     "https://ridewithgps.com/routes/40148824",
+                     "https://www.nzcycletrail.com/find-your-ride/23-great-rides/remutaka-cycle-trail   ",
                      "https://www.wellingtonnz.com/visit/trails/remutaka-cycle-trail",
-                     "https://www.nzcycletrail.com/find-your-ride/23-great-rides/remutaka-cycle-trail"
+                     "https://www.doc.govt.nz/parks-and-recreation/places-to-go/wellington-kapiti/places/remutaka-forest-park/things-to-do/tracks/remutaka-rail-trail/",
+                     "https://remutakacycletrail.co.nz/",
+                     "https://www.newzealand.com/nz/feature/remutaka-cycle-trail/"
                  ],
-    "youtubeVideos":  [],
+    "youtubeVideos":  [
+        "https://www.youtube.com/watch?v=BP3iD4xli-M",
+        "https://www.youtube.com/watch?v=-kyrSQql_rw"
+    ],
     "tags":  [
                  "medium",
                  "north island",
@@ -35,15 +40,14 @@
                          "adventure":  3,
                          "scenery":  3,
                          "technical":  2,
-                         "climbing":  4,
+                         "climbing":  2,
                          "remoteness":  2
                      },
     "text1":  [
                   "This loop is a full-value Wellington region bikepacking ride that starts and finishes in Petone, combining multiple sections of the Remutaka Great Ride with a return leg back to the harbour.",
-                  "Expect a broad mix of terrain: mostly easy-rolling river trail, historic rail-trail climbing over the Remutaka Incline, quiet lake-edge roads, and exposed coastal stretches where conditions can shift quickly.",
-                  "Distance and total climbing are substantial for a weekend mission, so most riders will enjoy this as a 2-3 day trip rather than a rushed overnighter.",
-                  "Featherston is the main service and overnight hub on the eastern side, and planning food, water and transport options in advance makes the ride far more relaxed."
+                  "Expect a broad mix of terrain: mostly easy-rolling river trail, historic rail-trail climbing over the Remutaka Incline, quiet lake-edge roads, and exposed coastal stretches where conditions can shift quickly."  
+                  
               ],
-    "text2":  "This route follows the character of the official Remutaka Cycle Trail, which is generally promoted as an intermediate 2-3 day ride. While technical riding is moderate, the overall challenge comes from cumulative distance, sustained headwind risk, and the need to keep moving efficiently across mixed surfaces.\n\nA gravel bike with reliable puncture protection is the best all-round choice, though a hardtail is also a strong option if comfort on rougher sections matters more than road speed.",
-    "text3":  "Wind and weather are the key variables here, especially along the southern coast and other exposed sections. Build flexibility into your daily plan, carry an extra warm layer, and check live trail alerts before departure.\n\nAt the time of update, temporary closures have affected parts of the Rail Trail near Cross Creek, so always verify current status through official trail channels before committing to the full loop."
+    "text2":   "Distance and total climbing are substantial for a weekend mission, so most riders will enjoy this as a 2-3 day trip rather than a rushed overnighter. <br> Featherston is the main service and overnight hub on the eastern side, and planning food, water and transport options in advance makes the ride far more relaxed.",
+    "text3":  "The Wild Coast is an exposed Grade 3–4 backcountry section. Check current trail conditions and the weather before leaving Featherston. Expect loose rock, sand, stream crossings and limited services.<br>Make sure your lights are charged as the Summit Tunnel is over 500m long and very dark!"
 }

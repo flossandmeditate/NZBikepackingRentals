@@ -2,23 +2,32 @@
     "id":  "motu-trails-320",
     "file":  "routes/motu-trails-320/Motu_Trails_320.gpx",
     "rideWithGpsUrl":  "https://ridewithgps.com/routes/56366732",
-    "contributedby":  "",
-    "contributedbyURL":  "",
+    "contributedby":  "Katrina Duncan ",
+    "contributedbyURL":  "https://www.facebook.com/cyclegisborne/",
     "name":  "Motu Trails 320",
     "days":  "3-5",
-    "distanceLabel":  "323 km",
+    "distanceLabel":  "320 km",
     "totalElevationMeters":  4700,
     "surfaceSplit":  "55% Gravel / 45% Road",
     "recommendedBike":  "Gravel Bike",
     "difficultyLevel":  "intermediate",
     "difficulty":  "3/5",
-    "description":  "A classic East Cape bikepacking loop linking the Dunes Trail, Pakihi Track and Motu back roads.",
-    "bestSeason":  "Oct - May",
+    "description":  "A wild East Cape loop combining the Motu Trails with remote forest roads and high-country backroads",
+    "bestSeason":  "Nov - May",
     "moreInfo":  [
-                     "https://ridewithgps.com/routes/56366732",
-                     "https://www.motutrails.co.nz/"
+        "https://cyclegisborne.com",
+       
+                     "https://www.motutrails.co.nz/",
+                     "https://tairawhititrails.nz/tracks-and-trails/pakihi-track",
+                     "https://www.nzcycletrail.com/find-your-ride/23-great-rides/motu-trails",
+                     "https://www.doc.govt.nz/parks-and-recreation/places-to-go/east-coast/places/urutawa-conservation-area/things-to-do/pakihi-hut/",
+                     "https://www.newzealand.com/nz/feature/motu-trails/",
+                     "https://www.whakatane.com/see-and-do/biking/motu-trails-cycleway"
                  ],
-    "youtubeVideos":  [],
+    "youtubeVideos":  ["https://www.youtube.com/watch?v=xJkuxa_dr4M",
+                        "https://www.youtube.com/watch?v=hAZnAjU2Bak",
+                    "https://www.youtube.com/watch?v=j_zgPo90i8E"
+                    ],
     "tags":  [
                  "short",
                  "north island",
@@ -33,15 +42,13 @@
     "routeProfile":  {
                          "adventure":  4,
                          "scenery":  4,
-                         "technical":  2,
-                         "climbing":  3,
+                         "technical":  4,
+                         "climbing":  4,
                          "remoteness":  4
                      },
     "text1":  [
-                  "Motu Trails 320 is one of the strongest medium-length bikepacking routes in the North Island, stitching together purpose-built trail with historic road corridors in the eastern Bay of Plenty and Tairawhiti/Gisborne region. The route includes the signature Motu experiences: coastal riding, old-school hill country and dense native forest sectors.",
-                  "The standout section for many riders is the Pakihi Track, a beautiful but serious backcountry trail that demands respect and good judgement. Around that core, the route mixes smoother kilometres with harder climbing days, making the overall experience feel much bigger than its raw distance number suggests.",
-                  "This is a route for riders who like contrast: ocean views and beach-edge riding one day, deep bush and remote valleys the next. It is a complete loop that can be ridden efficiently in three strong days or stretched out for a richer five-day tour."
+                  "Placeholder Text 1."
               ],
-    "text2":  "Most riders will organize logistics around Opotiki and/or Gisborne depending on transport and accommodation preferences. Before leaving, check current Motu trail conditions, because weather and slips can influence speed and section choice.\n\nA capable gravel bike can handle the full route in good conditions, but many riders prefer wider rubber and conservative gearing for comfort on rougher sectors and repeated climbs. The route has enough vertical gain that pacing and fuel strategy matter more than average speed.\n\nShuttle options and local services in the region can simplify planning if you need flexibility, especially for riders unfamiliar with the area. Even when touring, it pays to build each day around realistic climb totals rather than only headline distance.",
-    "text3":  "Pakihi Track is a genuine decision point: treat it as a backcountry segment, not a casual detour. Wet weather can quickly increase technical difficulty, and riders should be comfortable with variable surfaces, limited immediate support and changing conditions.\n\nCarry extra food, a robust repair kit and warm layers even if the forecast looks stable. East Coast weather windows can shift quickly, and exposed sections can become slow when wind or rain builds.\n\nPlan communication and regroup points if riding as a group. Conservative turnaround decisions are part of riding Motu well, and they usually lead to a better overall trip than forcing pace through marginal conditions."
+    "text2":  "Placeholder Text 2.",
+    "text3":  "Placeholder Text 3."
 }
