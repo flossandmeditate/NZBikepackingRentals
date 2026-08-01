@@ -41,7 +41,7 @@
     "routeProfile":  {
                          "adventure":  5,
                          "scenery":  5,
-                         "technical":  3,
+                         "technical":  2,
                          "climbing":  4,
                          "remoteness":  4
                      },
