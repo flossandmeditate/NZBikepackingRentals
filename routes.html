@@ -2844,6 +2844,7 @@ window.addEventListener('DOMContentLoaded', () => {
         let done = false;
         const layer = new L.GPX(encodeURI(fileUrl), {
           async: true,
+          gpx_options: {parseElements: ['track', 'route']},
           marker_options: {startIcon:null, endIcon:null, shadowUrl:null},
           polyline_options: {color, weight:BASE_W, opacity:0.9}
         });
@@ -2902,7 +2903,13 @@ window.addEventListener('DOMContentLoaded', () => {
       if(!res.ok) throw new Error(`GPX fetch failed: ${fileUrl}`);
       const xml = new DOMParser().parseFromString(await res.text(), 'text/xml');
       const gj = toGeoJSON.gpx(xml);
-      const layer = L.geoJSON(gj, {style:{color, weight:BASE_W, opacity:0.9}}).addTo(group);
+      const layer = L.geoJSON(gj, {
+        filter: feature => {
+          const type = feature?.geometry?.type;
+          return type !== 'Point' && type !== 'MultiPoint';
+        },
+        style:{color, weight:BASE_W, opacity:0.9}
+      }).addTo(group);
       layer.on('click',     () => selectRoute(entry.id));
       layer.on('mouseover', () => hoverOn(entry.id));
       layer.on('mouseout',  () => hoverOff(entry.id));
