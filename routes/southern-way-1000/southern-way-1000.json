@@ -37,7 +37,7 @@
                           "tour-aotearoa-south-island",
                           "shaky-isles-south"
                       ],
-    "disabled":  true,
+    "disabled":  false,
     "routeProfile":  {
                          "adventure":  5,
                          "scenery":  5,
