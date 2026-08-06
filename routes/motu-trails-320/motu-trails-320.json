@@ -51,4 +51,57 @@
               ],
     "text2":  "Placeholder Text 2.",
     "text3":  "Placeholder Text 3."
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

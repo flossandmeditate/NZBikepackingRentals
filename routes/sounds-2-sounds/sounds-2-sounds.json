@@ -49,4 +49,57 @@
               ],
     "text2":  "The character of the route changes constantly as it moves south: coastal riding gives way to the immense high-country spaces of Molesworth, the turquoise lakes of the Mackenzie Basin and the dramatic mountains and river valleys of Central Otago and Fiordland. Like riding through a greatest-hits of the South Island.",
     "text3":  "Resupply is straightforward in many places, but some remote sections require several days of food, careful accommodation planning and flexibility around weather or track conditions."
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

@@ -50,4 +50,57 @@
               ],
     "text2":  "This half of the Tour Aotearoa delivers extraordinary landscapes: native forest, abandoned mining country, wild beaches, alpine passes, turquoise lakes and the immense mountain scenery surrounding WÄnaka and Queenstown. Highlights include the Maungatapu Track, the remote settlements of Big River and Waiuta, the West Coast Wilderness Trail and the final journey across Southland to Stirling Point at Bluff.",
     "text3":  "The riding generally isn't technical, but rough backcountry tracks, sustained climbing and long distances make it a serious journey. West Coast weather can transform a comfortable day into a difficult one, while some sections require careful planning around food and accommodation."
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

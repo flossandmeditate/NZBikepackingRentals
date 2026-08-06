@@ -93,6 +93,12 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 .gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .45s ease;pointer-events:none}
 .gallery-slide.active{opacity:1;pointer-events:auto}
 .gallery-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-credit{position:absolute;right:10px;bottom:12px;z-index:4;display:inline-flex;align-items:baseline;gap:6px;max-width:min(78%,420px);padding:9px 12px;background:rgba(25,27,25,.82);color:#f2f0ea;border-radius:4px;font-family:Arial,sans-serif;font-size:8px;line-height:1;letter-spacing:.08em;text-transform:uppercase;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.28)}
+.gallery-credit.is-long{transform:translateY(-20px)}
+.gallery-credit:hover{background:rgba(25,27,25,.93);text-decoration:underline}
+.gallery-credit.is-text{cursor:default;text-decoration:none}
+.gallery-credit-label{opacity:.8;margin-right:0;font-weight:600;line-height:1}
+.gallery-credit-name{font-size:clamp(8px,1vw,10px);line-height:1;letter-spacing:.04em}
 .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border:0;border-radius:999px;background:rgba(20,23,20,.62);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .gallery-nav:hover{background:rgba(20,23,20,.78)}
 .gallery-nav.prev{left:12px}
@@ -265,6 +271,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 	.meta .box{min-height:88px}
 	.main{display:block;padding:30px 22px}
 	.gallery-track{height:260px}
+	.gallery-credit{right:8px;bottom:12px;padding:7px 9px;max-width:84%;font-size:7px}
 	.gallery-nav{width:38px;height:38px;font-size:22px}
 	.video-grid{grid-template-columns:1fr}
 	.rwgps-embed{height:560px}
@@ -302,6 +309,8 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 
 @media(max-width:600px){
 	.you-might-grid{grid-template-columns:1fr}
+	.gallery-credit{right:6px;bottom:30px;max-width:calc(100% - 12px);padding:6px 8px;font-weight:500}
+	.gallery-credit.is-long{transform:translateY(-1px)}
 }
 </style>
 </head>
@@ -619,6 +628,28 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 	function normalizeImagePath(path){
 		return String(path || '').trim().replace(/\\/g, '/').replace(/^\.\//, '').toLowerCase();
 	}
+	function sanitizeHttpUrl(value){
+		const raw = String(value || '').trim();
+		if(!raw) return '';
+		return /^https?:\/\//i.test(raw) ? raw : '';
+	}
+	function getRoutePhotoCredits(route){
+		const raw = route?.photoCredits;
+		if(!Array.isArray(raw)) return new Map();
+
+		const map = new Map();
+		raw.forEach(entry => {
+			if(!entry || typeof entry !== 'object') return;
+			const imageNumber = Number(entry.image);
+			if(!Number.isFinite(imageNumber) || imageNumber < 1) return;
+			const text = String(entry.text || '').trim();
+			const url = sanitizeHttpUrl(entry.url);
+			if(!text) return;
+			map.set(imageNumber, {text, url});
+		});
+
+		return map;
+	}
 	let apiRoutesCatalogPromise = null;
 	async function getApiRoutesCatalog(){
 		if(!apiRoutesCatalogPromise){
@@ -679,19 +710,25 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		const folder = getRouteFolderPath(route);
 		if(!folder) return [];
 
-		const fixedCandidates = Array.from({length:10}, (_, idx) => `${folder}/${idx + 1}.webp`)
-			.filter(photo => normalizeImagePath(photo) !== normalizedHighlight);
+		const fixedCandidates = Array.from({length:10}, (_, idx) => ({
+			src: `${folder}/${idx + 1}.webp`,
+			imageNumber: idx + 1
+		}))
+			.filter(item => normalizeImagePath(item.src) !== normalizedHighlight);
 
 		const checks = await Promise.all(
-			fixedCandidates.map(async candidate => ({
-				candidate,
-				exists: await canLoadImage(candidate)
+			fixedCandidates.map(async item => ({
+				...item,
+				exists: await canLoadImage(item.src)
 			}))
 		);
 
 		return checks
 			.filter(item => item.exists)
-			.map(item => encodeURI(item.candidate));
+			.map(item => ({
+				src: encodeURI(item.src),
+				imageNumber: item.imageNumber
+			}));
 	}
 	function parseDaysRange(value){
 		const numeric = Number(value);
@@ -1243,6 +1280,10 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		}[ch]));
 	}
 
+	function escapeAttr(value){
+		return escapeHtml(value);
+	}
+
 	function getSafeExternalUrl(value){
 		try {
 			const parsed = new URL(String(value || '').trim());
@@ -1344,10 +1385,21 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		return mod > 0 ? hash % mod : 0;
 	}
 
-	function initRouteGallery(container, photos, routeName){
+	function initRouteGallery(container, photos, routeName, route){
 		if(!container) return;
 
-		const items = Array.isArray(photos) ? photos.filter(Boolean) : [];
+		const items = Array.isArray(photos)
+			? photos
+				.map(item => {
+					if(typeof item === 'string') return {src:item, imageNumber:null};
+					if(item && typeof item === 'object' && item.src) return {
+						src: String(item.src),
+						imageNumber: Number.isFinite(Number(item.imageNumber)) ? Number(item.imageNumber) : null
+					};
+					return null;
+				})
+				.filter(item => item && item.src)
+			: [];
 		if(!items.length){
 			container.innerHTML = '';
 			container.style.display = 'none';
@@ -1356,11 +1408,24 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 
 		container.style.display = '';
 		const safeName = escapeHtml(routeName || 'Route photo');
-		const slidesHtml = items.map((src, idx) => `
+		const creditMap = getRoutePhotoCredits(route);
+		const slidesHtml = items.map((item, idx) => {
+			const credit = item.imageNumber ? creditMap.get(item.imageNumber) : null;
+			const creditText = credit && credit.text ? escapeHtml(credit.text) : '';
+			const creditClassSuffix = credit && credit.text && credit.text.trim().length > 25 ? ' is-long' : '';
+			const creditHref = credit && credit.url ? escapeAttr(credit.url) : '';
+			const creditHtml = creditText
+				? (creditHref
+					? `<a class="gallery-credit${creditClassSuffix}" href="${creditHref}" target="_blank" rel="noopener noreferrer"><span class="gallery-credit-label">Photo:</span><span class="gallery-credit-name">${creditText}</span></a>`
+					: `<span class="gallery-credit is-text${creditClassSuffix}"><span class="gallery-credit-label">Photo:</span><span class="gallery-credit-name">${creditText}</span></span>`)
+				: '';
+			return `
 			<div class="gallery-slide${idx === 0 ? ' active' : ''}" data-slide-index="${idx}">
-				<img src="${src}" alt="${safeName} photo ${idx + 1}" loading="lazy">
+				<img src="${item.src}" alt="${safeName} photo ${idx + 1}" loading="lazy">
+				${creditHtml}
 			</div>
-		`).join('');
+		`;
+		}).join('');
 		const dotsHtml = items.map((_, idx) => `
 			<button
 				type="button"
@@ -1499,7 +1564,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 
 			// Gallery remains the final load item.
 			const galleryPhotos = (await getRouteGalleryPhotos(route)).slice(0, 20);
-			initRouteGallery(gallery, galleryPhotos, route.name);
+			initRouteGallery(gallery, galleryPhotos, route.name, route);
 		}catch{
 			gallery.innerHTML = '';
 			gallery.style.display = 'none';
