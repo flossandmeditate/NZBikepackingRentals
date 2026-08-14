@@ -12,7 +12,7 @@
     "recommendedBike":  "Gravel Bike",
     "difficultyLevel":  "intermediate",
     "difficulty":  "3/5",
-    "description":  "Big hills, quiet roads and 500 kilometres of western Waikato.",
+    "description":  "Big hills, quiet roads and 500 kilometres through western Waikato.",
     "bestSeason":  "Nov - May",
     "moreInfo":  [
                      "https://www.raglanchronicle.co.nz/the-chronicle/2024/11/cyclist-launches-epic-annual-500km-bikepacking-adventure",
@@ -29,7 +29,7 @@
                           "te-awa-to-kawhia-loop",
                           "tour-aotearoa-north-island"
                       ],
-    "disabled":  true,
+    "disabled":  false,
     "routeProfile":  {
                          "adventure":  3,
                          "scenery":  3,
@@ -38,7 +38,7 @@
                          "remoteness":  3
                      },
    "text1": [
-  "The Raglan 500 is a demanding bikepacking loop that begins and ends in the coastal town of Raglan, covering around 500 kilometres of the western Waikato. Created by local cyclist Calvin Avison and run as an annual brevet-style event, the route combines quiet gravel roads, sealed backcountry lanes and a few scenic detours. The riding isn't technical, but the frequent hills and long distances between resupply points make it a serious endurance challenge.",
+  "The Raglan 500 is a demanding 500-kilometre bikepacking loop through the western Waikato, combining quiet gravel roads, sealed backcountry lanes, steep climbing and limited resupply options. Created by local cyclist Calvin Avison and run as an annual, brevet-style event, the route combines quiet gravel roads, sealed backcountry lanes and a few scenic detours. The riding isn't technical, but the frequent hills and long distances between resupply points make it a serious endurance challenge.",
   "The route can be ridden independently at any time of year, although Waikato's changeable weather can make conditions very different from one trip to the next. The annual Raglan 500 event takes place over Labour Weekend at the end of October, bringing riders together for a self-supported journey around the full loop with half and quarter variations also available."
 ],
 "text2": "Make sure you stop at Nikau Cave and Cafe for a feed, a chance to refill your bottles and perhaps a night's sleep. Services can be spread a long way apart, so take every opportunity to restock along the route.",
