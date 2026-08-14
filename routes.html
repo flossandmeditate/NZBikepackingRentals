@@ -1147,6 +1147,41 @@ a.route-img{
   display:block;
 }
 
+.leaflet-bar.map-basemap-control{
+  border:1px solid rgba(0,0,0,.28);
+  box-shadow:0 5px 14px rgba(0,0,0,.22);
+  margin-bottom:18px;
+}
+
+.leaflet-bar.map-basemap-control .map-basemap-toggle{
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--bone);
+  color:var(--green);
+  text-decoration:none;
+}
+
+.leaflet-bar.map-basemap-control .map-basemap-toggle:hover{
+  background:var(--mint);
+}
+
+.map-basemap-icon{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.map-basemap-icon path{
+  stroke:currentColor;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
+
 .map-section-fallback-fullscreen{
   position:fixed;
   inset:0;
@@ -1881,7 +1916,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const NZ_BOUNDS   = L.latLngBounds([-48.5, 165.0], [-33.8, 179.5]);
   const OVERVIEW_ZOOM_OFFSET = 1;
   const MOBILE_OVERVIEW_ZOOM_OFFSET = window.matchMedia('(max-width:760px)').matches ? -1 : 0;
-  const FULL_TRACK_ZOOM_STEPS = 2;
+  const FULL_TRACK_ZOOM_STEPS = 1;
   const BASE_W = 2, SEL_W = 5, HOV_W = 7;
   const DIM_COL = '#c8bfa8', DIM_OPA = 0.3;
   const DESKTOP_HIT_W = 20;
@@ -1897,10 +1932,71 @@ window.addEventListener('DOMContentLoaded', () => {
     minZoom: 5
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd', maxZoom: 19, noWrap: true,
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
-  }).addTo(routeMap);
+  const BASEMAPS = [
+    {
+      name: 'Voyager',
+      url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+      options: { subdomains: 'abcd', maxZoom: 19, noWrap: true, attribution: '&copy; OSM &copy; CARTO' },
+      bg: '#D5E8EB'
+    },
+    {
+      name: 'Satellite',
+      url: 'https://{s}.tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg',
+      options: { subdomains: 'abcdef', maxZoom: 19, maxNativeZoom: 14, noWrap: true, attribution: 'Sentinel-2 &copy; EOX/Copernicus' },
+      bg: '#162743'
+    },
+    {
+      name: 'Classic',
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      options: { subdomains: 'abc', maxZoom: 19, noWrap: true, attribution: '&copy; OSM' },
+      bg: '#AAD3DF'
+    },
+    {
+      name: 'Light',
+      url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+      options: { subdomains: 'abcd', maxZoom: 19, noWrap: true, attribution: '&copy; OSM &copy; CARTO' },
+      bg: '#D4DADC'
+    },
+    {
+      name: 'Dark',
+      url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+      options: { subdomains: 'abcd', maxZoom: 19, noWrap: true, attribution: '&copy; OSM &copy; CARTO' },
+      bg: '#262626'
+    },
+    {
+      name: 'Terrain',
+      url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+      options: { subdomains: 'abc', maxZoom: 17, noWrap: true, attribution: '&copy; OSM &copy; OpenTopoMap' },
+      bg: '#005393'
+    }
+  ];
+  let basemapIndex = 0;
+  let currentBasemapLayer = L.tileLayer(BASEMAPS[basemapIndex].url, BASEMAPS[basemapIndex].options).addTo(routeMap);
+
+  function applyBasemapBackground(basemap){
+    const mapContainer = routeMap.getContainer?.();
+    if(mapContainer && basemap?.bg) mapContainer.style.background = basemap.bg;
+  }
+
+  applyBasemapBackground(BASEMAPS[basemapIndex]);
+
+  function setBasemap(index){
+    const basemap = BASEMAPS[index];
+    if(!basemap) return;
+
+    const nextLayer = L.tileLayer(basemap.url, basemap.options).addTo(routeMap);
+    nextLayer.bringToBack();
+
+    if(currentBasemapLayer) routeMap.removeLayer(currentBasemapLayer);
+
+    currentBasemapLayer = nextLayer;
+    basemapIndex = index;
+    applyBasemapBackground(basemap);
+  }
+
+  function cycleBasemap(){
+    setBasemap((basemapIndex + 1) % BASEMAPS.length);
+  }
 
   const mapElement = document.getElementById('route-map');
   const mapSectionElement = document.querySelector('.map-section');
@@ -1992,6 +2088,30 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   routeMap.addControl(new FullscreenControl());
+
+  const BasemapControl = L.Control.extend({
+    options: { position: 'bottomleft' },
+    onAdd: function(){
+      const container = L.DomUtil.create('div', 'leaflet-bar map-basemap-control');
+      const button = L.DomUtil.create('a', 'map-basemap-toggle', container);
+      button.href = '#';
+      button.setAttribute('role', 'button');
+      button.setAttribute('title', 'Change map style');
+      button.setAttribute('aria-label', 'Change map style');
+      button.innerHTML = '<svg class="map-basemap-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="sr-only">Change map style</span>';
+
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+      L.DomEvent.on(button, 'click', function(event){
+        L.DomEvent.preventDefault(event);
+        cycleBasemap();
+      });
+
+      return container;
+    }
+  });
+
+  routeMap.addControl(new BasemapControl());
 
   document.addEventListener('fullscreenchange', () => {
     if(!document.fullscreenElement && isMapInFallbackFullscreen()) {
