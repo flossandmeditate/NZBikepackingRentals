@@ -1,0 +1,98 @@
+{
+    "id":  "raglan-500",
+    "file":  "routes/raglan-500/Raglan 500.gpx",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/47084339",
+    "contributedby":  "Calvin Avison",
+    "contributedbyURL":  "",
+    "name":  "Raglan 500",
+    "days":  "3-6",
+    "distanceLabel":  "500 km",
+    "totalElevationMeters":  8500,
+    "surfaceSplit":  "55% Gravel / 45% Road / 0% Track",
+    "recommendedBike":  "Gravel Bike",
+    "difficultyLevel":  "intermediate",
+    "difficulty":  "3/5",
+    "description":  "A varied Waikato loop with coastal sections, gravel roads, and steady climbing.",
+    "bestSeason":  "Nov - May",
+    "moreInfo":  [
+                     "https://www.raglanchronicle.co.nz/the-chronicle/2024/11/cyclist-launches-epic-annual-500km-bikepacking-adventure",
+                     "https://www.facebook.com/groups/747225017338580"
+                 ],
+    "youtubeVideos":  [],
+    "tags":  [
+                 "long",
+                 "north island",
+                 "intermediate difficulty"
+             ],
+    "similarRoutes":  [
+                          "shaky-isles-north",
+                          "te-awa-to-kawhia-loop",
+                          "tour-aotearoa-north-island"
+                      ],
+    "disabled":  true,
+    "routeProfile":  {
+                         "adventure":  3,
+                         "scenery":  3,
+                         "technical":  1,
+                         "climbing":  4,
+                         "remoteness":  3
+                     },
+   "text1": [
+  "The Raglan 500 is a demanding bikepacking loop that begins and ends in the coastal town of Raglan, covering around 500 kilometres of the western Waikato. Created by local cyclist Calvin Avison and run as an annual brevet-style event, the route combines quiet gravel roads, sealed backcountry lanes and a few scenic detours. The riding isn't technical, but the frequent hills and long distances between resupply points make it a serious endurance challenge.",
+  "The route can be ridden independently at any time of year, although Waikato's changeable weather can make conditions very different from one trip to the next. The annual Raglan 500 event takes place over Labour Weekend at the end of October, bringing riders together for a self-supported journey around the full loop with half and quarter variations also available."
+],
+"text2": "Make sure you stop at Nikau Cave and Cafe for a feed, a chance to refill your bottles and perhaps a night's sleep. Services can be spread a long way apart, so take every opportunity to restock along the route.",
+"text3": "Riders should be well prepared, carrying reliable navigation and repair equipment as well as plenty of food and water. Check the latest route, road conditions and weather forecast before setting off, then take your time and enjoy some of the best backcountry riding the western Waikato has to offer.",
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "Calvin Avison",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "Calvin Avison",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "Calvin Avison",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "Calvin Avison",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "Jason Mouat",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "Calvin Avison",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "Jason Mouat",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "Calvin Avison",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "Brett Beamsley",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "Brett Beamsley",
+                             "url":  ""
+                         }
+                     ]
+}
