@@ -53,4 +53,57 @@
               ],
     "text2":  "The route is divided into seven stages and normally takes one to two weeks, although each stage or Great Ride also works as a shorter trip. You can start anywhere, but Queenstown and Dunedin are the easiest access points, with airports, shops and transport options.",
     "text3":  "Most of the riding is straightforward. The exception is the remote Grade 4 Nevis Road stage, which requires backcountry experience, suitable equipment and favourable weather."
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "Geoff Marks",
+                             "url":  ""
+                         }
+                     ]
 }

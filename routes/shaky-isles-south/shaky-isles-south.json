@@ -54,4 +54,57 @@
                   "Weather is one of the South Island’s defining challenges. Fast incoming wind, rain (and snow!) can transform an otherwise straightforward section and some rivers and gravel roads may require care. Resupply options can be patchy so plan ahead.",
                   "Because Shaky Isles is still a young and evolving route, download Brian Alder’s latest official GPX file before leaving."
               ]
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "Joe Nation",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "Joe Nation",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

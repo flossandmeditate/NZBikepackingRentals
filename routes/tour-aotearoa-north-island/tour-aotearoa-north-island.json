@@ -1,7 +1,7 @@
 {
     "id":  "tour-aotearoa-north-island",
     "file":  "routes/tour-aotearoa-north-island/Tour Aotearoa - North Island.gpx",
-    "rideWithGpsUrl":  "https://ridewithgps.com/routes/45744252",
+    "rideWithGpsUrl":  "https://ridewithgps.com/routes/56653369",
     "contributedby":  "",
     "contributedbyURL":  "",
     "name":  "Tour Aotearoa - North Island",
@@ -49,4 +49,57 @@
               ],
     "text2":  "Ninety Mile Beach can be either a glorious introduction or one of the hardest days of the journey. Wind direction, tides and sand conditions make an enormous difference, so plan the start carefully and avoid riding close to high tide. Reaching Cape Reinga also takes some organisation, as public transport options are limited and many riders arrange a dedicated shuttle.",
     "text3":  "The North Island route is physically demanding rather than highly technical, with the challenge coming from repeated long days, changing surfaces and accumulated fatigue."
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

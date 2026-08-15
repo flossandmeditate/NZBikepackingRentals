@@ -54,4 +54,57 @@
                   "The Rāmeka and Porika tracks add further steep, rough and often slippery riding."
               ],
     "text3":  "You can make this route a 600km lap starting and finishing from Nelson; however, most people start in Murchinson or Westport."
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "Alan Danby",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "Alan Danby",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

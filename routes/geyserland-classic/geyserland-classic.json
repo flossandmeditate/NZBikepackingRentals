@@ -45,4 +45,57 @@
               ],
     "text2":  "The Geyserland Classic is a 235 km loop from Rotorua to Matatā, returning through Rerewhakaaitu, Waikite Valley and the Te Ara Ahi cycleway. Expect quiet backroads, rolling gravel, lakes and plenty of climbing.<br>The riding is mostly non-technical but the remoteness and long gaps between services make it a proper bikepacking challenge. Ride it over three relaxed days or a more demanding overnighter.",
     "text3":  "Rotorua is the natural start and finish, with plenty of accommodation and shops. Sneak in a couple of mountainbiking laps in the redwoods while you are in town - the trails are world class. <br>Resupply is available in Matatā, Te Teko and Waiotapu, but there is no reliable water between Te Teko and Rerewhakaaitu. "
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "Davide Mercanashido",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

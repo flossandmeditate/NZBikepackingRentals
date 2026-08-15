@@ -51,4 +51,57 @@
               ],
     "text2":  "Lots of sustained Grade 4 riding in here. This route is best treated as a serious backcountry bikepacking trip. Full suspension recommended but hard tails also work fine.",
     "text3":  "The Heaphy is a great walk and only accessible for bikes from May to November. Book your huts early and be ready for wet West Coast conditions. A repair kit, spare brake pads, warm layers and enough food between resupply points are essential. You can get the train from Christchurch to Greymouth to start the route, and then return with the bus from Takaka. The route can be done in either direction, but the Paparoa and Heaphy sections are best ridden northbound for the views and flow."
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "Alan Danby",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "Alan Danby",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "Alan Danby",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "Tom Hayes",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "Alan Danby",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "Tom Hayes",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

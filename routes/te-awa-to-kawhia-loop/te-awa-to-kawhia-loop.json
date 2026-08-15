@@ -46,4 +46,57 @@
               ],
     "text2":  "At 345 km, the loop works best as a four-to-six-day journey. Strong riders can complete it in a long weekend, while a slower itinerary leaves time for Raglan, Kāwhia and the smaller communities along the way.<br>The loop can be joined anywhere. Services are considerably more limited on the western side, so plan food and water before leaving the larger towns.",
     "text3":  "Hamilton and Cambridge provide the broadest range of transport, accommodation and resupply. The route also passes through our home base in Raglan—drop into Cyclery Raglan for local advice, supplies or a quick bike check."
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  9,
+                             "text":  "Monika Peters",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }

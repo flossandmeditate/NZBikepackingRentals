@@ -50,4 +50,57 @@
               ],
     "text2":   "Distance and total climbing are substantial for a weekend mission, so most riders will enjoy this as a 2-3 day trip rather than a rushed overnighter. <br> Featherston is the main service and overnight hub on the eastern side, and planning food, water and transport options in advance makes the ride far more relaxed.",
     "text3":  "The Wild Coast is an exposed Grade 3–4 backcountry section. Check current trail conditions and the weather before leaving Featherston. Expect loose rock, sand, stream crossings and limited services.<br>Make sure your lights are charged as the Summit Tunnel is over 500m long and very dark!"
+,
+    "photoCredits":  [
+                         {
+                             "image":  1,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  2,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  3,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  4,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  5,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  6,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  7,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  8,
+                             "text":  "Thomas Boeschenstein and Tighe Nutsford",
+                             "url":  "www.google.com"
+                         },
+                         {
+                             "image":  9,
+                             "text":  "",
+                             "url":  ""
+                         },
+                         {
+                             "image":  10,
+                             "text":  "",
+                             "url":  ""
+                         }
+                     ]
 }
