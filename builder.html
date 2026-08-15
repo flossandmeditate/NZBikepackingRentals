@@ -1360,6 +1360,11 @@ body{
       }
 
       setEnquiryStatus('Thank you for your enquiry, we will be in touch shortly.', 'success');
+if (typeof gtag === 'function') {
+  gtag('event', 'rental_enquiry');
+}
+
+
     } catch (err) {
       const errorText = err && err.message ? String(err.message) : '';
       if(errorText){

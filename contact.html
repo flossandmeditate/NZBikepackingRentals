@@ -744,7 +744,13 @@ body{
       }
 
       setEnquiryStatus('Thank you for your enquiry, we will be in touch shortly.', 'success');
-      el.form.reset();
+
+if (typeof gtag === 'function') {
+  gtag('event', 'contact_enquiry');
+}
+
+el.form.reset();
+
     } catch (err) {
       const errorText = err && err.message ? String(err.message) : '';
       if(errorText){
