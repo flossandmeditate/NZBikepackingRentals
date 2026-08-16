@@ -2348,7 +2348,7 @@ body{
       </a>
     </span>
         <span class="footer-copy">© <span id="footer-year"></span> Raglan Cyclery Limited</span>
-    <span class="site-version" aria-hidden="true">v1.002</span>
+    <span class="site-version" aria-hidden="true">v1.003</span>
   </footer>
 
 </div>
@@ -2544,26 +2544,16 @@ body{
 </script>
 
 <script>
-// Update route counts dynamically from API or split-route index
+// Update route counts from the static route index.
 (function() {
   async function updateRouteCounts() {
     try {
       let count = 0;
-      try {
-        const apiRes = await fetch('/api/routes', { cache: 'no-store' });
-        if (apiRes.ok) {
-          const routes = await apiRes.json();
-          count = Array.isArray(routes) ? routes.length : 0;
-        }
-      } catch {}
-
-      if (!count) {
-        const indexRes = await fetch('data/routes-index.json', { cache: 'no-store' });
-        if (indexRes.ok) {
-          const parsed = await indexRes.json();
-          const ids = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
-          count = ids.length;
-        }
+      const indexRes = await fetch('data/routes-index.json', { cache: 'no-store' });
+      if (indexRes.ok) {
+        const parsed = await indexRes.json();
+        const ids = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
+        count = ids.length;
       }
 
       const els = [

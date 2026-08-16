@@ -679,26 +679,6 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 
 		return map;
 	}
-	let apiRoutesCatalogPromise = null;
-	async function getApiRoutesCatalog(){
-		if(!apiRoutesCatalogPromise){
-			apiRoutesCatalogPromise = fetch('/api/routes', {cache:'no-store'})
-				.then(response => response.ok ? response.json() : null)
-				.catch(() => null);
-		}
-		return apiRoutesCatalogPromise;
-	}
-	async function getApiRouteGalleryPhotos(routeId, normalizedHighlight){
-		if(!routeId) return [];
-		const apiRoutes = await getApiRoutesCatalog();
-		if(!Array.isArray(apiRoutes) || !apiRoutes.length) return [];
-		const apiRoute = apiRoutes.find(item => item && item.id === routeId);
-		if(!apiRoute || !Array.isArray(apiRoute.galleryPhotos)) return [];
-		return apiRoute.galleryPhotos
-			.filter(isUsableImagePath)
-			.filter(photo => normalizeImagePath(photo).endsWith('.webp'))
-			.filter(photo => normalizeImagePath(photo) !== normalizedHighlight);
-	}
 	function getRouteFolderPath(route){
 		const highlight = String(route?.highlightImage || '').trim().replace(/\\/g, '/');
 		if(/^routes\//i.test(highlight) && highlight.includes('/')) return highlight.split('/').slice(0, -1).join('/');
@@ -891,11 +871,6 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		return fallbackMatch && fallbackMatch[1] ? fallbackMatch[1] : null;
 	}
 	async function fetchRoutesCatalog(){
-		try{
-			const apiCatalog = await getApiRoutesCatalog();
-			if(Array.isArray(apiCatalog) && apiCatalog.length) return apiCatalog;
-		}catch{}
-
 		const supabase = storageConfig?.supabase || {};
 		const isSupabaseMode = storageConfig?.mode === 'supabase' && supabase.url && supabase.anonKey;
 

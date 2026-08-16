@@ -1454,26 +1454,16 @@ body.map-fallback-fullscreen-open{
 </style>
 
 <script>
-// Update route count dynamically from API or split-route index
+// Update route count from the static route index.
 (function() {
   async function updateRouteCount() {
     try {
       let count = 0;
-      try {
-        const apiRes = await fetch('/api/routes', { cache: 'no-store' });
-        if (apiRes.ok) {
-          const routes = await apiRes.json();
-          count = Array.isArray(routes) ? routes.length : 0;
-        }
-      } catch {}
-
-      if (!count) {
-        const indexRes = await fetch('data/routes-index.json', { cache: 'no-store' });
-        if (indexRes.ok) {
-          const parsed = await indexRes.json();
-          const ids = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
-          count = ids.length;
-        }
+      const indexRes = await fetch('data/routes-index.json', { cache: 'no-store' });
+      if (indexRes.ok) {
+        const parsed = await indexRes.json();
+        const ids = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.routes) ? parsed.routes : []);
+        count = ids.length;
       }
 
       const el = document.getElementById('route-count');
@@ -1574,7 +1564,7 @@ body.map-fallback-fullscreen-open{
     </div>
   </section>
 
-  <!-- Routes below are generated from /api/routes or routes/<id>/<route-file>.json via data/routes-index.json. -->
+  <!-- Routes below are generated from routes/<id>/<route-file>.json via data/routes-index.json. -->
   <section class="island-section" id="all-routes-section">
     <div class="island-head">
       <h2 id="all-routes-title">All Routes</h2>
@@ -2567,13 +2557,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      const apiResponse = await fetch('/api/routes', {cache:'no-store'});
-      if(apiResponse.ok) {
-        return validateRouteCatalog(await apiResponse.json());
-      }
-    } catch {}
-
-    try {
       const indexResponse = await fetch(ROUTES_INDEX_URL, {cache:'no-store'});
       if(indexResponse.ok) {
         const parsed = await indexResponse.json();
@@ -3275,7 +3258,7 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch(e){ console.warn('routes.json fetch failed', e); }
 
     if(!entries.length) {
-      if(loadingTextEl) loadingTextEl.textContent='No routes found. Check /api/routes or data/routes-index.json';
+      if(loadingTextEl) loadingTextEl.textContent='No routes found. Check data/routes-index.json';
       return;
     }
 
