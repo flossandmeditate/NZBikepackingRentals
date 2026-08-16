@@ -625,6 +625,35 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		const start = stableIndexFromText(route?.id || route?.name, routePhotoFallbackPool.length);
 		return [routePhotoFallbackPool[start]];
 	}
+	function toAbsoluteShareUrl(value){
+		const raw = String(value || '').trim();
+		if(!raw) return '';
+		if(/^https?:\/\//i.test(raw)) return raw;
+		return `${window.location.origin}/${raw.replace(/^\.?\//, '')}`;
+	}
+	// Keeps in-page meta tags matching the loaded route, so client-rendered shares/bookmarks reflect this route rather than the static fallback text.
+	function syncRouteShareMeta(route){
+		const title = `${route.name} · NZ Bikepacking Rentals`;
+		const description = String(route.description || '').trim() || document.querySelector('meta[name="description"]')?.content || '';
+		const image = toAbsoluteShareUrl(getRoutePhotos(route)[0]);
+		const pageUrl = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(route.id || '')}`;
+
+		const setMetaContent = (selector, value) => {
+			if(!value) return;
+			const el = document.querySelector(selector);
+			if(el) el.setAttribute('content', value);
+		};
+
+		document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+		setMetaContent('meta[property="og:title"]', title);
+		setMetaContent('meta[property="og:description"]', description);
+		setMetaContent('meta[property="og:url"]', pageUrl);
+		setMetaContent('meta[property="og:image"]', image);
+		setMetaContent('meta[name="twitter:title"]', title);
+		setMetaContent('meta[name="twitter:description"]', description);
+		setMetaContent('meta[name="twitter:image"]', image);
+		document.querySelector('link[rel="canonical"]')?.setAttribute('href', pageUrl);
+	}
 	function normalizeImagePath(path){
 		return String(path || '').trim().replace(/\\/g, '/').replace(/^\.\//, '').toLowerCase();
 	}
@@ -1595,6 +1624,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		}
 
 		document.title = `${route.name} · NZ Bikepacking Routes`;
+		syncRouteShareMeta(route);
 		setText('route-name', route.name);
 		setText('route-desc', route.description);
 		trackRoutePageView(route);
