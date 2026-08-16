@@ -297,7 +297,7 @@ function getRouteShareDefaults(origin, currentPathWithSearch) {
   const fallbackImage = toAbsoluteUrl(origin, 'images/Logo.webp') || 'images/Logo.webp';
 
   return {
-    title: 'Route Details · NZ Bikepacking Rentals',
+    title: 'NZ Route Details',
     description: fallbackDescription,
     url: pageUrl,
     image: fallbackImage
