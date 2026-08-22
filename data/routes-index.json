@@ -45,6 +45,10 @@
                        "file":  "kopiko.json"
                    },
                    {
+                       "id":  "le-petit-brevet",
+                       "file":  "le-petit-brevet.json"
+                   },
+                   {
                        "id":  "mountains-to-sea",
                        "file":  "mountains-to-sea-nga-ara-tuhono.json"
                    },

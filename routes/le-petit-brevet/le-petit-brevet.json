@@ -1,0 +1,53 @@
+{
+    "id": "le-petit-brevet",
+    "file": "routes/le-petit-brevet/Le_Petit_Brevet_2025.gpx",
+    "rideWithGpsUrl": "https://ridewithgps.com/routes/32522038",
+    "contributedbyLabel": "ROUTE ORGANISER - ",
+    "contributedby": "Great Kiwi Gravel",
+    "contributedbyURL": "https://www.greatkiwigravel.com/le-petit-brevet",
+    "name": "Le Petit Brevet",
+    "days": "2-3",
+    "distanceLabel": "300 km",
+    "totalElevationMeters": 7000,
+    "surfaceSplit": "55% Gravel / 45% Road",
+    "recommendedBike": "Gravel Bike",
+    "difficultyLevel": "hard",
+    "difficulty": "4/5",
+    "description": "A demanding self-supported weekend brevet around the hills and bays of Banks Peninsula.",
+    "bestSeason": "Oct - April",
+    "moreInfo": [
+        "https://www.greatkiwigravel.com/le-petit-brevet",
+        "http://lepetitebrevet.blogspot.com/",
+        "https://eventshub.co.nz/events/le-petit-brevet-2025-1742-roman",
+        "https://www.greatkiwigravel.com/post/le-petit-brevet-2024-results"
+    ],
+    "youtubeVideos": [],
+    "tags": [
+        "short",
+        "south island",
+        "hard",
+        "bikepacking",
+        "event"
+    ],
+    "similarRoutes": [
+        "st-james-loop",
+        "alps-to-ocean",
+        "sounds-2-sounds"
+    ],
+    "disabled": true,
+    "routeProfile": {
+        "adventure": 4,
+        "scenery": 5,
+        "technical": 3,
+        "climbing": 5,
+        "remoteness": 2
+    },
+    "text1": [
+        "Le Petit Brevet is a Christchurch-to-Christchurch bikepacking challenge built around Banks Peninsula. It began in 2010 and has become a deliberately informal annual gathering: riders meet at Hansen Park, receive a short briefing, and then head into the peninsula under their own steam.",
+        "The established course choices have included a 200 km 'Nice Weekend Out', the 300 km 'Original-ish', and a longer route visiting more of the peninsula's bays. This listing uses the 300 km Original-ish distance as the main route profile; the organisers may publish different courses for a new edition.",
+        "Expect a big weekend rather than a conventional cycle trail. Banks Peninsula delivers volcanic ridgelines, open farmland, quiet coastal roads, gravel lanes, rough farm tracks and long views across the bays, with a great deal of climbing packed into the distance."
+    ],
+    "text2": "The ride is self-supported and intentionally low-key, with no formal race infrastructure or guaranteed aid stations. The route normally starts early on Saturday and allows roughly 38 hours on course, so riders can choose between a hard continuous effort and a more sociable overnight adventure. Duvauchelle, Akaroa, Little River and other settlements provide useful food and water opportunities, but opening hours and the exact course should be checked before departure.",
+    "text3": "Do not underestimate the climbing or the surface changes. Steep peninsula roads, exposed ridges, gates, grass or farm-track sections and potentially muddy weather can make the ride much slower than the distance suggests. Carry lights, navigation backups, warm and waterproof layers, enough food and water for the gaps between services, and a repair kit suited to rough gravel. Confirm the current year's GPX and access conditions with Great Kiwi Gravel before setting out, particularly as new routes are planned for 2026.",
+    "photoCredits": []
+}

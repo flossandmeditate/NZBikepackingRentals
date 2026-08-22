@@ -2,6 +2,7 @@
     "id":  "kopiko",
     "file":  "routes/kopiko/Kopiko.gpx",
     "rideWithGpsUrl":  "https://ridewithgps.com/routes/56652905",
+    "contributedbyLabel":  "CONTRIBUTED BY - ",
     "contributedby":  "",
     "contributedbyURL":  "",
     "name":  "Kopiko",
