@@ -2,26 +2,32 @@
     "id": "le-petit-brevet",
     "file": "routes/le-petit-brevet/Le_Petit_Brevet_2025.gpx",
     "rideWithGpsUrl": "https://ridewithgps.com/routes/32522038",
-    "contributedbyLabel": "ROUTE ORGANISER - ",
+    "contributedbyLabel": "ROUTE BY - ",
     "contributedby": "Great Kiwi Gravel",
     "contributedbyURL": "https://www.greatkiwigravel.com/le-petit-brevet",
     "name": "Le Petit Brevet",
-    "days": "2-3",
+    "days": "1-4",
     "distanceLabel": "300 km",
-    "totalElevationMeters": 7000,
-    "surfaceSplit": "55% Gravel / 45% Road",
+    "totalElevationMeters": 9100,
+    "surfaceSplit": "35% Gravel / 65% Road",
     "recommendedBike": "Gravel Bike",
     "difficultyLevel": "hard",
     "difficulty": "4/5",
-    "description": "A demanding self-supported weekend brevet around the hills and bays of Banks Peninsula.",
-    "bestSeason": "Oct - April",
+    "description": "A demanding weekend brevet through the steep hills, quiet roads and hidden bays of Banks Peninsula.",
+    "bestSeason": "Dec - April",
     "moreInfo": [
         "https://www.greatkiwigravel.com/le-petit-brevet",
-        "http://lepetitebrevet.blogspot.com/",
-        "https://eventshub.co.nz/events/le-petit-brevet-2025-1742-roman",
-        "https://www.greatkiwigravel.com/post/le-petit-brevet-2024-results"
+        "https://www.facebook.com/littleriverstore/",
+        "https://www.akaroatop10.co.nz",
+        "https://alastairmcdowell.blogspot.com/2012/11/le-petit-brevet-everest-on-mountain-bike.html",
+        "https://backofthepackracing.com/2011/11/23/new-zealands-le-petite-brevet-a-multidimensional-adventure/",
+        "https://jeffsbike.blogspot.com/2018/12/le-petit-brevet-where-too-much-climbing.html",
+        "https://sifter-writes-bikes.blogspot.com/2011/11/le-petit-brevet-and-pardon-my-french.html",
+        "https://20wpm.wordpress.com/2021/12/11/le-petit-brevet-2021"
     ],
-    "youtubeVideos": [],
+    "youtubeVideos": [
+        "https://www.youtube.com/watch?v=9hZ4v6pMdYk"
+    ],
     "tags": [
         "short",
         "south island",
@@ -34,20 +40,22 @@
         "alps-to-ocean",
         "sounds-2-sounds"
     ],
-    "disabled": true,
+    "disabled": false,
     "routeProfile": {
-        "adventure": 4,
-        "scenery": 5,
-        "technical": 3,
+        "adventure": 3,
+        "scenery": 4,
+        "technical": 1,
         "climbing": 5,
         "remoteness": 2
     },
     "text1": [
-        "Le Petit Brevet is a Christchurch-to-Christchurch bikepacking challenge built around Banks Peninsula. It began in 2010 and has become a deliberately informal annual gathering: riders meet at Hansen Park, receive a short briefing, and then head into the peninsula under their own steam.",
-        "The established course choices have included a 200 km 'Nice Weekend Out', the 300 km 'Original-ish', and a longer route visiting more of the peninsula's bays. This listing uses the 300 km Original-ish distance as the main route profile; the organisers may publish different courses for a new edition.",
-        "Expect a big weekend rather than a conventional cycle trail. Banks Peninsula delivers volcanic ridgelines, open farmland, quiet coastal roads, gravel lanes, rough farm tracks and long views across the bays, with a great deal of climbing packed into the distance."
+        "First held in 2010, Le Petit Brevet is a challenging bikepacking event through the spectacular hills and bays of Banks Peninsula. Riders meet at Hansen Park for a short briefing before heading into the peninsula under their own steam.",
+        "Several courses have been used over the years, including the 200 km Nice Weekend Out, the 300 km Original-ish and a longer route visiting all the peninsula’s bays. This page follows the 300 km Original-ish course. The route may change between editions, so check the latest information from Great Kiwi Gravel before setting out."
+        
     ],
-    "text2": "The ride is self-supported and intentionally low-key, with no formal race infrastructure or guaranteed aid stations. The route normally starts early on Saturday and allows roughly 38 hours on course, so riders can choose between a hard continuous effort and a more sociable overnight adventure. Duvauchelle, Akaroa, Little River and other settlements provide useful food and water opportunities, but opening hours and the exact course should be checked before departure.",
-    "text3": "Do not underestimate the climbing or the surface changes. Steep peninsula roads, exposed ridges, gates, grass or farm-track sections and potentially muddy weather can make the ride much slower than the distance suggests. Carry lights, navigation backups, warm and waterproof layers, enough food and water for the gaps between services, and a repair kit suited to rough gravel. Confirm the current year's GPX and access conditions with Great Kiwi Gravel before setting out, particularly as new routes are planned for 2026.",
+    "text2": "Akaroa and Little River are the main opportunities for food and accommodation, but services can be limited—particularly outside normal opening hours. Carry plenty of water, bring enough food for the remote sections and make sure your bike has suitably low gearing.",
+    "text3": "Do not underestimate the climbing or the surface changes. Steep peninsula roads, exposed ridges, gates, grass or farm-track sections and potentially muddy weather can make the ride much slower than the distance suggests. Confirm the current year's GPX and access conditions with Great Kiwi Gravel before setting out, particularly as new routes are planned.",
+
+    
     "photoCredits": []
 }
