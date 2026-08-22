@@ -679,6 +679,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 
 		return map;
 	}
+	let apiRoutesCatalogPromise = null;
 	async function getApiRoutesCatalog(){
 		if(!apiRoutesCatalogPromise){
 			apiRoutesCatalogPromise = fetch('/api/routes', {cache:'no-store'})
@@ -809,6 +810,7 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		const fromCamel = typeof route?.contributedBy === 'string' ? route.contributedBy : '';
 		return String(fromLower || fromCamel || '').trim();
 	}
+	function getContributedByLabel(route){
 		const label = typeof route?.contributedbyLabel === 'string' ? route.contributedbyLabel : '';
 		return String(label || '').trim() || 'CONTRIBUTED BY -';
 	}
