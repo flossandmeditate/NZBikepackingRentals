@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx version="1.1" creator="DIRK Preview GPX Generator" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Le Petit Brevet 2025</name>
+    <trkseg>
+      <trkpt lat="-43.560720" lon="172.660450">
+        <ele>10.1</ele>
+      </trkpt>
+      <trkpt lat="-43.645272" lon="172.624228">
+        <ele>467.8</ele>
+      </trkpt>
+      <trkpt lat="-43.628602" lon="172.731113">
+        <ele>80.1</ele>
+      </trkpt>
+      <trkpt lat="-43.676637" lon="172.852464">
+        <ele>473.7</ele>
+      </trkpt>
+      <trkpt lat="-43.705137" lon="172.841749">
+        <ele>749.4</ele>
+      </trkpt>
+      <trkpt lat="-43.745322" lon="172.858414">
+        <ele>338.4</ele>
+      </trkpt>
+      <trkpt lat="-43.672882" lon="173.011592">
+        <ele>217.1</ele>
+      </trkpt>
+      <trkpt lat="-43.743519" lon="173.042863">
+        <ele>525.8</ele>
+      </trkpt>
+      <trkpt lat="-43.803650" lon="173.019364">
+        <ele>620.7</ele>
+      </trkpt>
+      <trkpt lat="-43.753827" lon="173.016144">
+        <ele>602.9</ele>
+      </trkpt>
+      <trkpt lat="-43.801619" lon="172.912027">
+        <ele>138.4</ele>
+      </trkpt>
+      <trkpt lat="-43.809567" lon="172.840256">
+        <ele>643.4</ele>
+      </trkpt>
+      <trkpt lat="-43.713667" lon="172.783740">
+        <ele>654.3</ele>
+      </trkpt>
+      <trkpt lat="-43.628384" lon="172.737932">
+        <ele>76.1</ele>
+      </trkpt>
+      <trkpt lat="-43.652615" lon="172.622590">
+        <ele>463.2</ele>
+      </trkpt>
+      <trkpt lat="-43.560747" lon="172.660437">
+        <ele>10.1</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

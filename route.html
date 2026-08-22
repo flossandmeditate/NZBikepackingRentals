@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://nzbikepackingrentals.com/route.html" />
 <meta property="og:image" content="https://nzbikepackingrentals.com/images/Logo.webp" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="NZ Route Details" />
+<meta name="twitter:title" content="NZ Bikepacking Route Details" />
 <meta name="twitter:description" content="Detailed bikepacking route profiles with maps, GPX links, route stats, and recommended setup advice for New Zealand rides." />
 <meta name="twitter:image" content="https://nzbikepackingrentals.com/images/Logo.webp" />
 <!--ROUTE_SHARE_META_END-->
@@ -21,7 +21,7 @@
 <link rel="icon" type="image/png" href="images/icons/favicon-32x32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="images/icons/favicon-16x16.png" sizes="16x16" />
 <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png" />
-<title>NZ Route Details</title>
+<title>NZ Bikepacking Route Details</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V7WSJPSC3"></script>
 <script>
@@ -679,6 +679,25 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 
 		return map;
 	}
+	async function getApiRoutesCatalog(){
+		if(!apiRoutesCatalogPromise){
+			apiRoutesCatalogPromise = fetch('/api/routes', {cache:'no-store'})
+				.then(response => response.ok ? response.json() : null)
+				.catch(() => null);
+		}
+		return apiRoutesCatalogPromise;
+	}
+	async function getApiRouteGalleryPhotos(routeId, normalizedHighlight){
+		if(!routeId) return [];
+		const apiRoutes = await getApiRoutesCatalog();
+		if(!Array.isArray(apiRoutes) || !apiRoutes.length) return [];
+		const apiRoute = apiRoutes.find(item => item && item.id === routeId);
+		if(!apiRoute || !Array.isArray(apiRoute.galleryPhotos)) return [];
+		return apiRoute.galleryPhotos
+			.filter(isUsableImagePath)
+			.filter(photo => normalizeImagePath(photo).endsWith('.webp'))
+			.filter(photo => normalizeImagePath(photo) !== normalizedHighlight);
+	}
 	function getRouteFolderPath(route){
 		const highlight = String(route?.highlightImage || '').trim().replace(/\\/g, '/');
 		if(/^routes\//i.test(highlight) && highlight.includes('/')) return highlight.split('/').slice(0, -1).join('/');
@@ -790,6 +809,9 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		const fromCamel = typeof route?.contributedBy === 'string' ? route.contributedBy : '';
 		return String(fromLower || fromCamel || '').trim();
 	}
+		const label = typeof route?.contributedbyLabel === 'string' ? route.contributedbyLabel : '';
+		return String(label || '').trim() || 'CONTRIBUTED BY -';
+	}
 	function getContributedByUrl(route){
 		const fromLower = typeof route?.contributedbyURL === 'string' ? route.contributedbyURL : '';
 		const fromCamel = typeof route?.contributedByUrl === 'string' ? route.contributedByUrl : '';
@@ -871,6 +893,11 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 		return fallbackMatch && fallbackMatch[1] ? fallbackMatch[1] : null;
 	}
 	async function fetchRoutesCatalog(){
+		try{
+			const apiCatalog = await getApiRoutesCatalog();
+			if(Array.isArray(apiCatalog) && apiCatalog.length) return apiCatalog;
+		}catch{}
+
 		const supabase = storageConfig?.supabase || {};
 		const isSupabaseMode = storageConfig?.mode === 'supabase' && supabase.url && supabase.anonKey;
 
@@ -1736,7 +1763,8 @@ body{margin:0;background:var(--side);color:var(--ink);font-family:Georgia,"Times
 				const contributorNameHtml = contributedByUrl
 					? `<a href="${escapeHtml(contributedByUrl)}" target="_blank" rel="noreferrer noopener">${contributorName}</a>`
 					: `<b>${contributorName}</b>`;
-				contributedByCard.innerHTML = `<span class="route-contributed-label">Contributed by</span><span class="route-contributed-separator">-</span>${contributorNameHtml}`;
+				const contributedByLabel = escapeHtml(getContributedByLabel(route));
+				contributedByCard.innerHTML = `<span class="route-contributed-label">${contributedByLabel}</span>${contributorNameHtml}`;
 				contributedByCard.style.display = '';
 			} else {
 				contributedByCard.innerHTML = '';
