@@ -39,7 +39,7 @@
                           "te-awa-to-kawhia-loop",
                           "mountains-to-sea"
                       ],
-    "disabled":  true,
+    "disabled":  false,
     "routeProfile":  {
                          "adventure":  5,
                          "scenery":  4,
