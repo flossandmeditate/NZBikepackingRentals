@@ -26,7 +26,7 @@
                      "https://www.whakatane.com/see-and-do/biking/motu-trails-cycleway"
                  ],
     "youtubeVideos":  ["https://www.youtube.com/watch?v=xJkuxa_dr4M",
-                        "https://www.youtube.com/watch?v=hAZnAjU2Bak",
+                        
                     "https://www.youtube.com/watch?v=j_zgPo90i8E"
                     ],
     "tags":  [
@@ -41,52 +41,52 @@
                       ],
     "disabled":  true,
     "routeProfile":  {
-                         "adventure":  4,
+                         "adventure":  5,
                          "scenery":  4,
                          "technical":  4,
                          "climbing":  4,
                          "remoteness":  4
                      },
     "text1":  [
-                  "Placeholder Text 1."
+                  "A rugged journey through the remote hill country between Ōpōtiki and Gisborne. Beginning in the dunes by the coast, the route links cycle trails, quiet back roads, long gravel climbs and historic tracks through some of the North Island’s wildest country. A substantial ride but the ever-changing scenery makes every hard-earned kilometre worthwhile."
               ],
-    "text2":  "Placeholder Text 2.",
-    "text3":  "Placeholder Text 3."
+    "text2":  "The legendary Pākihi Track takes you to Ōpōtiki: a narrow ribbon of singletrack descending through dense native forest, across wooden bridges and alongside the Pākihi Stream. There is some excellent mountain biking here so make sure you have the appropriate setup.",
+    "text3":  "This is a ride for experienced and self-sufficient bikepackers. Resupply points are limited, mobile coverage is patchy and conditions can change quickly, so carry reliable navigation, sufficient food and water, warm and waterproof layers, and ideally a personal locator beacon. The Pākihi Track requires confident bike handling and should not be ridden during or soon after a storm; check the latest trail conditions before setting out as it often has closures. "
 ,
     "photoCredits":  [
                          {
                              "image":  1,
-                             "text":  "",
+                             "text":  "Studio Zag",
                              "url":  ""
                          },
                          {
                              "image":  2,
-                             "text":  "",
+                             "text":  "Strike Photography",
                              "url":  ""
                          },
                          {
                              "image":  3,
-                             "text":  "",
+                             "text":  "Studio Zag",
                              "url":  ""
                          },
                          {
                              "image":  4,
-                             "text":  "",
+                             "text":  "Strike Photography",
                              "url":  ""
                          },
                          {
                              "image":  5,
-                             "text":  "",
+                             "text":  "Studio Zag",
                              "url":  ""
                          },
                          {
                              "image":  6,
-                             "text":  "",
+                             "text":  "Cameron Mackenzie",
                              "url":  ""
                          },
                          {
                              "image":  7,
-                             "text":  "",
+                             "text":  "Jamie Troughton",
                              "url":  ""
                          },
                          {
